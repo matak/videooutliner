@@ -1,0 +1,7 @@
+{
+    "host": "ftp.example.com",
+    "username": "your_username",
+    "password": "your_password",
+    "path": "/public_html/temp",
+    "public_url": "https://example.com/temp"
+} 
