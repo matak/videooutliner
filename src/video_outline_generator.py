@@ -7,16 +7,17 @@ from src.uploaders.drive_uploader import DriveUploader
 from src.uploaders.ftp_uploader import FTPUploader
 
 class VideoOutlineGenerator:
-    def __init__(self, import_dir=None, web_dir=None):
+    def __init__(self, root_dir, import_dir=None, web_dir=None, logs_dir=None):
 
         # Set base directories
-        root_dir = os.path.dirname(os.path.dirname(__file__))
         self.import_dir = os.path.abspath(import_dir if import_dir else os.path.join(root_dir, "import"))
         self.base_output_dir = os.path.abspath(os.path.join(web_dir if web_dir else os.path.join(root_dir, "web"), "public", "videos"))
+        self.logs_dir = os.path.abspath(logs_dir if logs_dir else os.path.join(root_dir, "logs"))
         
         # Create directories if they don't exist
         os.makedirs(self.base_output_dir, exist_ok=True)
         os.makedirs(self.import_dir, exist_ok=True)
+        os.makedirs(self.logs_dir, exist_ok=True)
 
         self.whisper_api_key = os.getenv('WHISPER_API_KEY')
         self.openrouter_api_key = os.getenv('OPENROUTER_API_KEY')
@@ -37,11 +38,16 @@ class VideoOutlineGenerator:
         # Initialize transcriber and outline generator
         self.transcriber = WhisperTranscriber(
             self.whisper_api_key,
+            logs_dir=self.logs_dir,
             import_path=self.import_dir,
             drive_uploader=self.drive_uploader,
             ftp_uploader=self.ftp_uploader
         )
-        self.outline_generator = OutlineGenerator(self.openrouter_api_key)        
+        self.outline_generator = OutlineGenerator(
+            self.openrouter_api_key,
+            logs_dir=self.logs_dir,
+            import_path=self.import_dir
+            )        
 
     def process_video(self, video_path):
         """Process video and generate outline"""

@@ -1,0 +1,1019 @@
+Transcript:
+
+=================
+2055
+02:11:43,380 --> 02:11:44,779
+Další je,
+
+2056
+02:11:45,600 --> 02:11:47,579
+teď jsem zapomněl jeho jméno,
+
+2057
+02:11:56,559 --> 02:11:58,659
+jak se dává ta cena
+
+2058
+02:11:59,100 --> 02:12:00,119
+za vědu,
+
+2059
+02:12:02,859 --> 02:12:03,940
+Nobelová cena.
+
+2060
+02:12:06,720 --> 02:12:07,779
+Jo, Jeffrey Hinton.
+
+2061
+02:12:08,300 --> 02:12:10,159
+Jeffrey Hinton
+
+2062
+02:12:11,000 --> 02:12:15,520
+Tohle je další Godfather, kterýho byste měli asi začít sledovat,
+
+2063
+02:12:15,760 --> 02:12:18,920
+nebo měli poslouchat, on teďka není AI doomr,
+
+2064
+02:12:18,920 --> 02:12:22,680
+to znamená, že říká všude, že nás to všechny zabije,
+
+2065
+02:12:22,760 --> 02:12:26,479
+ale pracoval, nebo vedl AI v Google,
+
+2066
+02:12:26,840 --> 02:12:31,260
+dlouhý léta, taky byste ho měli začít sledovat.
+
+2067
+02:12:31,260 --> 02:12:38,079
+Potom je ještě jeden, teďka není to Deep Mind...
+
+2068
+02:12:38,920 --> 02:12:46,539
+Jo, nejde mi za SABIS, ten dostal teď Nobelovu cenu taky, jako ten Geoffrey Hinton mám takový dojem, že dostal Nobelovu cenu teď on taky.
+
+2069
+02:12:46,720 --> 02:12:50,920
+Ten dostal za chemii před, což je prostě divný, ale daleko můj.
+
+2070
+02:12:51,520 --> 02:12:52,739
+Takže to byste taky měli začíslit.
+
+2071
+02:12:52,840 --> 02:12:57,260
+Tak jeden z nich je Jan Lekun, tak ten měl výměnu s Elonem Muskem, kdy vlastně říkal,
+
+2072
+02:12:57,380 --> 02:13:03,359
+že ty jeho Tesly stejně nepoužívají na, no to je tedy jeho slavnou Vizi, co furt všude propaguje,
+
+2073
+02:13:03,359 --> 02:13:08,640
+že to nemá radary, že jo, že má to jenom prostě kamery a všechno to analyzuje pomocí Vision.
+
+2074
+02:13:09,180 --> 02:13:13,300
+Tak na to on mu tvrdil, že taky používá jenom CNN.
+
+2075
+02:13:13,399 --> 02:13:15,559
+A Elon říká, ne, ty už dávno nepoužíváme.
+
+2076
+02:13:15,559 --> 02:13:18,460
+A Jan Lekun mu říká, no to se neumím představit, co jinýho používáte.
+
+2077
+02:13:19,079 --> 02:13:26,819
+tak CNN, jenom abyste je chápali, ten význam používá se to i teď nebo doteď.
+
+2078
+02:13:28,039 --> 02:13:32,699
+Jsou to teda konvoluční neuronové sítě a je to cokoliv zase s obrázkama.
+
+2079
+02:13:32,760 --> 02:13:35,260
+Zase tady máte tu hodinu toho Stanfordu,
+
+2080
+02:13:35,619 --> 02:13:40,020
+akorát v této části se baví o těch konvolučních neuronových netvorech,
+
+2081
+02:13:40,020 --> 02:13:44,500
+zase jsou tam hezký animace takový, které vám pomůžou pochopit,
+
+2082
+02:13:44,520 --> 02:13:47,020
+jak to funguje, nebo jak ta architektura
+
+2083
+02:13:47,140 --> 02:13:48,880
+funguje, protože jak tady vidíte,
+
+2084
+02:13:48,880 --> 02:13:50,739
+tak máte vstupní obrázek, tady nějaká
+
+2085
+02:13:50,739 --> 02:13:52,600
+vrstva konvoluce, tady nějaká vrstva
+
+2086
+02:13:52,760 --> 02:13:54,699
+poolingu, ale ve výsledku se to
+
+2087
+02:13:54,840 --> 02:13:56,840
+všechno zase nakonektí
+
+2088
+02:13:57,000 --> 02:13:58,479
+vlastně do takový feed forward
+
+2089
+02:13:59,239 --> 02:14:00,640
+net. Takže máte tady
+
+2090
+02:14:00,760 --> 02:14:02,680
+nějakou, nějaký
+
+2091
+02:14:03,680 --> 02:14:06,199
+pre-processing toho obrázku,
+
+2092
+02:14:06,260 --> 02:14:08,000
+který uděláte, ale ve výsledku
+
+2093
+02:14:08,100 --> 02:14:09,640
+ty data stejně vlastně vložíte
+
+2094
+02:14:09,699 --> 02:14:12,079
+do nějaký známý nebo vám známý
+
+2095
+02:14:12,140 --> 02:14:13,440
+neuronový sítě, jako je ten
+
+2096
+02:14:13,619 --> 02:14:14,760
+feedforward neural net.
+
+2097
+02:14:15,159 --> 02:14:17,039
+Proto je opět zase strašně důležitý,
+
+2098
+02:14:17,100 --> 02:14:18,920
+abyste pochopili správně tu
+
+2099
+02:14:19,460 --> 02:14:21,159
+eferencíť, protože
+
+2100
+02:14:21,399 --> 02:14:22,079
+i v
+
+2101
+02:14:23,119 --> 02:14:34,279
+I v Transformeru, jako v té nejvíc používané architektuře, teď uvidíte, až se k tomu dostaneme, že tam je taky feedforward neural net vevnitř.
+
+2102
+02:14:34,500 --> 02:14:38,920
+Takže to je proto, jako dávám důraz na to.
+
+2103
+02:14:40,539 --> 02:14:48,640
+Tak, na co se to používá? Klasifikace v obrázku, je to PS kočka. Rozpoznávání objektů v obrázku, něco jako takovýhleho.
+
+2104
+02:14:49,680 --> 02:14:53,579
+Toto je světlo, toto je auto, toto je bicykl.
+
+2105
+02:14:53,840 --> 02:14:56,020
+Zase na toto se používá CNN.
+
+2106
+02:14:56,640 --> 02:14:58,399
+Segmentace obrázků.
+
+2107
+02:14:58,659 --> 02:15:03,619
+Vy na pixel levelu jste schopni říct, toto je ještě auto
+
+2108
+02:15:04,319 --> 02:15:06,119
+a tady už začíná silnice.
+
+2109
+02:15:06,119 --> 02:15:11,420
+Takže toto je semantická segmentace těch obrázků.
+
+2110
+02:15:11,720 --> 02:15:15,220
+Potom generování obrázků. Určitě si pamatujete i tento mým.
+
+2111
+02:15:15,800 --> 02:15:29,059
+Míms tady s tím miminkem, tak teď on prostě někdo vzal a vygeneroval nebo dogeneroval ostatní rasy a gendry prostě na základě stejného obrázku.
+
+2112
+02:15:30,680 --> 02:15:39,300
+Tak rozpoznávání obličejů, lékařské zobrazování, identifikování nádorů prostě ve skenech.
+
+2113
+02:15:39,539 --> 02:15:42,880
+v magnetické rezonanci.
+
+2114
+02:15:43,340 --> 02:15:44,359
+Analýza videa.
+
+2115
+02:15:44,359 --> 02:15:46,260
+Používal se to hodně v covidu,
+
+2116
+02:15:46,300 --> 02:15:48,640
+když ty firmy měly za úkol
+
+2117
+02:15:48,940 --> 02:15:49,880
+měřit
+
+2118
+02:15:51,319 --> 02:15:52,859
+vzdálenost lidí od sebe.
+
+2119
+02:15:53,159 --> 02:15:55,300
+Tak tady vidíte z toho jednoho feedu,
+
+2120
+02:15:55,539 --> 02:15:57,260
+to je zrovna vzaný z Azureu,
+
+2121
+02:15:57,559 --> 02:16:01,680
+jak vlastně analyzovali tu sekvenci,
+
+2122
+02:16:01,680 --> 02:16:03,760
+protože video není nic jiného než sekvence obrázků,
+
+2123
+02:16:03,760 --> 02:16:07,819
+tak prostě analyzujete to video neboli sekvenci obrázků
+
+2124
+02:16:07,819 --> 02:16:10,340
+neustále dokola přes tu CNN síť,
+
+2125
+02:16:10,460 --> 02:16:15,619
+identifikujete ty objekty, měříte vzdálenosti středu těla
+
+2126
+02:16:15,619 --> 02:16:18,520
+toho člověka mezi sebou, to vám pak dává
+
+2127
+02:16:18,520 --> 02:16:21,319
+prostě takovýhle hezký analýzy toho videa.
+
+2128
+02:16:23,539 --> 02:16:28,859
+tak můžete přenášet mezi sebou vlastně ty neurony z jednotlivých těch kusů sítí,
+
+2129
+02:16:29,020 --> 02:16:31,840
+takže tady máte content, tady máte jaký styl,
+
+2130
+02:16:32,159 --> 02:16:34,379
+vy generujete ten obrázek v tom stylu.
+
+2131
+02:16:34,379 --> 02:16:36,360
+Tudle je zrovna ještě docela trapný,
+
+2132
+02:16:36,459 --> 02:16:41,459
+ale abyste pochopili, na co všechno se to používá.
+
+2133
+02:16:41,979 --> 02:16:46,319
+A tady pak máte architekturu toho, tý CNN sítě,
+
+2134
+02:16:46,440 --> 02:16:49,399
+což máte zase tu konvoluci, pooling, konvoluci, pooling,
+
+2135
+02:16:49,399 --> 02:16:50,920
+tady to zfletnete.
+
+2136
+02:16:51,340 --> 02:16:54,420
+tu vrstvu a přepojíte to vlastně do
+
+2137
+02:16:54,680 --> 02:16:57,159
+nějaký feed forward neural net,
+
+2138
+02:16:57,159 --> 02:17:00,260
+která má tady zase nějaký pravděpodobnosti toho,
+
+2139
+02:17:00,440 --> 02:17:03,459
+tohle je třeba segment, jakoby klasifikace toho obrázku,
+
+2140
+02:17:03,540 --> 02:17:07,700
+tak tady máte pravděpodobnosti toho, že to je Donald, Goofy nebo Tweety.
+
+2141
+02:17:07,780 --> 02:17:09,619
+Jo, tady jste mu dali vlastně ten obrázek.
+
+2142
+02:17:10,020 --> 02:17:12,139
+A teďkon, co se děje v konvoluci a poolingu?
+
+2143
+02:17:12,139 --> 02:17:14,500
+Konvoluce je vlastně to, že detekuje
+
+2144
+02:17:14,780 --> 02:17:17,260
+v tom obrázku paterny, neboli featury
+
+2145
+02:17:18,040 --> 02:17:29,000
+Jako jsou rohy, textury, důležitý prvky v tom obrázku.
+
+2146
+02:17:34,619 --> 02:17:41,180
+Bílá, černá, důležitý kontrasty v tom obrázku a tak dále.
+
+2147
+02:17:41,260 --> 02:17:43,380
+Tak to je konvoluce, to je vrstva té konvoluce.
+
+2148
+02:17:44,260 --> 02:17:52,440
+Združování neboli pooling na druhou stranu zmenšuje mapu patternů na základě max poolingu nebo average poolingu.
+
+2149
+02:17:52,440 --> 02:17:55,920
+To znamená, že aby ten model byl rychlejší a jednodušší.
+
+2150
+02:17:55,940 --> 02:18:00,739
+To znamená, z toho velkého složitého obrázku identifikujete ty důležité prvky v tom obrázku.
+
+2151
+02:18:00,979 --> 02:18:06,619
+A teď to zazipujete. Vemete si z toho jenom to důležité.
+
+2152
+02:18:06,899 --> 02:18:08,399
+A tohle uděláte dvakrát.
+
+2153
+02:18:09,799 --> 02:18:13,420
+A pak to flatnete a dáte to do Feedforward Neuronet.
+
+2154
+02:18:13,719 --> 02:18:16,180
+Zjednodušeně zase, když se o tom budeme mluvit.
+
+2155
+02:18:17,100 --> 02:18:19,920
+Takže nakonec to dáte do té plně připojené vrstvy,
+
+2156
+02:18:19,920 --> 02:18:22,479
+která slouží vlastně jako takový soudce,
+
+2157
+02:18:22,479 --> 02:18:24,360
+který použije všechny ty indicie
+
+2158
+02:18:24,420 --> 02:18:26,100
+k tomu konečnímu rozhodnutí.
+
+2159
+02:18:26,239 --> 02:18:29,420
+Je to kočka, nebo je to pes, je to tvíty.
+
+2160
+02:18:29,700 --> 02:18:32,180
+Tak to jsou ty vrstvy, jak to jde za sebou.
+
+2161
+02:18:32,180 --> 02:18:35,479
+Ale zase ve výsledku, když se na těm takhle zamyslíte,
+
+2162
+02:18:35,860 --> 02:18:37,780
+není to nic tak extrémně složitýho.
+
+2163
+02:18:37,780 --> 02:18:39,840
+Můžete na těm strávit zase roky práce
+
+2164
+02:18:40,020 --> 02:18:41,959
+a pídit se opravdu hluboko
+
+2165
+02:18:41,959 --> 02:18:44,260
+a hledat různý alternativy CNN sítí,
+
+2166
+02:18:44,260 --> 02:18:45,760
+protože jsou různý
+
+2167
+02:18:45,780 --> 02:18:48,979
+implementace, ale ve výsledku
+
+2168
+02:18:49,119 --> 02:18:50,139
+to není až zas tak
+
+2169
+02:18:50,459 --> 02:18:52,739
+jako složitý. Potom máme něco,
+
+2170
+02:18:52,739 --> 02:18:54,479
+jako jsou autoencodery, což je
+
+2171
+02:18:54,579 --> 02:18:57,559
+vlastně takovej zip,
+
+2172
+02:18:58,219 --> 02:18:59,899
+nebo není to zip,
+
+2173
+02:19:00,399 --> 02:19:01,659
+ale je to vlastně
+
+2174
+02:19:03,840 --> 02:19:04,659
+jak to říct,
+
+2175
+02:19:04,899 --> 02:19:06,459
+komprese,
+
+2176
+02:19:06,479 --> 02:19:07,899
+je to vlastně taková komprese, to znamená,
+
+2177
+02:19:07,899 --> 02:19:09,739
+tady máte originální obrázek
+
+2178
+02:19:10,000 --> 02:19:12,059
+použijete encoder,
+
+2179
+02:19:12,079 --> 02:19:13,700
+což je část tý architektury,
+
+2180
+02:19:13,760 --> 02:19:15,780
+který vám dá nějakou zjednodušenou
+
+2181
+02:19:15,780 --> 02:19:17,680
+implementaci nebo formu.
+
+2182
+02:19:17,680 --> 02:19:19,680
+Je to něco jako, když naléjete ten celý
+
+2183
+02:19:21,139 --> 02:19:22,319
+internet do toho
+
+2184
+02:19:22,440 --> 02:19:23,819
+Large Language Modelu, on vám z toho
+
+2185
+02:19:23,899 --> 02:19:26,239
+vyplivne nějakou zjednodušenou
+
+2186
+02:19:26,239 --> 02:19:27,600
+formu, která je schopná
+
+2187
+02:19:27,959 --> 02:19:29,739
+potom zase celý ten internet
+
+2188
+02:19:29,739 --> 02:19:31,760
+vlastně vygenerovat zpátky.
+
+2189
+02:19:31,819 --> 02:19:34,100
+Tak encoder, decoder
+
+2190
+02:19:34,139 --> 02:19:36,299
+a vy z toho dostanete tu dvojku,
+
+2191
+02:19:36,299 --> 02:19:38,100
+tu originální dvojku, ale všimněte si, že je to
+
+2192
+02:19:38,299 --> 02:19:39,299
+trochu jako
+
+2193
+02:19:39,760 --> 02:19:45,159
+Jednodušená dvojka. Není to tak detailní obrázek té dvojky.
+
+2194
+02:19:46,180 --> 02:19:48,420
+Proč zmiňuju autoencoder je to,
+
+2195
+02:19:48,700 --> 02:19:54,780
+používá se to teda by the way jenom na detekci anomálí, hlavně zpracování obrazů, výzkum léků atd.
+
+2196
+02:19:55,540 --> 02:20:01,260
+Je tam vstupní vrstva, pak je ta bottleneck vrstva, která to vlastně zjednoduší,
+
+2197
+02:20:01,260 --> 02:20:02,299
+pak je ta výstupní vrstva.
+
+2198
+02:20:02,920 --> 02:20:06,959
+Ale proč autoencoder vlastně zmiňuju je to, že se dostáváme k transformerům,
+
+2199
+02:20:07,520 --> 02:20:10,819
+které v architektuře, která je zobrazená tady,
+
+2200
+02:20:11,100 --> 02:20:14,159
+se skládají z encoder a decoder části.
+
+2201
+02:20:14,200 --> 02:20:17,100
+To znamená, že to koreluje s tím, co jsem říkal,
+
+2202
+02:20:17,119 --> 02:20:19,619
+že vy vemete ten obrovský množství textu z toho internetu
+
+2203
+02:20:20,000 --> 02:20:21,719
+dáte do té neuronové sítě.
+
+2204
+02:20:21,819 --> 02:20:23,600
+Ona z toho vytvoří tu kondenzovanou
+
+2205
+02:20:24,520 --> 02:20:25,680
+část, nebo
+
+2206
+02:20:26,380 --> 02:20:27,739
+něco, co je schopné
+
+2207
+02:20:27,860 --> 02:20:30,059
+zpátky vám ten celý
+
+2208
+02:20:30,219 --> 02:20:32,000
+internet zase v určitý
+
+2209
+02:20:32,040 --> 02:20:34,040
+formě a v určitý kvalitě
+
+2210
+02:20:34,200 --> 02:20:35,940
+vygenerovat zpátky.
+
+2211
+02:20:35,959 --> 02:20:37,959
+A je to díky tomu, že to je ta encoder, decoder
+
+2212
+02:20:38,000 --> 02:20:39,920
+část, jako má vlastně ten
+
+2213
+02:20:39,940 --> 02:20:42,899
+autoencoder. Takže Transformer.
+
+2214
+02:20:43,280 --> 02:20:44,920
+Vzniklo to na základě dokumentu
+
+2215
+02:20:44,979 --> 02:20:46,380
+Attention is all you need.
+
+2216
+02:20:46,600 --> 02:20:48,000
+To znamená, že tady je ten
+
+2217
+02:20:48,639 --> 02:20:54,319
+Dokument. Ty autoři sami toho dokumentu vůbec netušili, že to bude mít takovýhle dopad.
+
+2218
+02:20:54,819 --> 02:21:02,299
+Když se s nima bavil Andrej Karpaty, což je další člověk, kterýho bych vám chtěl ukázat.
+
+2219
+02:21:03,219 --> 02:21:11,600
+Andrej Karpaty. Je to Slovák, nebo původem Slovák.
+
+2220
+02:21:11,739 --> 02:21:13,639
+Už slovenský asi ani neumí.
+
+2221
+02:21:14,239 --> 02:21:21,500
+Ale pracoval jako ředitel AI v Tesla, pracoval jako ředitel OpenAI.
+
+2222
+02:21:23,159 --> 02:21:30,819
+Velmi chytrý člověk a zase jeden z těch hlavních postav celého toho AI světa.
+
+2223
+02:21:32,340 --> 02:21:35,940
+Máte tady od něj video dvě.
+
+2224
+02:21:38,119 --> 02:21:41,299
+Jedno video tříhodinové, kde vysvětluje, jak ty transformery fungují.
+
+2225
+02:21:41,299 --> 02:21:45,579
+A druhé, kde má přednášku na Stanfordu, hodinová, zase tady je link.
+
+2226
+02:21:46,459 --> 02:21:50,299
+Takže vzniklo to na tom Attention is all you need dokumentu.
+
+2227
+02:21:50,540 --> 02:21:52,920
+Ty autoři sami nevěděli, jaký velký dopad to bude mít.
+
+2228
+02:21:52,920 --> 02:21:57,819
+Nicméně transformeři jsou teďkon tou hlavní páteřní neuronovou sítí,
+
+2229
+02:21:57,819 --> 02:22:03,799
+která běží za všema těma hlavníma velkýma jazykovýma modelama.
+
+2230
+02:22:05,760 --> 02:22:09,920
+Pak je tady animace nebo vizualizace, jak ten Transformer funguje.
+
+2231
+02:22:10,040 --> 02:22:15,219
+Mohli bychom tady strávit opravdu další dva dny vysvětlováním, jak ten Transformer funguje.
+
+2232
+02:22:15,219 --> 02:22:17,799
+Zase záleží tomu, jak hluboko půjdeme.
+
+2233
+02:22:17,940 --> 02:22:24,500
+Já bych doporučoval kouknout se aspoň tady na tu vizualizaci, 27 minut, to není tak dlouhý, tohle je opravdu hezký.
+
+2234
+02:22:24,840 --> 02:22:30,399
+Tohle je super YouTube kanál, kde vysvětlují vizualizací různý složitý věci.
+
+2235
+02:22:31,020 --> 02:22:36,340
+Takže na to bych se podíval a klidně bych si poslech toho Andreje od toho Stanfordu.
+
+2236
+02:22:36,540 --> 02:22:42,840
+Tady pak máte ještě jeden talk od toho samého člověka na nějakém meetupu na 57 minut.
+
+2237
+02:22:43,219 --> 02:22:45,799
+Na co se to teď používá? Na všechno.
+
+2238
+02:22:47,360 --> 02:22:53,119
+Ten generátový obrázků, který je teď aktuálně v OpenAI, je pomocí Transformeru.
+
+2239
+02:22:53,420 --> 02:22:58,299
+To znamená, není to jenom ta generativní AI, jako je Mid Journey, kde máte...
+
+2240
+02:22:59,239 --> 02:23:04,840
+kde máte, jsem zapomněl ten termín, takže vteřinku,
+
+2241
+02:23:06,500 --> 02:23:15,020
+kde máte, jo, diffusion modely, kde máte difuzi,
+
+2242
+02:23:15,280 --> 02:23:20,119
+tak to je pomocí transformeru taky, takže opravdu se tím teďka řeší úplně všechno,
+
+2243
+02:23:20,119 --> 02:23:24,340
+transformuji v různých architekturách toho transformeru.
+
+2244
+02:23:24,479 --> 02:23:28,540
+Takže jak jsme říkali, tady je ta architektura a vidíte tady tu encoder část,
+
+2245
+02:23:28,639 --> 02:23:31,780
+tu decoder část a tady vidíte tu feedforward neural net.
+
+2246
+02:23:33,219 --> 02:23:41,260
+A tady je to Attention, to je to Attention is all you need, o tom je ten dokument, tak to je tady letošlutý to Attention.
+
+2247
+02:23:41,659 --> 02:23:48,420
+Ale vidíte, že tady máte nějaký Embedding, Feed for World Neural Net, to jde tady do Attention, zase to jde do Feed for World Neural Net.
+
+2248
+02:23:48,719 --> 02:23:53,260
+Tady máte nějaký aktivační funkce, Softmax jsme si říkali, Linear jsme si říkali.
+
+2249
+02:23:53,659 --> 02:23:58,260
+Takže ono bychom to jako rozklíčovali, kdybychom se tomu nějakým způsobem věnovali třeba hodinu, dvě.
+
+2250
+02:23:59,979 --> 02:24:01,219
+Zase ta vizualizace vám pomůže.
+
+2251
+02:24:02,719 --> 02:24:04,880
+Tak, teď jenom
+
+2252
+02:24:06,280 --> 02:24:08,280
+tohle už je Deuronová sít,
+
+2253
+02:24:08,340 --> 02:24:09,899
+která je tak velká, že není
+
+2254
+02:24:09,959 --> 02:24:11,780
+úplně ve vašem zájmu, abyste ji
+
+2255
+02:24:11,860 --> 02:24:13,520
+trénovali od začátku.
+
+2256
+02:24:13,719 --> 02:24:16,079
+To znamená, že to trénování přenecháme
+
+2257
+02:24:16,540 --> 02:24:17,760
+firmám, který na to mají
+
+2258
+02:24:17,899 --> 02:24:19,619
+peníze, čas a hardware
+
+2259
+02:24:20,219 --> 02:24:21,540
+a my už se budeme bavit jenom
+
+2260
+02:24:21,579 --> 02:24:23,219
+o takzvaném fine tuningu.
+
+2261
+02:24:23,680 --> 02:24:25,500
+To znamená, že budeme dolaďovat
+
+2262
+02:24:26,840 --> 02:24:31,899
+Ty schopnosti existujících velkých jazykových modelů.
+
+2263
+02:24:31,899 --> 02:24:34,940
+Odteď už se budeme bavit o velkých jazykových modelích.
+
+2264
+02:24:35,280 --> 02:24:38,520
+Se nebudeme bavit o CNN, FNN, žádný takový.
+
+2265
+02:24:38,579 --> 02:24:41,360
+Už se budeme zaměřovat jenom na architekturu transformerů
+
+2266
+02:24:41,639 --> 02:24:44,780
+a my už s nima budeme pracovat z té high level perspektivy.
+
+2267
+02:24:45,540 --> 02:24:48,860
+Ve zdrojových kódech máte ještě tady transformera napsanýho,
+
+2268
+02:24:48,860 --> 02:24:52,619
+tak jako RAW transformera.
+
+2269
+02:24:53,579 --> 02:24:56,280
+Můžete se na to podívat, vůbec se na to nemusíte koukat.
+
+2270
+02:24:56,639 --> 02:25:02,219
+My už budeme používat Transformera jenom jako existující model
+
+2271
+02:25:02,380 --> 02:25:04,940
+nebo existující neuronovou síť, kterou si stáhneme
+
+2272
+02:25:05,579 --> 02:25:08,459
+a maximálně uděláme fine tuning.
+
+2273
+02:25:08,540 --> 02:25:11,040
+To znamená, že mu přidáme nějaké funkce
+
+2274
+02:25:11,159 --> 02:25:14,600
+nebo mu doplníme nějaké znalosti, který nemá
+
+2275
+02:25:14,600 --> 02:25:17,000
+nebo ho naučíme něco, co ještě neumí.
+
+2276
+02:25:17,340 --> 02:25:21,119
+Ale nebudeme už život, nebudeme trénovat od začátku,
+
+2277
+02:25:21,119 --> 02:25:22,260
+tak jako jsme trénovali.
+
+2278
+02:25:22,459 --> 02:25:28,059
+Feedforward, Neuronet, CNN nebo RNN, tak to nebudeme trénovat.
+
+2279
+02:25:28,139 --> 02:25:35,319
+Ještě se vrátím, vzpomněl jsem si, že jsem vám neukázal to CNN a co je vlastně ten use case, který tady pro vás mám.
+
+2280
+02:25:36,139 --> 02:25:39,559
+Nebo jsem vám to zmínil, teď už se to nepamatuju.
+
+2281
+02:25:39,559 --> 02:25:45,739
+Tady je MNIST dataset, což je vlastně sada čísel 0, 1, 2, 3, různě napsaných.
+
+2282
+02:25:45,979 --> 02:25:49,940
+aby mu jednu z těch čísel dáte a řeknete, co to je za číslo.
+
+2283
+02:25:49,940 --> 02:25:53,559
+A on vám s určitou pravděpodobností řekne, jestli to je 0, 1, 2, 3.
+
+2284
+02:25:53,739 --> 02:25:58,100
+Takže ho naučíte vizuálně rozpoznávat číslice.
+
+2285
+02:25:58,139 --> 02:26:02,380
+A teď v té Wikipedia bylo ukázané, na co to oni používali.
+
+2286
+02:26:02,799 --> 02:26:06,360
+Takže když lidi vyplňovali ručně nějaké formuláře,
+
+2287
+02:26:06,360 --> 02:26:10,059
+tak oni pak byli schopni to převést s určitou přesností
+
+2288
+02:26:10,059 --> 02:26:14,959
+do digitální podoby.
+
+2289
+02:26:15,700 --> 02:26:19,079
+Tak to je jenom to, co ta CNN, neuronová síť,
+
+2290
+02:26:19,079 --> 02:26:23,020
+tadyhle ten příklad, který pro vás mám, tak o čem je.
+
+2291
+02:26:23,159 --> 02:26:26,600
+Máte tady teda i toho transformera, zase koukněte se na to, nemusíte,
+
+2292
+02:26:26,780 --> 02:26:27,959
+my už to řešit nebudeme.
+
+2293
+02:26:28,239 --> 02:26:30,880
+Teď jenom, abyste mě rozlišovali, je fine tuning,
+
+2294
+02:26:30,899 --> 02:26:35,180
+což je klasický fine tuning, kdy ovlivňujete existující váhy toho modelu.
+
+2295
+02:26:35,399 --> 02:26:38,979
+A buď máte malý, kdy ovlivňujete jenom ty výstupní,
+
+2296
+02:26:38,979 --> 02:26:42,880
+vlastně aktivační funkce de facto, nebo váhy toho výstupu,
+
+2297
+02:26:42,899 --> 02:26:47,639
+Nebo vy ovlivňujete třeba ještě další dvě vrstvy vevnitř v tom modelu.
+
+2298
+02:26:47,639 --> 02:26:49,479
+A nebo děláte full fine tuning,
+
+2299
+02:26:50,239 --> 02:26:53,840
+což je, že vemete ten model s těma přednastavenýma váhama,
+
+2300
+02:26:53,899 --> 02:26:57,219
+jak vám ho dali, jako je třeba lama vám ho dala,
+
+2301
+02:26:57,219 --> 02:26:58,239
+nebo meta vám ho dala,
+
+2302
+02:26:58,979 --> 02:27:02,079
+a přetrénujete všechny ty váhy.
+
+2303
+02:27:02,760 --> 02:27:07,760
+tím samozřejmě pokazíte některé existující funkcionality v tom modelu.
+
+2304
+02:27:07,760 --> 02:27:11,719
+To znamená, že jak asi si umíte představit, jednak tohle je drahý,
+
+2305
+02:27:11,719 --> 02:27:15,079
+protože tam je prostě biliony a biliony neuronů,
+
+2306
+02:27:15,239 --> 02:27:17,579
+a jednak to není moc efektivní.
+
+2307
+02:27:17,639 --> 02:27:19,639
+To znamená, že co my budeme dělat je,
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

@@ -1,0 +1,1083 @@
+Transcript:
+
+=================
+758
+00:56:08,699 --> 00:56:19,199
+tak vlastně on už mi začal fabulovat, začal halucinovat, protože ty data, který mu byly poskytnutý, očovu Rogenovi nebo z Wikipedie,
+
+759
+00:56:19,559 --> 00:56:26,760
+tak tam nebylo dostatečně často zmíněné, že má děti, že má dvě dcery a jak se třeba jmenujou.
+
+760
+00:56:27,519 --> 00:56:29,760
+máte pravdu, když mu budeme dávat
+
+761
+00:56:29,800 --> 00:56:31,640
+tyhle ty podcasty, tak se spíš
+
+762
+00:56:31,720 --> 00:56:34,059
+naučíme ten styl toho Joe'a Rogina,
+
+763
+00:56:34,359 --> 00:56:36,079
+než
+
+764
+00:56:36,079 --> 00:56:38,539
+jakoby fakta z toho podcastu.
+
+765
+00:56:40,960 --> 00:56:42,340
+Tak mělo by to být
+
+766
+00:56:42,819 --> 00:56:44,159
+update nutý
+
+767
+00:56:44,260 --> 00:56:45,800
+v tom classroomu, tak jenom někdo
+
+768
+00:56:45,800 --> 00:56:48,239
+mi prosím napište, když to tam
+
+769
+00:56:48,400 --> 00:56:50,340
+vidíte a případně to ještě tak
+
+770
+00:56:50,340 --> 00:56:51,920
+způjste stáhnout, nebo
+
+771
+00:56:52,519 --> 00:56:54,500
+když k tomu máte přístup, takhle o tom jde.
+
+772
+00:56:56,279 --> 00:56:57,260
+Ehm...
+
+773
+00:56:58,380 --> 00:57:05,980
+Máte někdo přehled nad právní stránkou? Je třeba legální vystavě stránku Joe Rogan.
+
+774
+00:57:06,220 --> 00:57:10,900
+No asi se pohybujeme někde v nějaký šelý zóně na druhou stranu.
+
+775
+00:57:11,640 --> 00:57:13,000
+Já bych se nesnažil
+
+776
+00:57:13,000 --> 00:57:15,460
+být úplně korektní v tom AI,
+
+777
+00:57:15,500 --> 00:57:16,940
+protože jak sami víte,
+
+778
+00:57:17,279 --> 00:57:18,819
+tak i OpenAI použilo
+
+779
+00:57:18,920 --> 00:57:21,140
+k trénování prostě veškerý data,
+
+780
+00:57:21,140 --> 00:57:22,500
+který narazí na internetu.
+
+781
+00:57:22,880 --> 00:57:25,140
+To znamená, že i oni sami se pohybovali
+
+782
+00:57:25,220 --> 00:57:27,239
+na prostě nějaký šedý zóně
+
+783
+00:57:27,380 --> 00:57:29,000
+a sami moc dobře po dvou letech
+
+784
+00:57:29,220 --> 00:57:31,500
+vidíte, že žádná
+
+785
+00:57:31,500 --> 00:57:32,859
+smršť prostě žalob
+
+786
+00:57:32,859 --> 00:57:34,359
+na ně jako nepřišla,
+
+787
+00:57:34,359 --> 00:57:36,940
+nebo ty, který přišli, tak se zamlčeli,
+
+788
+00:57:36,940 --> 00:57:39,079
+nebo se s nima nějak vyrovnali s těma
+
+789
+00:57:39,400 --> 00:57:40,539
+interpretama.
+
+790
+00:57:40,680 --> 00:57:46,319
+Pokud chcete být legálně v pohodě, tak Lex Friedman několikrát výslovně řekl,
+
+791
+00:57:46,420 --> 00:57:49,779
+že jakýkoliv jeho materiály a jeho podcasty se používat můžou,
+
+792
+00:57:50,300 --> 00:57:55,940
+takže jestli to by vás uspokojilo vnitřně, tak použijte Lexa Friedmana.
+
+793
+00:57:56,579 --> 00:58:00,599
+Když budu potřebovat, aby ten model automaticky procesoval nějaký kód s novýma datama
+
+794
+00:58:00,699 --> 00:58:04,779
+a na základě toho v real time odpovídal nezávazně na nějaké konverzaci,
+
+795
+00:58:05,079 --> 00:58:07,359
+jen vyhazoval data, tak bych mohl
+
+796
+00:58:07,420 --> 00:58:09,500
+použít alternativní format, nebo bys
+
+797
+00:58:09,500 --> 00:58:11,599
+taky šel do tohohle konverzačního modelu.
+
+798
+00:58:12,119 --> 00:58:13,819
+Já bych vždycky šel do toho konverzačního
+
+799
+00:58:13,859 --> 00:58:15,859
+modelu. Neumím
+
+800
+00:58:16,099 --> 00:58:17,659
+to moc dobře obhájit
+
+801
+00:58:17,720 --> 00:58:18,699
+nebo vysvětlit, ale
+
+802
+00:58:20,260 --> 00:58:23,019
+co já vidím, tak je to všechno jenom prostě
+
+803
+00:58:23,079 --> 00:58:26,239
+Instruct modely. I v tom OpenAI API
+
+804
+00:58:26,699 --> 00:58:30,619
+oni úplně zrušili to API,
+
+805
+00:58:30,699 --> 00:58:33,340
+který dělalo vlastně ty ne-Instruct
+
+806
+00:58:34,180 --> 00:58:36,680
+nebo používal ty ne-Instruct modely.
+
+807
+00:58:37,720 --> 00:58:41,519
+Když tady dáte OpenAI Documentation
+
+808
+00:58:42,779 --> 00:58:45,319
+jenom v rychlosti, ať se moc nezdržujeme,
+
+809
+00:58:47,199 --> 00:58:51,279
+tak tady budete mít API doc
+
+810
+00:58:51,920 --> 00:58:58,440
+tak tady budete mít text a prompting, a teď budete mít někde obsolete nebo něco takového.
+
+811
+00:59:02,220 --> 00:59:05,319
+Deprecations.
+
+812
+00:59:05,640 --> 00:59:13,680
+A v tom deprecations nebo legacy uvidíte, že tady je text, ne text moderation.
+
+813
+00:59:15,480 --> 00:59:20,900
+Ale máte chat completion a předtím to bylo text completion.
+
+814
+00:59:20,920 --> 00:59:22,739
+Já to teď nemůžu najít.
+
+815
+00:59:32,140 --> 00:59:38,980
+Chat completion tohle je ten normální a byl ještě
+
+816
+00:59:39,079 --> 00:59:44,680
+jakoby verze 1 text completion, tak já to teď nebudu hledat, ale
+
+817
+00:59:44,859 --> 00:59:48,760
+to byl vlastně ten ne-instruct model, takže já bych šel vždycky do Instructu.
+
+818
+00:59:50,319 --> 00:59:53,099
+Bylo by možné
+
+819
+01:00:00,000 --> 01:00:02,340
+finetunovat ten non-instruction model,
+
+820
+01:00:02,340 --> 01:00:04,420
+který není trénovaný na user assistant data,
+
+821
+01:00:04,519 --> 01:00:05,820
+jo, je to možný.
+
+822
+01:00:05,820 --> 01:00:08,000
+Akorát tomu musíte přizpůsobit data,
+
+823
+01:00:08,800 --> 01:00:10,760
+který do toho budete
+
+824
+01:00:10,860 --> 01:00:12,380
+prostě posílat, to je celý.
+
+825
+01:00:12,380 --> 01:00:14,500
+Je to jenom o vstupu a výstupu, to znamená,
+
+826
+01:00:14,500 --> 01:00:16,440
+že vy když si připravíte ty data
+
+827
+01:00:16,760 --> 01:00:18,840
+v tom formátu nečetovacím,
+
+828
+01:00:19,380 --> 01:00:21,239
+tak mu to klidně můžeš nakrmit.
+
+829
+01:00:22,539 --> 01:00:23,179
+Tohle byl docela
+
+830
+01:00:23,179 --> 01:00:24,679
+jediný light bulb moment
+
+831
+01:00:24,940 --> 01:00:26,539
+s tím assistantem versus userem.
+
+832
+01:00:27,480 --> 01:00:28,920
+Díky. Není vůbec za co.
+
+833
+01:00:29,500 --> 01:00:33,579
+stahování běží, tak to je super.
+
+834
+01:00:33,760 --> 01:00:34,920
+Kdybych si to tam našel,
+
+835
+01:00:34,920 --> 01:00:37,079
+já tam nikde nevidím možnost stáhnout.
+
+836
+01:00:37,559 --> 01:00:39,079
+Tak to si tady vyříkáte,
+
+837
+01:00:39,179 --> 01:00:41,219
+nevím, či tomu správně rozumím,
+
+838
+01:00:41,260 --> 01:00:43,079
+snažím se ho naučit odpovídat ve stile
+
+839
+01:00:43,320 --> 01:00:45,000
+Joeva, ale ne,
+
+840
+01:00:45,159 --> 01:00:46,380
+ne je to info.
+
+841
+01:00:46,760 --> 01:00:48,760
+A keď jsme zkušili prompting,
+
+842
+01:00:48,880 --> 01:00:50,539
+stačilo mu dát příklady toho,
+
+843
+01:00:50,539 --> 01:00:51,860
+jako Joe hovoří.
+
+844
+01:00:52,260 --> 01:00:54,500
+A něco jsme dostali, stále nerozumím,
+
+845
+01:00:54,719 --> 01:00:56,300
+na co jsou mám například
+
+846
+01:00:56,300 --> 01:00:58,119
+odpovědět
+
+847
+01:00:58,679 --> 01:01:05,519
+Timo, na co jste nám například...
+
+848
+01:01:05,519 --> 01:01:12,079
+Někdo má zaplej mikrofon, tak jenom poprosím se mnou.
+
+849
+01:01:13,820 --> 01:01:16,119
+Vypněte si prosím mikrofony.
+
+850
+01:01:16,619 --> 01:01:18,139
+Lukáš, mikrofon.
+
+851
+01:01:18,599 --> 01:01:20,119
+Co, mně nefunguje mikrofon?
+
+852
+01:01:22,699 --> 01:01:23,579
+Karole?
+
+853
+01:01:23,699 --> 01:01:25,039
+Je to druhý Lukáš.
+
+854
+01:01:25,280 --> 01:01:26,519
+Jo, druhý Lukáš, dobrý.
+
+855
+01:01:27,719 --> 01:01:28,059
+Dobře.
+
+856
+01:01:28,320 --> 01:01:35,380
+Antone, nevím, jestli jsem tomu porozuměl dobře. Vrátím se k tomu, jo?
+
+857
+01:01:35,500 --> 01:01:37,980
+Shadow nosa, nic se neděje.
+
+858
+01:01:38,719 --> 01:01:43,539
+Tak, no pojďme se vrátit zpátky k tématu, ať to můžeme prosvištět.
+
+859
+01:01:44,159 --> 01:01:49,900
+To znamená, že tady jsme si ukázali teda Assembly.ai a jakým způsobem z toho dostat tenhle format.
+
+860
+01:01:49,960 --> 01:01:55,920
+Teď to potřebujeme převést na toho uživatel vs. asistent, takže tady už jsou pak dva...
+
+861
+01:01:56,639 --> 01:01:58,199
+Jo, to je ten skryt vlastně.
+
+862
+01:01:59,300 --> 01:02:18,219
+Takže teď si tady uděláte takovou konfiguraci, tím, že si to poslechnete, řekněte si, kdo je asistent, kdo je vlastně Joe Rogan, kdo je ten host, v závislosti na tom si tady připravíte nebo nastavíte tenhle ten config, který jsem si tady hrozně advanced config, kterým vlastně budu jenom procházet.
+
+863
+01:02:19,079 --> 01:02:26,320
+Zase projdu si ty data, vytáhnu si z toho ten file, o kterém se bavím, ty speakery, které tady chci nastavit.
+
+864
+01:02:26,340 --> 01:02:33,239
+A pak už jenom projdu tenhle druhý JSON. Vždycky si najdu speaker A, vyměním to za user nebo assistant.
+
+865
+01:02:33,760 --> 01:02:40,059
+Speaker vyměním za role a text vyměním za content. To je celá ta magie, která tady je napsaná.
+
+866
+01:02:40,219 --> 01:02:42,760
+Takže tady opravdu složitýho nehledejte.
+
+867
+01:02:43,500 --> 01:02:45,340
+a tady je OpenAI format
+
+868
+01:02:45,480 --> 01:02:46,860
+anebo Hugging Face format.
+
+869
+01:02:46,860 --> 01:02:49,159
+Tyhle ty dva skripty vám vygenerují
+
+870
+01:02:49,340 --> 01:02:51,380
+vlastně ty výslední formáty,
+
+871
+01:02:51,380 --> 01:02:52,739
+který budeme používat.
+
+872
+01:02:52,980 --> 01:02:54,940
+Takže moc se nelišej,
+
+873
+01:02:55,460 --> 01:02:57,860
+lišej se jenom v tom, že ten OpenAI format
+
+874
+01:02:57,960 --> 01:02:59,579
+vygeneruje ten JSON-L
+
+875
+01:02:59,880 --> 01:03:00,960
+soubor
+
+876
+01:03:01,780 --> 01:03:03,820
+a ten Hugging Face format vygeneruje
+
+877
+01:03:03,820 --> 01:03:06,219
+ten normální JSON, tak jak jsme si
+
+878
+01:03:06,440 --> 01:03:07,300
+o něm povídali.
+
+879
+01:03:07,380 --> 01:03:09,519
+Pojďme se teda podívat, jak vypadají
+
+880
+01:03:09,519 --> 01:03:11,760
+jako jinak vizuálně
+
+881
+01:03:13,159 --> 01:03:17,079
+To se Jason L. Tragédie, prostě nerozumím tomu moc.
+
+882
+01:03:17,739 --> 01:03:22,019
+Jo, a ještě jsem chtěl, jo, vlastně ještě se vám neřeku toho OpenAI formátu,
+
+883
+01:03:22,199 --> 01:03:25,739
+jsem vám zatajil jednu věc, ke které se hned vrátím,
+
+884
+01:03:25,880 --> 01:03:27,920
+jenom je teda porovnáme, abyste viděli.
+
+885
+01:03:30,880 --> 01:03:35,639
+Jednu velmi důležitou věc, kterou já, když jsem připravoval ten materiál,
+
+886
+01:03:35,860 --> 01:03:37,139
+tak jsem si neuvědomil.
+
+887
+01:03:38,320 --> 01:03:43,320
+A docela mi to...
+
+888
+01:03:49,199 --> 01:03:53,519
+Docela mi to stížila.
+
+889
+01:03:53,519 --> 01:03:58,860
+Tak, vpravo mám teda Hugging Face Format, vlevo mám OpenAI Format.
+
+890
+01:03:58,900 --> 01:04:04,000
+Jak vidíte, tohle je ten Hugging Face Format, ve kterém jsme viděli dataset, takže je to pole,
+
+891
+01:04:04,599 --> 01:04:05,760
+neboli dataset.
+
+892
+01:04:06,079 --> 01:04:14,519
+Každej obsahuje teda ten JSON objekty, každej ten JSON objekt má vždycky tu propertu text, žádnou jinou propertu, jenom propertu text.
+
+893
+01:04:15,320 --> 01:04:20,039
+A.k.a. to je ten kolum, který v tom datasetu vidíte v tom Hugging Faceu.
+
+894
+01:04:20,039 --> 01:04:22,260
+To znamená, že když byste měli víc proprt,
+
+895
+01:04:22,360 --> 01:04:26,760
+tak každá ta proprta bude kolum v tom datasetu.
+
+896
+01:04:26,760 --> 01:04:28,400
+My máme jenom jeden a to text.
+
+897
+01:04:28,800 --> 01:04:33,699
+A ten text je teda pole, ta konverzace,
+
+898
+01:04:34,000 --> 01:04:35,960
+a tam je celý ten podcast.
+
+899
+01:04:37,119 --> 01:04:41,360
+Každej ten podcast je jeden řádek v tom datasetu.
+
+900
+01:04:41,980 --> 01:04:45,179
+Jsou poměrně dlouhý ty podcasty, jak asi si umíte představit,
+
+901
+01:04:45,360 --> 01:04:49,340
+ale to nám nebrání si je tam takhle naházet.
+
+902
+01:04:50,679 --> 01:04:53,860
+Má to nějakých 70 tisíc řádků,
+
+903
+01:04:54,119 --> 01:04:57,800
+takže je to poměrně dlouhý.
+
+904
+01:04:59,519 --> 01:05:04,380
+Oproti tomu, tady máme OpenAI format,
+
+905
+01:05:04,539 --> 01:05:06,619
+který když si tady takhle naformátuju,
+
+906
+01:05:07,779 --> 01:05:09,220
+tak nejednou zjistíte,
+
+907
+01:05:12,840 --> 01:05:16,179
+Jo, já se vám chtěl ukázat tady, že je ta jednička
+
+908
+01:05:16,519 --> 01:05:20,099
+a vlastně ta jednička se nemění, není tady žádná dvojka,
+
+909
+01:05:20,699 --> 01:05:24,539
+nebo tady je dvojka, což vám říká počet řádků,
+
+910
+01:05:24,559 --> 01:05:28,059
+takže vidí, jakoby tohle vám dokazuje to, že je to ten JSON-L
+
+911
+01:05:28,400 --> 01:05:32,199
+format a má to, jo vlastně tohle je celý ten podcast,
+
+912
+01:05:32,199 --> 01:05:35,260
+jeden ten podcast, který je vlastně v jednom řádku,
+
+913
+01:05:35,260 --> 01:05:38,460
+akorát protože je tady to zalomení, tak se vám to zdá dlouhý,
+
+914
+01:05:38,460 --> 01:05:39,619
+normálně by to bylo...
+
+915
+01:05:40,779 --> 01:05:44,559
+Protože myslím, že se to má odvírat v nějakým jiném text editoru,
+
+916
+01:05:44,599 --> 01:05:48,220
+abyste viděli, že je to vlastně jeden.
+
+917
+01:05:48,300 --> 01:05:50,779
+Na tom GitHubu to je vidět, že to je jeden z dlouhých řádek.
+
+918
+01:05:50,900 --> 01:05:53,400
+Jo, tak dobrý. Tak na tom GitHubu se na to podívejte.
+
+919
+01:05:53,480 --> 01:05:56,360
+Takže to je ten JSON-L. Já jsem to teda přemenoval na JSON
+
+920
+01:05:57,420 --> 01:06:00,440
+a tady teda už vidíte, že to má jakoby víc řádků,
+
+921
+01:06:00,440 --> 01:06:02,019
+ale pořád je to ten jeden řádek.
+
+922
+01:06:02,019 --> 01:06:06,300
+Nicméně, co jsem tím chtěl ukázat, je to, že tam je jenom jeden řádek.
+
+923
+01:06:07,579 --> 01:06:11,199
+Což je divné, protože jsme měli víc těch podcastů.
+
+924
+01:06:11,199 --> 01:06:15,279
+Jak je to možné? Takže podíváme se, jak je to možné.
+
+925
+01:06:16,220 --> 01:06:27,779
+Když byste naházeli, jako já jsem to udělal, všechny ty podcasty do fine-tuningu OpenAI, tak vám to začne padat.
+
+926
+01:06:30,460 --> 01:06:36,420
+Ono je to i hezký příklad toho, proč se zabývat těma open source modelama, protože
+
+927
+01:06:36,779 --> 01:06:42,139
+Ty Closed Source modely se snaží být politicky korektní.
+
+928
+01:06:42,400 --> 01:06:46,300
+Vy vždycky nepotřebujete, aby ten model byl politicky korektní.
+
+929
+01:06:46,980 --> 01:06:51,679
+To znamená, že já jsem musel, tady je teda ten skrip pro ten OpenAI,
+
+930
+01:06:51,760 --> 01:06:56,779
+tady je metoda proces interview, kde mu říkám, z jaké složky do jaké složky
+
+931
+01:06:56,779 --> 01:07:00,579
+a tady mu jenom říkám system message, kterou on tam jakoby dá do toho.
+
+932
+01:07:01,460 --> 01:07:04,139
+Tady je ale důležitá tahleta metoda check content.
+
+933
+01:07:05,159 --> 01:07:07,579
+To znamená, že já když procesuju to interview,
+
+934
+01:07:07,699 --> 01:07:11,420
+procházím si vlastně z té zdrojové složky všechny ty JSON-fajly
+
+935
+01:07:12,659 --> 01:07:17,679
+a teď z nich budu chtít vytvořit ten JSON-L-fajl.
+
+936
+01:07:18,659 --> 01:07:22,300
+Tady musím udělat tenhle krok, což je moderation check.
+
+937
+01:07:22,760 --> 01:07:28,500
+Jinak bych to prostě jenom vysypal všechno do toho JSON-L-formátu.
+
+938
+01:07:28,820 --> 01:07:33,440
+Každý ten podcast, vlastně ten začátek, bych tam akorát přidal nějakou systém zprávu.
+
+939
+01:07:34,159 --> 01:07:36,619
+Připlásnul bych tam celý ten podcast,
+
+940
+01:07:36,840 --> 01:07:39,440
+což je vlastně konverzace User Assistant, User Assistant.
+
+941
+01:07:41,380 --> 01:07:44,679
+Pardon. A měl bych hotovo.
+
+942
+01:07:45,159 --> 01:07:49,019
+Tady je důležité to, že OpenAI nabízí,
+
+943
+01:07:49,220 --> 01:07:51,940
+nebo nabízí, dokonce bych řekl,
+
+944
+01:07:51,940 --> 01:07:57,420
+vynucuje tzv. moderation API,
+
+945
+01:07:59,059 --> 01:08:01,119
+což vám pomáhá zjistit,
+
+946
+01:08:02,179 --> 01:08:06,139
+jestli ten váš text neobsahuje
+
+947
+01:08:06,500 --> 01:08:07,519
+nějaký významní,
+
+948
+01:08:08,000 --> 01:08:11,400
+nedovolený věci.
+
+949
+01:08:12,139 --> 01:08:14,460
+Ani nemůžu říct slova, ani nemůžu říct věty.
+
+950
+01:08:14,659 --> 01:08:16,399
+Nevím vlastně, jak to hodnotějí,
+
+951
+01:08:16,460 --> 01:08:19,439
+jestli hledají slova nebo analyzují celou tu větu.
+
+952
+01:08:20,380 --> 01:08:22,739
+To by bylo možná zajímavé, jenom se to někdy vyzkoušet.
+
+953
+01:08:23,159 --> 01:08:26,560
+Ale používá se k tomu nějaký model určitej
+
+954
+01:08:26,699 --> 01:08:28,539
+a oni vám oflegujou,
+
+955
+01:08:28,739 --> 01:08:30,939
+vlastně jestli máme nějaký sexuální kontent,
+
+956
+01:08:30,960 --> 01:08:33,220
+nějaký harassment, nějaký hate speech,
+
+957
+01:08:33,220 --> 01:08:36,020
+prostě self-harm, violence, blablabla.
+
+958
+01:08:36,479 --> 01:08:46,479
+Takže tento API, já musím před každým poslat každý ten podcast a on mi k tomu vrátí, jestli tam něco našel.
+
+959
+01:08:47,020 --> 01:08:50,319
+Což jsem zase tady předhodněnou plustilil, abyste viděli.
+
+960
+01:08:50,859 --> 01:08:57,380
+Každý ten podcast tam něco našel, tady je vždycky tohle jeden podcast, tohle další podcast.
+
+961
+01:08:57,779 --> 01:09:01,220
+Já nevím, jestli znáte ty lidi, nebo se tomu nějak...
+
+962
+01:09:02,059 --> 01:09:12,960
+nebo jestli znáte ty lidi, ale Joko Willink, to je bývalý Navy SEAL, takže tady jsem byl zvědavej, nebo by mi zajímalo, co jako našel,
+
+963
+01:09:12,960 --> 01:09:21,659
+takže tady vždycky je false, false, false, false, takže takhle byste hledali, až byste našli true, takže violence našel, tady hate,
+
+964
+01:09:23,899 --> 01:09:26,479
+A to je asi všechno.
+
+965
+01:09:26,520 --> 01:09:29,460
+Tak tady je hotboxing s Mikem Tysonem,
+
+966
+01:09:29,699 --> 01:09:31,180
+hate zase,
+
+967
+01:09:31,279 --> 01:09:32,319
+violence grafik,
+
+968
+01:09:32,520 --> 01:09:34,739
+takže byste takhle prošli,
+
+969
+01:09:34,779 --> 01:09:36,819
+ať byste zjistili, nebo já jsem zjistil teda,
+
+970
+01:09:37,800 --> 01:09:39,579
+že tady je jenom jeden podcast,
+
+971
+01:09:39,579 --> 01:09:40,840
+kde nic nemárkli,
+
+972
+01:09:41,140 --> 01:09:42,460
+a to je Graham Hancock.
+
+973
+01:09:43,260 --> 01:09:46,680
+A to je ten podcast, proto tam máte jenom ten jeden řádek
+
+974
+01:09:46,859 --> 01:09:48,720
+v tom OpenAI formátu.
+
+975
+01:09:48,940 --> 01:09:53,159
+Takže pro nás to nebude úplně kvalitní reprezentace datová
+
+976
+01:09:53,260 --> 01:09:55,479
+pro fine tuning v OpenAI,
+
+977
+01:09:55,579 --> 01:09:58,520
+protože vlastně budeme trénovat jenom na jednom podcastu.
+
+978
+01:09:59,100 --> 01:10:02,079
+Nicméně pro náš příklad to stačí,
+
+979
+01:10:02,100 --> 01:10:03,539
+protože nám to bude fungovat
+
+980
+01:10:03,659 --> 01:10:07,359
+a pro vás to bude akorát tak příležitost najít si jinýho podcastera
+
+981
+01:10:07,739 --> 01:10:11,859
+a vyzkoušet si to na nějakých jiných datech.
+
+982
+01:10:13,720 --> 01:10:17,479
+Tak, to jenom, aby se vám vysvětlil vlastně,
+
+983
+01:10:17,739 --> 01:10:21,800
+proč je tam jeden řádek a že se musí použít moderation check.
+
+984
+01:10:22,000 --> 01:10:25,340
+Vždycky, když ty Closers modely budete takhle fine-tunovat,
+
+985
+01:10:25,399 --> 01:10:28,180
+mistrali další, který můžete fine-tunovat,
+
+986
+01:10:29,059 --> 01:10:31,819
+tak vždycky tam budete mít, nebo můžete narazit právě
+
+987
+01:10:31,819 --> 01:10:33,619
+na takovýhle problémy.
+
+988
+01:10:33,720 --> 01:10:39,779
+U těch Open Source modelů tam by vás nic takového čekat nemělo
+
+989
+01:10:39,779 --> 01:10:40,819
+nebo nebude čekat.
+
+990
+01:10:42,279 --> 01:10:54,559
+Tak to bysme se podívali na Joe'a Rogana. Pojďme se teda podívat na ty další příklady, jak docílit dalších funkcionit nebo use case'ů, jak ho naučit vlastně, nebo jak si připravit data na další use case'y.
+
+991
+01:10:55,100 --> 01:11:10,039
+To znamená, že ještě teda se podívám tady rychle na ty, takhle případně možné, jestli to přijde na vlastní Google Drive, tak tady.
+
+992
+01:11:11,059 --> 01:11:13,420
+kde jsi to tam našel, otevři v novém okně,
+
+993
+01:11:13,500 --> 01:11:17,380
+na co konkrétně se používá ten .env file v tomto případě.
+
+994
+01:11:17,559 --> 01:11:23,359
+V .env filu vždycky najdete nějaké informace o prostředí,
+
+995
+01:11:23,359 --> 01:11:27,380
+to znamená, protože je to nahrávané,
+
+996
+01:11:27,380 --> 01:11:32,100
+tak já tady teda nechci ukazovat ten .env file,
+
+997
+01:11:32,100 --> 01:11:35,000
+ale já si teda osmažu ty klíče.
+
+998
+01:11:35,600 --> 01:11:36,739
+Má to vždycky...
+
+999
+01:11:38,079 --> 01:11:50,300
+abych to vysvětlil správně a neochudil vás o něco.
+
+1000
+01:11:50,619 --> 01:11:53,979
+Tak v rámci operačního systému vy máte vždycky environment variables.
+
+1001
+01:11:54,020 --> 01:11:56,920
+To jsou nějaké proměny, si to můžete představit,
+
+1002
+01:11:56,920 --> 01:11:58,760
+který ten operační systém používá.
+
+1003
+01:11:58,779 --> 01:12:02,920
+To znamená, že máte tam cestu k Pythonu, cestu k NPM,
+
+1004
+01:12:03,100 --> 01:12:07,100
+máte tam prostě různý typy environment variables.
+
+1005
+01:12:07,180 --> 01:12:10,739
+Zase doufám, že tady neukazu něco, co by mi sekurita...
+
+1006
+01:12:12,100 --> 01:12:15,100
+nedovolila. Takže to je
+
+1007
+01:12:15,220 --> 01:12:15,619
+environment
+
+1008
+01:12:16,539 --> 01:12:18,859
+variable. Vy si ovlivňujete
+
+1009
+01:12:19,020 --> 01:12:21,300
+to, co v tom operačním systému
+
+1010
+01:12:21,300 --> 01:12:22,779
+vlastně vidíte
+
+1011
+01:12:22,920 --> 01:12:24,500
+nebo si tam vlastně přidáte.
+
+1012
+01:12:24,559 --> 01:12:26,460
+Ne navždycky, jenom když běží ten skript.
+
+1013
+01:12:26,559 --> 01:12:28,520
+Takže takový dočasný environment
+
+1014
+01:12:28,800 --> 01:12:30,680
+variable, který ten váš
+
+1015
+01:12:30,720 --> 01:12:32,600
+tady Python v tomhletom případě
+
+1016
+01:12:32,880 --> 01:12:34,779
+může z toho souboru načíst,
+
+1017
+01:12:36,300 --> 01:12:37,180
+co se děje tady.
+
+1018
+01:12:38,199 --> 01:12:40,239
+Tadyhle je na to knihovna, která je schopná
+
+1019
+01:12:40,279 --> 01:12:41,979
+ten environment file přečíst,
+
+1020
+01:12:41,979 --> 01:12:44,020
+ona se ho načte a v tu chvíli
+
+1021
+01:12:44,039 --> 01:12:45,739
+vlastně v oprašním systému,
+
+1022
+01:12:45,739 --> 01:12:48,140
+v jeho prostředí, v jeho environment variables
+
+1023
+01:12:48,359 --> 01:12:49,460
+si můžete vytáhnout
+
+1024
+01:12:49,600 --> 01:12:53,760
+ten klíč,
+
+1025
+01:12:53,979 --> 01:12:56,699
+nebo ten řádek klíč a hodnota.
+
+1026
+01:12:57,800 --> 01:13:00,979
+Hodně se to používá při cloud nasazování,
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

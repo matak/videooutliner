@@ -1,0 +1,979 @@
+Transcript:
+
+=================
+515
+00:38:30,619 --> 00:38:33,720
+Takže tím pádem z toho dostanete MP3ky a teďka on máte
+
+516
+00:38:35,000 --> 00:38:38,139
+začnete hledat model, který k tomu použít,
+
+517
+00:38:38,239 --> 00:38:40,779
+nebo nástroj, který byste použili k tomu,
+
+518
+00:38:40,779 --> 00:38:43,559
+aby vám to audio převedl nějakým způsobem na text.
+
+519
+00:38:43,619 --> 00:38:46,239
+Teď si uvědomte, že pokud vám to převede jenom na text,
+
+520
+00:38:46,239 --> 00:38:49,039
+tak to pro vás není úplně vhodné.
+
+521
+00:38:49,039 --> 00:38:53,639
+Vy potřebujete, aby někdo rozlišoval, kdo mluví,
+
+522
+00:38:53,820 --> 00:38:56,960
+takže minimálně identifikoval,
+
+523
+00:38:56,960 --> 00:38:59,519
+jestli to je speaker A, speaker B, speaker C.
+
+524
+00:39:00,239 --> 00:39:01,860
+Což OpenAI Whisper,
+
+525
+00:39:02,960 --> 00:39:10,840
+což byste pravděpodobně asi na to byste hned narazili, tak to nepodporuje.
+
+526
+00:39:11,820 --> 00:39:18,220
+To znamená, že on vám to převede do textu, ale neřekne vám už vlastně, kdo ten text říká.
+
+527
+00:39:18,220 --> 00:39:19,659
+To je něco, co vy potřebujete.
+
+528
+00:39:21,199 --> 00:39:27,779
+To znamená, že byste začali googli dál a zjistili byste, že tady existuje nějaká varianta toho Whisper,
+
+529
+00:39:27,779 --> 00:39:29,599
+který se jmenuje WhisperX.
+
+530
+00:39:30,260 --> 00:39:36,860
+a ta už diarizace, tak ta už diarizaci nějakým způsobem má,
+
+531
+00:39:36,980 --> 00:39:38,800
+což je zase nějaká jenom vrstva zatím,
+
+532
+00:39:38,800 --> 00:39:41,940
+která prostě je schopná teda mezi těma zvukama
+
+533
+00:39:42,699 --> 00:39:45,099
+nebo textama rozlišit.
+
+534
+00:39:45,659 --> 00:39:47,820
+Je to tato speaker diarization.
+
+535
+00:39:48,300 --> 00:39:54,460
+To znamená, že ten vám z toho vrátí něco jako speaker A a speaker B.
+
+536
+00:39:56,360 --> 00:39:59,619
+Je to zdaroma teda a běží to lokálně oba dva ty modely.
+
+537
+00:40:00,199 --> 00:40:03,179
+velmi rychle zjistíte, že to je velmi nepřesný.
+
+538
+00:40:03,340 --> 00:40:06,539
+Já jsem ještě chtěl ukázat tady teda zdroják,
+
+539
+00:40:07,139 --> 00:40:09,000
+protože já jsem to samozřejmě zkoušel
+
+540
+00:40:09,220 --> 00:40:12,579
+a rovnou jsem si ten skript nechal a rovnou vám ho tady poskytuju.
+
+541
+00:40:13,679 --> 00:40:16,239
+Takže kdybyste mi nechtěli věřit
+
+542
+00:40:16,300 --> 00:40:20,199
+nebo byste chtěli si ulehčit práci a vyzkoušet si to sami,
+
+543
+00:40:21,179 --> 00:40:22,300
+tak můžete.
+
+544
+00:40:22,800 --> 00:40:24,860
+Tady je prostě ten viz pro použitej,
+
+545
+00:40:24,900 --> 00:40:29,220
+já jsem tady na jeden ten file si prostě naloudoval
+
+546
+00:40:29,739 --> 00:40:42,159
+tu MP3, teda ta MP3 jsou ty data, který vy vlastně máte k dispozici, to znamená, že teď by byl dobrý čas vám ukázat, jak ty data vypadají.
+
+547
+00:40:43,199 --> 00:40:49,340
+Já tady mám nakopírovaný ten kurz.
+
+548
+00:40:51,460 --> 00:40:59,619
+Začneme autogenem, protože je jednodušší. Tady je PDF, starý verze autogenu, která je převedená tady do Markdown filu, což je úplně primitivní.
+
+549
+00:40:59,960 --> 00:41:09,940
+A tady u Joe a Rogana máte dva typy podcastů. Jedna, kde on je jako host, tady máte ty MP3ky, a tady, kdy on je host.
+
+550
+00:41:10,059 --> 00:41:18,639
+To znamená, že on má nějaký hosty, to je to JRE, Joe Rogan Experience, a tady jsou ty hosty, který tam jsou.
+
+551
+00:41:19,099 --> 00:41:29,960
+Takže to jsou ty MP3, kterými budeme vždycky používat. Ty si prostě jenom takhle vemete a prostě si nakopírujete do adresáře, který je v rámci toho projektu.
+
+552
+00:41:30,639 --> 00:41:41,960
+Takže tadyhle v tom případě složka MP3 byste si tady udělali a tam byste si nakopírovali ty MP3. Tady byste dali seznam souborů, který vlastně chcete s tím procesovat.
+
+553
+00:41:42,320 --> 00:41:52,480
+a tady už je ten kód, který vám vytvoří texták z toho .srft file, .vtt file, blablabla.
+
+554
+00:41:53,139 --> 00:41:58,480
+Takže to byste si mohli zkusit, případně byste si mohli zkusit ten WispX.
+
+555
+00:41:58,619 --> 00:42:04,760
+Tady pak vidíte ty captions, já jsem vám je tady nechal, abyste viděli, jak to vlastně ten výstup z toho vypadá.
+
+556
+00:42:05,199 --> 00:42:10,099
+Takže tady pak vidíte ty jednotlivý slova a tady vidíte vlastně, kdo ty slova říká.
+
+557
+00:42:11,239 --> 00:42:13,300
+Takže je to na úrovni slov.
+
+558
+00:42:13,519 --> 00:42:18,239
+Vy pak musíte udělat nějaký post-processing, kdy to vlastně pospojete dohromady slova.
+
+559
+00:42:18,900 --> 00:42:21,659
+dostanete z toho něco takovýhleho.
+
+560
+00:42:21,659 --> 00:42:25,519
+Projděte si ten skript, nebudeme se tím tolik zabývat, protože to není ta
+
+561
+00:42:25,840 --> 00:42:27,340
+cesta, kterou my jdeme.
+
+562
+00:42:28,440 --> 00:42:35,320
+Nejlepší výsledky jsem já dosáhnul tím, že jsem použil Assembly AI, což je služba.
+
+563
+00:42:35,940 --> 00:42:37,360
+Takže tady.
+
+564
+00:42:38,679 --> 00:42:43,099
+Zaregistrovali byste se, máte tady nějakých 50 dolarů kredit.
+
+565
+00:42:43,720 --> 00:42:46,480
+Já vlastně, když to tady teďka refrešnu,
+
+566
+00:42:47,900 --> 00:42:52,159
+Já jsem to s Váněm tak zkusil pro vás, abyste měli představu.
+
+567
+00:42:52,599 --> 00:42:55,940
+Tak já jsem pustil všechny ty mp3 toho Jouarogena.
+
+568
+00:42:56,239 --> 00:43:06,039
+Tady jsou vlastně zanalizovaný, já vám ukážu ten skript.
+
+569
+00:43:06,039 --> 00:43:08,860
+Tady je ten skript, vlastně vám ho můžu ukázat už teď.
+
+570
+00:43:09,460 --> 00:43:12,519
+To znamená, že první věc, co vy potřebujete je api klíč.
+
+571
+00:43:12,519 --> 00:43:16,159
+Api klíč si tady vytvoříte, api keys.
+
+572
+00:43:17,880 --> 00:43:21,619
+Dostanete jeho jediné nutné, co je od vás, je registrace.
+
+573
+00:43:21,619 --> 00:43:24,539
+Nemusíte tam dávat žádnou kreditní kartu, nic z začátku.
+
+574
+00:43:24,900 --> 00:43:26,800
+Máte tam těch 50 dolarů kredit.
+
+575
+00:43:27,039 --> 00:43:33,000
+Když jsem zanalizoval všechny tady ty MP3, který tady takhle vidíte,
+
+576
+00:43:33,320 --> 00:43:37,960
+když jsem tam nakopíroval, to jsou všechny ty jeho podcasty, kde on je host.
+
+577
+00:43:38,739 --> 00:43:42,800
+kde on hostuje takhle a má hosty.
+
+578
+00:43:42,800 --> 00:43:46,239
+Vy vidíte čas, jak dlouho to trvá, že minuta a půl, tři minuty, dvě minuty,
+
+579
+00:43:46,340 --> 00:43:50,480
+je to za chvíli hotový a tady je vlastně ten kredit, který vás to stojí,
+
+580
+00:43:50,579 --> 00:43:55,260
+takže 21 dolarů. Ve výsledku ten skript,
+
+581
+00:43:55,940 --> 00:43:59,820
+takže tady v tom environment file, to doufám všichni znáte
+
+582
+00:43:59,880 --> 00:44:03,260
+nebo umíte si vytvořit environment file, z toho si to načtete,
+
+583
+00:44:03,260 --> 00:44:05,619
+tadyhle je ten klíč, vlastně jakoby...
+
+584
+00:44:07,000 --> 00:44:09,880
+Teď je to docela matoucí, protože máte klíč a hodnotu.
+
+585
+00:44:10,220 --> 00:44:14,559
+Ta hodnota je samotná a je klíč, ale asi mi rozumíte.
+
+586
+00:44:16,139 --> 00:44:21,480
+A teď, protože vy máte ty MP3, nebo si nakopirujete ty MP3 do toho souboru,
+
+587
+00:44:21,900 --> 00:44:25,099
+tak budeme pokračovat v tom skriptu, abyste viděli,
+
+588
+00:44:26,579 --> 00:44:30,679
+co ten skrip dělá. To znamená, že tady je ten vstupní folder,
+
+589
+00:44:30,820 --> 00:44:33,779
+ze kterého to bere, tady je pak výstupní folder.
+
+590
+00:44:33,779 --> 00:44:36,360
+Já, protože jsem si to tady testoval, aby jsem si byl jistý,
+
+591
+00:44:36,420 --> 00:44:39,420
+že všechno pořád funguje, nebo že ta knihovna toho
+
+592
+00:44:39,659 --> 00:44:43,820
+Assembly.ai pořád funguje, tak jako fungovala pro mě,
+
+593
+00:44:43,820 --> 00:44:46,559
+tak jsem si tady udělal Captions 2. Vy tady máte v tom skriptu
+
+594
+00:44:46,779 --> 00:44:50,320
+Captions. Rovnou i tady máte tu Captions jako hotovou,
+
+595
+00:44:50,320 --> 00:44:52,739
+takže nemusíte to pouštět, pokud nechcete,
+
+596
+00:44:52,900 --> 00:44:55,619
+já bych jenom rád, abyste rozuměli,
+
+597
+00:44:55,639 --> 00:44:57,079
+co ty skripty tak nějak dělají.
+
+598
+00:44:57,079 --> 00:44:59,360
+To znamená, že tady pak máte
+
+599
+00:45:00,220 --> 00:45:02,019
+pole všech těch
+
+600
+00:45:02,480 --> 00:45:04,139
+MP3ek vlastně
+
+601
+00:45:04,239 --> 00:45:06,279
+a počet speakerů, který tam mluvějí.
+
+602
+00:45:06,279 --> 00:45:08,300
+Všimněte si, že tady jsou některý podcasty,
+
+603
+00:45:08,380 --> 00:45:09,279
+kdy on je jako host
+
+604
+00:45:09,639 --> 00:45:11,380
+u někoho
+
+605
+00:45:11,380 --> 00:45:13,500
+a je tam víc než dva
+
+606
+00:45:13,619 --> 00:45:15,480
+speakery. Je to z toho důvodu,
+
+607
+00:45:15,480 --> 00:45:17,679
+že vy tomu Assembly AI říkáte,
+
+608
+00:45:18,079 --> 00:45:20,159
+kolik je očekávané
+
+609
+00:45:20,300 --> 00:45:21,380
+jich speakerů, aby oni
+
+610
+00:45:21,500 --> 00:45:22,860
+zase byli schopný získat
+
+611
+00:45:23,000 --> 00:45:26,980
+zjednodušujete jim ten processing,
+
+612
+00:45:27,000 --> 00:45:28,619
+protože oni pak vědí dobře,
+
+613
+00:45:28,760 --> 00:45:30,760
+tak pravděpodobně tam na 80%
+
+614
+00:45:30,860 --> 00:45:31,900
+tam budou dva speakři,
+
+615
+00:45:31,900 --> 00:45:33,659
+takže oni můžou podle toho
+
+616
+00:45:33,820 --> 00:45:36,179
+sizeovat ten model, který na to dají.
+
+617
+00:45:36,220 --> 00:45:37,699
+Když tam bude 15 lidí
+
+618
+00:45:37,760 --> 00:45:38,920
+v rámci té diskuze,
+
+619
+00:45:39,139 --> 00:45:41,199
+tak samozřejmě to bude mnohem
+
+620
+00:45:41,199 --> 00:45:42,699
+složitější na analýzu.
+
+621
+00:45:42,880 --> 00:45:45,220
+Takže to je jenom, abyste chápali,
+
+622
+00:45:45,220 --> 00:45:46,639
+proč si tady počet speakrů
+
+623
+00:45:47,159 --> 00:45:51,760
+Je to nějaký config. A teď vy začnete ty data procesovat.
+
+624
+00:45:51,800 --> 00:45:55,179
+To znamená, že všechny ty files data si začnete procházet,
+
+625
+00:45:55,320 --> 00:45:56,880
+vytáhnete si z toho ty property.
+
+626
+00:45:56,880 --> 00:46:01,320
+To znamená, že jméno toho souboru, ty mp3ky a počet těch speakerů
+
+627
+00:46:01,599 --> 00:46:06,099
+vytvoříte si tady config pro tu transkripci.
+
+628
+00:46:06,179 --> 00:46:08,440
+Takže voléblujme speakery ANO
+
+629
+00:46:08,679 --> 00:46:11,300
+a očekávaný počet speakerů v závislosti na tom,
+
+630
+00:46:11,380 --> 00:46:16,039
+které mp3ku procesujete, tak to je ta hodnota, kterou si z toho vytahujete.
+
+631
+00:46:16,639 --> 00:46:19,239
+a pustíte transcribe.
+
+632
+00:46:20,440 --> 00:46:22,039
+Tady je cesta k tomu souboru,
+
+633
+00:46:22,119 --> 00:46:23,720
+který tam vlastně uploadnete,
+
+634
+00:46:23,720 --> 00:46:25,139
+to je jediné, co ten klient dělá,
+
+635
+00:46:25,139 --> 00:46:28,079
+on uploadne tu MP3 do toho Assembly AI
+
+636
+00:46:28,099 --> 00:46:30,599
+na ty jejich servery, přidá tam ten konfig
+
+637
+00:46:31,079 --> 00:46:33,360
+a na tom jejich serveru se to začne procesovat.
+
+638
+00:46:33,400 --> 00:46:35,380
+Není to tedy lokální model,
+
+639
+00:46:35,400 --> 00:46:39,720
+není to analýza MP3 u vás lokálně
+
+640
+00:46:39,720 --> 00:46:41,099
+na vaší grafické kartě.
+
+641
+00:46:41,099 --> 00:46:43,500
+Je to služba, kterou vy využíváte
+
+642
+00:46:43,500 --> 00:46:44,699
+a máte tam nějaký kredit.
+
+643
+00:46:45,659 --> 00:46:49,559
+K tomu se vám vrátí transkripce, vrátíte si tzv. uterensis,
+
+644
+00:46:49,679 --> 00:46:52,019
+což jsou vlastně ty výstupy z toho,
+
+645
+00:46:52,519 --> 00:46:55,820
+a připravíte si nebo naházíte si je tady do pole,
+
+646
+00:46:56,420 --> 00:47:04,680
+jako pole hodnot, jaký uživatel nebo speaker to je
+
+647
+00:47:04,940 --> 00:47:08,739
+a co vlastně říká, skrz všechny ty uterensisy.
+
+648
+00:47:09,239 --> 00:47:12,579
+To je pro vás ten result, tady jenom já počítám,
+
+649
+00:47:12,579 --> 00:47:16,539
+jak dlouho to trvá, abyste to viděli a uložíte to vlastně do JSONu.
+
+650
+00:47:16,539 --> 00:47:20,059
+Zase do tej output folder, což byla ta captions
+
+651
+00:47:21,019 --> 00:47:24,519
+a jméno filu je jméno té MP3,
+
+652
+00:47:24,519 --> 00:47:29,699
+takže ta MP3 koreluje s tím, jaký výstup to vlastně dělá.
+
+653
+00:47:30,300 --> 00:47:33,819
+Elon Musk tady je 1169, Elon Musk JSON.
+
+654
+00:47:34,640 --> 00:47:37,239
+To znamená, že se dostanete do nějaký takovýhle podoby.
+
+655
+00:47:38,380 --> 00:47:42,199
+Což už je blízko tomu, jak bychom si to tak nějak představovali.
+
+656
+00:47:42,500 --> 00:47:46,880
+Akorát tady máme speaker A, B, A, B a máme tady vždycky ten text,
+
+657
+00:47:47,079 --> 00:47:51,260
+což už je v pohodě. Teď bychom to potřebovali převést do toho formátu,
+
+658
+00:47:51,260 --> 00:47:55,739
+kde je role, je tady assistant nebo user a pak tady místo textu je content.
+
+659
+00:47:55,980 --> 00:48:00,220
+To je vlastně pak celá ta magie, která na vás zbejvá.
+
+660
+00:48:00,400 --> 00:48:04,019
+To znamená, že na to je tady druhej skript, který vlastně představuje
+
+661
+00:48:05,019 --> 00:48:14,199
+projde ty captions a vy mu poskytnete nějaký dodatečný informace tím, že si poslechnete tu mp3,
+
+662
+00:48:14,380 --> 00:48:23,819
+kouknete se na ten JSON file a uslyšíte na začátku, kdo vlastně říká tohleto.
+
+663
+00:48:23,859 --> 00:48:30,119
+A ty si řeknete, aha, tak to není Jourogen, tak tadyhle to je Jourogen, takže to je Bčko. Jourogen je Bčko, jo?
+
+664
+00:48:30,480 --> 00:48:42,500
+A tady v tom skriptu si nadefinujete nějaký určitý config, kdy v tomto souboru, tady je Tim Dillon Cho, doufám, že to tady někde mám.
+
+665
+00:48:44,519 --> 00:48:47,140
+Tim Dylan Show a teď si tady vlastně řeknete,
+
+666
+00:48:47,239 --> 00:48:49,699
+dobře, Ačko je teda a teď záleží na tom,
+
+667
+00:48:49,900 --> 00:48:53,260
+co vlastně ten model chcete učit nebo koho chcete učit.
+
+668
+00:48:53,619 --> 00:48:55,760
+To znamená, že Ačko je uživatel,
+
+669
+00:48:55,819 --> 00:48:59,000
+protože to je ten, kdo vlastně mluví s tím Joe Arogenem
+
+670
+00:48:59,400 --> 00:49:02,819
+a Assistant to je to, co ten model chcete naučit,
+
+671
+00:49:02,900 --> 00:49:06,140
+Joe Arogena, to znamená, že Joe Arogen v tomhle případě je Assistant,
+
+672
+00:49:06,340 --> 00:49:09,000
+tak to je teda Bčko, protože Bčko prostě to je to,
+
+673
+00:49:09,400 --> 00:49:10,159
+co on odpovídá.
+
+674
+00:49:13,220 --> 00:49:20,300
+Tak nemám akces k tým datům, třeba requestovat samé, taky jsem si vyžádal přístup.
+
+675
+00:49:20,300 --> 00:49:26,000
+Nejspíše asi bude změnit k toho linku, nech nespo můj žádosti.
+
+676
+00:49:26,739 --> 00:49:31,940
+Já jsem ten link, já to zase kontroluji, tu prezentaci,
+
+677
+00:49:34,239 --> 00:49:43,940
+já to vždycky nahrávám na drive robot dreams, to znamená, že ty, jo, to znamená, že tohle není úplně na mě.
+
+678
+00:49:44,519 --> 00:49:50,559
+Já si myslím, nebo zeptám se teda pak ještě,
+
+679
+00:49:51,940 --> 00:50:00,440
+zeptám se ještě Josefa,
+
+680
+00:50:00,440 --> 00:50:03,779
+jestli se teda nějak requestnout hromadně,
+
+681
+00:50:03,800 --> 00:50:06,800
+ale co já jsem udělal je, já jsem si vzal tady kopylink,
+
+682
+00:50:07,300 --> 00:50:10,000
+to znamená, že jestliže oni mají nastavený vlastně,
+
+683
+00:50:10,000 --> 00:50:12,159
+že ten kopylink může vidět každej,
+
+684
+00:50:12,220 --> 00:50:14,960
+já to ještě schválně tady vložím, no,
+
+685
+00:50:16,359 --> 00:50:19,760
+a zkuste na to kliknout, jestli tady přesto máte přístup.
+
+686
+00:50:22,739 --> 00:50:26,059
+My vlastně učíme ten model, jak by měla vypadat assistant role.
+
+687
+00:50:26,059 --> 00:50:29,340
+Přesně tak. V tomhletom případě je to prostě konverzace,
+
+688
+00:50:29,779 --> 00:50:32,300
+nope, takže nefunguje.
+
+689
+00:50:32,380 --> 00:50:35,199
+Takže zeptáme se tady.
+
+690
+00:50:35,980 --> 00:50:39,519
+Nastavení je hned v tom vedlejším, když máš ten share,
+
+691
+00:50:40,199 --> 00:50:42,239
+tak hned nad tím copy link máš nastavení.
+
+692
+00:50:42,680 --> 00:50:45,960
+V tom share je to nastavení, jak má se ten link chovat.
+
+693
+00:50:48,440 --> 00:50:51,720
+Jo, ale já teda nemám práva
+
+694
+00:50:53,159 --> 00:50:55,260
+Prostě tady je nohost.
+
+695
+00:50:55,319 --> 00:50:57,059
+Chceš to hodit na svůj drive, Lukáši?
+
+696
+00:50:58,380 --> 00:51:00,380
+Asi budu muset, no. Anebo
+
+697
+00:51:00,400 --> 00:51:02,220
+people with access.
+
+698
+00:51:03,260 --> 00:51:05,019
+Copy call operator email.
+
+699
+00:51:05,199 --> 00:51:07,220
+Email people on this file. Takže to je
+
+700
+00:51:07,220 --> 00:51:09,420
+jako, chápu, že buď bych vám musel
+
+701
+00:51:09,480 --> 00:51:11,359
+přidat jako každýho, že jo, což je
+
+702
+00:51:11,519 --> 00:51:13,800
+prostě blbost. Anebo oni by
+
+703
+00:51:13,800 --> 00:51:15,880
+museli nastavit, že tohleto je
+
+704
+00:51:15,880 --> 00:51:18,619
+přístupný, no, tejhle ten general access.
+
+705
+00:51:19,099 --> 00:51:20,000
+Museli změnit. Já to
+
+706
+00:51:20,420 --> 00:51:22,119
+nemám. To znamená, že
+
+707
+00:51:22,380 --> 00:51:24,000
+já vám teoreticky můžu dát
+
+708
+00:51:24,920 --> 00:51:27,000
+link na můj github.
+
+709
+00:51:27,440 --> 00:51:29,519
+Pojďme to vyzkoušet teda.
+
+710
+00:51:31,480 --> 00:51:35,039
+Já to mám tadyhle pod tím jiným účtem.
+
+711
+00:51:40,119 --> 00:51:44,239
+Jo tady, tady.
+
+712
+00:51:47,239 --> 00:51:48,599
+Tak vydržte.
+
+713
+00:51:49,279 --> 00:51:52,099
+Tak mi to ještě na konci hodiny připomeňte.
+
+714
+00:51:52,099 --> 00:51:55,039
+Já to tady začnu teda uploadovat tadyhle z té
+
+715
+00:51:56,720 --> 00:52:00,199
+složky tady do toho druhého účtu.
+
+716
+00:52:07,420 --> 00:52:10,460
+Tak ono by to mělo být teda za dvě minuty.
+
+717
+00:52:13,440 --> 00:52:19,920
+4 minuty teda. Tak já se k tomu snad ještě v hlavě udržím.
+
+718
+00:52:19,980 --> 00:52:24,480
+A dá to do Google Class. No taky bychom mohli zkusit.
+
+719
+00:52:26,400 --> 00:52:33,739
+Classroom. Tam je vlastně ten additional, doplňkový materiály.
+
+720
+00:52:33,840 --> 00:52:36,460
+Tam bych to vlastně mohl zkusit dát.
+
+721
+00:52:38,180 --> 00:52:42,220
+Ježiš, tady je dva záznamy lekce, to je asi dobrý.
+
+722
+00:52:43,039 --> 00:52:45,659
+doplňový materiály.
+
+723
+00:52:45,659 --> 00:52:49,039
+Já to tady zkusím editnout, upload.
+
+724
+00:52:51,800 --> 00:52:56,039
+To by mohlo jít, ale není to zazipovaný, já nevím jak on se k tomu bude chovat.
+
+725
+00:52:56,279 --> 00:52:58,420
+Tak já to zkusím zepnout ještě rychle.
+
+726
+00:53:01,940 --> 00:53:06,699
+Tudududududududu, to tady nejde přes ten upload.
+
+727
+00:53:06,940 --> 00:53:14,159
+Takže tady, komprestu, zip file, to je snad v pohodě.
+
+728
+00:53:15,640 --> 00:53:22,779
+Tak jakmile jste to zepnuli, tak já to teda naopak jdu na ten Classroom, ať k tomu máte teda přístup, tam byste měli míštní přístup, to vyzkoušíme.
+
+729
+00:53:24,859 --> 00:53:34,400
+Tak učíme ho, jak by měla vypadat ta Assistant role a vždycky, jo, protože to je to, co vy pravděpodobně vždycky budete potřebovat.
+
+730
+00:53:34,539 --> 00:53:43,579
+Bude to nějakej způsob konverzace mezi váma a tím modelem, to znamená ten model je pro vás ten Assistant, user je buď váš user nebo vy, jo.
+
+731
+00:53:44,319 --> 00:54:04,579
+Tak, takže vždy, když i my si píšeme s LLM, tak tam probíhá konverzace mezi asistentem a userem. Přesně tak, vy jste ten user, když píšete do chat GPT, tak to odchází právě v tom formátu, který jsme si tady ukazovali a vždycky se to přiloží na tenhle format a vy vždycky jste user.
+
+732
+00:54:05,579 --> 00:54:08,659
+A ten model, co odpoví, je vždycky role assistant.
+
+733
+00:54:08,980 --> 00:54:11,760
+A pak zase je vaše otázka, nějaká následující,
+
+734
+00:54:11,779 --> 00:54:13,119
+jak probíhá ta konverzace.
+
+735
+00:54:13,480 --> 00:54:16,840
+A tohle je vlastně boptnát, boptnát, boptnát tohleto pole
+
+736
+00:54:16,920 --> 00:54:19,420
+a vždycky se to pošle do toho modelu celý,
+
+737
+00:54:19,940 --> 00:54:21,300
+celá ta konverzace.
+
+738
+00:54:21,699 --> 00:54:26,500
+A on na základě toho je schopnej vlastně si pamatovat
+
+739
+00:54:26,500 --> 00:54:27,840
+a odpovědět.
+
+740
+00:54:28,199 --> 00:54:31,059
+To znamená, že když tam máte včet GPT memory updated,
+
+741
+00:54:31,220 --> 00:54:34,079
+tak oni si to ukládají do nějakého Reddit,
+
+742
+00:54:34,079 --> 00:54:34,099
+do nějakého...
+
+743
+00:54:34,239 --> 00:54:46,840
+do nějaké cache, nějaké databáze a pak jsou schopný vlastně na základě toho, že tam vždycky šáhnout, prohledat to, obohatit ten váš request a poslat to do toho modelu.
+
+744
+00:54:48,220 --> 00:54:56,859
+Tak data jsou zazipovaný a poupaná. Má to 3,5 giga jenom pro vaši informaci ty data.
+
+745
+00:55:01,920 --> 00:55:08,800
+Tak to je Joe Rogan. My ho teda učíme něco o tom podcastě, anebo o Joe Roganovi.
+
+746
+00:55:08,800 --> 00:55:16,059
+Těž by som rád, že stača iba repliky Joe, těž by som rátal.
+
+747
+00:55:16,680 --> 00:55:22,000
+Připomeňte mi, co to je rátal. Víme někdo.
+
+748
+00:55:22,140 --> 00:55:24,279
+Počítal. Počítal.
+
+749
+00:55:24,279 --> 00:55:25,319
+Počítal, jo jo.
+
+750
+00:55:25,359 --> 00:55:26,819
+Jakože bys s tím počítal.
+
+751
+00:55:27,319 --> 00:55:30,539
+Že stačí iba replika Joe. Jo.
+
+752
+00:55:34,039 --> 00:55:37,619
+Já to přemýšlím, jak to říct nejlepším možným způsobem.
+
+753
+00:55:37,640 --> 00:55:41,699
+Vy ho naučíte odpovídat ve stylu toho Joe Arogyna.
+
+754
+00:55:42,500 --> 00:55:46,940
+Pokud mu dostatečně často, nebo v těch datech nebude dostatečně
+
+755
+00:55:47,380 --> 00:55:52,079
+často zmíněný nějaký fakt, tak ten model tomu nepřiloží
+
+756
+00:55:52,199 --> 00:55:54,579
+žádnou důležitost a vlastně se to nenaučí.
+
+757
+00:55:55,059 --> 00:56:07,920
+To je i jak jsme testovali, dělali prompt engineering, jak si pamatujete, že jsem se ho ptal vlastně, nebo samozřejmě odpovídá ve stylu Joe a Rogina a to byl teoretik do určitý úrovně schopnej udělat. Ale pokud jsem se ho zeptal, jestli má děti,
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

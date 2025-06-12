@@ -1,0 +1,27 @@
+Transcript:
+
+=================
+3339
+03:30:50,440 --> 03:30:51,280
+Děkujeme.
+
+3340
+03:30:51,459 --> 03:30:51,760
+Děkujeme.
+
+3341
+03:30:52,959 --> 03:30:54,540
+Ahoj.
+
+3342
+03:30:55,139 --> 03:30:56,280
+Super výkon.
+
+3343
+03:30:56,979 --> 03:30:57,879
+Děkujeme.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

@@ -1,0 +1,999 @@
+Transcript:
+
+=================
+1555
+01:39:35,460 --> 01:39:37,119
+data, na těch on si vlastně udělá
+
+1556
+01:39:37,279 --> 01:39:39,500
+ten forward pass a back propagaci,
+
+1557
+01:39:39,500 --> 01:39:41,079
+bude si updatovat ty váhy
+
+1558
+01:39:42,159 --> 01:39:45,020
+a potom mu ukážu data,
+
+1559
+01:39:45,359 --> 01:39:46,520
+na kterých budu
+
+1560
+01:39:46,640 --> 01:39:48,659
+čekovat, jestli jeho
+
+1561
+01:39:48,659 --> 01:39:51,840
+predikce se lepší
+
+1562
+01:39:51,960 --> 01:39:53,260
+nebo se pořád učí,
+
+1563
+01:39:53,340 --> 01:39:54,920
+nebo už se neučí.
+
+1564
+01:39:55,720 --> 01:39:57,479
+A tyhle, ale tahle sada dat
+
+1565
+01:39:57,479 --> 01:39:59,680
+už mi nebude ovlivňovat
+
+1566
+01:40:00,039 --> 01:40:02,199
+ty váhy. To od něj budu chtít.
+
+1567
+01:40:02,199 --> 01:40:04,059
+Touhletou sadou dat mu budu říkat,
+
+1568
+01:40:04,420 --> 01:40:10,899
+Hele, na této si naupdateuj ty váhy, vždycky po každém řádku si naupdateuj ty váhy, uč se na této sadě dat.
+
+1569
+01:40:10,940 --> 01:40:15,520
+Na té validační, já jim řeknu, a teď mi vypredikuj podle toho, co jsi naučil, to je jako test.
+
+1570
+01:40:15,520 --> 01:40:20,940
+Jako když se učíte letopočty a pak přijete za váma a řeknete, a teď mě vyzkoušej prostě z těch letopočtů.
+
+1571
+01:40:21,020 --> 01:40:22,640
+Tak tohle je to zkoušení.
+
+1572
+01:40:23,479 --> 01:40:27,720
+Tam už se vlastně vy jako člověk se samozřejmě učíte i tím zkoušením.
+
+1573
+01:40:27,720 --> 01:40:32,979
+Ta neuronová síce neučí tím zkoušením, protože tam nemá ten proces té backpropagace.
+
+1574
+01:40:33,359 --> 01:40:35,260
+Má tam jenom ten forward pass.
+
+1575
+01:40:35,500 --> 01:40:38,760
+Takže tady má forward pass a backpropagaci, updateuje si váhy.
+
+1576
+01:40:38,920 --> 01:40:44,380
+Tady jenom po něm chci, aby vyplivával vlastně ty jeho predikovaný hodnoty.
+
+1577
+01:40:44,380 --> 01:40:48,559
+A protože to jsou data, které on vlastně neměl zahrnutý z té trénovací fázy,
+
+1578
+01:40:48,680 --> 01:40:53,220
+tak je to správný testování, protože se ho neptám na otázky,
+
+1579
+01:40:53,319 --> 01:40:56,340
+na kterých se on učil.
+
+1580
+01:40:57,159 --> 01:41:01,140
+A potom je tady ale ještě třetí, to je test.
+
+1581
+01:41:01,840 --> 01:41:06,100
+To znamená, že tohle je v rámci jedné epochy
+
+1582
+01:41:06,279 --> 01:41:09,600
+a já v rámci testování budu definovat,
+
+1583
+01:41:09,739 --> 01:41:12,359
+teď přemýšlím, kde mám ty hyperparometry, tady.
+
+1584
+01:41:12,699 --> 01:41:14,079
+Takže tyhle jsme se vysvětlili.
+
+1585
+01:41:14,619 --> 01:41:19,859
+A tadyhle tři jsou relevantní k tomu testování.
+
+1586
+01:41:19,859 --> 01:41:28,940
+To znamená, že tady je batch size, to znamená, že když já mám tisíc těch cen, tak já si je obečuju po deseti.
+
+1587
+01:41:29,020 --> 01:41:34,720
+To znamená, že tohle to mi určuje, že já jsem najednou v tom algoritmu mini-batch.
+
+1588
+01:41:36,399 --> 01:41:36,399
+Kdyby to bylo tady...
+
+1589
+01:41:39,039 --> 01:41:45,760
+Tak tady, takže jsem tady v tom algoritmu mini batch. Nedávám mu ani celý ten dataset, nedávám mu ani jeho pořádku,
+
+1590
+01:41:45,779 --> 01:41:53,260
+nebo bych mu dával, kdybych nastavil batch size na 1. Já mu to dávám ale po 10, takže dávám tady ten mini batch.
+
+1591
+01:41:54,260 --> 01:42:00,399
+Learning rate je něco, co slouží k optimizáru, aby vlastně kontroloval, jak moc
+
+1592
+01:42:00,640 --> 01:42:03,059
+se ten model nebo ty váhy
+
+1593
+01:42:03,159 --> 01:42:04,800
+budou měnit
+
+1594
+01:42:05,279 --> 01:42:06,340
+na základě
+
+1595
+01:42:06,579 --> 01:42:09,020
+ty chyby neboli ty loss funkce
+
+1596
+01:42:09,199 --> 01:42:10,899
+pokaždý, když jsou updateovaný
+
+1597
+01:42:10,899 --> 01:42:12,680
+v T-back propagaci. Čím
+
+1598
+01:42:13,399 --> 01:42:14,819
+detálnější číslo,
+
+1599
+01:42:14,819 --> 01:42:16,739
+čím menší číslo,
+
+1600
+01:42:16,760 --> 01:42:17,779
+tím detálnější
+
+1601
+01:42:21,460 --> 01:42:23,119
+bude ta změna,
+
+1602
+01:42:23,119 --> 01:42:24,739
+kterou vlastně oni budou
+
+1603
+01:42:24,739 --> 01:42:28,440
+v rámci T-back propagace dělat.
+
+1604
+01:42:28,779 --> 01:42:30,479
+Tady bylo...
+
+1605
+01:42:31,659 --> 01:42:38,159
+0,01 nebo 0,01 je taková standardní veličina.
+
+1606
+01:42:38,159 --> 01:42:40,739
+Viděl jsem i tohle, viděl jsem i tohle.
+
+1607
+01:42:41,640 --> 01:42:44,059
+Jiný hodnoty jsem neviděl.
+
+1608
+01:42:44,140 --> 01:42:47,579
+Jedna jsem neviděl, 0,05 jsem viděl.
+
+1609
+01:42:49,239 --> 01:42:50,859
+Takový hodnoty.
+
+1610
+01:42:50,859 --> 01:42:53,640
+Zase tohle už je moc malý,
+
+1611
+01:42:54,079 --> 01:42:58,220
+takže budeme se pohybovat takhle na těch 0,01, 0,001 maximálně.
+
+1612
+01:42:59,500 --> 01:43:01,960
+A pak je tady něco, co to znamená patience,
+
+1613
+01:43:01,960 --> 01:43:03,460
+to znamená, že tímu říkám,
+
+1614
+01:43:03,659 --> 01:43:09,479
+že pokud se mi ta validační stráta,
+
+1615
+01:43:09,479 --> 01:43:12,979
+protože tady mám tu trénovací data,
+
+1616
+01:43:13,020 --> 01:43:14,220
+mám tady ty validační data,
+
+1617
+01:43:14,220 --> 01:43:18,199
+tak pokud se mi ta stráta, kterou budu počítat v té validační fázi,
+
+1618
+01:43:18,319 --> 01:43:22,659
+nebude snižovat pětkrát v řadě,
+
+1619
+01:43:22,659 --> 01:43:26,079
+tak to budu považovat za to,
+
+1620
+01:43:26,079 --> 01:43:28,420
+že už ten trénink se vlastně neučí,
+
+1621
+01:43:28,479 --> 01:43:29,940
+on už stagnuje,
+
+1622
+01:43:30,479 --> 01:43:32,819
+a v tu chvíli já ukončím to trénování.
+
+1623
+01:43:32,840 --> 01:43:35,140
+To znamená, že kdybych tady měl milion epoch,
+
+1624
+01:43:36,699 --> 01:43:38,520
+tak pokud se mi pětkrát za sebou
+
+1625
+01:43:38,600 --> 01:43:39,940
+vlastně ta validace
+
+1626
+01:43:40,460 --> 01:43:41,840
+v těch pěti epochách
+
+1627
+01:43:41,840 --> 01:43:44,020
+nebude zmenšovat,
+
+1628
+01:43:44,440 --> 01:43:46,899
+tak to ukončím. Říká se tomu
+
+1629
+01:43:46,899 --> 01:43:48,220
+early stoppage.
+
+1630
+01:43:49,640 --> 01:43:51,800
+Teď se podíváme na to
+
+1631
+01:43:51,940 --> 01:43:53,260
+trénování a evaluaci
+
+1632
+01:43:53,539 --> 01:43:56,079
+a pak si tady podíváme na vlastně ty epochy.
+
+1633
+01:43:56,819 --> 01:43:58,159
+A tohle to je jenom vlastně
+
+1634
+01:43:58,359 --> 01:43:58,539
+...
+
+1635
+01:43:58,859 --> 01:44:02,880
+naplotování nebo vygearování obrázků,
+
+1636
+01:44:02,940 --> 01:44:07,440
+kterými pomáhají pochopit, co se v té fázi toho trénování dělo.
+
+1637
+01:44:07,960 --> 01:44:10,779
+A tady je pak ta testovací fáze,
+
+1638
+01:44:11,460 --> 01:44:13,899
+kde já jenom otestuju na těch datech,
+
+1639
+01:44:14,600 --> 01:44:20,000
+jak dobrý on vlastně byl, když skončili všechny epochy.
+
+1640
+01:44:20,000 --> 01:44:25,220
+To znamená, že já mu řeknu, ty data ti ukážu tisíckrát,
+
+1641
+01:44:25,739 --> 01:44:28,479
+Ty se na nich a budeš updateovat ty váhy.
+
+1642
+01:44:28,520 --> 01:44:30,779
+Po každém tom trénování
+
+1643
+01:44:30,779 --> 01:44:32,220
+já si taky zkontroluji,
+
+1644
+01:44:32,239 --> 01:44:34,579
+jestli ta validace nebo ten kousek dat,
+
+1645
+01:44:34,579 --> 01:44:36,699
+který já jsem ti nedal v rámci
+
+1646
+01:44:37,020 --> 01:44:38,500
+té jedné epochy dělám
+
+1647
+01:44:38,920 --> 01:44:40,359
+testování a validaci.
+
+1648
+01:44:40,520 --> 01:44:42,680
+Testování, validaci, testování, validaci,
+
+1649
+01:44:42,699 --> 01:44:44,300
+testování, validaci tisíckrát.
+
+1650
+01:44:44,699 --> 01:44:47,800
+Jakmile dokončím tato tisícovku,
+
+1651
+01:44:47,840 --> 01:44:52,000
+tak mu ukážu data, které on neviděl ani v jedné té epoše.
+
+1652
+01:44:52,140 --> 01:44:53,680
+A to jsou ty testovací data.
+
+1653
+01:44:54,059 --> 01:44:56,279
+A tam mu řeknu, a teď mi naposled vygeneruj,
+
+1654
+01:44:56,300 --> 01:44:58,699
+to je jako konečný rok písemka,
+
+1655
+01:44:59,020 --> 01:45:01,059
+tady máš tu písemku na konci roku
+
+1656
+01:45:01,239 --> 01:45:02,739
+a podle toho já uvidím,
+
+1657
+01:45:03,199 --> 01:45:06,239
+Jestli ty za něco stojíš nebo ne, protože tohle jsou data,
+
+1658
+01:45:06,260 --> 01:45:12,239
+o kterých ty vůbec nic nevíš. V životě se neviděl ani v jedný té epoše.
+
+1659
+01:45:12,359 --> 01:45:16,220
+Ani kdybych udělal chybu, tak vlastně ty si nemáš šanci
+
+1660
+01:45:16,359 --> 01:45:18,800
+backpropagovat a měnit váhy na těchto datech.
+
+1661
+01:45:18,940 --> 01:45:21,940
+Takže teď mi řekni, teď mi ukáž, jak jsi dobrý.
+
+1662
+01:45:22,479 --> 01:45:24,859
+Tak to je ta testovací fáze. Takže tři fáze.
+
+1663
+01:45:27,479 --> 01:45:29,460
+Trénovací, validační, testovací.
+
+1664
+01:45:31,039 --> 01:45:34,079
+Tak, jak se liší trénovací a validační?
+
+1665
+01:45:34,720 --> 01:45:37,739
+Můžete si říct. A tady je ten důkaz té backpropagace.
+
+1666
+01:45:37,779 --> 01:45:40,039
+To znamená, že tady jenom říkám tomu modelu, hele,
+
+1667
+01:45:40,520 --> 01:45:42,440
+přepni se do trénovacího módu
+
+1668
+01:45:43,260 --> 01:45:46,600
+a tady projedu celý ten dataloader
+
+1669
+01:45:47,180 --> 01:45:51,800
+a protože ten dataloader má definovaný tady batch size těch 10,
+
+1670
+01:45:51,800 --> 01:45:53,159
+tak on mi to bude dávat po deseti
+
+1671
+01:45:53,680 --> 01:45:57,180
+a já jenom řeknu, hele, všechno to hoď na GPU,
+
+1672
+01:45:57,180 --> 01:46:00,819
+to je takový nepostatný řádky, ale jenom abyste věděli, k čemu sloužej.
+
+1673
+01:46:01,300 --> 01:46:05,559
+Tady je ten forward pass, to znamená, hele, modely, tady máš ty vstupní data,
+
+1674
+01:46:06,440 --> 01:46:11,079
+vygeneruj mi tu predikci. Tadyhle já zavolám tu loss funkci,
+
+1675
+01:46:11,119 --> 01:46:15,899
+kterou jsem si tady nadefinoval. Ta mi řekne, jak velká je ta stráta,
+
+1676
+01:46:15,899 --> 01:46:21,819
+jak velká je ta chyba té predikce. A tady já to udělám tu backpropagaci zpátky.
+
+1677
+01:46:22,059 --> 01:46:26,640
+To znamená, že tady řeknu tomu optimizéru, hele, vyzíruj si gradient,
+
+1678
+01:46:27,899 --> 01:46:33,119
+Udělej ten backpropagaci, nebo ta loss si udělá backpropagaci a optimizer,
+
+1679
+01:46:33,359 --> 01:46:39,039
+updateuj ty váhy na základě toho, jak moc oni přispěli k té chybě.
+
+1680
+01:46:39,380 --> 01:46:43,079
+A tohle to se prostě bude dít, dokud já neprojedu všechny ty data.
+
+1681
+01:46:44,300 --> 01:46:46,500
+To znamená, že tohle je trénovací proces.
+
+1682
+01:46:47,619 --> 01:46:52,119
+Tady je evaluační proces, kde já mu řeknu, hele, překni se do evaluačního módu.
+
+1683
+01:46:52,760 --> 01:46:56,300
+A vidíte, že tady je to samý, akorát tady chybí ta backpropagace.
+
+1684
+01:46:56,319 --> 01:46:57,979
+Není tady ten backpropagační.
+
+1685
+01:46:58,260 --> 01:47:03,279
+Takže tadyhle tím já jenom vodněji chci, aby vygeneroval ty predikce jeho
+
+1686
+01:47:03,579 --> 01:47:06,100
+a já si spočítám, jak daleko je od pravdy.
+
+1687
+01:47:06,779 --> 01:47:08,000
+A uložím si to.
+
+1688
+01:47:09,059 --> 01:47:11,100
+A to je vlastně celý.
+
+1689
+01:47:11,119 --> 01:47:14,319
+A tím já si tady z průměru udělám si nějakou průměrnou
+
+1690
+01:47:16,059 --> 01:47:18,079
+chybu, kterou měl na ten dataset.
+
+1691
+01:47:18,739 --> 01:47:19,979
+A tyhle ty...
+
+1692
+01:47:20,600 --> 01:47:25,600
+Dvě fáze já projedu podle toho, kolik epoch já vlastně chci udělat.
+
+1693
+01:47:25,619 --> 01:47:26,779
+Takže tisíckrát.
+
+1694
+01:47:27,359 --> 01:47:30,460
+Poprvý udělám trénink na celých datech,
+
+1695
+01:47:30,559 --> 01:47:35,020
+spočínám si tady evaluaci nebo na těch validačních datech tu chybu.
+
+1696
+01:47:35,579 --> 01:47:38,180
+Já se teď podívám tady nějaký zprávy.
+
+1697
+01:47:38,180 --> 01:47:41,140
+Kdyby můj use case byl predikovat konkrétní cenu akcie,
+
+1698
+01:47:41,460 --> 01:47:44,399
+takhle změním loss funkci na regress MSL loss
+
+1699
+01:47:45,239 --> 01:47:49,659
+Ano, musel byste upravit ty data, který vlastně máte
+
+1700
+01:47:49,920 --> 01:47:54,020
+pro tu trénink, validační a test loader.
+
+1701
+01:47:54,100 --> 01:47:56,720
+Protože já mu tady dávám X a Y.
+
+1702
+01:47:57,199 --> 01:48:00,239
+X jsou ty čtyři hodnoty, open, high, low, close.
+
+1703
+01:48:00,239 --> 01:48:03,140
+Y mi říká tu výstup, ten output.
+
+1704
+01:48:03,440 --> 01:48:07,760
+Takže ten output, tady ty Y byste vy musel vlastně změnit.
+
+1705
+01:48:07,760 --> 01:48:13,380
+Já teď tady mám tu změnu té ceny,
+
+1706
+01:48:13,979 --> 01:48:16,800
+oproti předchozímu dní,
+
+1707
+01:48:16,899 --> 01:48:19,479
+vy byste tam musel mít tu cenu jako takovou.
+
+1708
+01:48:19,859 --> 01:48:22,699
+Ale ano, potom byste jenom změnil
+
+1709
+01:48:22,779 --> 01:48:26,859
+tu aktivační funkci a lost funkci.
+
+1710
+01:48:27,880 --> 01:48:31,479
+Jaký je běžný rozstyl learning rate?
+
+1711
+01:48:32,100 --> 01:48:34,020
+To myslím, že jsem to odpověděl.
+
+1712
+01:48:34,220 --> 01:48:37,300
+To je od těch 0,05 jsem tak viděl
+
+1713
+01:48:37,300 --> 01:48:40,079
+do těch 0,01, to je taky nejdetalnější,
+
+1714
+01:48:40,079 --> 01:48:40,859
+co jsem viděl.
+
+1715
+01:48:41,920 --> 01:48:55,119
+Čím menší learning rate, tím delší trénování. Ano, ano. Všechny tyhle věci ovlivňují vlastně jak paměť, kterou to používá, čím větší, víc hodnot v batch size, tím víc memory on bude potřebovat.
+
+1716
+01:48:55,119 --> 01:49:05,720
+Čím detalnější learning rate, tím víc času mu to bude trvat, protože je to víc detalnější a tak dále. Já myslím, že na to ještě mám jeden slide, kde se to tak nějak vysvětluje.
+
+1717
+01:49:06,979 --> 01:49:11,399
+Asi jsem nepochopil, nebo mi nějak uniklo, k čemu slouží ten learning rate.
+
+1718
+01:49:11,699 --> 01:49:15,739
+Slouží to pro optimizér v závislosti na tom,
+
+1719
+01:49:18,059 --> 01:49:20,800
+když on zjistí v průběhu backpropagace,
+
+1720
+01:49:20,800 --> 01:49:25,199
+jak moc ta daná váha ovlivnila tu chybu,
+
+1721
+01:49:25,859 --> 01:49:29,239
+tak každá ta váha je vlastně desetinný číslo.
+
+1722
+01:49:29,960 --> 01:49:34,279
+32-bytový desetinný číslo. 0,0 blablabla...
+
+1723
+01:49:34,840 --> 01:49:41,460
+A teď čím detálnější learning rate, tím vlastně menší změnu on udělá v té váze.
+
+1724
+01:49:41,840 --> 01:49:46,779
+Když ta změna bude takováhle, tak on bude dělat vlastně desetinný změny.
+
+1725
+01:49:47,359 --> 01:49:51,840
+Takže když on zjistí, že ta váha byla moc velká, tak ji zmenší ale o desetinu.
+
+1726
+01:49:52,199 --> 01:49:56,619
+Když mu dám tohleto číslo, tak on ji zmenší ale o tisícinu.
+
+1727
+01:49:57,180 --> 01:49:58,979
+Takže to je ta learning rate.
+
+1728
+01:50:00,000 --> 01:50:02,760
+Jak detální bude ta změna v té váze.
+
+1729
+01:50:04,760 --> 01:50:07,039
+Jaký má význam test na konci všech epoch?
+
+1730
+01:50:07,119 --> 01:50:09,460
+Pokud bych ho prováděl u požde epoše,
+
+1731
+01:50:09,479 --> 01:50:11,180
+výsledek by to nějak neovlivnilo.
+
+1732
+01:50:11,180 --> 01:50:14,220
+Spíš je to takové překvapení na konec, ne?
+
+1733
+01:50:14,220 --> 01:50:17,119
+Jo, je to takový jako další validace.
+
+1734
+01:50:17,140 --> 01:50:20,380
+Někdo třeba vůbec nepoužívá ten test jako na konci.
+
+1735
+01:50:20,380 --> 01:50:21,720
+Já zase, že pocházím,
+
+1736
+01:50:22,340 --> 01:50:25,739
+nebo mám nějakou zkušenost letitou s investování,
+
+1737
+01:50:25,739 --> 01:50:28,720
+tak tam jsme taky dělali algoritmické obchodování na burze
+
+1738
+01:50:29,119 --> 01:50:31,100
+a tam mi vždycky...
+
+1739
+01:50:32,940 --> 01:50:42,880
+Moje zkušenost říkala, že ten test na konci na něčem, co vůbec nebylo obsažený v žádný testovací fázi nebo tréninkový fázi,
+
+1740
+01:50:42,880 --> 01:50:46,119
+vždycky mi dalo ještě nějaký dodatečný obrázek.
+
+1741
+01:50:46,659 --> 01:50:48,699
+Takže uvidíte to i na těch blogpostech.
+
+1742
+01:50:49,039 --> 01:50:52,220
+Já to používám taky, nemusíte to ale použít.
+
+1743
+01:50:54,000 --> 01:50:56,340
+Tak, dobře.
+
+1744
+01:50:57,479 --> 01:51:17,140
+A teď jsou tady ty epochy, to znamená, že v rámci všech epoch já si budu ukládat všechny tréninkový stráty, validační stráty a budu si ukládat do souboru, to je tady ten soubor těch váh, to jsou ty váhy, to je to jediné důležité pro mě z celé té neuronové sítě, to vidíte tady, tady to je ten soubor.
+
+1745
+01:51:18,119 --> 01:51:23,420
+tak jenom v případě toho, že ta stráta v té validaci bude menší
+
+1746
+01:51:23,880 --> 01:51:27,319
+než ta moje nejmenší známá stráta,
+
+1747
+01:51:28,140 --> 01:51:31,539
+tak si tam uložím vlastně ty váhy té neuronové sítě.
+
+1748
+01:51:31,619 --> 01:51:33,539
+Takže tohle je jenom taková podmínka,
+
+1749
+01:51:33,559 --> 01:51:37,100
+hele, jestliže si našel lepší výsledek
+
+1750
+01:51:37,380 --> 01:51:40,279
+nebo váhy, které jí produkují lepší výsledek,
+
+1751
+01:51:40,319 --> 01:51:43,779
+tak mi je ulož, nebo přeulož tadyhle do toho souboru.
+
+1752
+01:51:45,279 --> 01:51:53,800
+Tak tady je nějaký obrázek, který to vygeneruje a pak tady je ten test, kdy zase já si nalouduji ty váhy z toho souboru,
+
+1753
+01:51:53,840 --> 01:51:58,659
+takže tohle to můžu udělat vlastně úplně v jiném souboru a pustit to třeba za týden, to je úplně jedno.
+
+1754
+01:51:58,779 --> 01:52:07,180
+Já mám uložený ty váhy, to je to důležité, takže si do té samé architektury toho stejného modelu nalouduji ty váhy,
+
+1755
+01:52:08,039 --> 01:52:17,699
+Hodím si na GPU, na GPU si hodím i ty testovací data z toho datasetu a pustím vlastně evaluaci.
+
+1756
+01:52:17,920 --> 01:52:21,079
+A začnu si ukládat tu test loss.
+
+1757
+01:52:21,420 --> 01:52:27,500
+Můžu z toho zase si opřepnout na nějaký evaluační fáze, řeknu PyTorchi, že žádný gradient změna tam nebude.
+
+1758
+01:52:28,000 --> 01:52:32,100
+Tady mi vygenerujou ty predikce a vyplotuj mi to tady.
+
+1759
+01:52:32,979 --> 01:52:35,779
+A teď si ukážeme, jak to vypadá.
+
+1760
+01:52:35,779 --> 01:52:39,899
+Já to jen pro představu vaší pustím tady, abyste viděli.
+
+1761
+01:52:42,559 --> 01:52:44,300
+Jo, a to tady nemám teď.
+
+1762
+01:52:44,300 --> 01:52:46,779
+Single UV.
+
+1763
+01:52:47,020 --> 01:52:49,020
+Je tady k tomu vždycky Readme,
+
+1764
+01:52:49,039 --> 01:52:53,739
+takže tady máte, já používám UV v Pythonu jako ten
+
+1765
+01:52:54,260 --> 01:53:02,300
+dependency manager a project manager, protože tady mám ten byproject, který mi říká, jaký dependency ten projekt má a tak dále.
+
+1766
+01:53:02,300 --> 01:53:12,039
+Tak já používám UV, takže tady máte UV-VEMF, tady vám to řekne aktivuj si ten virtuální environment pomocí téhle toho příkazu, zase máte ho tady.
+
+1767
+01:53:13,619 --> 01:53:17,539
+UV Sync mi vlastně nainstaluje všechny dependenci,
+
+1768
+01:53:17,539 --> 01:53:23,000
+je to jako npm install nebo .NET install,
+
+1769
+01:53:23,079 --> 01:53:25,960
+myslím, že mají taky tento .NET CLI.
+
+1770
+01:53:27,460 --> 01:53:31,539
+Tak, potom už to můžu postit, takže uvran main.py
+
+1771
+01:53:32,119 --> 01:53:34,520
+a teď mu mi začne tady něco dělat.
+
+1772
+01:53:34,520 --> 01:53:36,739
+Já vám tady ukážu ještě ten task manager,
+
+1773
+01:53:36,960 --> 01:53:39,680
+abyste viděli, že to vlastně běží na té kudě,
+
+1774
+01:53:39,680 --> 01:53:40,619
+tady jsem si to představil.
+
+1775
+01:53:41,239 --> 01:53:46,020
+Tak, tady je nějaká chyba, nevím proč, vteřinku.
+
+1776
+01:53:47,699 --> 01:53:53,039
+Solid size, same size, blablabl, evaluate, valid loader.
+
+1777
+01:53:54,539 --> 01:54:02,940
+Tak, já se tady schválně, schválně, já myslím, že vím, kde je chyba, ale...
+
+1778
+01:54:06,159 --> 01:54:09,000
+Blablabla, asi to je tenhle squeeze.
+
+1779
+01:54:11,220 --> 01:54:16,520
+Zkusím to jenom fixnout a kdyby se to nepovedlo, tak já to fixnu
+
+1780
+01:54:18,100 --> 01:54:23,279
+a pustím vám místo toho ten multidimensionální.
+
+1781
+01:54:33,020 --> 01:54:34,239
+Tak to je ono.
+
+1782
+01:54:34,680 --> 01:54:38,220
+Takže tady vidíte, že ta CUDA vlastně mi tady funguje.
+
+1783
+01:54:38,220 --> 01:54:41,579
+CPU mi nenabíhá nějak závratně,
+
+1784
+01:54:41,739 --> 01:54:45,380
+furt se drží tak na nějaký stejný úrovni, ale CUDA mi tady funguje.
+
+1785
+01:54:45,800 --> 01:54:47,899
+Takže vidíte, že tady to opravdu běželo
+
+1786
+01:54:48,940 --> 01:54:51,260
+nebo běží pořád na tom GPU,
+
+1787
+01:54:51,779 --> 01:54:53,199
+to je i validace pro vás,
+
+1788
+01:54:53,199 --> 01:54:55,739
+že vám to běží tam, kde chcete,
+
+1789
+01:54:55,760 --> 01:54:58,300
+nebo to je ten nejrychlejší možný způsob,
+
+1790
+01:54:58,659 --> 01:55:01,079
+kde vám to může běžet.
+
+1791
+01:55:01,199 --> 01:55:06,079
+Já tu změnu komitnu do toho REPa hned po hodině.
+
+1792
+01:55:09,199 --> 01:55:11,739
+Tak a teď vidíte, my jsme nadefinovali tisíc epoch,
+
+1793
+01:55:11,840 --> 01:55:14,479
+tady každá ta epocha a tady vidíte Training Loss,
+
+1794
+01:55:14,479 --> 01:55:17,340
+neboli na těch datech, který on trénuje,
+
+1795
+01:55:17,539 --> 01:55:20,380
+tak vidíte, že tady tu změnu,
+
+1796
+01:55:20,840 --> 01:55:24,559
+A tady je ta validační los, to znamená, že tam je pořád tak nějak klesá,
+
+1797
+01:55:24,579 --> 01:55:29,800
+vidíte, že pořád klesá 7, 10, 6, 9, pořád se jakoby učí na těch,
+
+1798
+01:55:29,840 --> 01:55:33,140
+nebo na těch datech, který nevidí v tým trénování,
+
+1799
+01:55:33,420 --> 01:55:35,920
+protože on je vždycky zapomene. Každou epochu...
+
+1800
+01:55:35,940 --> 01:55:41,000
+on zapomene to, co viděl v tom validačním datasetu.
+
+1801
+01:55:41,000 --> 01:55:43,680
+On si zapamatuje to, co viděl v tom trénovacím datasetu,
+
+1802
+01:55:43,699 --> 01:55:45,819
+protože to mu ovlivní ty váhy.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

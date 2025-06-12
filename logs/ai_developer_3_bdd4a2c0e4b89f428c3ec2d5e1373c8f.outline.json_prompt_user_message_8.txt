@@ -1,0 +1,1027 @@
+Transcript:
+
+=================
+1778
+02:01:53,739 --> 02:01:56,659
+Ale je to multiagentní framework, jak jsem říkal,
+
+1779
+02:01:56,680 --> 02:01:57,920
+takže tady pak děláte,
+
+1780
+02:01:58,579 --> 02:02:01,439
+Zapojujete více agentů dohromady,
+
+1781
+02:02:02,020 --> 02:02:04,600
+zase nám ještě chybí to vysvětlení pořádně,
+
+1782
+02:02:04,619 --> 02:02:07,380
+co to agent je, a jenom abyste si uvědomili,
+
+1783
+02:02:07,720 --> 02:02:10,159
+je to autonomní entita, která je schopná
+
+1784
+02:02:10,260 --> 02:02:12,500
+ten jazykový model používat za vás,
+
+1785
+02:02:12,500 --> 02:02:15,340
+a plus nějaký tooli, který máte k dispozici,
+
+1786
+02:02:15,819 --> 02:02:19,699
+A jak si umíte představit, tak když si to připodobníme k lidem,
+
+1787
+02:02:19,699 --> 02:02:23,539
+tak jeden agent rovná se jeden člověk, tak asi můžete dát do týmu
+
+1788
+02:02:23,699 --> 02:02:27,800
+víc než jednoho člověka, to znamená, tady je ten princip úplně stejnej.
+
+1789
+02:02:27,939 --> 02:02:32,100
+Jakmile máte kooperaci více lidí, více agentů dohromady,
+
+1790
+02:02:32,100 --> 02:02:34,659
+tak už se bavíte o nějakém multiagentním frameworku.
+
+1791
+02:02:35,079 --> 02:02:39,720
+A zase můžete mít všechny lidi v tom týmu rovný, takže máte tady nějaký
+
+1792
+02:02:40,460 --> 02:02:42,800
+chat, kdy každej má stejné slovo,
+
+1793
+02:02:42,819 --> 02:02:45,140
+nebo pak máte nějakou hierarchickou strukturu,
+
+1794
+02:02:45,279 --> 02:02:48,020
+máte nějakého manažera a pod ním máte prostě tři lidi,
+
+1795
+02:02:48,039 --> 02:02:51,100
+takže tady jsou ty struktury pak hodně podobné tomu,
+
+1796
+02:02:51,100 --> 02:02:54,899
+co znáte z bězního života o lidech.
+
+1797
+02:02:56,039 --> 02:02:59,079
+Tak, 58. Mám ještě dvě minuty k dobru.
+
+1798
+02:02:59,659 --> 02:03:04,600
+K tomuhle tomu nějaké otázky asi je zbytečný se ptát,
+
+1799
+02:03:04,600 --> 02:03:06,500
+protože tady máme spoustu otázek v chatu.
+
+1800
+02:03:06,579 --> 02:03:10,680
+Kdyby někdo chtěl samozřejmě, tak se odmňujte a zeptejte se.
+
+1801
+02:03:11,039 --> 02:03:16,359
+Já tady než začnu číst pomalu ty otázky a přesunuli bychom se do té sekce,
+
+1802
+02:03:16,899 --> 02:03:19,920
+kde já se budu snažit odpovědět na otázky.
+
+1803
+02:03:20,060 --> 02:03:22,899
+Oficiálně teda ta hodina končí, já jsem vám řekl všechno,
+
+1804
+02:03:22,899 --> 02:03:27,699
+co jsem s vámi říct potřeboval nebo chtěl i
+
+1805
+02:03:28,479 --> 02:03:31,500
+a teď už teda bude taková ta neformální část,
+
+1806
+02:03:31,520 --> 02:03:33,279
+který se nemusí teď zúčastnit.
+
+1807
+02:03:36,460 --> 02:03:39,939
+Asi pojďme na ty otázky, jsou docela dobrý v tom četu.
+
+1808
+02:03:40,119 --> 02:03:42,399
+Jo, tak jo, tak pojďme na to.
+
+1809
+02:03:43,619 --> 02:03:50,840
+Já ještě budu muset si hrát s Kubernetesem, takže jestli tady někdo je nějakej Kubernetes expert,
+
+1810
+02:03:52,840 --> 02:03:55,779
+tak je to dobrý, tak bysme si mohli někdy pokecat.
+
+1811
+02:03:56,979 --> 02:04:04,399
+Abych vám mohl někdy ukázat tady to, na čem pracuju.
+
+1812
+02:04:07,819 --> 02:04:11,659
+Mám tady tu IP adresu 4.2.
+
+1813
+02:04:13,939 --> 02:04:20,479
+No já budu to tady upozdit, co ne, držu ani.
+
+1814
+02:04:21,720 --> 02:04:27,159
+Tak, já jsem skončil tady u Alexe, jasně, to jsme si řekli.
+
+1815
+02:04:27,479 --> 02:04:31,300
+Já to teda tady dám takhle, ať to vidíme všichni.
+
+1816
+02:04:32,779 --> 02:04:40,439
+Interní dokumentaci firmy jsme probrali, RAC jsme tak nějak probrali, nasyplat do vektorových databas, řekne Lukáš, to jsem říkal.
+
+1817
+02:04:40,739 --> 02:04:47,680
+Ten moderation check to musíme dělat, RAC si myslím, že nemá úplně limit, to jsme taky říkali, pak je otázka k trémním dokumentům.
+
+1818
+02:04:48,460 --> 02:04:52,020
+A to, že se asi schopen ošetřit ve věktordý bývalo, má asi moc ne.
+
+1819
+02:04:52,100 --> 02:04:55,220
+Pak je otázka vpráv k firemním dokumentům.
+
+1820
+02:04:55,220 --> 02:04:56,739
+Ano, to máte pravdu.
+
+1821
+02:04:56,880 --> 02:04:59,960
+Pak v případě, že budete potřebovat řešit něco jako,
+
+1822
+02:04:59,979 --> 02:05:02,439
+že tahle účetní má mít přístup k tomuhle,
+
+1823
+02:05:02,979 --> 02:05:09,579
+tehle ten junior salesman má mít přístup k tomuhle,
+
+1824
+02:05:09,840 --> 02:05:12,739
+pak se bavíme zase o té softwarové vrstvě.
+
+1825
+02:05:12,739 --> 02:05:16,300
+Tam budete řešit práva, role a tak dále.
+
+1826
+02:05:16,000 --> 02:05:20,020
+ale takže pak se tom si hodí, tam byste buď,
+
+1827
+02:05:20,199 --> 02:05:25,500
+on by si povídal prostě s jiným modelem, který ten model by měl naučený jiný data,
+
+1828
+02:05:25,800 --> 02:05:28,520
+anebo pak se přistupuje k jiný vektorový databázi.
+
+1829
+02:05:29,079 --> 02:05:32,199
+Tohle se asi dělá si guide renal po vstupu s LLM,
+
+1830
+02:05:32,199 --> 02:05:34,939
+další model, který prostě jen zkontroluje výstup,
+
+1831
+02:05:35,020 --> 02:05:39,000
+že neobsahuje něco, co nechceš, anebo to ani nedávat
+
+1832
+02:05:39,260 --> 02:05:41,500
+do těch trénovacích RAC souborů.
+
+1833
+02:05:42,340 --> 02:05:45,199
+No, guide rails, ty jsou zocela zajímavý.
+
+1834
+02:05:45,260 --> 02:05:48,500
+Já jsem do toho ještě neměl čas pořádně si kouknout,
+
+1835
+02:05:48,500 --> 02:05:50,579
+nebo se tak úplně mě to nezajímá,
+
+1836
+02:05:51,479 --> 02:05:55,479
+ale co jsem si čet, tak je to opravdu vnitřní struktura
+
+1837
+02:05:55,479 --> 02:05:58,720
+toho velkého říkají modelu a tím, jak to prochází
+
+1838
+02:05:58,859 --> 02:06:02,300
+různýma vrstvama v tom modelu, v tom transformeru,
+
+1839
+02:06:02,779 --> 02:06:06,140
+tak mezi dvouma vrstvama je ten guide rail
+
+1840
+02:06:06,140 --> 02:06:07,880
+a hrozně blbě se toho zbavuje.
+
+1841
+02:06:07,880 --> 02:06:08,659
+Já jsem jenom tak...
+
+1842
+02:06:09,840 --> 02:06:13,560
+chtěl zjistit, jak těžký je vlastně najít nějaký model,
+
+1843
+02:06:13,939 --> 02:06:16,020
+který nemá žádný guide rails,
+
+1844
+02:06:16,060 --> 02:06:18,060
+nebo má minimální guide rails.
+
+1845
+02:06:18,300 --> 02:06:20,960
+Jako ne, že bych chtěl zjistit, jak vyrobit jet
+
+1846
+02:06:21,899 --> 02:06:24,600
+pro lidi, který ho zabije za 24 hodin,
+
+1847
+02:06:24,600 --> 02:06:28,260
+ale říkal jsem si, že občas by se mi to mohlo hodit.
+
+1848
+02:06:29,199 --> 02:06:32,239
+Třeba když někdo nasere, tak že bych si zjistil,
+
+1849
+02:06:32,239 --> 02:06:33,539
+jak ho heknout.
+
+1850
+02:06:34,380 --> 02:06:41,800
+Dolphin LLM modely, oni se takhle jmenují Dolphin vždycky,
+
+1851
+02:06:43,279 --> 02:06:45,699
+A jo, tady, Dolphin,
+
+1852
+02:06:45,699 --> 02:06:46,899
+no, tenhle ten.
+
+1853
+02:06:47,739 --> 02:06:50,340
+Tak tenhle ten jenom jsem vám chtěl ukázat,
+
+1854
+02:06:50,520 --> 02:06:51,720
+jenom že jsem to našel,
+
+1855
+02:06:51,720 --> 02:06:54,039
+nebo našel, na pár místech
+
+1856
+02:06:54,039 --> 02:06:55,520
+je doporučovaný v těch blogách, tak
+
+1857
+02:06:56,000 --> 02:06:58,079
+tohle to by měl být nějaký model,
+
+1858
+02:06:58,079 --> 02:06:59,939
+který byli schopni přetrénovat
+
+1859
+02:06:59,960 --> 02:07:01,939
+na to, aby mu nějaký ty guide rails
+
+1860
+02:07:02,319 --> 02:07:03,119
+zrušili.
+
+1861
+02:07:03,500 --> 02:07:08,760
+tak oni ho i nějak testovali, byste se dočetli.
+
+1862
+02:07:09,100 --> 02:07:12,619
+Tomáš, na to jsem odpovídal, já tým o guard race,
+
+1863
+02:07:12,619 --> 02:07:15,880
+a já jsem to myslel takovým způsobem, že je to v podstatě další model,
+
+1864
+02:07:15,920 --> 02:07:18,039
+který kontroluje výstup co LLNK.
+
+1865
+02:07:18,699 --> 02:07:35,180
+Takhle, kdyby jsi chtěl limitovat nebo ovlivňovat to, co je dovolené poslat dál, tak to ano, chápeš správně, takhle se řeší spousta problémů, že těch volání víc, takže jeden z toho volání pak může být.
+
+1866
+02:07:35,520 --> 02:07:37,619
+nějaká kontrola toho, jestli
+
+1867
+02:07:38,319 --> 02:07:39,359
+to neobsahuje něco
+
+1868
+02:07:39,479 --> 02:07:41,340
+proti dětem, nebo řeší se tak
+
+1869
+02:07:41,399 --> 02:07:43,659
+třeba věci, takový,
+
+1870
+02:07:43,720 --> 02:07:45,859
+je to takový naivnější řešení,
+
+1871
+02:07:46,140 --> 02:07:47,380
+spíš by se to mělo řešit buď
+
+1872
+02:07:47,380 --> 02:07:48,880
+nějakým fine tuningem, nebo
+
+1873
+02:07:49,220 --> 02:07:51,279
+nějakým ragiem, ale třeba si představ
+
+1874
+02:07:51,460 --> 02:07:53,180
+situaci, že máš společnost
+
+1875
+02:07:53,199 --> 02:08:02,840
+Máš tam jakýho chatbota a teď prodáváš zase ty střeční tašky a nechceš, aby se tam doporučoval Tondach, nebo jak se to jmenuje ta známá firma.
+
+1876
+02:08:03,020 --> 02:08:05,420
+Tak takovýmhle způsobem bys něco takového řešil.
+
+1877
+02:08:05,560 --> 02:08:08,659
+Vždycky bys si znechal vygenerovat odpověď tomu uživateli,
+
+1878
+02:08:08,659 --> 02:08:12,739
+ten se ptá na nějaký tvůj webový stránce o těch tvých taškách,
+
+1879
+02:08:12,739 --> 02:08:15,819
+náhodou ten model vygeneruje nějakou odpověď, kde doporučí tomu dach,
+
+1880
+02:08:15,939 --> 02:08:19,939
+tak ty to přesně přepošleš ještě do jednoho modelu a zkontroluješ si to.
+
+1881
+02:08:19,939 --> 02:08:24,060
+Nicméně držte v hlavě, že tam máš pak double pricing.
+
+1882
+02:08:25,420 --> 02:08:29,000
+Pak už se pro tebe začíná být výhodnější právě ten fine tuning,
+
+1883
+02:08:29,000 --> 02:08:29,460
+protože...
+
+1884
+02:08:29,800 --> 02:08:31,220
+tam mu to vlastně
+
+1885
+02:08:31,319 --> 02:08:33,420
+vysvětlíš, nějak ho přesvědčíš,
+
+1886
+02:08:33,460 --> 02:08:35,619
+o tom natreneš mu ty váhy,
+
+1887
+02:08:35,899 --> 02:08:37,279
+pak nějakým benchmarkingem
+
+1888
+02:08:37,279 --> 02:08:39,559
+se zase zjistíš, že
+
+1889
+02:08:39,559 --> 02:08:41,500
+on ten tondach už vynechal
+
+1890
+02:08:41,520 --> 02:08:42,739
+z těch svojich odpovědí
+
+1891
+02:08:42,940 --> 02:08:45,260
+a pro tom nasazení
+
+1892
+02:08:45,399 --> 02:08:47,340
+je to pro tebe levnější varianta.
+
+1893
+02:08:51,000 --> 02:08:55,500
+Tak, teď jsem... jo, to je taky guide rail.
+
+1894
+02:08:55,539 --> 02:08:57,479
+Máš nějaké dobré zkušenosti s environment,
+
+1895
+02:08:57,520 --> 02:09:00,659
+nebo osobně jsi přešel na TOML konfigy?
+
+1896
+02:09:01,079 --> 02:09:05,579
+Já jedu environment file-y tím, že já jedu hlavně Kubernetes,
+
+1897
+02:09:05,920 --> 02:09:11,420
+tam já vlastně všechno cpuju tím deploymentům přes environment variables
+
+1898
+02:09:12,180 --> 02:09:14,319
+nebo nějaký secrety, který mám
+
+1899
+02:09:15,559 --> 02:09:17,720
+uložený v nějakém konfigu,
+
+1900
+02:09:18,559 --> 02:09:19,779
+ale toml konfigy
+
+1901
+02:09:20,100 --> 02:09:22,100
+nepoužívám. Snažím se
+
+1902
+02:09:23,539 --> 02:09:24,100
+i yaml
+
+1903
+02:09:24,220 --> 02:09:26,420
+faily, tak nějak se tomu vyhybám. Radši mám
+
+1904
+02:09:26,479 --> 02:09:28,100
+jason faily, je to ale
+
+1905
+02:09:28,159 --> 02:09:29,460
+spíš osobní preference.
+
+1906
+02:09:29,899 --> 02:09:32,239
+Nemám k tomu žádný důvod.
+
+1907
+02:09:33,479 --> 02:09:35,039
+To jisté mi napadá při
+
+1908
+02:09:35,159 --> 02:09:37,059
+UV versus venv,
+
+1909
+02:09:37,180 --> 02:09:38,340
+pip versus poetry.
+
+1910
+02:09:38,340 --> 02:09:40,819
+Proč si právě volil UV prezprávu
+
+1911
+02:09:40,920 --> 02:09:41,899
+knižnici?
+
+1912
+02:09:42,420 --> 02:09:45,239
+Volil jsem to na základě doporučení
+
+1913
+02:09:45,239 --> 02:09:47,340
+mých kolegů z Ameriky,
+
+1914
+02:09:47,340 --> 02:09:49,199
+z Microsoftu. Já jsem původně
+
+1915
+02:09:49,260 --> 02:09:50,479
+používal poetry všude
+
+1916
+02:09:52,059 --> 02:09:53,239
+a vlastně UV,
+
+1917
+02:09:53,819 --> 02:09:55,020
+co mi bylo vysvětlené,
+
+1918
+02:09:55,100 --> 02:09:57,260
+tak je napsané
+
+1919
+02:09:57,260 --> 02:09:57,640
+v
+
+1920
+02:09:58,940 --> 02:10:04,279
+Teď jsem zatím měl ten jazyk v Rustu, což...
+
+1921
+02:10:04,420 --> 02:10:10,119
+Já nevím, jestli kolik programovacích jazyků znáte, ale já už jsem si prošel
+
+1922
+02:10:10,159 --> 02:10:18,119
+dotnet, javu, javascript, typescript, python, golang,
+
+1923
+02:10:19,659 --> 02:10:24,619
+SQL nepovažuji za programovací jazyk, nebo nechci nikomu vrazit, ale
+
+1924
+02:10:24,619 --> 02:10:27,279
+to je spíš jako datavázový jazyk, takže tyhle neberu.
+
+1925
+02:10:27,859 --> 02:10:32,460
+Takže Golang pro mě byl převratný jazyk,
+
+1926
+02:10:32,460 --> 02:10:34,500
+protože je to prostě strašně rychlý.
+
+1927
+02:10:34,539 --> 02:10:39,020
+Úplně jsem pochopil, proč se v tom píšou všechny cloudový věci,
+
+1928
+02:10:39,279 --> 02:10:44,140
+proč Kubernetes je v Golangu, proč Docker je v Golangu,
+
+1929
+02:10:44,319 --> 02:10:50,579
+proč, já nevím, teď nechci kecat, ale Prometheus je v Golangu.
+
+1930
+02:10:50,579 --> 02:10:53,079
+Všechny ty věci prostě jsou v Golangu
+
+1931
+02:10:53,159 --> 02:10:54,840
+a všechny ty věci jsou strašně rychlý.
+
+1932
+02:10:55,260 --> 02:10:58,220
+tak jsem už pochopil, když jsem se ho naučil proč,
+
+1933
+02:10:58,239 --> 02:11:00,859
+tak Rust má být jako alternativa.
+
+1934
+02:11:01,979 --> 02:11:05,059
+Zase můžeme se o tom hádat, ale tak obecně
+
+1935
+02:11:05,140 --> 02:11:07,119
+by to měla být alternativa k tomu Golangu
+
+1936
+02:11:08,079 --> 02:11:13,059
+a teď Microsoft lidi hodně tíhnou k tomu Rustu,
+
+1937
+02:11:13,059 --> 02:11:14,979
+nicméně teď jsem se dozvěděl,
+
+1938
+02:11:15,940 --> 02:11:20,539
+že build pro Teamsy byl přepsanej do Golangu
+
+1939
+02:11:20,539 --> 02:11:22,840
+a teď se to desetkrát zrychlilo, takže...
+
+1940
+02:11:23,319 --> 02:11:30,699
+U UV je napsaný v rastu, cokoliv je napsaný v rastu nebo v golingu, tak je vždycky rychlejší.
+
+1941
+02:11:30,899 --> 02:11:35,659
+Takže z toho důvodu já jsem přešel do toho UVčka, protože je to
+
+1942
+02:11:35,659 --> 02:11:38,699
+pekelně rychlý a je to moderní.
+
+1943
+02:11:38,880 --> 02:11:41,559
+Všichni teď do toho přecházejí. Když se podíváte na
+
+1944
+02:11:42,159 --> 02:11:46,319
+Zdrojáky autogenu taky používají UV.
+
+1945
+02:11:46,319 --> 02:11:51,819
+Ještě jsem viděl, zase si nepamatuju přesně ty produkty pajtní,
+
+1946
+02:11:51,819 --> 02:11:54,520
+tak ty taky používají většina z nich UV.
+
+1947
+02:11:56,539 --> 02:11:59,699
+Teď jsem měl pocit, že se mi to dostává na jazyk a nedostalo.
+
+1948
+02:12:00,220 --> 02:12:01,680
+Takže z toho důvodu UV.
+
+1949
+02:12:02,539 --> 02:12:06,440
+Dejme tomu, že bychom použili tuhle metodu pro učení SQL dotazů.
+
+1950
+02:12:06,440 --> 02:12:08,640
+Dáme mu nějaký user, najdi mi všechny uživatele
+
+1951
+02:12:09,420 --> 02:12:13,779
+Nebo user, vrátí mi všechny uživatele, dostanu assistant, select, dvě zdička, from, ano.
+
+1952
+02:12:14,460 --> 02:12:20,579
+To jsou přesně ty use kizik, na který se to dá velmi hezky použít.
+
+1953
+02:12:21,199 --> 02:12:25,479
+Musím mu dát všechny možné varianty toho dotazu od uživatele? Ne.
+
+1954
+02:12:26,059 --> 02:12:29,220
+Tam je důležitý, aby on pochopil strukturu databáze,
+
+1955
+02:12:30,140 --> 02:12:33,619
+a byl schopný ten select vytvořit.
+
+1956
+02:12:33,840 --> 02:12:36,720
+On zná už ty selecty, on umí tvořit selecty,
+
+1957
+02:12:36,739 --> 02:12:39,100
+on ví, co jsou joiny, left joiny, right joiny,
+
+1958
+02:12:39,100 --> 02:12:40,720
+jak to funguje, to on už zná,
+
+1959
+02:12:40,720 --> 02:12:42,699
+protože na tom byl natrénovanej.
+
+1960
+02:12:42,920 --> 02:12:46,159
+Teď je tvůj úkol, teď by byl,
+
+1961
+02:12:46,680 --> 02:12:50,359
+aby on pochopil, jaká je struktura té databáze
+
+1962
+02:12:50,720 --> 02:12:53,760
+a jaký tabulky vlastně k sobě má joinovat tak,
+
+1963
+02:12:53,760 --> 02:12:56,319
+aby tomu uživateli správně odpověděl.
+
+1964
+02:12:56,479 --> 02:12:59,840
+Takže já bych se ho spíš snažil učit
+
+1965
+02:13:00,819 --> 02:13:02,680
+strukturu té databáze,
+
+1966
+02:13:02,779 --> 02:13:05,600
+nebo napsal takovej rak,
+
+1967
+02:13:05,600 --> 02:13:08,319
+který by mi vždycky v závislosti na tom,
+
+1968
+02:13:10,300 --> 02:13:12,380
+jaký by byl dotaz toho uživatele,
+
+1969
+02:13:12,380 --> 02:13:16,180
+správně vlastně vytáhnul ty struktury
+
+1970
+02:13:16,659 --> 02:13:17,460
+nebo ty...
+
+1971
+02:13:17,680 --> 02:13:20,159
+předpisy, teď mi vypadly ty slova,
+
+1972
+02:13:21,520 --> 02:13:23,460
+ta struktura vlastně té tabulky,
+
+1973
+02:13:23,479 --> 02:13:25,260
+ty datašíty k té tabulce,
+
+1974
+02:13:25,440 --> 02:13:26,920
+tak ty abych vytáhl správně
+
+1975
+02:13:27,119 --> 02:13:29,260
+a pak mu jenom dal do nějakého kontextu
+
+1976
+02:13:29,460 --> 02:13:31,059
+a připlásil mu tam ten dotaz
+
+1977
+02:13:31,059 --> 02:13:33,720
+toho uživatele, on už tím pádem bude vědět,
+
+1978
+02:13:33,720 --> 02:13:35,460
+jaký tabulky k tomu má použít
+
+1979
+02:13:35,539 --> 02:13:36,819
+a ten sípl dotaz už
+
+1980
+02:13:37,819 --> 02:13:39,319
+jako zvládne zkonstruovat.
+
+1981
+02:13:41,600 --> 02:13:47,159
+musí najít všechny možné způsoby, formy, kterýma se uživatel zeptá na ten samej dotaz.
+
+1982
+02:13:47,159 --> 02:13:52,800
+Ne ne ne, tam stačí jeden příklad a to on už pochopí.
+
+1983
+02:13:53,020 --> 02:13:55,399
+Já bych k tomu hlavně tak měl dotaz,
+
+1984
+02:13:55,399 --> 02:14:00,819
+jak třeba uvlivním, že já mu ukážu veškerou databázi, všechny tably, co mám,
+
+1985
+02:14:00,819 --> 02:14:08,680
+ale nechci, aby některé věci vracel, třeba řekněme nějakou tabulku autentikace a takovýhle věci.
+
+1986
+02:14:09,079 --> 02:14:10,920
+jak tomu vlastně zabráním,
+
+1987
+02:14:11,020 --> 02:14:12,600
+pokud on bude schopný vytvořit ten SQL
+
+1988
+02:14:12,600 --> 02:14:14,800
+dotaz, nebo komand,
+
+1989
+02:14:15,699 --> 02:14:17,079
+tak ty data čistě
+
+1990
+02:14:17,180 --> 02:14:19,079
+teoreticky může vrátit, ale někdo to může
+
+1991
+02:14:19,159 --> 02:14:20,079
+potom vždy odboryknout.
+
+1992
+02:14:20,579 --> 02:14:23,100
+No, to bych mu radši spíš nedával
+
+1993
+02:14:23,260 --> 02:14:23,720
+vůbec.
+
+1994
+02:14:23,720 --> 02:14:26,199
+Nebude dával práva vůbec na tu tabulku, ne?
+
+1995
+02:14:26,199 --> 02:14:28,760
+No, tyhle tabulky bych vůbec
+
+1996
+02:14:28,760 --> 02:14:30,680
+k němu jako by nepouštěl.
+
+1997
+02:14:30,680 --> 02:14:33,199
+Nepouštěl. A pokud by to bylo
+
+1998
+02:14:33,199 --> 02:14:36,119
+nějaký předfiltrování
+
+1999
+02:14:36,399 --> 02:14:37,760
+něčeho takovýho,
+
+2000
+02:14:37,940 --> 02:14:38,479
+tak...
+
+2001
+02:14:39,720 --> 02:14:43,079
+Zase dál by se tam dát nějakej model, který mu by se vysvětlil,
+
+2002
+02:14:43,140 --> 02:14:47,180
+který tabulky v žádným předmá z toho dotazu vynechávat.
+
+2003
+02:14:48,020 --> 02:14:51,359
+Já bych mu je nedával prostě. Já bych mu je radši nedal.
+
+2004
+02:14:51,659 --> 02:15:00,220
+Já bych měl radši víc, víc různých typů tý databáze,
+
+2005
+02:15:01,000 --> 02:15:10,119
+V závislosti na tom, kdo se ptá, tak bych ho vždycky vytáhnul ty příslušní tabulky jenom z té databáze, do kterých on má přístup.
+
+2006
+02:15:10,119 --> 02:15:18,039
+Kdyby to byl sales obchodák, má zase nějakou sadu tabulek, nějakou olabovou kostku, ze který může se ptát,
+
+2007
+02:15:18,039 --> 02:15:21,199
+tak tam bych vždycky z toho vytáhával ty příslušní tabulky.
+
+2008
+02:15:21,640 --> 02:15:26,199
+Ten model může být stejný, ale já bych mu vlastně filtroval to, odkuď beru ty tabulky.
+
+2009
+02:15:27,079 --> 02:15:31,059
+A když mu někdo zakáže přístup takhle do těch databází,
+
+2010
+02:15:31,180 --> 02:15:36,140
+ne jako na databázový level, ale přímo jako v rámci učení,
+
+2011
+02:15:36,340 --> 02:15:40,100
+je možný, že ho někdo dokáže převluvit k tomu,
+
+2012
+02:15:40,180 --> 02:15:44,159
+aby on revealnul tyhle informace, i když to má nějak střihně zakázané
+
+2013
+02:15:44,159 --> 02:15:45,960
+v rámci toho fine-tuningu?
+
+2014
+02:15:46,840 --> 02:15:50,659
+Pokud on sám si bude určovat výbírání toolů,
+
+2015
+02:15:51,340 --> 02:15:58,399
+AI agent, pokud byste takovýho měli, ale měl sadu databází, kterých se může ptát,
+
+2016
+02:15:59,159 --> 02:16:04,319
+a on sám by si měl vlastně vybrat podle toho dotazu, který ty databáze se podívá,
+
+2017
+02:16:04,619 --> 02:16:12,479
+tak ano, tam ho velmi snadno můžete překécat k tomu, aby se podíval do té zakázané databáze.
+
+2018
+02:16:12,659 --> 02:16:13,920
+Tam bych to spíš hlédal,
+
+2019
+02:16:14,960 --> 02:16:17,640
+zabezpečoval nějakým deterministickým
+
+2020
+02:16:17,739 --> 02:16:19,300
+způsobem. To znamená, že tam
+
+2021
+02:16:19,420 --> 02:16:21,699
+se přesně hodí ten váš kód.
+
+2022
+02:16:22,619 --> 02:16:23,239
+Jakoby
+
+2023
+02:16:24,000 --> 02:16:29,720
+Proto si myslím, že ten software engineering a software inženýři pořád budou potřeba,
+
+2024
+02:16:29,739 --> 02:16:37,959
+i když ve velmi omezeném množství, ne jako teď, že my držíme prostě za koule všechny ty manažery,
+
+2025
+02:16:38,040 --> 02:16:44,100
+protože oni vědí, že když my odejdeme, tak se jim hůř budou hledat náhrady,
+
+2026
+02:16:44,100 --> 02:16:46,700
+asi víte, o čem mluvím, tak...
+
+2027
+02:16:48,280 --> 02:16:50,579
+Tam se ta situace začne rychle otáčet,
+
+2028
+02:16:50,739 --> 02:16:52,180
+protože oni za sebou držet
+
+2029
+02:16:52,399 --> 02:16:54,219
+zakoule nás a budou mít
+
+2030
+02:16:54,280 --> 02:16:56,299
+za nás ty juniorský náhrady,
+
+2031
+02:16:56,319 --> 02:16:58,000
+to budou ty agenti, ty se budou stávat
+
+2032
+02:16:58,000 --> 02:17:00,479
+postupně chytřejší a chytřejší, budou toho dokazovat
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

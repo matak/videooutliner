@@ -1,0 +1,1091 @@
+Transcript:
+
+=================
+842
+00:52:01,019 --> 00:52:06,840
+můžete testovat různý hackovací věci,
+
+843
+00:52:06,840 --> 00:52:08,380
+k tomu se zase dostaneme.
+
+844
+00:52:08,659 --> 00:52:12,159
+Potom doporučuji vyzkoušet si Gemini od Google.
+
+845
+00:52:12,760 --> 00:52:15,220
+Taky to má svoje někdy výhody, nevýhody.
+
+846
+00:52:15,720 --> 00:52:18,220
+To je přesně proto, že si musíte s těma modelama
+
+847
+00:52:18,220 --> 00:52:20,539
+trochu zkusit popovídat.
+
+848
+00:52:20,539 --> 00:52:22,159
+Zase Gemini je produkt,
+
+849
+00:52:23,000 --> 00:52:29,359
+Takže máte tady nějaký deep search, nevidíte tady parametry toho modelu atd.
+
+850
+00:52:30,059 --> 00:52:34,859
+Potom máte Google AI Studio, tam si zase povídáte s tím API jako takovým.
+
+851
+00:52:35,000 --> 00:52:38,119
+Takže tady pak máte přesně nastavení temperature,
+
+852
+00:52:38,500 --> 00:52:48,279
+což je jak moc si ten model vlastně bude vymýšlet a jak moc bude sedržet pravdy od 0 do 1.
+
+853
+00:52:49,000 --> 00:52:52,599
+Zase tady máte nějaké tooly, které k tomu můžete použít atd.
+
+854
+00:52:54,119 --> 00:53:05,460
+Další je, já se k tomu dostanu, další je GROK od Elona,
+
+855
+00:53:05,460 --> 00:53:12,800
+nebo XAI teď už, takže GROK.com, zase má to nějaké výhody,
+
+856
+00:53:12,840 --> 00:53:16,079
+víte, jak Elon je vystřelený teď posledním dobou,
+
+857
+00:53:16,099 --> 00:53:22,119
+takže ty jeho modely prostě občas vypadají,
+
+858
+00:53:22,680 --> 00:53:25,760
+Mají rádi humor, takový zvláštní atd.
+
+859
+00:53:26,000 --> 00:53:32,859
+A potom máte konzole XAI, což se zase si povídáte s tím API.
+
+860
+00:53:32,880 --> 00:53:38,059
+Tak byste si zase nastavili ten billing a mohli byste se s tím povídat.
+
+861
+00:53:38,279 --> 00:53:43,800
+Proč vlastně vůbec ukazuju to AI, teda API?
+
+862
+00:53:44,559 --> 00:53:49,059
+Vy k tomu dostanete klíč, nebo si můžete vytvořit klíč k tomu API.
+
+863
+00:53:49,059 --> 00:53:52,720
+V tu chvíli jste schopný psát si vlastní skripty,
+
+864
+00:53:53,059 --> 00:53:55,519
+které se s tím API budou povídat.
+
+865
+00:53:55,519 --> 00:53:58,279
+To znamená, že můžete si v tu chvíli začít automatizovat věci.
+
+866
+00:53:58,420 --> 00:54:00,500
+Můžete si začít psát vlastní skripty,
+
+867
+00:54:00,500 --> 00:54:03,739
+které budou za vás řešit automaticky nějaké problémy.
+
+868
+00:54:03,739 --> 00:54:07,539
+To budete potřebovat, když začneme řešit AI agenty
+
+869
+00:54:07,640 --> 00:54:08,779
+a všechny ty frameworky.
+
+870
+00:54:09,440 --> 00:54:12,279
+Takže jenom, abyste chápali v dnešní hodině ten rozdíl,
+
+871
+00:54:13,400 --> 00:54:18,039
+mezi tím produktem, když používáte něco jako HGPT
+
+872
+00:54:18,119 --> 00:54:20,619
+a tím APIčkem jako takovým.
+
+873
+00:54:20,819 --> 00:54:22,319
+To je surovější forma.
+
+874
+00:54:22,599 --> 00:54:26,420
+Úplně nejsurovější forma, nebo nejsirovější forma je,
+
+875
+00:54:26,859 --> 00:54:31,579
+když si povídáte přímo s tím modelem i bez toho APIčka.
+
+876
+00:54:32,779 --> 00:54:35,539
+Protože tyhle ty APIčka, který máte,
+
+877
+00:54:37,819 --> 00:54:41,659
+to je zase malej ten obrázek,
+
+878
+00:54:42,220 --> 00:54:46,119
+I bez toho APIčka tady.
+
+879
+00:54:48,880 --> 00:54:51,579
+Ty APIčka, které vám poskytujou ty třetí strany,
+
+880
+00:54:51,579 --> 00:54:52,900
+jako je OpenAI, Mistral,
+
+881
+00:54:52,900 --> 00:54:55,760
+jsou zase nějakým způsobem trochu obhocení.
+
+882
+00:54:55,760 --> 00:54:58,079
+Není to stejný, jako když si budeme ukazovat
+
+883
+00:54:58,359 --> 00:55:02,059
+a budeme se bavit napřímo vlastně s tím modelem jako takovým.
+
+884
+00:55:02,420 --> 00:55:05,599
+Je to tady znázorněné trochu, jenom na začátek,
+
+885
+00:55:05,599 --> 00:55:09,380
+tím, že vlastně ty texty, které do toho jdou, jsou jiné
+
+886
+00:55:09,579 --> 00:55:12,680
+a na konci do toho modelu jako takovýho
+
+887
+00:55:13,119 --> 00:55:14,680
+jenom čísla.
+
+888
+00:55:14,840 --> 00:55:17,059
+Ten model nezná vůbec text,
+
+889
+00:55:17,140 --> 00:55:19,079
+ten model zná jenom čísla.
+
+890
+00:55:19,480 --> 00:55:21,159
+Všechny ty matice jsou jenom
+
+891
+00:55:21,180 --> 00:55:22,480
+čísla pro něj. Takže
+
+892
+00:55:23,159 --> 00:55:25,519
+ve výsledku tam jdou
+
+893
+00:55:25,720 --> 00:55:26,599
+prostě jenom čísla.
+
+894
+00:55:28,340 --> 00:55:30,480
+Tak, teďkon,
+
+895
+00:55:30,739 --> 00:55:33,340
+když se vrátíme zpátky do prezentace, jak si ukážeme,
+
+896
+00:55:33,760 --> 00:55:35,279
+jak to testovat tak nějak.
+
+897
+00:55:35,420 --> 00:55:37,300
+Takže když jsme si ukázali, kde to testovat,
+
+898
+00:55:37,300 --> 00:55:39,119
+tak si ukážeme, co vlastně testovat.
+
+899
+00:55:40,140 --> 00:55:43,900
+Ukážeme, tady jsou vždycky linky do GitHubu na ty otázky.
+
+900
+00:55:43,900 --> 00:55:51,380
+Já tady budu překlikávat mezi VS Code, kde vlastně tady ty testovací otázky mám připravený
+
+901
+00:55:51,599 --> 00:56:00,119
+a mezi tady těma produktama, kde budu prostě zkoušet ty otázky pokládat.
+
+902
+00:56:00,619 --> 00:56:04,300
+abyste i viděli ten rozdíl mezi tím produktem a tím APIčkem.
+
+903
+00:56:04,300 --> 00:56:07,779
+Budu primárně asi používat pro zrychlení času jenom tyhle ty dva,
+
+904
+00:56:08,079 --> 00:56:13,480
+OpenAI, ale můžete si vyzkoušet v rámci toho kdekoliv.
+
+905
+00:56:14,039 --> 00:56:18,019
+Ukážu vám tady jednu nemožnou otázku,
+
+906
+00:56:18,319 --> 00:56:22,460
+kterou vlastně žádnej ten model by neměl být schopnej
+
+907
+00:56:22,460 --> 00:56:26,400
+zodpovědět správně. Vychází to z principu toho,
+
+908
+00:56:26,400 --> 00:56:27,760
+jak ty modely fungují.
+
+909
+00:56:30,000 --> 00:56:31,779
+Když jsem to testoval, tak
+
+910
+00:56:31,779 --> 00:56:33,840
+Klod překvapivě teda odpověděl
+
+911
+00:56:33,920 --> 00:56:36,279
+správně, takže mě i samotnýho zajímá,
+
+912
+00:56:36,279 --> 00:56:37,800
+jestli se mu to povede znova.
+
+913
+00:56:38,039 --> 00:56:40,300
+A otázka teda je, kolik slov
+
+914
+00:56:40,699 --> 00:56:42,880
+je v odpovědi
+
+915
+00:56:43,079 --> 00:56:44,380
+na tenhle ten prompt.
+
+916
+00:56:45,559 --> 00:56:46,980
+A už z principu
+
+917
+00:56:47,260 --> 00:56:48,960
+toho, jak víme, jak neuronové sítě
+
+918
+00:56:49,140 --> 00:56:50,900
+fungují a toho, že vlastně
+
+919
+00:56:52,119 --> 00:56:53,779
+ten text tam propluje
+
+920
+00:56:54,400 --> 00:56:55,699
+a není tam žádná
+
+921
+00:56:55,699 --> 00:56:57,960
+jakoby zpětná
+
+922
+00:56:58,019 --> 00:56:59,579
+zpětný přemýšlení
+
+923
+00:56:59,599 --> 00:57:02,039
+nebo zpětná jako druhej běh
+
+924
+00:57:02,039 --> 00:57:04,920
+vlastně toho, pokud se nebavíme
+
+925
+00:57:05,019 --> 00:57:07,260
+o trénování, kde je ta backpropagace,
+
+926
+00:57:07,420 --> 00:57:09,180
+tak pokud jenom předpovídáme
+
+927
+00:57:09,220 --> 00:57:10,480
+vlastně to další slovo
+
+928
+00:57:10,480 --> 00:57:13,000
+v té sekvenci nebo další číslo
+
+929
+00:57:13,059 --> 00:57:15,359
+v té sekvenci v těch neuronových sítích.
+
+930
+00:57:15,359 --> 00:57:16,159
+To znamená, že
+
+931
+00:57:16,859 --> 00:57:18,400
+on vlastně generuje tu odpověď
+
+932
+00:57:18,400 --> 00:57:19,880
+slovo za slovem
+
+933
+00:57:20,319 --> 00:57:22,579
+ale vlastně neví dopředu,
+
+934
+00:57:22,840 --> 00:57:24,519
+co chce vygenerovat.
+
+935
+00:57:24,779 --> 00:57:26,420
+Stejně tak, když tu odpověď
+
+936
+00:57:26,519 --> 00:57:28,440
+vygeneruje, tak nemá žádnou možnost
+
+937
+00:57:28,519 --> 00:57:30,819
+se vlastně zpátky podívat,
+
+938
+00:57:30,819 --> 00:57:32,400
+co vygeneroval. Vždycky jenom
+
+939
+00:57:32,779 --> 00:57:34,359
+generuje, vždycky ví,
+
+940
+00:57:35,000 --> 00:57:39,039
+tu předchozí část a generuje následující slovo.
+
+941
+00:57:39,039 --> 00:57:41,400
+Pak zase v dalším běhu vezme tu
+
+942
+00:57:41,519 --> 00:57:43,539
+celou větu, kterou vygeneroval
+
+943
+00:57:43,779 --> 00:57:45,420
+a doplní další slovo.
+
+944
+00:57:45,420 --> 00:57:48,500
+Proto i u toho API vy definujete
+
+945
+00:57:48,980 --> 00:57:52,119
+něco jako je maximální počet tokenů.
+
+946
+00:57:52,239 --> 00:57:54,800
+Protože mu vlastně tím limitujete to, co
+
+947
+00:57:55,500 --> 00:57:58,420
+jak dlouho má vlastně tu odpověď generovat.
+
+948
+00:57:59,659 --> 00:58:01,559
+Tak, zeptáme se teda
+
+949
+00:58:01,779 --> 00:58:04,699
+při GPT schválně, abyste viděli.
+
+950
+00:58:07,840 --> 00:58:12,659
+13 slov. 1, 2, 3, 4, 5, 6, 7, 8.
+
+951
+00:58:13,260 --> 00:58:15,880
+Můžu to zkusit tady do APIčka.
+
+952
+00:58:16,279 --> 00:58:17,859
+Na 4.1.
+
+953
+00:58:18,079 --> 00:58:21,380
+Toto je systémová message,
+
+954
+00:58:21,380 --> 00:58:22,800
+o tom se budeme mluvit za chvilku.
+
+955
+00:58:23,480 --> 00:58:24,859
+21 slov.
+
+956
+00:58:24,859 --> 00:58:27,819
+Vidíte, že ani ty Edge modely
+
+957
+00:58:30,119 --> 00:58:31,619
+to nedokážou spočítat.
+
+958
+00:58:31,640 --> 00:58:32,859
+Toto byl chytrej.
+
+959
+00:58:33,039 --> 00:58:35,420
+Toto se k každému slovu dal číslo.
+
+960
+00:58:35,480 --> 00:58:36,640
+Toto přesně udělal.
+
+961
+00:58:37,420 --> 00:58:40,920
+a vlastně tím pádem spočítal
+
+962
+00:58:41,760 --> 00:58:43,720
+vlastně kolik tam je slov.
+
+963
+00:58:45,559 --> 00:58:47,599
+Což jako tak nějak asi sedí.
+
+964
+00:58:47,800 --> 00:58:53,920
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, dobře.
+
+965
+00:58:54,500 --> 00:58:56,460
+To mě docela překvapilo od něj.
+
+966
+00:58:57,159 --> 00:59:00,180
+Já zkusím ještě tady do API to poslat.
+
+967
+00:59:01,359 --> 00:59:04,720
+Teď nevím, jestli to je funkcionalita toho slova.
+
+968
+00:59:05,059 --> 00:59:07,739
+klódu jako produktu
+
+969
+00:59:07,779 --> 00:59:09,579
+anebo toho APIčka.
+
+970
+00:59:09,760 --> 00:59:11,539
+1, 2, 3, 4, 5,
+
+971
+00:59:11,659 --> 00:59:13,380
+6, 7, 8.
+
+972
+00:59:13,380 --> 00:59:15,359
+Takže pravděpodobně
+
+973
+00:59:15,840 --> 00:59:17,840
+je to vrstva,
+
+974
+00:59:17,840 --> 00:59:19,380
+to je právě, abyste pochopili
+
+975
+00:59:19,519 --> 00:59:21,220
+rozdíl s tím produktem a tím
+
+976
+00:59:21,480 --> 00:59:22,840
+modelem jako takovým.
+
+977
+00:59:23,199 --> 00:59:24,460
+Ten produkt má
+
+978
+00:59:24,859 --> 00:59:32,199
+mnohem víc vrstev a funkcionalit, který vy vlastně považujete za funkcionality toho modelu,
+
+979
+00:59:32,500 --> 00:59:41,000
+ale tak to není. Třeba zajímavost, když se zeptáte modelu jako takovýho dvakrát na tu samou otázku,
+
+980
+00:59:41,079 --> 00:59:45,920
+tak vám dá tu samou odpověď. To se vám tady nikdy nestane.
+
+981
+00:59:46,659 --> 00:59:48,760
+protože zase je tam přidaná
+
+982
+00:59:48,840 --> 00:59:50,599
+vrstva, která
+
+983
+00:59:50,680 --> 00:59:53,400
+modifikuje, ať už je to
+
+984
+00:59:53,699 --> 00:59:55,159
+temperature, ať už je to
+
+985
+00:59:55,159 --> 00:59:56,559
+maximální počet oknů,
+
+986
+00:59:56,599 --> 00:59:58,539
+nebo si pře
+
+987
+00:59:58,539 --> 00:59:59,980
+vorduje vlastně tu vaší
+
+988
+01:00:00,000 --> 01:00:01,840
+otázku tak, abyste
+
+989
+01:00:02,019 --> 01:00:04,099
+nedostali tu samou
+
+990
+01:00:04,260 --> 01:00:06,219
+odpověď. Tady je zajímavý, že mi odpověď
+
+991
+01:00:06,219 --> 01:00:07,400
+dělal dvakrát to samý teda,
+
+992
+01:00:08,800 --> 01:00:12,860
+ale dobře. Tak zase bychom
+
+993
+01:00:12,980 --> 01:00:15,159
+mohli zkoušet i další, já jenom tak pro zajímavost
+
+994
+01:00:15,219 --> 01:00:16,519
+to zkusím dát.
+
+995
+01:00:16,519 --> 01:00:18,400
+To je dvouk roku, jestli mi vrátí
+
+996
+01:00:18,400 --> 01:00:19,539
+něco zajímavého.
+
+997
+01:00:21,480 --> 01:00:23,860
+1, 2, 3, 4, 5.
+
+998
+01:00:23,940 --> 01:00:25,760
+No takže GPT tady se trefí.
+
+999
+01:00:25,760 --> 01:00:27,260
+Moje odpověď má pět slov.
+
+1000
+01:00:28,000 --> 01:00:30,440
+Tak ještě tady projdu ty otázky rychle.
+
+1001
+01:00:30,579 --> 01:00:32,559
+Jak byl v prezentaci pohled na lokální nasazení?
+
+1002
+01:00:32,559 --> 01:00:36,739
+Máš, Lukáši, prosím, nějaké zkušenosti s nasazením přímo na lokální prostředky ve firmě?
+
+1003
+01:00:36,739 --> 01:00:39,860
+Samozřejmě, kde to má smysl něco doma, něco venku.
+
+1004
+01:00:39,860 --> 01:00:43,039
+Rozumím tomu, že tu neřešíme do detailu hardware,
+
+1005
+01:00:43,460 --> 01:00:47,079
+ale myslím, že pro podnikové AI je dobré mít přehled,
+
+1006
+01:00:47,159 --> 01:00:53,179
+tak se jenom ptám, nějaké zkušenosti s nasazením přímo na lokální prostředky ve firmě?
+
+1007
+01:00:53,739 --> 01:01:01,840
+Vzhledem k tomu, že já dělám pro Microsoft a ten má všechno v Azure, tak vlastně my máme všechno v Azure.
+
+1008
+01:01:02,860 --> 01:01:15,320
+A zatím moje zkušenost ostatníma firmama je, že nikdo nešel do toho, aby zainvestoval do vlastní GPU a udělal si nějaký svůj GPU server a na to si to nasadil.
+
+1009
+01:01:16,000 --> 01:01:21,559
+Většina firm hledá, důvod je jednoduchý, jednak je ta počáteční investice,
+
+1010
+01:01:21,940 --> 01:01:25,219
+to je něco, co do toho musíte dát i peníze,
+
+1011
+01:01:25,420 --> 01:01:29,920
+když si ale pronajímáte něco jako v Azure, tak to máte jako operativní náklady,
+
+1012
+01:01:30,239 --> 01:01:34,719
+takže se vám to z hlediska účinností nějak líp učtuje nebo co.
+
+1013
+01:01:35,739 --> 01:01:43,440
+Takže spíš inklinujou k tomu, aby někdo jim poskytnul ten GPU heavy workload,
+
+1014
+01:01:45,099 --> 01:01:49,699
+Jediné, co ty firmy hlavně furt řešejí, je bezpečnost a zabezpečení těch svejch dat,
+
+1015
+01:01:50,039 --> 01:01:55,579
+ale stejně se většina z nich uchýlí k tomu, že tam začnou ty data sypat.
+
+1016
+01:01:55,619 --> 01:02:01,900
+Nikdo nebyl natolik paranoidní, že by si vlastně postavil vlastní klaster.
+
+1017
+01:02:02,139 --> 01:02:06,780
+I vy sami uvidíte, až všechny tyhle věci pochopíte
+
+1018
+01:02:06,820 --> 01:02:09,400
+a lidi za váma začnou chodit a ptát se vás na ty věci,
+
+1019
+01:02:10,320 --> 01:02:12,039
+Sami rychle pochopíte, že tady
+
+1020
+01:02:12,199 --> 01:02:13,980
+těch lidí jako šafránů, který
+
+1021
+01:02:13,980 --> 01:02:16,340
+prostě tomu rozumí, takže i pro ty firmy
+
+1022
+01:02:16,480 --> 01:02:18,280
+je velmi obtížný najít
+
+1023
+01:02:18,300 --> 01:02:20,039
+vůbec někoho takovýho, kdo by
+
+1024
+01:02:20,119 --> 01:02:22,079
+vlastně jim to obhospodařoval
+
+1025
+01:02:22,480 --> 01:02:23,699
+a...
+
+1026
+01:02:24,739 --> 01:02:31,000
+pak je nemohl vydírat, nebo to nechci říct úplně takhle, ale
+
+1027
+01:02:31,000 --> 01:02:35,920
+pak jim řekne, hele já odejdu a oni pak vlastně nebudou mít nikoho, kdo se jim o to bude starat.
+
+1028
+01:02:35,980 --> 01:02:41,400
+Takže pro ně je mnohem stravitelnější si to pronajímat od někoho jako je Azure nebo AWS.
+
+1029
+01:02:42,019 --> 01:02:45,800
+Je některý z těch modelů lepší pro textové promty v češtině?
+
+1030
+01:02:46,679 --> 01:02:51,099
+My si, až si budeme ukazovat fine tuning, tak si ukážeme, co vlastně je token a
+
+1031
+01:02:52,280 --> 01:02:58,920
+Zatím to chápejte tak, že ty modely byly trénovaný na datech,
+
+1032
+01:02:59,500 --> 01:03:05,659
+A ty data byly převážně v angličtině, z nějakých 75-80 %.
+
+1033
+01:03:06,139 --> 01:03:12,239
+Další jazyky, ty data v dalších jazycích tam byly okrajově čeština úplně minimálně,
+
+1034
+01:03:12,239 --> 01:03:14,079
+to je úplně nedůležitý jazyk pro ně.
+
+1035
+01:03:14,219 --> 01:03:17,699
+Je to jenom proto, aby oni mohli pak u toho modelu ukázat,
+
+1036
+01:03:17,719 --> 01:03:25,000
+hele mluví to prostě 25 jazykama nebo 100 jazykama, nechci lhát, já to moc nesleduju.
+
+1037
+01:03:25,260 --> 01:03:28,719
+Každopádně vždycky ten model
+
+1038
+01:03:29,159 --> 01:03:34,199
+bude mnohem líp generovat odpovědi v angličtině.
+
+1039
+01:03:34,320 --> 01:03:35,639
+Pokud se tam neděje něco,
+
+1040
+01:03:35,760 --> 01:03:37,900
+že si tu odpověď vygeneruje v angličtině
+
+1041
+01:03:37,900 --> 01:03:39,599
+a pak si ji přeloží do češtiny,
+
+1042
+01:03:40,079 --> 01:03:41,940
+což se neděje,
+
+1043
+01:03:42,059 --> 01:03:44,880
+tak vždycky by měla ta odpověď
+
+1044
+01:03:45,400 --> 01:03:49,320
+primárně bejt lepší v anglištině.
+
+1045
+01:03:49,400 --> 01:03:53,679
+Tím neříkám, že to neodpoví dobře v češtině,
+
+1046
+01:03:53,679 --> 01:03:56,599
+překvapivě to komunikuje docela dobře v češtině,
+
+1047
+01:03:56,920 --> 01:03:59,579
+já nicméně to používám primárně v anglištině.
+
+1048
+01:04:00,059 --> 01:04:06,260
+Když říkáš, že si lokálně neinstallujeme, rozběháme různé modely. Modely jsou jen soubory s váhami a strukturou. Ano.
+
+1049
+01:04:06,300 --> 01:04:12,400
+Je tedy potřeba nějaký interpreter, runtime, rovná se OpenWebUI.
+
+1050
+01:04:12,760 --> 01:04:16,320
+Tak já se vrátím zpět k této prezentaci.
+
+1051
+01:04:17,860 --> 01:04:21,980
+To znamená, že tady je ten slide s tou lokální variantou.
+
+1052
+01:04:22,079 --> 01:04:25,360
+To znamená, že OpenWebUI je ta webová aplikace tady.
+
+1053
+01:04:25,579 --> 01:04:29,820
+A OLAMA nám reprezentuje tady ty dvě APIčka najednou.
+
+1054
+01:04:29,820 --> 01:04:33,159
+Vy to nevidíte, pro vás je to jeden softwar, který nainstalujete
+
+1055
+01:04:33,599 --> 01:04:40,300
+a jenom si do něj nainstalujete vlastně tyhle soubory přes příkazovej řádek.
+
+1056
+01:04:40,500 --> 01:04:42,599
+Já to tady OLAMA...
+
+1057
+01:04:43,519 --> 01:04:47,659
+olama list a vidíte tady všechny modely, které jsem nainstaloval.
+
+1058
+01:04:47,659 --> 01:04:50,760
+olama pool a teď bych si tady dal mistral
+
+1059
+01:04:51,260 --> 01:04:52,820
+a stáhlo by mi to mistral.
+
+1060
+01:04:52,940 --> 01:04:56,720
+Já už mistral mám stažený, takže je tam prostě.
+
+1061
+01:04:57,380 --> 01:05:00,840
+Ale tímhle tím způsobem se do olamy dostávají modely,
+
+1062
+01:05:01,239 --> 01:05:05,800
+Pro vás jinak double click na exe file, který vám tu OLAMu nainstaluje.
+
+1063
+01:05:05,800 --> 01:05:10,320
+V tu chvíli se vám zpřístupní tadyhle ten command v příkazovém řádku.
+
+1064
+01:05:10,380 --> 01:05:13,980
+Takže OLAMA nám reprezentuje tyhle ty dvě věci, i když to nevidíte.
+
+1065
+01:05:14,220 --> 01:05:19,639
+OLAMA se skládá s dvou věcí. Jeden je run time pro ten model.
+
+1066
+01:05:20,279 --> 01:05:24,639
+A druhý je další proces, takže to má dva procesy.
+
+1067
+01:05:24,639 --> 01:05:28,559
+Teď mi napadá, že jsem to nekontroloval v Task Manageru,
+
+1068
+01:05:28,559 --> 01:05:32,320
+jestli to má dva procesy, ale měly by tam být dva procesy.
+
+1069
+01:05:33,220 --> 01:05:40,159
+Druhý je to API, což tím pádem tam máte endpoint,
+
+1070
+01:05:40,199 --> 01:05:43,860
+lomeno generate třeba, nebo lomeno completion,
+
+1071
+01:05:43,900 --> 01:05:48,519
+zase si o tom budeme povídat víc, až se dostaneme, teď přemýšlím kdy.
+
+1072
+01:05:49,559 --> 01:05:56,440
+Až se dostaneme k OpenAI fine tuningu, tak si budeme ukazovat to jejich API víc do detailu.
+
+1073
+01:05:56,440 --> 01:06:00,340
+Tak tam máte endpoint jako //chat//completion
+
+1074
+01:06:00,840 --> 01:06:07,099
+a to vlastně ta OLAMA má tenhle ten API OpenAI compatible server.
+
+1075
+01:06:07,940 --> 01:06:09,440
+nebo API.
+
+1076
+01:06:09,720 --> 01:06:11,820
+Tím pádem ta Open Web UI,
+
+1077
+01:06:11,820 --> 01:06:13,019
+jenom ta webová aplikace,
+
+1078
+01:06:13,019 --> 01:06:15,220
+se pak zase povídá jenom s nějakým API
+
+1079
+01:06:15,679 --> 01:06:17,900
+na předdefinovaném formátu
+
+1080
+01:06:17,900 --> 01:06:20,079
+a posílá mu ty vaše otázky,
+
+1081
+01:06:20,300 --> 01:06:22,039
+které mu zase vrací ty odpovědi.
+
+1082
+01:06:23,760 --> 01:06:25,800
+Tak popravdě zkusit ta GPT,
+
+1083
+01:06:25,800 --> 01:06:27,880
+řekne ti třeba ti,
+
+1084
+01:06:27,880 --> 01:06:29,500
+které byly jak moc trénované
+
+1085
+01:06:29,500 --> 01:06:30,779
+na jiných jazycích,
+
+1086
+01:06:31,019 --> 01:06:32,960
+mám teď zjištěny jen ty větší.
+
+1087
+01:06:34,380 --> 01:06:36,220
+Myslím si, že by ti to měl
+
+1088
+01:06:37,380 --> 01:06:39,059
+mohl říct, nevím
+
+1089
+01:06:39,059 --> 01:06:41,239
+nakolik to bude
+
+1090
+01:06:41,300 --> 01:06:43,380
+pravdivý. Každopádně
+
+1091
+01:06:45,500 --> 01:06:46,880
+GPT
+
+1092
+01:06:47,940 --> 01:06:48,940
+vlastně my nevíme
+
+1093
+01:06:49,039 --> 01:06:50,119
+u GPT
+
+1094
+01:06:50,119 --> 01:06:52,860
+jazykovou sadu, ale
+
+1095
+01:06:53,220 --> 01:06:54,739
+LAMA Language
+
+1096
+01:06:56,220 --> 01:06:56,720
+Data
+
+1097
+01:06:57,800 --> 01:06:58,340
+Training
+
+1098
+01:06:59,920 --> 01:07:02,159
+já myslím, že jsem to tady někde viděl
+
+1099
+01:07:02,860 --> 01:07:04,000
+u LAMY Meta
+
+1100
+01:07:04,239 --> 01:07:05,940
+Prerep and Authentic Data
+
+1101
+01:07:06,980 --> 01:07:08,599
+tady byly Languages
+
+1102
+01:07:11,199 --> 01:07:16,900
+Ne. Responsible, safety, open, LAMA, impact.
+
+1103
+01:07:17,139 --> 01:07:20,579
+Anebo to bylo, das LAMA support, outside English.
+
+1104
+01:07:21,619 --> 01:07:27,300
+Bit of data, 27 other languages, Formulace C, Table 10, on page 20.
+
+1105
+01:07:27,300 --> 01:07:30,880
+Tak se na to pojďme podívat. Je to teda pro LAMU 2, ale já si myslím, že
+
+1106
+01:07:32,800 --> 01:07:36,579
+to bude dost podobný, protože oni už jim docházejí ty data.
+
+1107
+01:07:41,300 --> 01:07:46,079
+PDFko, Table 10 říkali.
+
+1108
+01:07:48,900 --> 01:07:55,639
+Angliština 90%, neznámý 9%, nevím co to znamená.
+
+1109
+01:07:55,639 --> 01:08:05,300
+No a tady vidíte ty minimální procenta proč těch ostatních jazyků, nevím co je UK teda.
+
+1110
+01:08:07,220 --> 01:08:19,380
+Hungarij asi, Deutschland, Francie, Španělsko, Rusko, Itálie.
+
+1111
+01:08:20,920 --> 01:08:23,659
+No, jako nebude to moc češtinu tady...
+
+1112
+01:08:23,739 --> 01:08:25,819
+Máme tam 0,03, co se?
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

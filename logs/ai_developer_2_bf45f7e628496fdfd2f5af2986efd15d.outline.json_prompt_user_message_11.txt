@@ -1,0 +1,1171 @@
+Transcript:
+
+=================
+2682
+02:45:05,059 --> 02:45:07,420
+To si uvědomují i ty výrobci těch modelů.
+
+2683
+02:45:07,420 --> 02:45:08,459
+To znamená, že se snaží
+
+2684
+02:45:08,979 --> 02:45:22,319
+Důležitost toho prompt engineeringu zmenšovat a zmenšovat a zmenšovat, aby bylo úplně jedno, jestli se s ním baví člověk, který má IQ 80 nebo 130, aby vždycky to vrátilo tu nejlepší možnou odpověď.
+
+2685
+02:45:22,700 --> 02:45:27,959
+Já jsem ještě dřív to, ten prompt engineering mělo větší váhu,
+
+2686
+02:45:28,040 --> 02:45:31,360
+než to má teď, teď se to prostě zmenšuje s časem,
+
+2687
+02:45:31,399 --> 02:45:35,120
+takže já jsem dřív inklinoval k tomu DSPy,
+
+2688
+02:45:35,120 --> 02:45:38,219
+aby vlastně jsem nemusel ten prompt engineering řešit,
+
+2689
+02:45:38,600 --> 02:45:41,479
+aby on si to vyřešil vlastně jako za mě
+
+2690
+02:45:41,520 --> 02:45:45,979
+a natrénoval se tak, aby ten prompt engineering
+
+2691
+02:45:46,180 --> 02:45:49,680
+už byl zakomponovaný a pro mě to bylo vlastně něco,
+
+2692
+02:45:49,879 --> 02:45:52,120
+co já vždycky pustím, ono se to natrénuje
+
+2693
+02:45:52,159 --> 02:45:54,659
+a pak už tam mám ten nejlepší prompt engineering.
+
+2694
+02:45:55,239 --> 02:45:56,120
+Takže
+
+2695
+02:45:57,979 --> 02:45:59,979
+ty benchmarky jedině
+
+2696
+02:45:59,979 --> 02:46:02,520
+pro takový ty
+
+2697
+02:46:02,540 --> 02:46:05,139
+manuálnější, pokud
+
+2698
+02:46:05,600 --> 02:46:07,680
+chcete něco benchmarkovat
+
+2699
+02:46:07,739 --> 02:46:08,979
+jako důležitýho,
+
+2700
+02:46:09,159 --> 02:46:10,819
+ale to je prostě strašně práce.
+
+2701
+02:46:11,360 --> 02:46:11,899
+Takže
+
+2702
+02:46:13,459 --> 02:46:16,819
+Lukáš, ty říkáš s nejlepšíma promptama.
+
+2703
+02:46:17,440 --> 02:46:20,399
+To se teda přenese nějakým způsobem.
+
+2704
+02:46:20,459 --> 02:46:22,500
+To, jaký já si vytvořil původně,
+
+2705
+02:46:22,700 --> 02:46:24,899
+kdy se přenesou do toho novýho modelu.
+
+2706
+02:46:25,719 --> 02:46:27,479
+Myslíš v tom DSPy?
+
+2707
+02:46:27,700 --> 02:46:28,159
+Jo.
+
+2708
+02:46:28,500 --> 02:46:30,579
+A nebo to jsou nějaké úplně jeho
+
+2709
+02:46:30,760 --> 02:46:31,659
+jiný...
+
+2710
+02:46:31,760 --> 02:46:34,399
+To jsou jeho vlastně
+
+2711
+02:46:34,540 --> 02:46:36,139
+jeho...
+
+2712
+02:46:36,620 --> 02:46:38,399
+Ty si vytvoří on tyhle ty vlastně
+
+2713
+02:46:38,399 --> 02:46:40,479
+prompt engineering techniky.
+
+2714
+02:46:40,760 --> 02:46:42,680
+A jedna z toho je,
+
+2715
+02:46:42,959 --> 02:46:44,719
+já to tady zkusím najít,
+
+2716
+02:46:45,819 --> 02:46:47,579
+languages, signatures,
+
+2717
+02:46:50,120 --> 02:46:51,280
+to jsou signatures
+
+2718
+02:46:51,299 --> 02:46:52,940
+a tady jsou moduly.
+
+2719
+02:46:53,659 --> 02:46:55,459
+Each build abstractly prompt engineering
+
+2720
+02:46:55,719 --> 02:46:57,479
+technik, jako je React.
+
+2721
+02:46:58,319 --> 02:46:59,620
+A on tady vlastně má
+
+2722
+02:47:00,540 --> 02:47:03,059
+Doufám, že to najdu. Tadyhleto.
+
+2723
+02:47:03,459 --> 02:47:07,100
+Chain of thought. To znamená, že on má v sobě už vlastně nadefinovaný
+
+2724
+02:47:07,119 --> 02:47:09,479
+tyhle ty jednoduchý prompt engineering techniky,
+
+2725
+02:47:09,479 --> 02:47:12,079
+jako je one shot, few shot, chain of thought.
+
+2726
+02:47:12,579 --> 02:47:15,780
+A on si sám vlastně na základě té otázky
+
+2727
+02:47:16,100 --> 02:47:18,239
+použije třeba víc těch technik
+
+2728
+02:47:18,399 --> 02:47:20,799
+a je schopnej si oklasifikovat,
+
+2729
+02:47:20,799 --> 02:47:22,920
+na kterou bylo odpovězeno nejlíp.
+
+2730
+02:47:23,239 --> 02:47:26,899
+A pak si zapamatuje, že prostě pro tuhletu,
+
+2731
+02:47:26,899 --> 02:47:28,059
+tehleten typ technik,
+
+2732
+02:47:28,299 --> 02:47:31,860
+on použije tuto prompt engineering techniku.
+
+2733
+02:47:34,619 --> 02:47:36,119
+Program of thought je další,
+
+2734
+02:47:36,180 --> 02:47:38,639
+prompt engineering technika.
+
+2735
+02:47:39,139 --> 02:47:41,000
+React je spíš něco,
+
+2736
+02:47:41,260 --> 02:47:42,899
+o tom si povíme později,
+
+2737
+02:47:43,219 --> 02:47:46,319
+ta predikta je ta základní.
+
+2738
+02:47:54,380 --> 02:47:55,899
+Jenom koukám, jestli se něco změnilo
+
+2739
+02:47:56,000 --> 02:47:57,840
+od té doby, co jsem to viděl naposled.
+
+2740
+02:47:58,159 --> 02:47:59,559
+Vypadá to, že moc ne.
+
+2741
+02:47:59,799 --> 02:48:01,899
+Pak je tady právě ten optimizer.
+
+2742
+02:48:02,139 --> 02:48:03,760
+Naštěstí už to přemenovali,
+
+2743
+02:48:03,760 --> 02:48:05,280
+předtím se to jmenoval teleprompter,
+
+2744
+02:48:05,280 --> 02:48:07,200
+které se nikdo nechápal, co to znamená.
+
+2745
+02:48:08,440 --> 02:48:11,959
+a on už si tady právě automatic few shot learning,
+
+2746
+02:48:11,959 --> 02:48:16,639
+to znamená, že on si je schopný na tu otázku vydefinovat nebo vymyslet
+
+2747
+02:48:17,540 --> 02:48:20,719
+pár příkladů, jak by to měla vypadat ta odpověď,
+
+2748
+02:48:20,719 --> 02:48:26,459
+a pak je schopný si uložit ty příklady a pak to použít.
+
+2749
+02:48:31,600 --> 02:48:37,639
+Jsou na to docela hezký videa od jednoho toho studenta ze Stanfordu,
+
+2750
+02:48:39,979 --> 02:48:44,380
+on i pracuje tadyhleten, Connor Shorten,
+
+2751
+02:48:45,319 --> 02:48:46,880
+Už je to skoro rok, no.
+
+2752
+02:48:47,159 --> 02:48:48,760
+Ale ten to docela hezky vysvětluje.
+
+2753
+02:48:50,280 --> 02:48:53,420
+No právě nepromptuj, ale programuj.
+
+2754
+02:48:53,420 --> 02:48:55,500
+A teď ty prompty se vytvoří jako za tebe.
+
+2755
+02:48:55,520 --> 02:48:57,500
+To je ta celá idea, vlastně ten pitch.
+
+2756
+02:48:59,000 --> 02:49:01,619
+Tak používáte někdo perplexity AI?
+
+2757
+02:49:01,780 --> 02:49:03,860
+Já a já jo, v proverzi.
+
+2758
+02:49:04,360 --> 02:49:08,219
+To je docela hezká služba, perplexity AI.
+
+2759
+02:49:08,479 --> 02:49:10,639
+Já to teda nepoužívám, protože
+
+2760
+02:49:13,000 --> 02:49:14,799
+já mám pocit, že...
+
+2761
+02:49:16,440 --> 02:49:19,619
+že ten web vlastně se změní kompletně.
+
+2762
+02:49:19,719 --> 02:49:23,579
+Takže já vlastně už ani negooglim moc.
+
+2763
+02:49:23,739 --> 02:49:28,940
+Já se spíš ptám, či GPT si prohledá ten web
+
+2764
+02:49:29,500 --> 02:49:32,700
+a vrátí mi nějaký odpovědi.
+
+2765
+02:49:32,700 --> 02:49:36,079
+Takže stack overflow je pro mě už mrtvá věc,
+
+2766
+02:49:36,180 --> 02:49:37,700
+to si uvědomili i oni, takže
+
+2767
+02:49:38,880 --> 02:49:41,319
+ChatGP je vždycky první zdroj informace kam jdu.
+
+2768
+02:49:41,319 --> 02:49:46,440
+Pokud on mi nevrátí uspokojenou odpověď, tak se ho snažím trochu tweakenout.
+
+2769
+02:49:46,440 --> 02:49:50,000
+Pokud ani to mi nefunguje, tak googlim.
+
+2770
+02:49:50,799 --> 02:49:55,559
+Ale moc to nespojuji dohromady.
+
+2771
+02:49:55,600 --> 02:50:00,119
+Ještě teda, jestli jste nepoužili Deep Research, tak to doporučuji.
+
+2772
+02:50:01,579 --> 02:50:04,440
+To je zase, když potřebujete něco složitýho vyzkoumat,
+
+2773
+02:50:07,079 --> 02:50:09,659
+abych vám dal nějakou ukázku.
+
+2774
+02:50:09,659 --> 02:50:17,840
+U browseru, když potřebujete zjistit, jak dělat memory,
+
+2775
+02:50:20,920 --> 02:50:26,799
+kolik paměti se používá v browseru na webovou stránku
+
+2776
+02:50:27,780 --> 02:50:33,260
+v určitých Javascriptech, tak se ho na to zeptáte, dáte jí prejstrat, že vám 15 minut něco dělá,
+
+2777
+02:50:33,280 --> 02:50:36,000
+a pak vám vyplivne, že máte použít CDP,
+
+2778
+02:50:37,000 --> 02:50:51,479
+Tyhle ty komanty, takhle se to zapíná, to je opravdu skvělá věc na něco, co vy nechcete právě googlit 4 hodiny a dělat si z toho výpisky a tak dále, tak to ten Deep Research je skvělý.
+
+2779
+02:50:51,479 --> 02:51:02,059
+A to je vlastně, myslím, že to je druhej jejich agentí produkt, se kterým vlastně přišli. Tohle je vyloženě založený na AI agentech.
+
+2780
+02:51:04,479 --> 02:51:12,360
+Ukážeš prosím ten DSPy v praxi? Koukal jsem na to, ale ještě jsem to nepoužil. Nějaké zkušenosti s redteamingem?
+
+2781
+02:51:13,000 --> 02:51:20,700
+LLM? Můžu vám ukázat nějaký DSPy v praxi na té poslední hodině, kdy se baví o tom kam dál?
+
+2782
+02:51:21,719 --> 02:51:24,780
+Tak můžu vám to ukázat.
+
+2783
+02:51:25,020 --> 02:51:29,360
+No a já ještě přemýšlím, tadyhle v tom streamu, já jsem to měl přímo jako přednášku.
+
+2784
+02:51:30,659 --> 02:51:35,739
+takže můžu vám to ukázat, tady asi nebude problém.
+
+2785
+02:51:35,739 --> 02:51:39,260
+Já jsem to ukazoval na OLAMě, nějakým datasetu,
+
+2786
+02:51:39,260 --> 02:51:41,559
+a tady jsem právě ukazoval ten Chain of Thought.
+
+2787
+02:51:42,899 --> 02:51:46,479
+Tady byl ten evaluate a tady jsem mi uložil ten...
+
+2788
+02:51:47,700 --> 02:51:53,340
+Tady pak vy vidíte, co to vygenerovalo.
+
+2789
+02:51:53,340 --> 02:51:59,360
+Tady byla otázka nějaká a tady vám si k tomu...
+
+2790
+02:52:02,000 --> 02:52:03,979
+Signature instruction...
+
+2791
+02:52:04,780 --> 02:52:08,579
+Ne, to jsou dema, který on si k tomu přigeneroval.
+
+2792
+02:52:09,000 --> 02:52:13,619
+To znamená, že já jsem mu k tomu dal nějaký tady dataset.
+
+2793
+02:52:16,799 --> 02:52:19,899
+Jo, tady byl ten příklad s těma tričkama.
+
+2794
+02:52:20,540 --> 02:52:22,780
+Řekl jsem mu... Jo, to jsem mu řekl Chain of Thorns.
+
+2795
+02:52:23,000 --> 02:52:27,059
+Nic, já teď to nebudu tady k tomu vařit, ale...
+
+2796
+02:52:28,200 --> 02:52:31,380
+Já vám k tomu řeknu v té poslední přednášce něco.
+
+2797
+02:52:31,520 --> 02:52:33,319
+Já se páměřím, jestli se něco nezměnilo.
+
+2798
+02:52:33,700 --> 02:52:41,260
+Co to je red teaming? To nevím, co je. Jindro, co to je?
+
+2799
+02:52:41,780 --> 02:52:56,979
+Například to, že když máš nějaký systémový prompt, tak mu tam dáš nějaký boundaries, to znamená neodpovídej věci, které jsou závadné pro děti nebo něco takovýho.
+
+2800
+02:52:59,459 --> 02:53:03,440
+Věci, které jsou přizpůsobené obsahu nějaké kategorie.
+
+2801
+02:53:03,799 --> 02:53:10,639
+Například neodpovídej v handlivě nebo něco takového.
+
+2802
+02:53:10,659 --> 02:53:14,840
+Já tomu říkám guide rails.
+
+2803
+02:53:15,000 --> 02:53:19,920
+Obecně red teaming je především porušení toho systém promptu.
+
+2804
+02:53:19,940 --> 02:53:25,940
+To znamená snaha o to, aby se ten systém prompt nějak porušil
+
+2805
+02:53:26,059 --> 02:53:28,799
+a dostal si z toho informace, který standardně nepotřebuje.
+
+2806
+02:53:29,880 --> 02:53:32,360
+nechceš, aby byly vyžádeny.
+
+2807
+02:53:32,360 --> 02:53:33,760
+To znamená dropními databázy
+
+2808
+02:53:33,880 --> 02:53:34,659
+nebo něco takového.
+
+2809
+02:53:34,680 --> 02:53:38,860
+Tak to s tím teda zkušenost nemám
+
+2810
+02:53:39,020 --> 02:53:41,280
+vůbec. Já to beru,
+
+2811
+02:53:41,340 --> 02:53:41,940
+my to máme
+
+2812
+02:53:43,200 --> 02:53:47,079
+jako Responsible AI v rámci Microsoftu.
+
+2813
+02:53:47,479 --> 02:53:51,639
+Já už mám vžity, že ty modely jsou vytvářený.
+
+2814
+02:53:51,819 --> 02:53:56,860
+Ono je to zapečený hrozně vevnitř v tom modelu všechny tyhle guide rails.
+
+2815
+02:53:56,860 --> 02:53:59,760
+Ono se to hrozně těžce z toho dostává právě,
+
+2816
+02:53:59,959 --> 02:54:01,600
+aby to nešlo hacknout a
+
+2817
+02:54:02,100 --> 02:54:08,040
+aby fine tuningem jste to z toho nedostali a tak dále.
+
+2818
+02:54:08,100 --> 02:54:15,880
+Protože si uvědomte, že je do toho nalitej internet, oni sami ani pořádně nevědí, co všechno v tom internetu, všechno do toho nalejovali.
+
+2819
+02:54:16,319 --> 02:54:26,020
+A je tam nalitej Reddit prostě, což je nevhodnej zdroj dat, ať se tam řeší, co se tam řeší.
+
+2820
+02:54:26,700 --> 02:54:30,159
+Oni to opravdu zapekli do té architektury toho modelu.
+
+2821
+02:54:30,180 --> 02:54:33,420
+Já mám vždy, že tyhle věci se nemusí řešit,
+
+2822
+02:54:33,440 --> 02:54:37,680
+protože oni už to vyřešili při trénování toho modelu.
+
+2823
+02:54:39,520 --> 02:54:42,840
+Asi jsi to předlal, tak jsem se ptal výše.
+
+2824
+02:54:43,119 --> 02:54:45,619
+Mám zkušenost, že velikost lokálního modelu,
+
+2825
+02:54:45,680 --> 02:54:47,159
+to se mnou se teda přehlí, sorry,
+
+2826
+02:54:48,020 --> 02:54:51,059
+mám zkušenost, že velikost lokálního modelu
+
+2827
+02:54:51,059 --> 02:54:54,819
+plus minus odpovídá velikosti RAM v grafice.
+
+2828
+02:54:56,180 --> 02:55:03,239
+kterou model chce, když máš grafiku 16 gigabitů a máš větší model než 16 gigabitů,
+
+2829
+02:55:03,659 --> 02:55:09,959
+tak to bere nějakou virtuální RAM z hlavní RAM, z té výram té grafiky teda,
+
+2830
+02:55:10,819 --> 02:55:13,819
+Nebo musíš mít modely do těch 16 GB.
+
+2831
+02:55:13,959 --> 02:55:18,159
+Pokud to bere virtuální, je tam znatelné zpomalení oproti tomu,
+
+2832
+02:55:18,219 --> 02:55:21,159
+kdyby to bylo jen v grafické rámce.
+
+2833
+02:55:21,680 --> 02:55:25,719
+Já si myslím, že ty to tam vlastně nenarveš.
+
+2834
+02:55:27,880 --> 02:55:31,680
+To znamená, že já když mám 16 GB,
+
+2835
+02:55:32,700 --> 02:55:35,579
+tak můžu použít jenom do těch 16 GB.
+
+2836
+02:55:35,579 --> 02:55:37,680
+Jakmile to jde nad 16 GB,
+
+2837
+02:55:38,219 --> 02:55:40,299
+tak musím použít techniku,
+
+2838
+02:55:40,520 --> 02:55:41,799
+jako je ta kvantizace,
+
+2839
+02:55:41,819 --> 02:55:45,079
+která mi vlastně velikost toho modelu zmenší.
+
+2840
+02:55:45,719 --> 02:55:47,459
+A teď to je jediné,
+
+2841
+02:55:48,700 --> 02:55:50,959
+jediná, já teď přemýšlím,
+
+2842
+02:55:51,420 --> 02:55:53,219
+u Olamy vím, že jsou ty modely
+
+2843
+02:55:53,299 --> 02:55:54,639
+prostě kvantizovaný.
+
+2844
+02:55:55,760 --> 02:55:57,319
+A teď přemýšlím jenom,
+
+2845
+02:55:58,079 --> 02:56:01,000
+je to 4 bitem kvantizovaný,
+
+2846
+02:56:01,159 --> 02:56:03,639
+takže by se to tam mělo vejít vlastně vždycky
+
+2847
+02:56:03,819 --> 02:56:05,340
+i ty největší modely.
+
+2848
+02:56:06,540 --> 02:56:07,860
+Přemýšlím,
+
+2849
+02:56:08,459 --> 02:56:13,819
+Já vám budu moc, my to budeme moc otestovat spolu,
+
+2850
+02:56:14,600 --> 02:56:16,799
+to můžeme otestovat teď teda,
+
+2851
+02:56:19,059 --> 02:56:27,860
+ale budeme to testovat, když budeme loadovat vlastně ty modely do paměti.
+
+2852
+02:56:29,659 --> 02:56:33,440
+A teďka my to můžeme tady udělat spolu,
+
+2853
+02:56:35,940 --> 02:56:37,420
+přemýšlím,
+
+2854
+02:56:37,420 --> 02:56:43,459
+tohle je jenom model,
+
+2855
+02:56:43,500 --> 02:56:45,500
+tady je běžení toho modelu, to je ono.
+
+2856
+02:56:46,020 --> 02:56:48,760
+To znamená tady, to je 4 bit, 16 bit.
+
+2857
+02:56:49,899 --> 02:56:52,079
+To znamená Mistral.
+
+2858
+02:56:54,000 --> 02:56:55,479
+A teď...
+
+2859
+02:56:55,760 --> 02:56:56,459
+...
+
+2860
+02:56:56,780 --> 02:56:57,299
+...
+
+2861
+02:56:57,299 --> 02:56:57,700
+...
+
+2862
+02:56:57,700 --> 02:56:57,700
+...
+
+2863
+02:56:57,840 --> 02:56:57,840
+...
+
+2864
+02:56:57,840 --> 02:56:57,840
+...
+
+2865
+02:56:57,840 --> 02:56:57,840
+...
+
+2866
+02:56:57,840 --> 02:56:57,840
+...
+
+2867
+02:56:57,840 --> 02:56:57,840
+...
+
+2868
+02:56:57,840 --> 02:56:59,200
+...
+
+2869
+02:57:00,600 --> 02:57:00,600
+...
+
+2870
+02:57:00,600 --> 02:57:00,600
+...
+
+2871
+02:57:00,600 --> 02:57:00,659
+...
+
+2872
+02:57:00,659 --> 02:57:00,659
+...
+
+2873
+02:57:00,659 --> 02:57:00,700
+...
+
+2874
+02:57:00,700 --> 02:57:00,819
+...
+
+2875
+02:57:00,819 --> 02:57:00,819
+...
+
+2876
+02:57:00,819 --> 02:57:00,819
+...
+
+2877
+02:57:00,819 --> 02:57:00,819
+...
+
+2878
+02:57:00,819 --> 02:57:00,819
+...
+
+2879
+02:57:00,819 --> 02:57:00,819
+...
+
+2880
+02:57:00,819 --> 02:57:00,819
+...
+
+2881
+02:57:00,819 --> 02:57:00,819
+...
+
+2882
+02:57:00,819 --> 02:57:00,860
+...
+
+2883
+02:57:00,860 --> 02:57:01,020
+...
+
+2884
+02:57:01,020 --> 02:57:01,020
+...
+
+2885
+02:57:01,020 --> 02:57:01,020
+...
+
+2886
+02:57:01,020 --> 02:57:01,020
+...
+
+2887
+02:57:01,020 --> 02:57:01,020
+...
+
+2888
+02:57:01,020 --> 02:57:01,020
+...
+
+2889
+02:57:01,020 --> 02:57:01,020
+...
+
+2890
+02:57:01,020 --> 02:57:01,020
+...
+
+2891
+02:57:01,020 --> 02:57:01,020
+...
+
+2892
+02:57:01,020 --> 02:57:01,020
+...
+
+2893
+02:57:01,020 --> 02:57:01,020
+...
+
+2894
+02:57:01,020 --> 02:57:01,020
+...
+
+2895
+02:57:01,020 --> 02:57:01,020
+...
+
+2896
+02:57:01,020 --> 02:57:01,020
+...
+
+2897
+02:57:01,020 --> 02:57:01,020
+...
+
+2898
+02:57:01,020 --> 02:57:01,020
+...
+
+2899
+02:57:01,020 --> 02:57:01,020
+...
+
+2900
+02:57:01,020 --> 02:57:01,020
+...
+
+2901
+02:57:01,020 --> 02:57:01,020
+...
+
+2902
+02:57:01,020 --> 02:57:01,020
+...
+
+2903
+02:57:01,020 --> 02:57:01,020
+...
+
+2904
+02:57:01,020 --> 02:57:01,020
+...
+
+2905
+02:57:01,020 --> 02:57:01,020
+...
+
+2906
+02:57:01,020 --> 02:57:01,020
+...
+
+2907
+02:57:01,020 --> 02:57:01,020
+...
+
+2908
+02:57:01,020 --> 02:57:01,020
+...
+
+2909
+02:57:01,020 --> 02:57:01,020
+...
+
+2910
+02:57:01,020 --> 02:57:01,020
+...
+
+2911
+02:57:01,020 --> 02:57:01,020
+...
+
+2912
+02:57:01,020 --> 02:57:01,020
+...
+
+2913
+02:57:01,020 --> 02:57:01,020
+...
+
+2914
+02:57:01,020 --> 02:57:01,020
+...
+
+2915
+02:57:01,020 --> 02:57:01,020
+...
+
+2916
+02:57:01,020 --> 02:57:01,020
+...
+
+2917
+02:57:01,020 --> 02:57:01,020
+...
+
+2918
+02:57:01,020 --> 02:57:01,020
+...
+
+2919
+02:57:01,020 --> 02:57:01,159
+...
+
+2920
+02:57:01,159 --> 02:57:01,719
+...
+
+2921
+02:57:10,100 --> 02:57:12,380
+...
+
+2922
+02:57:22,260 --> 02:57:27,000
+Seed, to znamená, že my si tady odevřeme Mistral verze 3 4-bit.
+
+2923
+02:57:27,000 --> 02:57:30,819
+Já si odavřu 16-bit a zakomentuju ten 16-bit.
+
+2924
+02:57:32,020 --> 02:57:38,500
+Tady je teda, jak já si v UV nasíduji pro Jupyter notebook.
+
+2925
+02:57:39,680 --> 02:57:42,559
+Pak si tady pustím ten Jupyter server.
+
+2926
+02:57:44,899 --> 02:57:48,059
+A můžeme spolu sledovat, jak se mi tady pojďme porostet a...
+
+2927
+02:57:50,200 --> 02:57:57,340
+GPU, tzn. tady uvidíme kodu a tady uvidíme, kolik to zpotřebuje dedikovat ty GPU memory.
+
+2928
+02:57:57,360 --> 02:58:01,880
+Tohle je 16 GB, tady je pak nějaká shared GPU memory, což je ta ta
+
+2929
+02:58:02,159 --> 02:58:07,100
+virtuální, kde se to odkládá někam na disk nebo do RAMky.
+
+2930
+02:58:07,780 --> 02:58:09,280
+Já vlastně ani nevím.
+
+2931
+02:58:09,639 --> 02:58:13,319
+Mám 128 GB, je možné, že to je asi RAMka.
+
+2932
+02:58:14,700 --> 02:58:17,600
+To by možná, jestli někdo ví, tak klidně promluvte.
+
+2933
+02:58:19,860 --> 02:58:34,520
+Tady mám 16 chibi. To znamená, že tady mám Jupyter notebook, já tady vyberu ten existující Jupyter server, tady vlastně mám tu URL toho serveru i s tím heslem, to je ten token, který tam je vzadu.
+
+2934
+02:58:35,100 --> 02:58:43,479
+Tady já se na něj přihlásím, vyberu si ten kernel k tomu a jsem tady. A teď to tady nainstaluju knihovny.
+
+2935
+02:58:45,540 --> 02:58:54,500
+Tak, teďkon tady je Hugging Face hub, já myslím, že tady budu muset vyměnit token, protože ten už je prošlej tamten.
+
+2936
+02:58:54,500 --> 02:58:56,559
+Já ho mám naštěstí tady.
+
+2937
+02:58:59,940 --> 02:59:03,899
+Takže zase ten access token do Hugging Face byste našli na webu.
+
+2938
+02:59:04,020 --> 02:59:08,239
+Je to stejný, jako když hledáte access token do GitHubu nebo kam kdykoliv jinde,
+
+2939
+02:59:08,299 --> 02:59:16,360
+tam v tom profilu někde v settings najdete access token, takže ten byste si tam vytvořili, tady byste ho použili.
+
+2940
+02:59:17,639 --> 02:59:22,260
+Tak on mi tady vztahuje ty knihovny a zatím pustím tenhle.
+
+2941
+02:59:23,000 --> 02:59:28,319
+A tadyhle je vlastně skript přes Transformer knihovnu z Hugging Face,
+
+2942
+02:59:28,440 --> 02:59:32,319
+jakým vy používáte jakýkoliv Open Source model.
+
+2943
+02:59:32,500 --> 02:59:34,819
+Tady si jenom definujete jméno toho modelu.
+
+2944
+02:59:35,280 --> 02:59:41,299
+Zase z webu byste si tady Hugging Face, Hugging Face CO
+
+2945
+02:59:41,299 --> 02:59:44,119
+a pojďme si vybrat schválně nějakou labu.
+
+2946
+02:59:45,299 --> 02:59:47,440
+nebo ten Mistral, pojďme se, když už
+
+2947
+02:59:47,520 --> 02:59:49,639
+mám ten Mistral, tak se pojďme pojít na ten Mistral.
+
+2948
+02:59:50,440 --> 02:59:52,119
+Instruct verze 0.3,
+
+2949
+02:59:52,139 --> 02:59:53,380
+to znamená, že ten má
+
+2950
+02:59:55,579 --> 02:59:58,239
+15 GB, jo, podle
+
+2951
+02:59:58,459 --> 02:59:59,819
+toho souboru tady. 5
+
+2952
+03:00:00,000 --> 03:00:02,379
+10, 15. Takže ten by se mi měl vejít
+
+2953
+03:00:02,979 --> 03:00:04,680
+vlastně do toho,
+
+2954
+03:00:05,340 --> 03:00:07,540
+do té rámky celé.
+
+2955
+03:00:08,299 --> 03:00:09,420
+Tak já bych chtěl spíš
+
+2956
+03:00:09,520 --> 03:00:11,420
+asi naladovat teda model, který se mi tam
+
+2957
+03:00:11,420 --> 03:00:13,680
+jako nevejde, abych vám dokázal,
+
+2958
+03:00:14,840 --> 03:00:16,579
+že se mi tam teda nevejde
+
+2959
+03:00:16,620 --> 03:00:18,739
+a že nebude probíhat ta virtualizace.
+
+2960
+03:00:19,739 --> 03:00:21,920
+5, 10, to je 16.
+
+2961
+03:00:22,040 --> 03:00:24,079
+Je to přes 16?
+
+2962
+03:00:24,459 --> 03:00:25,659
+Je to
+
+2963
+03:00:25,899 --> 03:00:27,899
+přes 16, ale o kousak.
+
+2964
+03:00:28,700 --> 03:00:30,299
+Tak pojďme ještě zkusit to zvětšit
+
+2965
+03:00:30,299 --> 03:00:31,379
+trošku.
+
+2966
+03:00:32,459 --> 03:00:35,440
+Lama 3, 1 je tam nějaký větší.
+
+2967
+03:00:37,379 --> 03:00:38,799
+Nebo 3, 2 teda.
+
+2968
+03:00:41,379 --> 03:00:44,159
+3 biliony, ale 11 bilionů.
+
+2969
+03:00:44,319 --> 03:00:46,180
+Tak tam by mělo být větší, ne?
+
+2970
+03:00:46,959 --> 03:00:49,079
+Ne, já nemám přístup k tý 3, 2.
+
+2971
+03:00:50,879 --> 03:00:52,379
+Tak tam nejdu teda.
+
+2972
+03:00:52,819 --> 03:00:55,020
+Tak počkat, který vyberu.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

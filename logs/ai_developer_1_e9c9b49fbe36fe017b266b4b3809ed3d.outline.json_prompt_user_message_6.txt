@@ -1,0 +1,995 @@
+Transcript:
+
+=================
+1308
+01:23:56,819 --> 01:23:58,159
+může to mít vlastně nabývat
+
+1309
+01:23:58,420 --> 01:24:04,000
+více hodnot současně, tak to je multilabel klasifikace, na to se používá
+
+1310
+01:24:04,000 --> 01:24:09,840
+tohleta loss funkce. Nebo máte ceny domů, teplotní předpovědi, to je mean square error,
+
+1311
+01:24:09,880 --> 01:24:14,940
+snažíte se minimalizovat vlastně nějakou regresi, která je proložená těma hodnotama.
+
+1312
+01:24:15,539 --> 01:24:20,079
+Máte míň absolute error, což je nějaká regrese pro noisy data.
+
+1313
+01:24:20,319 --> 01:24:23,059
+Něco jako odhad času doručení zásilky.
+
+1314
+01:24:23,359 --> 01:24:27,260
+Je tam tolik faktorů, které vám to můžou ovlivňovat.
+
+1315
+01:24:27,279 --> 01:24:32,340
+Je to noisy data, tak na to používáte zase tuto loss funkci.
+
+1316
+01:24:36,600 --> 01:24:41,059
+Jo, want DB. Tak my používáme trošku něco jiného.
+
+1317
+01:24:42,640 --> 01:24:44,319
+Weight and biases.
+
+1318
+01:24:45,279 --> 01:24:49,059
+Co my tady záměrně neříkáme, zase proto...
+
+1319
+01:24:51,739 --> 01:24:56,859
+Snažím se zjednodušovat tak nějak tu problematiku, o které tady hovoříme.
+
+1320
+01:24:56,859 --> 01:25:05,059
+To, co jsme třeba nezmínili, je, že je tady takzvaný bajes v rámci toho trénování.
+
+1321
+01:25:05,059 --> 01:25:14,359
+Nejenom ty váhy, ale je tady takzvaný bajes, který se taky používá a pomáhá mi stáhnout...
+
+1322
+01:25:16,000 --> 01:25:20,399
+hodnoty té neuronové sítě trošku doleva nebo trošku doprava.
+
+1323
+01:25:20,479 --> 01:25:24,140
+O tom my se tady nebavíme. To je třeba co vám tady ten
+
+1324
+01:25:24,140 --> 01:25:26,940
+to je to co to biases means znamená.
+
+1325
+01:25:27,279 --> 01:25:31,000
+Máte tam váhy a k tomu máte ještě vynásobený biasem.
+
+1326
+01:25:31,819 --> 01:25:35,079
+Tak my si ale tady ukážeme trochu něco jinýho.
+
+1327
+01:25:36,119 --> 01:25:38,859
+Jednak jsme se bavili při zpětné propagaci o
+
+1328
+01:25:39,319 --> 01:25:45,420
+Vlastně je tady takhle. Když jdeme dopředu, tak si vypočítáváme nákladovou funkci.
+
+1329
+01:25:45,440 --> 01:25:47,159
+To je to, co jsme si tady vlastně řekli.
+
+1330
+01:25:47,159 --> 01:25:56,680
+Loss funkce je rozdíl při jednom kroku mezi tou predikovanou hodnotou a tou výstupní proměrou.
+
+1331
+01:25:57,199 --> 01:26:05,539
+Když se bavíme o cost funkci, tak vy si asi umíte představit, že nebudete mít jenom jeden řádek v tom datovém souboru,
+
+1332
+01:26:05,640 --> 01:26:07,359
+budete tam mít spoustu.
+
+1333
+01:26:07,520 --> 01:26:13,279
+Tak pokud budete predikovat nebo se snažit spočítat chybu pro celý ten datovej soubor,
+
+1334
+01:26:13,659 --> 01:26:15,239
+tak tomu se říká cost funkce.
+
+1335
+01:26:15,260 --> 01:26:21,279
+Takže chyba pro jeden řádek je vlastně loss funkce, pro celý ten datovej soubor je cost funkce.
+
+1336
+01:26:22,859 --> 01:26:26,140
+A když jdeme zpátky, tak tady máme ten optimizér,
+
+1337
+01:26:26,220 --> 01:26:28,659
+který mi aktualizuje váhy v závislosti na tom,
+
+1338
+01:26:28,659 --> 01:26:30,260
+jak moc přispělí k té chybě.
+
+1339
+01:26:30,319 --> 01:26:33,079
+To je taky něco, co vy můžete definovat
+
+1340
+01:26:33,159 --> 01:26:35,460
+v rámci toho vašeho trénování.
+
+1341
+01:26:35,579 --> 01:26:38,720
+A tady máte typy optimizérů,
+
+1342
+01:26:38,779 --> 01:26:40,579
+kde máte brute force optimizér,
+
+1343
+01:26:40,880 --> 01:26:44,300
+který se snaží definovat nebo najít.
+
+1344
+01:26:44,300 --> 01:26:45,800
+Je to optimalizační problém.
+
+1345
+01:26:45,859 --> 01:26:48,319
+Snažíte se optimalizovat nebo minimalizovat
+
+1346
+01:26:48,960 --> 01:26:57,720
+vlastně tu nákladovou funkci, jestli si pamatujete ze školy z průběhu funkce, kdy jste dělali minimum a maximum, hledali minimum a maximum funkce,
+
+1347
+01:26:57,720 --> 01:27:00,260
+tak jste k tomu používali derivace.
+
+1348
+01:27:00,260 --> 01:27:04,500
+Tohle je stejný problém. Tam u průběhu funkce jste si mohli vypočítat
+
+1349
+01:27:04,699 --> 01:27:08,840
+v každém bodě, jakou má hodnotu ta funkce a pak jste mohli vlastně říct,
+
+1350
+01:27:09,000 --> 01:27:12,079
+jo tak tady je vlastně maximum, nebo tady je vlastně minimum.
+
+1351
+01:27:12,559 --> 01:27:17,920
+Ale to u něčeho, jako jsou neuronové sítě, nelze, protože tam je
+
+1352
+01:27:18,199 --> 01:27:23,680
+počet parametrů a vstupních proměn je tam, bavíme se, v tak velkých řádech, že
+
+1353
+01:27:24,039 --> 01:27:26,960
+spočítat brute force silou
+
+1354
+01:27:26,960 --> 01:27:31,520
+minimum nebo najít minimum a maximum tý kost funkce by trvalo třeba
+
+1355
+01:27:31,659 --> 01:27:32,899
+2000 let
+
+1356
+01:27:33,800 --> 01:27:36,100
+Je tam opravdu tolik možností.
+
+1357
+01:27:36,180 --> 01:27:38,739
+To znamená, že lidi museli přijít na jiný způsob,
+
+1358
+01:27:38,899 --> 01:27:43,059
+jak vlastně tenhle optimizační problém vyřešit.
+
+1359
+01:27:43,420 --> 01:27:46,600
+To znamená, že přišli s metodou, která se jmenuje gradient descent.
+
+1360
+01:27:47,380 --> 01:27:50,239
+Následně stochastic gradient descent.
+
+1361
+01:27:50,760 --> 01:27:53,880
+A to, co se používá teď, je tadyhle ten ADAM,
+
+1362
+01:27:53,940 --> 01:27:58,300
+což je Adaptive Learning Rate plus Momentum.
+
+1363
+01:27:58,420 --> 01:28:01,619
+My si vysvětlíme, teď nebo ukážeme,
+
+1364
+01:28:01,720 --> 01:28:04,340
+jaký je rozdíl mezi Brute Force a Gradient Descentem,
+
+1365
+01:28:04,500 --> 01:28:07,239
+pak si ukážeme rozdíl mezi Gradient Descentem
+
+1366
+01:28:07,239 --> 01:28:09,859
+a Stochastic Descentem a ten ADAM je to,
+
+1367
+01:28:09,859 --> 01:28:12,779
+co my budeme v našem kódu používat.
+
+1368
+01:28:14,020 --> 01:28:16,420
+Takže Brute Force je tady znázorněný zhruba takhle,
+
+1369
+01:28:16,579 --> 01:28:20,239
+kdyby pro každou, tohleto je ta predikovaná hodnota,
+
+1370
+01:28:20,840 --> 01:28:22,899
+A tohle je velikost tý kost funkce.
+
+1371
+01:28:23,100 --> 01:28:23,960
+Jo, x, y.
+
+1372
+01:28:24,279 --> 01:28:25,819
+Pro každou tu hodnotu
+
+1373
+01:28:26,640 --> 01:28:29,380
+my bychom si spočítali, jaká je hodnota tý kost funkce
+
+1374
+01:28:29,399 --> 01:28:30,500
+a pak bychom byli schopni říct,
+
+1375
+01:28:30,539 --> 01:28:32,579
+OK, tady je to minimum.
+
+1376
+01:28:33,460 --> 01:28:34,779
+To ale nechceme
+
+1377
+01:28:35,159 --> 01:28:36,739
+muset spočítat pro každou
+
+1378
+01:28:37,380 --> 01:28:39,059
+veličinu. Co když je to spojitá
+
+1379
+01:28:39,279 --> 01:28:41,359
+veličina, budeme počítat teplotu
+
+1380
+01:28:41,359 --> 01:28:43,180
+0,01, 0,02,
+
+1381
+01:28:43,180 --> 01:28:45,220
+0,03, nebo jak velký detail
+
+1382
+01:28:45,760 --> 01:28:46,420
+tam budeme chtít.
+
+1383
+01:28:47,020 --> 01:28:57,559
+To znamená, že gradient descent si můžete představit jako, že někdo hodí kuličku v takovéhle váze nebo v takovéhle míse.
+
+1384
+01:28:57,579 --> 01:29:03,319
+Ta kulička se prostě zhoupne někam sem a tam, kde vlastně spadne, tam je to minimum.
+
+1385
+01:29:03,800 --> 01:29:11,039
+To, jak to počítáme, je ta derivace, protože v tomto bodě, když si spočítáme derivaci neboli sloup funkce,
+
+1386
+01:29:11,239 --> 01:29:13,960
+to nám řekne, jakým směrem směřuje.
+
+1387
+01:29:14,039 --> 01:29:16,659
+To je ta průběh, předprůběh funkce.
+
+1388
+01:29:16,779 --> 01:29:19,579
+Jsme si taky počítali derivaci, tečna ke křivce,
+
+1389
+01:29:19,739 --> 01:29:25,239
+v závislosti na tom, jaká je směrnice té tečny k křivce,
+
+1390
+01:29:25,440 --> 01:29:29,180
+tak jsme byli schopni říct, jestli to jde nahoru nebo to jde dolů.
+
+1391
+01:29:29,180 --> 01:29:30,380
+Tady je to úplně stejný.
+
+1392
+01:29:30,680 --> 01:29:33,600
+Tady vemu jeden bod, na druhé straně vemu trochu nižší bod
+
+1393
+01:29:33,760 --> 01:29:37,380
+a tak, jak se mi to bude prostě ten sloup měnit,
+
+1394
+01:29:37,380 --> 01:29:40,220
+tak dokud to bude nula, tak tam je prostě to minimum.
+
+1395
+01:29:42,239 --> 01:29:44,600
+teď, jak jsme si říkali,
+
+1396
+01:29:44,619 --> 01:29:46,059
+máme datovej soubor, kde je
+
+1397
+01:29:46,059 --> 01:29:48,399
+prostě víc dat.
+
+1398
+01:29:48,520 --> 01:29:50,340
+To znamená, že co my s tím budeme dělat?
+
+1399
+01:29:50,539 --> 01:29:52,699
+Máme několik možností.
+
+1400
+01:29:52,779 --> 01:29:54,159
+Jedna neuronová síť má
+
+1401
+01:29:54,279 --> 01:29:56,159
+jednu sadu vah pro každou tu
+
+1402
+01:29:56,500 --> 01:29:58,079
+jednu váhu na každej ten
+
+1403
+01:29:58,140 --> 01:29:59,979
+jeden parametr. To znamená, že
+
+1404
+01:30:00,000 --> 01:30:04,140
+má jednu tu kost funkci pro celý ten datovej soubor.
+
+1405
+01:30:04,159 --> 01:30:07,060
+A ta nákladová funkce je pro celý datovej soubor,
+
+1406
+01:30:07,079 --> 01:30:09,140
+nebo lost funkce je pro jeden řádek.
+
+1407
+01:30:09,479 --> 01:30:12,520
+A ta konečná nákladová funkce je suma těch lost funkcí.
+
+1408
+01:30:13,119 --> 01:30:15,840
+To znamená, že kdybyste si udělali vlastně nějakou tu sumu
+
+1409
+01:30:15,840 --> 01:30:19,659
+nebo průměr, dostanete vlastně kost funkci.
+
+1410
+01:30:20,100 --> 01:30:23,000
+A pokud vaše neuronová síť uvidí vlastně,
+
+1411
+01:30:23,000 --> 01:30:26,300
+nebo ji proženete ten dataset jednou,
+
+1412
+01:30:26,579 --> 01:30:29,619
+tak tomu se říká, že je to vlastně jedna epocha.
+
+1413
+01:30:30,039 --> 01:30:36,119
+Vy mu typicky ukážete tu sadu dat několikrát.
+
+1414
+01:30:36,699 --> 01:30:39,619
+A to je zase něco, co ovlivňuje pak ten váš výsledek
+
+1415
+01:30:39,960 --> 01:30:41,140
+té neuronové sítě.
+
+1416
+01:30:41,220 --> 01:30:43,739
+Kolikrát mu ukážete tu sadu dat,
+
+1417
+01:30:44,380 --> 01:30:47,520
+tak moc krát on je schopnej se to učit.
+
+1418
+01:30:47,539 --> 01:30:49,140
+Je to stejný, jako když se učíte vy,
+
+1419
+01:30:49,180 --> 01:30:52,800
+jste se učili děpis a učili jste se ty letopočty,
+
+1420
+01:30:52,920 --> 01:30:56,319
+tak tolikrát, kolik jste je viděli, čím víckrát, tím líp.
+
+1421
+01:30:56,479 --> 01:30:59,880
+Tak tady pak už spekulujeme o přefitování
+
+1422
+01:30:59,960 --> 01:31:02,079
+ty neuronové sítě, ale k tomu se taky dostaneme.
+
+1423
+01:31:03,319 --> 01:31:07,840
+A teďkon je tady gradient, neboli někdy uvidíte termín,
+
+1424
+01:31:07,840 --> 01:31:11,260
+teďkon ty termíny, v závislosti na tom, jaký blok čtete,
+
+1425
+01:31:11,359 --> 01:31:12,520
+s kým se bavíte, kterým se bavíte,
+
+1426
+01:31:13,840 --> 01:31:15,239
+se trošku lišej.
+
+1427
+01:31:19,399 --> 01:31:21,420
+To znamená, že někdo tomu říká jenom gradient,
+
+1428
+01:31:21,420 --> 01:31:23,340
+někdo tomu říká batch gradient.
+
+1429
+01:31:23,340 --> 01:31:27,399
+Ale v závislosti to znamená, že vy mu dáte ten datovej soubor
+
+1430
+01:31:27,859 --> 01:31:29,420
+jednou celý,
+
+1431
+01:31:30,079 --> 01:31:31,899
+on ho celý probere
+
+1432
+01:31:32,159 --> 01:31:36,619
+a updatujete si ty váhy vlastně, když zpracuje celý ten soubor těch dat.
+
+1433
+01:31:37,140 --> 01:31:39,640
+A jak si asi umíte představit, je to paměťově náročný,
+
+1434
+01:31:39,640 --> 01:31:43,539
+když je velkej nebo obrovská ta sada dat.
+
+1435
+01:31:43,939 --> 01:31:47,659
+není to efektivní způsob, jak trénovat
+
+1436
+01:31:47,659 --> 01:31:49,420
+ty neuronové sítě.
+
+1437
+01:31:49,500 --> 01:31:53,859
+Ale pro nějaké malé způsoby je to vhodné
+
+1438
+01:31:53,899 --> 01:31:55,560
+a má to nějaké své výhody.
+
+1439
+01:31:56,220 --> 01:31:59,899
+To je znázorněné tady.
+
+1440
+01:32:00,220 --> 01:32:07,600
+tady tím obrázkem. Je to vlastně to samý, akorát tenhle ten je relevantní k tomu našemu příkladu s těma studentama,
+
+1441
+01:32:07,600 --> 01:32:15,460
+tenhle ten už je tak míň relevantní, ale zase zobrazuje tadyhle ten mini badge, který vlastně nemám pro něj ten obrázek relevantní k těm studentům.
+
+1442
+01:32:15,939 --> 01:32:20,180
+Takže buď na jedné straně extrému, buď mu dáte celý ten soubor,
+
+1443
+01:32:20,420 --> 01:32:28,579
+anebo je stochasty gradient descent, kdy mu dáte řádek pořádku a on si po každém tom řádku si updateuje vlastně ty váhy.
+
+1444
+01:32:28,739 --> 01:32:35,680
+A když hledáte nějaký kompromis, něco mezi, něco co budeme zase používat my v našem kódu,
+
+1445
+01:32:35,680 --> 01:32:37,340
+tak je to takzvaný mini batch.
+
+1446
+01:32:37,340 --> 01:32:42,000
+To znamená, že mu nebudeme dávat ani celý ten soubor, nebudeme mu dávat ani řádek pořádku,
+
+1447
+01:32:42,239 --> 01:32:44,579
+ale budeme mu dávat nějaký dávky.
+
+1448
+01:32:44,739 --> 01:32:49,039
+Takže řekneme, že třeba po třech řádcích mu to budeme dávat a po těch třech řádcích
+
+1449
+01:32:49,039 --> 01:32:53,659
+on si updateuje ty váhy a zase mu dáme další tři řádky a další tři řádky.
+
+1450
+01:32:54,359 --> 01:32:59,220
+Tohle je takový rozumný kompromis mezi těma dvouma extrémama.
+
+1451
+01:33:00,739 --> 01:33:03,779
+A teď on je offline learning a online learning.
+
+1452
+01:33:03,819 --> 01:33:08,420
+Takže to je asi něco, co vám vyvstalo na mysl,
+
+1453
+01:33:08,420 --> 01:33:10,300
+nebo alespoň mě vždycky vyvstávalo.
+
+1454
+01:33:11,859 --> 01:33:16,819
+Pokud se bavíme o gradientu, kde mu dávám vlastně
+
+1455
+01:33:17,300 --> 01:33:27,159
+Nebo takhle jinak. Offline running je něco, kdy já mám před na trénování mám tu sadu dat vlastně v tom daném čase toho trénování k dispozici.
+
+1456
+01:33:27,479 --> 01:33:34,119
+A to je ten běžný způsob, jak my budeme prostě trénovat nebo jak vy, když si s tím budete hrát, budete trénovat.
+
+1457
+01:33:34,640 --> 01:33:42,079
+To znamená, že tam použijete gradient descent nebo ten stochastic gradient descent nebo ten mini badge, můžete použít vlastně všechny ty způsoby.
+
+1458
+01:33:42,420 --> 01:33:48,020
+a dáváte, když uvidí tu sadu dat jednou, celou,
+
+1459
+01:33:48,300 --> 01:33:53,579
+už je jedno jestli mu ji dáte na jednou, nebo po bečích, nebo po řádcích, ale když ji uvidí celou,
+
+1460
+01:33:53,579 --> 01:33:55,520
+tak se tomu říká, že to je jedna epocha.
+
+1461
+01:33:56,380 --> 01:34:03,500
+Potom máte ale online learning, to je něco, kdy třeba pro IoT věci to je hodně používaný,
+
+1462
+01:34:03,500 --> 01:34:08,979
+nebo pro akcie, kdy se vám vlastně pořád v čase vyvíjej ty data.
+
+1463
+01:34:09,520 --> 01:34:12,260
+tak to je něco, čemu se říká online learning
+
+1464
+01:34:12,699 --> 01:34:16,079
+a tam používáte jenom ten Stochastic Gradient Descent
+
+1465
+01:34:16,340 --> 01:34:17,840
+nebo ten mini batch.
+
+1466
+01:34:17,880 --> 01:34:20,239
+To znamená, že vy buď jak ty data chodí,
+
+1467
+01:34:20,239 --> 01:34:24,720
+tak ty moje vlastně předáváte a on se na nich zase jako přetrénovává
+
+1468
+01:34:24,979 --> 01:34:28,319
+a nebo mu dáváte, je chvíli držíte,
+
+1469
+01:34:28,340 --> 01:34:31,899
+pozbíráte ty data třeba za dvě minuty z toho IoT zařízení
+
+1470
+01:34:32,000 --> 01:34:34,560
+a pak mu je zase jako vy předáte v tom batchi,
+
+1471
+01:34:34,560 --> 01:34:35,520
+v tom mini batchi.
+
+1472
+01:34:35,699 --> 01:34:38,239
+A on se zase na základě toho přetrénovává
+
+1473
+01:34:38,380 --> 01:34:46,100
+upraví si ty váhy na základě těch dat a pak je zase schopný predikovat ty hodnoty dál.
+
+1474
+01:34:46,659 --> 01:34:49,920
+A tam teda není žádná epocha, tam není žádný takovýhle termín,
+
+1475
+01:34:49,960 --> 01:34:54,760
+protože je to online, dáváte mu buď ty batche, nebo jenom ty data, jak tečou.
+
+1476
+01:34:55,399 --> 01:35:01,260
+My nebo v rámci edukativních materiálů nebo blogpostů
+
+1477
+01:35:01,640 --> 01:35:04,859
+pravděpodobně nebudete řešit moc tyhle ty online věci,
+
+1478
+01:35:05,699 --> 01:35:12,640
+Většinou se budete zabývat těma offline learningem a budete tam mít ty epochy.
+
+1479
+01:35:12,840 --> 01:35:14,619
+To bude i náš případ.
+
+1480
+01:35:14,920 --> 01:35:20,739
+Tady je nějaká ukázka toho, jak gradientní sestup nebo descent vypadá v 3D.
+
+1481
+01:35:20,979 --> 01:35:27,020
+Takže je to zase jako kulička, která by se snažila dopadnout do toho nejnižšího bodu.
+
+1482
+01:35:27,399 --> 01:35:28,800
+Dávejte si jenom pozor.
+
+1483
+01:35:30,020 --> 01:35:36,060
+na lokální a globální minima nebo maxima.
+
+1484
+01:35:36,100 --> 01:35:38,939
+To znamená, že ta kulička by taky klidně mohla spadnout sem.
+
+1485
+01:35:39,100 --> 01:35:42,680
+Ale není to úplně to nejnižší místo, to nejnižší místo je tady.
+
+1486
+01:35:42,680 --> 01:35:46,199
+Takže jenom tohle je taky něco, co se jako řeší často.
+
+1487
+01:35:46,140 --> 01:35:51,840
+v závislosti na gradientním a stochastickým gradient descentu.
+
+1488
+01:35:51,880 --> 01:35:54,560
+Když používáte ten stochastický, tak pravděpodobně najdete
+
+1489
+01:35:54,579 --> 01:35:57,979
+to globální maximum s větší pravděpodobností,
+
+1490
+01:35:57,979 --> 01:36:00,880
+než když použijete jenom ten gradient.
+
+1491
+01:36:03,159 --> 01:36:06,899
+Jak správně odradnout počet epoch, aby se AI nenaučila vyhledávat
+
+1492
+01:36:06,899 --> 01:36:10,119
+datasetu, respektive aby opravdu fungovala na nových datech?
+
+1493
+01:36:10,399 --> 01:36:15,180
+Jak moc změní optimizéry příchod kvantových počítačů?
+
+1494
+01:36:16,000 --> 01:36:18,060
+To jsou dobrý
+
+1495
+01:36:18,060 --> 01:36:20,600
+tásky.
+
+1496
+01:36:22,000 --> 01:36:23,680
+Ještě Marek. Při online
+
+1497
+01:36:23,699 --> 01:36:25,760
+learningu se na trénování používají
+
+1498
+01:36:26,100 --> 01:36:27,539
+jenom nový data,
+
+1499
+01:36:27,579 --> 01:36:30,020
+nebo jak přijdu nový data, předběhnu
+
+1500
+01:36:30,159 --> 01:36:31,619
+a je staré plus nové?
+
+1501
+01:36:32,159 --> 01:36:33,619
+To záleží na use case.
+
+1502
+01:36:33,699 --> 01:36:35,600
+Většinou se používají jenom ty nový,
+
+1503
+01:36:35,600 --> 01:36:37,479
+protože ty staré už máte obsažený
+
+1504
+01:36:37,520 --> 01:36:40,079
+vlastně v tých
+
+1505
+01:36:41,840 --> 01:36:43,060
+váhách té neuronové
+
+1506
+01:36:43,159 --> 01:36:44,739
+sítě. To znamená, že tam
+
+1507
+01:36:44,760 --> 01:36:46,779
+už jenom feedujete ty nový data.
+
+1508
+01:36:47,880 --> 01:36:51,359
+Tak kvantový počítače to změní úplně všechno.
+
+1509
+01:36:51,600 --> 01:36:54,659
+Tam se dostáváme na level atomů,
+
+1510
+01:36:54,760 --> 01:36:59,560
+to znamená, že tam jsi schopný nasimulovat vlastně celý vesmír,
+
+1511
+01:36:59,579 --> 01:37:04,039
+takže jsi schopný nasimulovat vývoj války
+
+1512
+01:37:04,439 --> 01:37:09,239
+vlastně na úrovně atomů v několika možných scénářích.
+
+1513
+01:37:10,239 --> 01:37:11,960
+Tam jsme úplně někde jinde.
+
+1514
+01:37:12,359 --> 01:37:14,960
+Pokud se AI spojí s kvantovýma počítačema,
+
+1515
+01:37:16,180 --> 01:37:17,500
+tak singularita je jasná.
+
+1516
+01:37:18,340 --> 01:37:22,979
+jak správně odradnout počet epoch. K tomu si podíváme na kód.
+
+1517
+01:37:22,979 --> 01:37:26,159
+To si myslím, že pro vás bude nejlepší.
+
+1518
+01:37:27,859 --> 01:37:30,600
+Teď se podíváme na trénování.
+
+1519
+01:37:30,640 --> 01:37:34,479
+Tady máme sekci trénování a evaluace.
+
+1520
+01:37:34,779 --> 01:37:36,920
+Tady si definujeme loss funkci.
+
+1521
+01:37:37,119 --> 01:37:44,619
+Když se vrátím sem a budeme se bavit o typy loss funkcí, tak v závislosti na tom, jaký problém já řeším,
+
+1522
+01:37:44,699 --> 01:37:49,060
+tak si definuju loss funkci pro ten trénovací proces.
+
+1523
+01:37:49,199 --> 01:37:50,840
+Já tady mám B, C, E loss.
+
+1524
+01:37:50,960 --> 01:37:57,880
+což mi odpovídá binární klasifikaci, stejně jako to bylo předtím, pořád se pojebujeme v tý ceně akcie,
+
+1525
+01:37:57,899 --> 01:38:03,500
+to znamená, že tak jak jsme si vybírali aktivační funkci na základě toho use case, tak si vybíráme lost funkci,
+
+1526
+01:38:03,500 --> 01:38:06,640
+neboli výpočet tý lost funkci na základě toho use case,
+
+1527
+01:38:06,979 --> 01:38:14,479
+a volíme si taky optimizer, to znamená, že tadyhle si volíme, jestli budeme brute force nikdy nepoužívat, a to úplně zapomeňte, to je jenom pro
+
+1528
+01:38:14,779 --> 01:38:20,840
+Opravdu ty edukační důvody. Gradient Descent se taky nepoužívá.
+
+1529
+01:38:20,979 --> 01:38:24,460
+Používá se buď Stochasty Gradient Descent minimálně,
+
+1530
+01:38:24,779 --> 01:38:28,039
+ale spíš se používá ten Adaptive Learning Rate.
+
+1531
+01:38:28,260 --> 01:38:32,500
+Právě proto, že je scalability, je rychlej,
+
+1532
+01:38:32,960 --> 01:38:35,760
+nepotřebuje nějaký tuning, rate tuning,
+
+1533
+01:38:35,880 --> 01:38:41,619
+vyhybá se těm lokálním minimum, jo?
+
+1534
+01:38:43,399 --> 01:38:45,159
+umí se tomu vyhnout.
+
+1535
+01:38:45,220 --> 01:38:49,279
+Takže i z toho důvodu, co vždycky uvidíte tady v těch zdrojových kódech,
+
+1536
+01:38:49,380 --> 01:38:51,600
+tak bude tady ten optimizer ADAM,
+
+1537
+01:38:52,020 --> 01:38:53,180
+který budete používat.
+
+1538
+01:38:53,680 --> 01:38:55,279
+Tak, teď jsou tady dvě funkce.
+
+1539
+01:38:55,420 --> 01:38:58,440
+Je tady trénovací proces a je tady evaluační proces.
+
+1540
+01:38:59,359 --> 01:39:02,039
+Já bych vám chtěl ukázat,
+
+1541
+01:39:03,440 --> 01:39:06,760
+já vám to ukážu asi až u T-CNN a RNN,
+
+1542
+01:39:06,760 --> 01:39:08,779
+k který se snad dostaneme hnedle,
+
+1543
+01:39:09,159 --> 01:39:09,680
+tak
+
+1544
+01:39:11,039 --> 01:39:13,420
+dobře. To znamená, že
+
+1545
+01:39:13,420 --> 01:39:14,840
+ty data, které já jsem si tady
+
+1546
+01:39:15,319 --> 01:39:17,880
+naskládal nebo stáhnul,
+
+1547
+01:39:17,960 --> 01:39:19,399
+tak jsem si rozdělil v nějakém
+
+1548
+01:39:19,559 --> 01:39:21,039
+poměru na trénovací data,
+
+1549
+01:39:21,140 --> 01:39:23,199
+to znamená 60% dat, který jsem
+
+1550
+01:39:23,199 --> 01:39:25,279
+nazbíral, bude sloužit na trénování
+
+1551
+01:39:25,279 --> 01:39:28,460
+ty neuronové sítě, 20%
+
+1552
+01:39:28,460 --> 01:39:29,880
+bude sloužit na validaci.
+
+1553
+01:39:30,279 --> 01:39:31,819
+V rámci každé epochy
+
+1554
+01:39:33,020 --> 01:39:35,220
+já mu ukážu trénovací
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

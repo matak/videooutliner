@@ -1,0 +1,1055 @@
+Transcript:
+
+=================
+1880
+01:56:59,899 --> 01:57:05,500
+Ten problém se vyřeší vlastně na té aplikační vrstvě, v těch APIčkách před tím modelem.
+
+1881
+01:57:05,979 --> 01:57:13,460
+Ať už je to Chain of Thought, nebo je to nějaké další věci, teď jsem zapomněl.
+
+1882
+01:57:17,239 --> 01:57:18,940
+Teď jsem zapomněl.
+
+1883
+01:57:18,940 --> 01:57:20,100
+Jo, jo.
+
+1884
+01:57:20,840 --> 01:57:24,180
+Nebo je to právě multiagentní řešení,
+
+1885
+01:57:24,180 --> 01:57:26,079
+kdy máte vlastně víc
+
+1886
+01:57:26,079 --> 01:57:27,079
+entit,
+
+1887
+01:57:27,159 --> 01:57:29,779
+který jsou schopní o něčem přemýšlet.
+
+1888
+01:57:30,079 --> 01:57:31,960
+Každá o tom přemýší trochu jinak.
+
+1889
+01:57:32,340 --> 01:57:34,699
+Tak tyhle typy řešení,
+
+1890
+01:57:34,699 --> 01:57:35,760
+které jsou jednodušší
+
+1891
+01:57:36,380 --> 01:57:38,520
+implementovat na té aplikační vrstvě,
+
+1892
+01:57:38,579 --> 01:57:39,500
+protože je jednoduchý
+
+1893
+01:57:39,699 --> 01:57:41,159
+změnit ten kód rychle.
+
+1894
+01:57:41,640 --> 01:57:52,720
+Tak pokud se ukážou jako validní řešení problému nebo vylepšení, tak uvidíte, že se přesunou vlastně v té vrstvě a dostanou se do toho modelu ve výsledku.
+
+1895
+01:57:53,239 --> 01:57:56,640
+Typicky chain of thought, dneska máme reasoning modely.
+
+1896
+01:57:56,920 --> 01:58:04,119
+Multiagentní vlastně komunikace, což není nic jiného, než že máte víc agentů, každý má jinou roli.
+
+1897
+01:58:04,279 --> 01:58:09,039
+a jsou schopný analyzovat ten problém z více stran.
+
+1898
+01:58:09,279 --> 01:58:11,779
+To se vám promítlo do modelů
+
+1899
+01:58:11,779 --> 01:58:15,600
+a teď máme takzvaný mixture of experts modely,
+
+1900
+01:58:15,920 --> 01:58:18,079
+který není nic jiného než to,
+
+1901
+01:58:18,420 --> 01:58:20,779
+že vy tam máte v jednom modelu
+
+1902
+01:58:20,819 --> 01:58:23,100
+grupu menších modelů
+
+1903
+01:58:23,340 --> 01:58:24,739
+a před nima máte router
+
+1904
+01:58:25,260 --> 01:58:28,140
+a jak mně přijde uživatelová otázka,
+
+1905
+01:58:28,140 --> 01:58:30,199
+tak ten router se rozhodne,
+
+1906
+01:58:30,779 --> 01:58:34,840
+kdo má tu otázku zodpovědět z těch menších modelů.
+
+1907
+01:58:34,859 --> 01:58:39,760
+To znamená, že v tom případě se to přesměruje na ten danej menší model
+
+1908
+01:58:40,020 --> 01:58:41,619
+a ten tu otázku zodpoví.
+
+1909
+01:58:41,819 --> 01:58:46,680
+To přesně simuluje, nebo reflektuje, kopíruje to chování
+
+1910
+01:58:46,739 --> 01:58:49,020
+vlastně těch multiagentních řešení.
+
+1911
+01:58:49,220 --> 01:58:50,960
+Takže tenhle ten pattern uvidíte.
+
+1912
+01:58:51,859 --> 01:58:53,539
+Průběhu toho, jak se s tím budete hrát.
+
+1913
+01:58:54,319 --> 01:58:59,359
+Tak, máme 6 minut pro Swish Team Benchmarking.
+
+1914
+01:59:00,300 --> 01:59:04,479
+a pak bychom si dali nějaký čas na otázky,
+
+1915
+01:59:04,479 --> 01:59:06,220
+jestli ještě nějaké budou,
+
+1916
+01:59:06,239 --> 01:59:07,840
+anebo já se pak zamyslím,
+
+1917
+01:59:08,720 --> 01:59:11,300
+jestli jsem vám chtěl ještě něco říct.
+
+1918
+01:59:12,819 --> 01:59:17,159
+Tak, jak optimalizovat prompt,
+
+1919
+01:59:17,300 --> 01:59:19,720
+aby byla odpověď co nejrychlejší?
+
+1920
+01:59:22,680 --> 01:59:25,399
+To je zajímavá úvaha.
+
+1921
+01:59:27,140 --> 01:59:28,720
+Já si nemyslím,
+
+1922
+01:59:40,000 --> 01:59:43,500
+já se tady snažím analyzovat z více stran odpověď,
+
+1923
+01:59:46,760 --> 01:59:49,140
+Já si úplně nemyslím, že vy jste schopnej
+
+1924
+01:59:49,199 --> 01:59:50,940
+prompt engineeringem odvlivnit
+
+1925
+01:59:51,020 --> 01:59:52,960
+rychlost odpovědi. Pokud bysme
+
+1926
+01:59:57,520 --> 01:59:59,180
+se nesnažili
+
+1927
+01:59:59,180 --> 01:59:59,979
+způsobit
+
+1928
+02:00:00,079 --> 02:00:10,439
+minimalizovat dílku toho, jak dlouho generuje tu odpověď.
+
+1929
+02:00:10,539 --> 02:00:14,220
+V tom případě byste mu řekli něco jako na tuhletu otázku
+
+1930
+02:00:14,279 --> 02:00:16,260
+vrať mi pouze číslo tady.
+
+1931
+02:00:16,340 --> 02:00:19,060
+Takže tím byste zmenšili ten čas,
+
+1932
+02:00:19,359 --> 02:00:21,420
+nevím, že byste nečekali, než vám vygeneruje
+
+1933
+02:00:21,420 --> 02:00:23,840
+prostě ten celý odstavec a vrátil by vám číslo.
+
+1934
+02:00:24,260 --> 02:00:29,460
+Já si nemyslím, že vy jste schopnej zrychlit ten model
+
+1935
+02:00:30,560 --> 02:00:32,420
+tou vaší otázkou.
+
+1936
+02:00:34,119 --> 02:00:37,119
+Nemohli bychom třeba těm thinking modelům říct,
+
+1937
+02:00:37,119 --> 02:00:40,739
+prostě nepřemejšle díl než 20 vteřin, co tak povídá?
+
+1938
+02:00:41,359 --> 02:00:43,720
+Já si úplně nejsem jistý, jestli on by to následoval.
+
+1939
+02:00:43,720 --> 02:00:47,640
+Je to každopádně u vás právným směrem a můžete to otestovat,
+
+1940
+02:00:47,739 --> 02:00:54,260
+ale já si myslím, že on, nevím, nedokážu vlastně říct.
+
+1941
+02:00:54,319 --> 02:01:01,140
+Je možný, že by to zafungovalo.
+
+1942
+02:01:02,199 --> 02:01:05,060
+Byl by to podobný příklad jako s tím Demi o životu.
+
+1943
+02:01:05,859 --> 02:01:10,779
+mohl by na to klást nějakou důležitost.
+
+1944
+02:01:11,680 --> 02:01:14,239
+Ale nemyslím si, že vy byste dostali
+
+1945
+02:01:15,000 --> 02:01:18,439
+víc výpočetního výkonu v rámci té vaší odpovědi
+
+1946
+02:01:18,520 --> 02:01:19,699
+nebo něco takového.
+
+1947
+02:01:19,939 --> 02:01:23,640
+Nebo že by jeho matematika se zrychlila.
+
+1948
+02:01:23,739 --> 02:01:27,020
+Spíš by to bylo takové, že by tomu dal možná
+
+1949
+02:01:27,020 --> 02:01:30,279
+míň času na procesování,
+
+1950
+02:01:30,300 --> 02:01:34,939
+ale asi by to ohlivnilo i správnost té odpovědi teoreticky.
+
+1951
+02:01:34,939 --> 02:01:35,140
+Takže...
+
+1952
+02:01:36,079 --> 02:01:57,239
+Nemyslím si, že by tam něco takového bylo. Víte co, v těch modelech, když si budete číst a hledat tyhle hacky, tak zjistíte, že třeba byl model na začátku, který byl natrénovanej na hrozně příspěvcích jednoho konkrétního uživatele z redditu.
+
+1953
+02:01:57,960 --> 02:01:59,680
+A ten uživatel,
+
+1954
+02:01:59,960 --> 02:02:01,939
+to uživatelský jméno toho člověka
+
+1955
+02:02:02,000 --> 02:02:03,140
+z Redditu dostalo
+
+1956
+02:02:03,399 --> 02:02:04,659
+separátní token
+
+1957
+02:02:05,300 --> 02:02:07,579
+v tom tokenizu, což je prostě
+
+1958
+02:02:07,739 --> 02:02:08,680
+něco neuvěřitelného.
+
+1959
+02:02:09,979 --> 02:02:11,159
+To by se nemělo stát.
+
+1960
+02:02:11,859 --> 02:02:15,659
+A když jste napsal tohleto jeho jméno, nebo to uživatelský jméno,
+
+1961
+02:02:15,859 --> 02:02:20,779
+tak ten model vlastně se dostal do nějaký pravděpodobnostní odchylky úplně
+
+1962
+02:02:21,279 --> 02:02:24,359
+a začal generovat úplní nesmysly.
+
+1963
+02:02:24,640 --> 02:02:27,979
+Protože když se nad tím zamyslíte, tak ty modele nejsou nic jiného,
+
+1964
+02:02:27,979 --> 02:02:33,100
+než máte pravděpodobnostní rozdělení, takový to gausova křivka.
+
+1965
+02:02:33,399 --> 02:02:35,920
+A teď vy se pohybujete takhle v té gausevé křivce,
+
+1966
+02:02:35,920 --> 02:02:37,960
+někde v těch nejpravděpodobnějších...
+
+1967
+02:02:38,819 --> 02:02:45,439
+možnostech. A to je vždycky to další slovo, které vám to vrátí, vždycky to nejpravděpodobnější slovo.
+
+1968
+02:02:45,439 --> 02:02:52,939
+A teď tím, že vy jste tam dali tohle uživatelské jméno, on se dostal takhle úplně na ten konec té pravděpodobnosti,
+
+1969
+02:02:52,960 --> 02:03:01,199
+ať už na začátek nebo na konec, a začal to generovat úplně nějaký nesmysly. Takže možná existuje nějaký hack, no.
+
+1970
+02:03:02,560 --> 02:03:08,699
+Tak zadat mu maximální počet tokenů a zároveň vybrat rychlejší model.
+
+1971
+02:03:08,699 --> 02:03:12,739
+Jo, maximální počet tokenů by mohl pomoct se zrychlením.
+
+1972
+02:03:13,140 --> 02:03:16,779
+Rychlejší model, tak GPT-4O vs. O1 určitě.
+
+1973
+02:03:17,539 --> 02:03:20,460
+Uprvnou tomu prostě říct, ať odpovídá stroze.
+
+1974
+02:03:20,600 --> 02:03:26,500
+Říkám, no to by vlastně odpověděl, byste si ušetřil ten čas toho odstavce.
+
+1975
+02:03:27,180 --> 02:03:30,600
+jsem měl stím, že je to na kód k záznamu lekce.
+
+1976
+02:03:31,000 --> 02:03:35,579
+Záznam lekce bude na Google Classroomu,
+
+1977
+02:03:35,579 --> 02:03:41,920
+jako ten předchozí, já jsem to už chtěl ukázat minule.
+
+1978
+02:03:43,159 --> 02:03:45,560
+Ne, to je tohle, sorry.
+
+1979
+02:03:48,439 --> 02:03:55,100
+Tady je záznam lekce už z té první lekce,
+
+1980
+02:03:55,100 --> 02:03:57,359
+tady bude ten z dnešní lekce.
+
+1981
+02:04:00,100 --> 02:04:01,380
+Jo, přímo na Classroomu.
+
+1982
+02:04:01,619 --> 02:04:03,899
+Budeme si aj vizuálně vysvětlovat router
+
+1983
+02:04:04,039 --> 02:04:06,000
+a jako se rozhoduje, který model využít
+
+1984
+02:04:06,000 --> 02:04:07,899
+při konkrétním requeste v multimodal
+
+1985
+02:04:07,899 --> 02:04:10,100
+architektuře. Nevím si představit
+
+1986
+02:04:10,159 --> 02:04:12,079
+konkrétní příklad, kedy to
+
+1987
+02:04:12,300 --> 02:04:14,159
+využít. Můžeme si to
+
+1988
+02:04:14,300 --> 02:04:16,119
+ukázat v jedný z těch posledních
+
+1989
+02:04:16,319 --> 02:04:17,819
+lekcí, kdy si budeme,
+
+1990
+02:04:17,939 --> 02:04:19,399
+kdy bude taková volnější
+
+1991
+02:04:19,739 --> 02:04:22,720
+a budeme si povídat, kam dál.
+
+1992
+02:04:22,880 --> 02:04:24,359
+Tak jedna z toho, kam dál
+
+1993
+02:04:24,520 --> 02:04:25,899
+vám budu ukazovat ten mixture
+
+1994
+02:04:26,260 --> 02:04:27,840
+of experts, takže tam se o tom
+
+1995
+02:04:28,079 --> 02:04:30,180
+můžeme popovídat. Já vám můžu ukázat
+
+1996
+02:04:30,399 --> 02:04:33,239
+Přímo ten router je jak se rozhoduje.
+
+1997
+02:04:33,520 --> 02:04:34,500
+Ten router je tak jenom
+
+1998
+02:04:34,739 --> 02:04:35,600
+neuronová síť,
+
+1999
+02:04:36,119 --> 02:04:39,399
+kterou si natrénujou
+
+2000
+02:04:39,880 --> 02:04:40,899
+tak, aby
+
+2001
+02:04:41,140 --> 02:04:44,100
+dokázala kategorizovat
+
+2002
+02:04:44,359 --> 02:04:45,859
+tu otázku toho uživatele.
+
+2003
+02:04:45,939 --> 02:04:47,819
+Zase je to jenom klasifikační problém,
+
+2004
+02:04:47,859 --> 02:04:49,359
+aby dokázala klasifikovat
+
+2005
+02:04:50,279 --> 02:04:54,640
+na jednu z pěti, pokud tam máte mixed человек 5 modelů,
+
+2006
+02:04:54,899 --> 02:04:59,680
+tak aby dokázala klasifikovat tu otázku do jedný z pěti chlívečků
+
+2007
+02:04:59,739 --> 02:05:03,060
+nebo kategorii. Podle toho, jak to kategorizuje ZDA router,
+
+2008
+02:05:03,060 --> 02:05:07,880
+tak tam to pošlou. Už ho vidím, díky. Jasně.
+
+2009
+02:05:08,340 --> 02:05:10,880
+Tak, pojďme se podívat na ten benchmarking ještě.
+
+2010
+02:05:10,880 --> 02:05:13,739
+To je docela zajímavý, protože si myslím, že to je něco,
+
+2011
+02:05:13,800 --> 02:05:18,479
+co byste mohli využít, ať už pro váš vlastní základ,
+
+2012
+02:05:19,579 --> 02:05:21,659
+rozhodování třeba, který ten model
+
+2013
+02:05:21,659 --> 02:05:23,699
+použít, nebo v rámci
+
+2014
+02:05:23,920 --> 02:05:25,619
+firmy, kdybyste hledali prostě nějaké
+
+2015
+02:05:25,720 --> 02:05:27,760
+specifické chování,
+
+2016
+02:05:27,760 --> 02:05:29,399
+tak jak
+
+2017
+02:05:29,619 --> 02:05:31,460
+takové benchmarky fungují, nebo
+
+2018
+02:05:31,739 --> 02:05:32,979
+kam se na ně podívat.
+
+2019
+02:05:34,359 --> 02:05:36,000
+Hlavní, který byste si měli
+
+2020
+02:05:36,100 --> 02:05:38,100
+zapamatovat, je tady ten
+
+2021
+02:05:38,199 --> 02:05:40,539
+ARC price. Je to
+
+2022
+02:05:40,659 --> 02:05:43,159
+z toho důvodu, že to je vlastně jedinej
+
+2023
+02:05:45,020 --> 02:05:45,640
+jednak můžete
+
+2024
+02:05:45,760 --> 02:05:47,439
+vydělat nějaké peníze, pokud
+
+2025
+02:05:47,739 --> 02:05:48,819
+budete hodně šikovný,
+
+2026
+02:05:49,119 --> 02:05:51,260
+a jednak je to jedinej
+
+2027
+02:05:51,260 --> 02:05:53,439
+takovej benchmark,
+
+2028
+02:05:53,439 --> 02:05:55,100
+který já vidím, že
+
+2029
+02:05:55,840 --> 02:05:57,039
+má za sebou nějaké
+
+2030
+02:05:57,060 --> 02:06:00,720
+výrazný peníze, plánuje
+
+2031
+02:06:00,899 --> 02:06:02,619
+se udržovat do budoucna
+
+2032
+02:06:02,840 --> 02:06:04,500
+tak, aby vždycky
+
+2033
+02:06:05,000 --> 02:06:21,319
+než se přijde nějaký AGI, který je schopný obsáhnout jakýkoliv tásk pro jakékoliv zaměření, tak tohle se pořád vylepšuje a dělá se to těžší a těžší, tak aby to ty modely nemohly vyřešit.
+
+2034
+02:06:21,859 --> 02:06:26,279
+To znamená, že tady vidíte ARC generace 1,
+
+2035
+02:06:26,279 --> 02:06:28,100
+to je vlastně ten růžovej,
+
+2036
+02:06:28,359 --> 02:06:30,760
+a vidíte, že to dosáhlo, ty O3 modely
+
+2037
+02:06:30,899 --> 02:06:35,399
+vlastně dosáhly až nějakých 80-90% úspěšnosti.
+
+2038
+02:06:35,659 --> 02:06:39,119
+Tady to začínalo, vlastně tady jsou nový modely, koukám.
+
+2039
+02:06:39,699 --> 02:06:41,720
+Vidíte COT, jak to tady má psaný,
+
+2040
+02:06:41,720 --> 02:06:46,119
+O4 mini, COT, O3, tak to COT je to Chain of Thoughts,
+
+2041
+02:06:46,119 --> 02:06:47,380
+o kterém my jsme se bavili.
+
+2042
+02:06:47,819 --> 02:06:50,340
+To byste se i dočetli zase v těch blogpostech.
+
+2043
+02:06:51,119 --> 02:07:08,760
+Takže tyhle ty týpci pak přišli z generací 2 a najednou vidíte, že to score, který teď dosahují ty modely, je prostě nějaké 3%, takže se to snížilo z těch 80% na 3-4%. Tady vidíte ukázky vlastně těch tásků, který to má vlastně jako řešit.
+
+2044
+02:07:09,279 --> 02:07:14,039
+Pro uživatelé by to měly být celkem jednoduchý tásky,
+
+2045
+02:07:14,039 --> 02:07:15,460
+který byste měli vyřešit i vy.
+
+2046
+02:07:15,699 --> 02:07:18,460
+Pro ně naopak je to velmi složitý problém,
+
+2047
+02:07:18,960 --> 02:07:20,420
+který by měli vyřešit.
+
+2048
+02:07:20,460 --> 02:07:23,000
+Tak to jenom, abyste věděli benchmark,
+
+2049
+02:07:23,220 --> 02:07:27,119
+který by mělo stát sledovat i do budoucna.
+
+2050
+02:07:27,500 --> 02:07:29,140
+Pak jsou tady nějaký takový typický
+
+2051
+02:07:29,140 --> 02:07:32,319
+jako na kodování benchmark, na matematiku, na...
+
+2052
+02:07:34,880 --> 02:07:47,380
+Na kvízové otázky, takové ty středoškolské, my jsme to teda moc neměli na střední škole, ale v Americe je to populární, dostanete otázku a dostanete pět možných odpovědí.
+
+2053
+02:07:47,720 --> 02:07:49,859
+teďkon, v závislosti
+
+2054
+02:07:49,960 --> 02:07:52,159
+na tom, jak těžkou školu děláte,
+
+2055
+02:07:52,159 --> 02:07:53,819
+může být 0 až 5
+
+2056
+02:07:54,000 --> 02:07:55,760
+správných odpovědí.
+
+2057
+02:07:55,880 --> 02:07:57,699
+V Americe mám takový dojem,
+
+2058
+02:07:57,699 --> 02:07:59,720
+že tam je vždycky jenom jedna správně,
+
+2059
+02:07:59,819 --> 02:08:01,960
+zase nechci škatulkovat,
+
+2060
+02:08:02,119 --> 02:08:03,800
+ale tak to většinou tak bývá.
+
+2061
+02:08:04,340 --> 02:08:06,100
+Takže tam se to dá odhadovat.
+
+2062
+02:08:06,279 --> 02:08:07,640
+Takže to jsou tyhle ty
+
+2063
+02:08:07,880 --> 02:08:09,579
+M, L, U a
+
+2064
+02:08:09,479 --> 02:08:17,060
+A pak jsou tady nějaký na halucinace a na faktul věc, na pravdivý věc, jestli to je pravda, není pravda a tak dále.
+
+2065
+02:08:17,140 --> 02:08:19,020
+Takže tady máte takový benchmarky.
+
+2066
+02:08:19,479 --> 02:08:26,039
+My si ukážeme, jak dělat tadyhle ten kodovací Human Eval a jak vlastně ho udělat pomocí kodu.
+
+2067
+02:08:27,039 --> 02:08:29,439
+Protože ty benchmarky můžete dělat i manuálně.
+
+2068
+02:08:29,460 --> 02:08:35,380
+My si ukážeme jeden, který se dá vyřešit kodováním a ukážeme si ten kod, to bude tady ten Human Eval.
+
+2069
+02:08:36,520 --> 02:08:41,380
+A tím pádem vy byste měli být schopný si vytvořit vlastní dataset,
+
+2070
+02:08:41,380 --> 02:08:45,239
+tadyhle ten HumanEvil, a testovat ho na vlastních kódech.
+
+2071
+02:08:45,420 --> 02:08:50,180
+Pokud ho potřebujete třeba na psaní testovacích scénářů,
+
+2072
+02:08:50,220 --> 02:08:55,279
+nebo unit testů, nebo prostě něco takového, co byste chtěli otestovat,
+
+2073
+02:08:55,579 --> 02:08:58,880
+tak byste si měli být schopný tadyhle ten dataset vytvořit.
+
+2074
+02:08:59,199 --> 02:09:01,579
+Tady máte link, takže to je na GitHub.
+
+2075
+02:09:02,619 --> 02:09:05,479
+Myslím si, že to má jenom 136
+
+2076
+02:09:05,659 --> 02:09:07,619
+sámplů,
+
+2077
+02:09:07,739 --> 02:09:09,399
+jestli se nepletu.
+
+2078
+02:09:09,800 --> 02:09:11,899
+Takže i to by vám mělo dát
+
+2079
+02:09:11,960 --> 02:09:14,180
+jako takovou představu,
+
+2080
+02:09:14,819 --> 02:09:16,119
+že to není úplně
+
+2081
+02:09:16,300 --> 02:09:18,800
+ohromnej dataset s desetidícícama
+
+2082
+02:09:18,960 --> 02:09:20,819
+programátorskýma problémama,
+
+2083
+02:09:20,819 --> 02:09:23,140
+ale je to prostě jenom pár jich.
+
+2084
+02:09:23,559 --> 02:09:25,300
+A teďka já jsem chtěl ještě ukázat
+
+2085
+02:09:25,300 --> 02:09:27,079
+takový Eval Hugging Face.
+
+2086
+02:09:27,079 --> 02:09:28,720
+Já myslím, že je i na Hugging Face
+
+2087
+02:09:29,420 --> 02:09:29,880
+tady.
+
+2088
+02:09:30,520 --> 02:09:30,699
+Jo.
+
+2089
+02:09:31,539 --> 02:09:36,100
+Takže tady ho máte na HuggingFace i a tady vidíte, jak ten dataset vypadá.
+
+2090
+02:09:36,140 --> 02:09:40,180
+My zase o HuggingFace a o datasetech a těch zbylejch věcí si budeme povídat,
+
+2091
+02:09:40,180 --> 02:09:42,600
+tohle je zase jenom nějaká ukázka.
+
+2092
+02:09:43,000 --> 02:09:49,140
+Takže máte tady ID toho tasku, máte tady prompt, který vlastně jde do toho velkého heřikového modelu.
+
+2093
+02:09:49,479 --> 02:09:56,039
+Tady máte nějaké canonical řešení a tady je test a entry point.
+
+2094
+02:09:56,359 --> 02:10:03,199
+Zase nebudeme rozbírat moc, co k čemu slouží, spíš jenom, abyste si dokázali představit, co ten dataset je.
+
+2095
+02:10:04,100 --> 02:10:11,420
+A teď já teda, jo to jsou dýlky, já jsem chtěl vidět, jo 164 řádek to má.
+
+2096
+02:10:11,760 --> 02:10:13,960
+Takže ten dataset opravdu není velkej.
+
+2097
+02:10:14,779 --> 02:10:16,300
+A teď my si ukážeme v kódu.
+
+2098
+02:10:16,940 --> 02:10:20,840
+jak vlastně otestovat pár modelů.
+
+2099
+02:10:20,920 --> 02:10:22,880
+A teď, protože já používám OLAMu,
+
+2100
+02:10:22,920 --> 02:10:24,739
+nechci platit za to API,
+
+2101
+02:10:25,020 --> 02:10:26,960
+tak to budeme testovat na OLAMě,
+
+2102
+02:10:27,039 --> 02:10:28,979
+to znamená, že tadyhle ten kód,
+
+2103
+02:10:29,140 --> 02:10:32,119
+který tady máme, bude mít jenom 3D pendence.
+
+2104
+02:10:32,559 --> 02:10:34,479
+Human eval je ta knihovna,
+
+2105
+02:10:34,500 --> 02:10:37,420
+kterou budeme používat na ten benchmarking.
+
+2106
+02:10:37,440 --> 02:10:47,199
+Tady je něco na zobrazení výsledků a tady je olama jako klient do té lokální vaší olamy, která tam běží.
+
+2107
+02:10:47,199 --> 02:10:53,600
+To znamená, že tohle je klient do toho API, do toho AI API, se kterým si budete povídat.
+
+2108
+02:10:53,659 --> 02:10:58,420
+To, že zatím je model API, to už vy vlastně v tom kóru nevidíte, nemusíte to řešit,
+
+2109
+02:10:58,659 --> 02:11:02,659
+vy si povídáte jenom s tím AI API nějakým předefinovaným formátem.
+
+2110
+02:11:03,119 --> 02:11:04,940
+Tak, tady si vytvoříme
+
+2111
+02:11:05,000 --> 02:11:06,739
+třídu klienta pro tu
+
+2112
+02:11:06,779 --> 02:11:08,559
+Olamu, zase nebudu to úplně
+
+2113
+02:11:08,699 --> 02:11:10,940
+rozebírat, protože k těm
+
+2114
+02:11:11,020 --> 02:11:13,059
+APIčkům se ještě dostaneme,
+
+2115
+02:11:13,119 --> 02:11:14,500
+nicméně tohle je jenom moje
+
+2116
+02:11:14,640 --> 02:11:16,239
+třída, která se tady vytvoří
+
+2117
+02:11:16,579 --> 02:11:18,340
+klienta z té knihovny
+
+2118
+02:11:18,340 --> 02:11:20,140
+Olamy, tady mu řeknu vlastně
+
+2119
+02:11:20,300 --> 02:11:22,559
+na jakým portu
+
+2120
+02:11:22,559 --> 02:11:24,640
+to APIčko běží,
+
+2121
+02:11:24,640 --> 02:11:26,460
+zase mě teď napadá jenom, že bych vám ho
+
+2122
+02:11:26,460 --> 02:11:27,920
+tady takhle mohl odevřít,
+
+2123
+02:11:27,920 --> 02:11:30,739
+to mi vrátí Olam a is running,
+
+2124
+02:11:30,760 --> 02:11:32,220
+já bych tady mohl se i
+
+2125
+02:11:32,819 --> 02:11:37,220
+vlastně zeptat olama api
+
+2126
+02:11:38,800 --> 02:11:44,140
+blablabla rest api postman, takže tady bych měl i v postmanu vidět
+
+2127
+02:11:44,159 --> 02:11:46,680
+jednotlivě ty end pointy ty olamy,
+
+2128
+02:11:46,920 --> 02:11:48,800
+takže tady pak vidíte generate,
+
+2129
+02:11:48,800 --> 02:11:51,579
+jo, zase kdyby to někoho zajímalo, tak
+
+2130
+02:11:52,319 --> 02:11:56,840
+tady pak vlastně vidíte celý to API ty olamy, to je to AI API,
+
+2131
+02:11:56,840 --> 02:11:59,460
+se kterým vlastně si to Open Web UI povídá,
+
+2132
+02:11:59,880 --> 02:12:02,880
+a se kterým si povídám teda konec koncům i já
+
+2133
+02:12:03,100 --> 02:12:05,039
+teďkon tadyhle tím klientem.
+
+2134
+02:12:05,520 --> 02:12:11,779
+Tady je ten request, který vlastně já mu posílám.
+
+2135
+02:12:11,859 --> 02:12:14,859
+Tady posílám z toho klientovi, má metodu chat,
+
+2136
+02:12:15,159 --> 02:12:17,319
+kde definuju, s jakým modelem si chci povídat
+
+2137
+02:12:17,420 --> 02:12:19,579
+a jaký zprávy do toho modelu chci poslat.
+
+2138
+02:12:19,579 --> 02:12:21,239
+Všimněte si, tady je ta system message
+
+2139
+02:12:22,079 --> 02:12:25,260
+a tady je ta user message, neboli ten prompt.
+
+2140
+02:12:25,260 --> 02:12:29,440
+Ten prompt vlastně přijde z toho human eval datasetu
+
+2141
+02:12:29,960 --> 02:12:32,140
+a já pak vrátím odpověď.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

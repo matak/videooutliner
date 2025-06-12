@@ -1,0 +1,1055 @@
+Transcript:
+
+=================
+1046
+01:08:52,300 --> 01:08:57,079
+když se budete snažit vlastně sázet, investovat na akcie,
+
+1047
+01:08:57,380 --> 01:08:58,460
+dělat daytrading.
+
+1048
+01:08:58,899 --> 01:09:01,659
+To znamená, že vy víte, jak to bylo dneska,
+
+1049
+01:09:01,659 --> 01:09:04,119
+jak to vypadalo dneska a budete se snažit předpovídat,
+
+1050
+01:09:04,420 --> 01:09:05,800
+jak to bude vypadat zejtra.
+
+1051
+01:09:05,940 --> 01:09:08,059
+To samé bude dělat tato neuronová síť.
+
+1052
+01:09:08,079 --> 01:09:11,699
+Bude mít 4 vstupní proměny a bude se snažit predikovat.
+
+1053
+01:09:11,979 --> 01:09:14,140
+Jedničku mi to bude dávat predikci,
+
+1054
+01:09:14,180 --> 01:09:16,140
+případně si bude myslet, že ta cena půjde nahoru,
+
+1055
+01:09:16,520 --> 01:09:19,199
+nulu mi to bude dávat, jestliže to bude stejný,
+
+1056
+01:09:19,199 --> 01:09:19,840
+nebo to půjde dolů.
+
+1057
+01:09:20,479 --> 01:09:24,739
+Takže to jsem si připravil, dataset, data pro ty akcie.
+
+1058
+01:09:25,000 --> 01:09:28,720
+Tady jsou trénovací data, validační data, testovací data.
+
+1059
+01:09:28,739 --> 01:09:31,020
+O tom se budeme bavit v sekci trénování.
+
+1060
+01:09:31,020 --> 01:09:35,500
+Já chci ukázat tohleto a to je definice toho modelu.
+
+1061
+01:09:35,579 --> 01:09:38,380
+To znamená, že takhle bude vypadat v PyTorchy.
+
+1062
+01:09:38,500 --> 01:09:40,979
+Já používám PyTorch, protože je to komunitně
+
+1063
+01:09:41,039 --> 01:09:44,779
+mnohem oblíbenější framework než je TensorFlow.
+
+1064
+01:09:44,779 --> 01:09:47,859
+TensorFlow je od Googlu.
+
+1065
+01:09:53,739 --> 01:09:56,399
+Tak já vám zase tady ukážu takhle.
+
+1066
+01:09:56,600 --> 01:09:59,680
+TensorFlow je od Google, abyste viděli,
+
+1067
+01:10:01,559 --> 01:10:06,260
+Není to komunitně tak oblíbený, jako je PyTorch.
+
+1068
+01:10:06,340 --> 01:10:10,979
+PyTorch naproti tomu vzniknul v Metě, nebo i ve Facebooku dřív
+
+1069
+01:10:11,279 --> 01:10:15,880
+a je to komunitně hrozně oblíbený framework.
+
+1070
+01:10:16,020 --> 01:10:18,840
+Když to porovnáte s frontendovýma frameworkama,
+
+1071
+01:10:18,840 --> 01:10:21,420
+tak tohle je Angular a tohle je React.
+
+1072
+01:10:21,720 --> 01:10:23,079
+Je to dost podobný.
+
+1073
+01:10:23,159 --> 01:10:27,420
+Tohle je spíš enterprise level framework,
+
+1074
+01:10:28,260 --> 01:10:33,279
+Tohle je spíš takový open source framework, jako je React.
+
+1075
+01:10:34,319 --> 01:10:38,840
+Tohle je stejný, proto my budeme používat PyTorch, jdeme spíš čím směrem open source.
+
+1076
+01:10:39,500 --> 01:10:41,199
+Tak, má to vždycky dvě metody.
+
+1077
+01:10:41,399 --> 01:10:45,260
+Má to init, inicializaci, dědí to od modulu
+
+1078
+01:10:45,760 --> 01:10:47,859
+a má to jednu metodu forward.
+
+1079
+01:10:48,840 --> 01:10:54,000
+To znamená, že tadyhle v tom vy si definujete architekturu té neuronové sítě.
+
+1080
+01:10:54,899 --> 01:10:57,079
+Je to sekvenční neuronová sítě.
+
+1081
+01:10:57,680 --> 01:11:00,720
+má jenom jednu vrstvu, lineární vrstvu,
+
+1082
+01:11:01,199 --> 01:11:03,539
+která má tolik vstupů, tolik výstupů
+
+1083
+01:11:03,880 --> 01:11:08,579
+a tohle je aktivační funkce pro výstup.
+
+1084
+01:11:08,819 --> 01:11:10,899
+To znamená, že když se zase vrátíme
+
+1085
+01:11:11,000 --> 01:11:13,039
+tady k té prezentaci, tak
+
+1086
+01:11:13,800 --> 01:11:19,779
+Tak tadyhle vidíte, že to je sigmoid funkce, která mi říká pro binární klasifikaci,
+
+1087
+01:11:19,859 --> 01:11:21,460
+cena akci jede nahoru nebo dolů.
+
+1088
+01:11:21,460 --> 01:11:28,020
+Takže tohle to je ta ve výstupní vrstvě aktivační funkce.
+
+1089
+01:11:28,720 --> 01:11:35,579
+Tak a tadyhle máte jenom jednu vrstvu neuronů vlastně.
+
+1090
+01:11:36,220 --> 01:11:39,579
+Tak, vstup a výstup a tadyhle vlastně nám zavoláte
+
+1091
+01:11:39,579 --> 01:11:42,720
+nebo předáte tu vstupní hodnotu nebo ty vstupní hodnoty
+
+1092
+01:11:42,779 --> 01:11:46,640
+předáte tadyhle do té architektury neboli do té layers proměny,
+
+1093
+01:11:46,640 --> 01:11:49,960
+která vám vyjadřuje tu architekturu té neuronové sítě.
+
+1094
+01:11:50,520 --> 01:11:51,059
+Decid.
+
+1095
+01:11:51,539 --> 01:11:56,420
+Takhle jednoduchý to je. Když se podíváme na multilayer preceptron,
+
+1096
+01:11:56,420 --> 01:12:02,059
+ty pracování dat je úplně stejný, tak tady je to dospodobný.
+
+1097
+01:12:02,140 --> 01:12:09,039
+Init funkce, forward funkce. Forward funkce zase nám přidá ty vstupní proměny do té architektury, nic jinýho, decit.
+
+1098
+01:12:09,920 --> 01:12:16,420
+Tady ale ty layers vypadají trochu jinak, zase je to sekvenční neuronová síť, má ty vrstvy takhle za sebou.
+
+1099
+01:12:17,100 --> 01:12:20,420
+A tady mám první skrytou vrstvu, druhou skrytou vrstvu,
+
+1100
+01:12:20,559 --> 01:12:23,920
+třetí skrytou vrstvu, čtvrtou, pátou a tady je ta výstupní,
+
+1101
+01:12:23,960 --> 01:12:26,340
+kde je zase ten sigmoid jako aktivační funkce.
+
+1102
+01:12:26,859 --> 01:12:33,579
+Tady máte pět vrstev skrytejch neuronů o určitý velikosti.
+
+1103
+01:12:33,579 --> 01:12:35,680
+Já tady jenom přepnu sem.
+
+1104
+01:12:37,180 --> 01:12:41,039
+Takže tady jste měli dvě vrstvy, my jich tady máme pět.
+
+1105
+01:12:41,159 --> 01:12:44,800
+Máme čtyři vstupní proměny a máme tady vlastně výstupní
+
+1106
+01:12:45,220 --> 01:12:49,059
+jednu, dvě výstupní proměny.
+
+1107
+01:12:50,059 --> 01:12:51,440
+Teďka jenom vám ukážu,
+
+1108
+01:12:51,440 --> 01:12:53,699
+tady jsou něco jako hyperparametry,
+
+1109
+01:12:53,739 --> 01:12:57,619
+kterými určují parametry té neuronové sítě.
+
+1110
+01:12:57,940 --> 01:13:01,420
+To znamená, input size je počet vstupních proměnejch.
+
+1111
+01:13:01,520 --> 01:13:04,000
+Mám čtyři, protože mám open, high, low, close.
+
+1112
+01:13:04,659 --> 01:13:19,899
+V každé vrstvě mám 64 neuronů, což mi vysvětluje tato hidden size a mám jednu výstupní proměnu, to znamená, že to je ta binární klasifikace nahoru nebo dolů, mám prostě jednu výstupní proměnu.
+
+1113
+01:13:21,440 --> 01:13:25,940
+Epochy batch size learnings, to je ohledně trénování, hned se k tomu dostaneme.
+
+1114
+01:13:26,260 --> 01:13:30,600
+To znamená, že v hidden size si tady vidíte, že mám vstupní 4,
+
+1115
+01:13:31,079 --> 01:13:35,640
+pak tady mám 64 neuronů, mezi těma jednotlivýma vrstvama
+
+1116
+01:13:35,779 --> 01:13:37,920
+je použitá ta aktivační funkce RELu,
+
+1117
+01:13:38,440 --> 01:13:40,520
+co je zapnutý, není zapnutý.
+
+1118
+01:13:40,819 --> 01:13:42,559
+Pak to jde do další vrstvy,
+
+1119
+01:13:42,559 --> 01:13:44,659
+která má 64 neuronů.
+
+1120
+01:13:44,880 --> 01:13:46,640
+64 neuronů je,
+
+1121
+01:13:46,659 --> 01:13:48,659
+jde to ze 64 neuronů
+
+1122
+01:13:48,800 --> 01:13:50,460
+a mám tam 64 neuronů.
+
+1123
+01:13:50,500 --> 01:13:52,699
+Tohle to je třetí vrstva, čtvrtá vrstva,
+
+1124
+01:13:52,699 --> 01:13:54,500
+pátá vrstva, šestá vrstva,
+
+1125
+01:13:54,500 --> 01:13:56,819
+kdy vlastně z těch 64 neuronů
+
+1126
+01:13:56,880 --> 01:13:57,800
+udělám vlastně tu jeden neuron,
+
+1127
+01:13:57,800 --> 01:13:59,659
+to je ten výstup,
+
+1128
+01:13:59,899 --> 01:14:02,640
+a aktivační funkce je ten sigmoid,
+
+1129
+01:14:02,680 --> 01:14:04,380
+to znamená, že to je ta
+
+1130
+01:14:04,619 --> 01:14:06,440
+pravděpodobnost toho, že to teda půjde
+
+1131
+01:14:06,539 --> 01:14:08,819
+nahoru, nebo to půjde dolů.
+
+1132
+01:14:09,559 --> 01:14:10,500
+Takže takhle
+
+1133
+01:14:10,800 --> 01:14:12,739
+jednoduchá je definice
+
+1134
+01:14:12,880 --> 01:14:13,979
+vlastně tohoto
+
+1135
+01:14:13,979 --> 01:14:17,420
+perceptronu. Teďkon se podíváme,
+
+1136
+01:14:18,199 --> 01:14:19,479
+tak ano, ano,
+
+1137
+01:14:19,479 --> 01:14:21,640
+TensorFlow, ano, tady si půjste,
+
+1138
+01:14:21,659 --> 01:14:25,319
+kdo to je tady, o, nevidím,
+
+1139
+01:14:25,399 --> 01:14:26,979
+tady h3 tečky,
+
+1140
+01:14:27,159 --> 01:14:28,940
+tak tady půjstnul na
+
+1141
+01:14:29,039 --> 01:14:30,199
+tensorflow.org
+
+1142
+01:14:30,779 --> 01:14:37,220
+ukázaná taková hezká animace, kdy vy si můžete nadefinovat počet skrytejch vrstev.
+
+1143
+01:14:37,220 --> 01:14:41,559
+Tady si dát obrázek, který chcete tím
+
+1144
+01:14:43,440 --> 01:14:45,319
+mít na výstupu, aby on ho poznal.
+
+1145
+01:14:46,520 --> 01:14:49,260
+pak když si to takhle regenerujete,
+
+1146
+01:14:49,300 --> 01:14:50,619
+kde to je tady,
+
+1147
+01:14:50,880 --> 01:14:52,800
+jo, tady play, tak vidíte vlastně,
+
+1148
+01:14:52,800 --> 01:14:54,819
+jak se vám ty neurony tady vlastně
+
+1149
+01:14:54,819 --> 01:14:56,720
+jako zapínají. Každej ten neuron
+
+1150
+01:14:56,779 --> 01:14:58,600
+je zaměřený na trochu něco jinýho
+
+1151
+01:14:58,640 --> 01:14:59,880
+a sleduje prostě
+
+1152
+01:15:00,640 --> 01:15:02,059
+jiný, jiný
+
+1153
+01:15:03,220 --> 01:15:05,319
+poměry modrý a žlutý,
+
+1154
+01:15:05,520 --> 01:15:07,500
+takže najednou je schopnej
+
+1155
+01:15:07,559 --> 01:15:08,340
+na konci
+
+1156
+01:15:08,859 --> 01:15:11,319
+vypredikovat nebo rozpoznat
+
+1157
+01:15:11,399 --> 01:15:13,739
+ty modrý od těch žlutejch teček.
+
+1158
+01:15:13,760 --> 01:15:15,300
+Takže zase tady vidíte
+
+1159
+01:15:15,399 --> 01:15:17,359
+počet epoch, my se o tom trénování
+
+1160
+01:15:17,420 --> 01:15:18,539
+budeme bavit hnedle,
+
+1161
+01:15:19,440 --> 01:15:21,380
+takže jenom tohle je docela dobrá
+
+1162
+01:15:23,239 --> 01:15:25,180
+ukázka.
+
+1163
+01:15:27,840 --> 01:15:29,420
+CNN, ano,
+
+1164
+01:15:29,880 --> 01:15:31,000
+by the way, my jsme dostali
+
+1165
+01:15:31,119 --> 01:15:32,520
+přístup do jiného repa,
+
+1166
+01:15:32,699 --> 01:15:34,420
+než se teď koukáme.
+
+1167
+01:15:35,140 --> 01:15:37,559
+Ne, ne, ne, máte přístup do toho správného
+
+1168
+01:15:37,819 --> 01:15:39,260
+repa. Já vám to jenom ukazuju
+
+1169
+01:15:39,260 --> 01:15:42,180
+na mým vlastním repu,
+
+1170
+01:15:42,180 --> 01:15:43,760
+kde mám ještě ty předchozí
+
+1171
+01:15:43,899 --> 01:15:45,600
+streamy. To znamená, že já si to
+
+1172
+01:15:45,760 --> 01:15:47,880
+udržu ve svým vlastním repu
+
+1173
+01:15:48,199 --> 01:15:49,859
+a vám vždycky přikomitnu
+
+1174
+01:15:49,859 --> 01:15:51,859
+tu danou hodinu před tou hodinou
+
+1175
+01:15:51,859 --> 01:15:53,579
+do toho vašeho repa.
+
+1176
+01:15:54,720 --> 01:15:56,440
+Tady ty zdráky jsou úplně stejný.
+
+1177
+01:15:56,440 --> 01:15:58,039
+Jenom já to
+
+1178
+01:15:58,039 --> 01:15:59,220
+udržu v jiném repu.
+
+1179
+01:16:00,239 --> 01:16:02,760
+Tak, pojďme se vrátit
+
+1180
+01:16:03,000 --> 01:16:03,859
+k trénování.
+
+1181
+01:16:06,279 --> 01:16:08,720
+Budeme muset trošku zrychlit.
+
+1182
+01:16:12,680 --> 01:16:15,159
+Tak, teď já tady mám...
+
+1183
+01:16:17,500 --> 01:16:18,579
+Tak, trénování.
+
+1184
+01:16:18,979 --> 01:16:23,539
+To je důležitá věc, protože tímhle tím vy vlastně zjistíte,
+
+1185
+01:16:23,640 --> 01:16:28,619
+nebo začnete trénovat teprve ty neurony, začnete definovat ty váhy.
+
+1186
+01:16:28,699 --> 01:16:31,840
+Když si tu neuronovou síť nadefinujete,
+
+1187
+01:16:32,260 --> 01:16:36,140
+tak bude mít ty váhy daný na nějakou defaultní...
+
+1188
+01:16:36,720 --> 01:16:44,680
+nenulovou hodnotu blízko 0, 0,001, 0,005, prostě nějaký random malý čísla.
+
+1189
+01:16:44,920 --> 01:16:50,579
+To znamená ale v tu chvíli není ta neuronová sítě nastavená na ten váš use case.
+
+1190
+01:16:50,619 --> 01:16:56,619
+Vy tam teprve začnete feedovat ty data a tím začnete vlastně měnit ty váhy
+
+1191
+01:16:56,779 --> 01:17:00,940
+té neuronové sítě tak, aby ona se vlastně začala učit na těch datech.
+
+1192
+01:17:01,039 --> 01:17:13,539
+To znamená, že trénování je, že vy máte sadu dat, kde máte definovaný historický nějaký hodnoty.
+
+1193
+01:17:13,619 --> 01:17:16,119
+Tomu se říká supervised learning.
+
+1194
+01:17:16,739 --> 01:17:19,859
+Vy mu dáváte, představte si, tabulku těch studentů.
+
+1195
+01:17:21,059 --> 01:17:28,539
+kdy vy vlastně máte nějaký minulý výsledky těch lidí a tomu nakrmíte do té neuránové sítě,
+
+1196
+01:17:28,539 --> 01:17:33,340
+on se to vlastně naučí neboli nastaví si ty váhy tak,
+
+1197
+01:17:33,800 --> 01:17:38,800
+aby vám pro další sadu studentů v dalších letech byl vlastně schopnej říct,
+
+1198
+01:17:39,460 --> 01:17:43,279
+s nějakou pravděpodobností, jak budou jejich výsledky vypadat.
+
+1199
+01:17:43,279 --> 01:17:47,220
+Pokud student se bude učit tolik hodin, bude spát tolik hodin
+
+1200
+01:17:47,359 --> 01:17:49,460
+a po letní písemku napíše na tolik procent,
+
+1201
+01:17:49,659 --> 01:17:52,220
+tak to je ta predikce té budoucnosti.
+
+1202
+01:17:52,359 --> 01:17:55,960
+To je to, že vy si natrénujete tu neuronovou sítě
+
+1203
+01:17:55,960 --> 01:17:57,479
+na ten váždaný use case.
+
+1204
+01:17:57,479 --> 01:18:01,380
+Nebo realitní trh, budete mít stránku s realitama,
+
+1205
+01:18:01,380 --> 01:18:04,539
+nafeedujete, nakrmíte prostě do té neuronové sítě
+
+1206
+01:18:05,020 --> 01:18:07,079
+ty data, ty realitní data,
+
+1207
+01:18:07,100 --> 01:18:08,940
+který vy máte z té historie
+
+1208
+01:18:09,239 --> 01:18:10,659
+nebo ze současnosti
+
+1209
+01:18:10,800 --> 01:18:13,159
+těch nemovitostech, zakolik se prodali,
+
+1210
+01:18:13,220 --> 01:18:14,300
+kolik metrů čtoreční
+
+1211
+01:18:14,680 --> 01:18:16,619
+a tím budete schopný predikovat
+
+1212
+01:18:16,659 --> 01:18:18,800
+vlastně ty další nemovitosti,
+
+1213
+01:18:18,819 --> 01:18:20,180
+které vám tam budou přistávat,
+
+1214
+01:18:20,260 --> 01:18:22,440
+budete schopný říct, ok, tohle budu schopný
+
+1215
+01:18:22,500 --> 01:18:24,020
+prodat za tolik peněz, protože
+
+1216
+01:18:24,659 --> 01:18:29,699
+Ta neuronová sít zná všechny ty minulý hodnoty.
+
+1217
+01:18:29,819 --> 01:18:34,180
+Můžeme se začít bavit o online a offline learningu,
+
+1218
+01:18:34,180 --> 01:18:37,220
+kterému se dostaneme za pár slajdů.
+
+1219
+01:18:37,319 --> 01:18:39,199
+Zase vysvětlím všechno.
+
+1220
+01:18:40,100 --> 01:18:42,140
+Tak skládá se to ze dvou hlavních kroků.
+
+1221
+01:18:42,239 --> 01:18:44,859
+První je krok forward, krok vpřed, krok,
+
+1222
+01:18:45,180 --> 01:18:47,319
+kdy mi vlastně dáte ty vstupní hodnoty.
+
+1223
+01:18:48,859 --> 01:18:53,159
+pustí se nějaká aktivační funkce,
+
+1224
+01:18:53,539 --> 01:18:56,279
+ta vypredikuje výstupní hodnotu,
+
+1225
+01:18:56,720 --> 01:18:59,840
+protože vy víte, jaká ta hodnota by měla být.
+
+1226
+01:18:59,859 --> 01:19:01,920
+Jsou to ty trénovací data, ty minulý data.
+
+1227
+01:19:02,039 --> 01:19:03,640
+Vy víte, jaká je cena té nemovitosti,
+
+1228
+01:19:03,840 --> 01:19:04,940
+zakolik jste ji prodali.
+
+1229
+01:19:05,359 --> 01:19:08,819
+Tak vy víte, jaký je rozdíl mezi tou predikovanou jeho hodnotou
+
+1230
+01:19:08,859 --> 01:19:11,239
+a tou hodnotou, za kterou jste to opravdu prodali.
+
+1231
+01:19:11,239 --> 01:19:14,680
+Nebo na kolik procent tu písemku udělal.
+
+1232
+01:19:14,940 --> 01:19:17,199
+To znamená, že vy jste schopný...
+
+1233
+01:19:18,119 --> 01:19:21,380
+spočítat nebo aplikovat takzvanou lost function
+
+1234
+01:19:21,640 --> 01:19:23,460
+neboli cost function.
+
+1235
+01:19:23,539 --> 01:19:25,859
+Tyhle dva termíny se hodně zaměňují,
+
+1236
+01:19:25,899 --> 01:19:27,880
+já vám hned řeknu, jaký je mezi nima rozdíl,
+
+1237
+01:19:28,159 --> 01:19:31,180
+ale jste schopni vypočítat takovou nákladovou funkci
+
+1238
+01:19:31,300 --> 01:19:33,460
+neboli rozdíl mezi tou skutečnou hodnotou
+
+1239
+01:19:33,460 --> 01:19:34,979
+a tou výstupní hodnotou.
+
+1240
+01:19:35,619 --> 01:19:38,119
+Cost function vs. lost function.
+
+1241
+01:19:38,859 --> 01:19:41,399
+A potom je backpropagace.
+
+1242
+01:19:41,399 --> 01:19:44,059
+To znamená, že vy víte, jaký je ten rozdíl,
+
+1243
+01:19:44,059 --> 01:19:46,979
+to znamená, že vy pošlete ten error
+
+1244
+01:19:48,279 --> 01:19:50,800
+tu velikost toho erroru zpátky do té sítě
+
+1245
+01:19:51,180 --> 01:19:53,659
+a díky algoritmu backpropagace,
+
+1246
+01:19:53,659 --> 01:19:57,699
+který spočítá, jak moc jednotlivá ta váha
+
+1247
+01:19:57,699 --> 01:19:59,380
+přispěla k té chybě,
+
+1248
+01:19:59,460 --> 01:20:01,180
+což není triviální úloha.
+
+1249
+01:20:01,180 --> 01:20:03,859
+To je prostě velmi pokračilý algoritmus.
+
+1250
+01:20:03,859 --> 01:20:08,579
+Tady máte odkaz, který se asi můžete tím dotrávit měsíce,
+
+1251
+01:20:08,579 --> 01:20:12,140
+abyste to pochopili, nebo tím vás nechci podceňovat,
+
+1252
+01:20:12,300 --> 01:20:13,940
+ale je to poměrně složitá věc.
+
+1253
+01:20:14,619 --> 01:20:18,819
+tak díky backpropagaci vy jste schopný určit,
+
+1254
+01:20:19,039 --> 01:20:23,739
+která váha přesně kontribuovala, v jaké velikosti k té chybě.
+
+1255
+01:20:24,020 --> 01:20:27,720
+Tak jste schopný adjustnout tu váhu,
+
+1256
+01:20:27,899 --> 01:20:30,619
+udělat korekci té váhy.
+
+1257
+01:20:31,180 --> 01:20:33,520
+A to vám definuje nějaký optimizer,
+
+1258
+01:20:33,520 --> 01:20:36,340
+který aktualizuje tu váhu v závislosti na tom,
+
+1259
+01:20:36,340 --> 01:20:38,059
+jak moc přispěli k té chybě.
+
+1260
+01:20:38,520 --> 01:20:40,920
+Takže máte dva kroky při tom učení.
+
+1261
+01:20:40,920 --> 01:20:42,220
+Jeden je forward pass,
+
+1262
+01:20:42,460 --> 01:20:44,680
+kdy vy vyprodukujete tu výstupní proměnu
+
+1263
+01:20:45,000 --> 01:20:46,500
+a druhé je backpropagace,
+
+1264
+01:20:46,600 --> 01:20:49,180
+kdy vlastně říkáte, jaká velká byla ta chyba
+
+1265
+01:20:49,399 --> 01:20:51,159
+a hej, update-ni se,
+
+1266
+01:20:51,159 --> 01:20:53,039
+přenastav se,
+
+1267
+01:20:53,340 --> 01:20:55,600
+tak aby při příštím běhu
+
+1268
+01:20:56,279 --> 01:21:16,640
+Ta chyba byla menší, to je ten váš cíl. Snažíte se zmenšovat tu cost function. Ta cost function je tady znázorněná tou fialovou hodnotou. Ta výstupní hodnota, kterou vygenerovala ta neuronová sítě, je tady ta modrá hodnota a ta aktuální hodnota, ta správná hodnota, je ta zelená hodnota.
+
+1269
+01:21:16,960 --> 01:21:22,520
+Teď se podíváme tady na takový video, který nám to doufám pomůže pochopit trochu líp.
+
+1270
+01:21:22,520 --> 01:21:28,520
+To znamená, že máme tady jeden řádek, nakrmili jsme ho, vygenerovali jsme výstupní proměnu, poslali se to zpátky.
+
+1271
+01:21:28,880 --> 01:21:36,600
+Tohle to se stane několikrát. Vy vidíte, jak se tady ta predikovaná hodnota, ta modrá, jak se vlastně mění.
+
+1272
+01:21:36,760 --> 01:21:40,760
+A rozdíl mezi tou zelenou a modrou je vždycky ta fialová.
+
+1273
+01:21:40,779 --> 01:21:43,779
+Takže když vlastně ta predikovaná se zmenšila,
+
+1274
+01:21:43,859 --> 01:21:46,539
+ten rozdíl byl větší, cost function se zvětšila.
+
+1275
+01:21:46,720 --> 01:21:49,940
+Když se to přiblížilo k té zelený, tak ta cost function se zmenšila.
+
+1276
+01:21:50,260 --> 01:21:53,619
+A vlastně cílem je trénovat to do té doby,
+
+1277
+01:21:54,380 --> 01:21:57,140
+než vlastně ta predikovaná hodnota odpovídá
+
+1278
+01:21:57,359 --> 01:22:00,079
+nebo je co nejbližší té správné hodnotě.
+
+1279
+01:22:00,380 --> 01:22:01,800
+Takže dokážeme vlastně,
+
+1280
+01:22:02,039 --> 01:22:12,600
+Ta cost function je nějakým způsobem veliká, tak vy pořád trénujete, nebo máte tendenci pořád trénovat tu neuronovou síť dál a dál.
+
+1281
+01:22:12,600 --> 01:22:19,119
+Buď tím, že jí budete poskytovat další a další data, nebo jí budete dávat víc a víc času, aby se vlastně učila.
+
+1282
+01:22:20,180 --> 01:22:24,880
+Pokud vám ta lost function bude pořád klesat a klesat a klesat,
+
+1283
+01:22:25,260 --> 01:22:29,300
+jak budete zvyšovat čas na to učení,
+
+1284
+01:22:29,460 --> 01:22:34,579
+tak pořád si budete říkat, že je to dobrý, ještě se pořád učí, ještě mu dám čas.
+
+1285
+01:22:35,520 --> 01:22:39,960
+To je přesně jedna z těch odpovědí, které vám to trénování dá.
+
+1286
+01:22:39,960 --> 01:22:43,539
+Nebo zvýšíte počet neuronů.
+
+1287
+01:22:44,659 --> 01:22:48,279
+nebude se učit vlastně dostatečně,
+
+1288
+01:22:48,319 --> 01:22:49,720
+tak vy zvýšíte počet neuronů
+
+1289
+01:22:49,720 --> 01:22:51,119
+nebo vrstev, které jsou
+
+1290
+01:22:51,119 --> 01:22:53,779
+v rámci té neuronové sítě použitý
+
+1291
+01:22:54,059 --> 01:22:55,420
+a to vám zase pomůže
+
+1292
+01:22:55,739 --> 01:22:56,960
+nebo by mělo pomoct
+
+1293
+01:22:57,140 --> 01:22:59,119
+začít snižovat tu cost function
+
+1294
+01:22:59,380 --> 01:23:01,520
+co nejblíž nule.
+
+1295
+01:23:03,079 --> 01:23:06,399
+Tak, teď jsou tady nějaké typy lost funkcí.
+
+1296
+01:23:06,420 --> 01:23:09,020
+V závislosti zase na tom, jaká neuronová síť
+
+1297
+01:23:09,039 --> 01:23:11,239
+nebo jaký problém vlastně jako řešíte.
+
+1298
+01:23:11,460 --> 01:23:14,279
+To znamená, že je nějaká binární klasifikace,
+
+1299
+01:23:14,460 --> 01:23:15,840
+cena jde nahoru do dolů,
+
+1300
+01:23:16,059 --> 01:23:18,539
+na to se používá binární cross-entropy loss.
+
+1301
+01:23:19,079 --> 01:23:41,460
+pak máte Multiklás klasifikaci, zase je to, když se budeme bavit, budete mu dávat nějaký číslice, obrázky číslic a on vám bude říkat, jaká číslice to je 0, 1, 2, 3, 4 až 9, nebo je to A, B, C, D, cokoliv, co spadá vlastně do více, nebo co může mít víc hodnot, tak na to se používá Cross Entropilos.
+
+1302
+01:23:41,859 --> 01:23:44,119
+pak máte multilabel klasifikaci,
+
+1303
+01:23:44,199 --> 01:23:47,000
+něco jako žánry u filmů,
+
+1304
+01:23:47,020 --> 01:23:50,159
+kdy se snažíte predikovat nebo říct,
+
+1305
+01:23:50,159 --> 01:23:52,100
+tenhle film spadá do thrilleru,
+
+1306
+01:23:52,159 --> 01:23:54,559
+thriller komedy, nebo romantická komedy,
+
+1307
+01:23:54,559 --> 01:23:56,800
+nebo prostě, rozumíte mi,
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

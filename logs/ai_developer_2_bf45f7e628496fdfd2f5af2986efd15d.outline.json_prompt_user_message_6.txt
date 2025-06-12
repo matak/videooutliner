@@ -1,0 +1,1039 @@
+Transcript:
+
+=================
+1379
+01:24:14,300 --> 01:24:17,199
+dvojtečka a dát mu ten kontext dovnitř.
+
+1380
+01:24:18,420 --> 01:24:21,899
+A teď vidíte, že on mi tady vlastně vrátil
+
+1381
+01:24:21,899 --> 01:24:24,699
+podle toho swaggeru,
+
+1382
+01:24:24,920 --> 01:24:29,680
+ten request. Co z čeho si ale všimnete je, že mi nevrátil jenom ten request,
+
+1383
+01:24:29,840 --> 01:24:32,479
+vrátil mi zase tady nějakou tu vomáčku okolo.
+
+1384
+01:24:32,859 --> 01:24:37,619
+Mohu bych mu říct, ať mi vrátí jenom ten request, viděli byste sami,
+
+1385
+01:24:37,640 --> 01:24:39,800
+že pravděpodobně by mi nevrátil jenom ten request,
+
+1386
+01:24:39,800 --> 01:24:41,960
+vždycky by mi k tomu dal nějakou vomáčku okolo.
+
+1387
+01:24:42,279 --> 01:24:43,340
+K tomu se ale dostaneme.
+
+1388
+01:24:46,380 --> 01:24:49,840
+Teoreticky můžu náspat definici sfegru do systému promptu.
+
+1389
+01:24:49,840 --> 01:24:50,960
+Jo, ale tam nepatří.
+
+1390
+01:24:51,579 --> 01:24:55,399
+Tam nepatří a pochopíte proč,
+
+1391
+01:24:56,039 --> 01:24:57,940
+až se dostaneme k fine tuningu.
+
+1392
+01:24:58,119 --> 01:24:59,720
+System prompt má
+
+1393
+01:25:00,279 --> 01:25:01,899
+speciální místo
+
+1394
+01:25:02,079 --> 01:25:04,659
+v jeho tokenizeru
+
+1395
+01:25:04,659 --> 01:25:06,479
+nebo celkově v tom modelu.
+
+1396
+01:25:06,819 --> 01:25:08,800
+Proto je i velký rozdíl,
+
+1397
+01:25:09,199 --> 01:25:11,059
+pokud já řeknu,
+
+1398
+01:25:12,479 --> 01:25:13,180
+že povej se
+
+1399
+01:25:13,680 --> 01:25:14,440
+jako, nebo
+
+1400
+01:25:14,579 --> 01:25:16,500
+you are Joe Rogan,
+
+1401
+01:25:16,960 --> 01:25:18,020
+když to řeknu tady,
+
+1402
+01:25:19,079 --> 01:25:20,880
+Nebo když to řeknu tady.
+
+1403
+01:25:20,880 --> 01:25:24,539
+Protože pro mnoho z vás by možná,
+
+1404
+01:25:25,440 --> 01:25:26,619
+nebo dřív se to dělalo tak,
+
+1405
+01:25:26,760 --> 01:25:28,300
+že se napsalo systém,
+
+1406
+01:25:29,500 --> 01:25:30,479
+tady se napsalo user
+
+1407
+01:25:30,739 --> 01:25:33,199
+a tady se napsalo tell me your story.
+
+1408
+01:25:35,059 --> 01:25:37,260
+A teď on se začne chovat jako Joe Rogan.
+
+1409
+01:25:39,100 --> 01:25:46,239
+Ale je to obrovský rozdíl v rámci vnitřní architektury toho systému,
+
+1410
+01:25:46,440 --> 01:25:49,159
+když to napíšu sem, anebo když to napíšu sem.
+
+1411
+01:25:49,159 --> 01:25:53,500
+Protože tato systém message má speciální místo,
+
+1412
+01:25:53,659 --> 01:25:57,739
+má speciální tokeny, kterým je označený ten text,
+
+1413
+01:25:57,739 --> 01:26:00,600
+který napíšu sem, když jde do toho modelu.
+
+1414
+01:26:00,720 --> 01:26:04,079
+A to znamená, že ten model mu přikládá úplně jinou důležitost
+
+1415
+01:26:04,880 --> 01:26:11,880
+Pokud to napíšu do system message, než když to napíšu jenom tady v tom textu jako user, protože tohle je pořád
+
+1416
+01:26:12,220 --> 01:26:16,960
+user zpráva. Tady vidíte zrovna to system message a tady user a assistant.
+
+1417
+01:26:17,180 --> 01:26:19,359
+Tak to jsou ty tři role.
+
+1418
+01:26:21,079 --> 01:26:24,739
+Tak to je tohleto.
+
+1419
+01:26:25,260 --> 01:26:26,559
+Jo to je ten rest,
+
+1420
+01:26:26,720 --> 01:26:31,279
+který vám vlastně vygeneruje ten request. To znamená, že teď si uvědomte, že
+
+1421
+01:26:32,399 --> 01:26:34,739
+vy můžete napsat agenta, který bude
+
+1422
+01:26:35,539 --> 01:26:41,680
+vždycky, vy mu řeknete, udělej mi objednávku na booking.com,
+
+1423
+01:26:42,359 --> 01:26:47,579
+on bude vždycky si dotážet na swagger file toho booking.comu,
+
+1424
+01:26:47,840 --> 01:26:53,880
+zjistí si tím pádem, na jaký endpoint má ten request odeslat.
+
+1425
+01:26:53,940 --> 01:26:57,699
+Nehledě na to, jaký změny v booking.comu budou na tom API dělat.
+
+1426
+01:26:58,039 --> 01:27:02,640
+A vždycky to správně odešle, vygeneruje si správně request
+
+1427
+01:27:02,640 --> 01:27:04,800
+a odešle to na správnej endpoint.
+
+1428
+01:27:05,220 --> 01:27:08,880
+To má velké dopady na to,
+
+1429
+01:27:09,059 --> 01:27:11,859
+jakým způsobem se aplikace budou psát
+
+1430
+01:27:11,940 --> 01:27:13,859
+nebo píšou aktuálně už,
+
+1431
+01:27:13,859 --> 01:27:16,220
+nebo jakým způsobem přemýšlejí architekti
+
+1432
+01:27:16,880 --> 01:27:20,800
+o věcech, jako je interfejs mezi dvouma subjektama,
+
+1433
+01:27:20,800 --> 01:27:23,220
+API a webová aplikace a tak dále.
+
+1434
+01:27:25,380 --> 01:27:28,220
+Třetí skill, který já bych chtěl tady zdůraznit,
+
+1435
+01:27:28,220 --> 01:27:30,920
+je tool use,
+
+1436
+01:27:31,140 --> 01:27:33,500
+nebo tool usage, nebo function calling.
+
+1437
+01:27:33,859 --> 01:27:36,000
+Dřív se to jmenovalo function calling.
+
+1438
+01:27:36,440 --> 01:27:39,460
+Pak zase si uvědomili, že to nemusí být jenom funkce,
+
+1439
+01:27:39,500 --> 01:27:42,979
+které se budou volat, takže to přemenovali na tool usage.
+
+1440
+01:27:43,279 --> 01:27:47,659
+Takže tool usage je novější function calling víceméně.
+
+1441
+01:27:47,940 --> 01:27:49,340
+A to, co to dělá, je to,
+
+1442
+01:27:49,940 --> 01:27:53,920
+že vy mu dáte zase nějakou otázku,
+
+1443
+01:27:54,340 --> 01:27:58,500
+ale dáte mu v definovaném formátu
+
+1444
+01:27:58,500 --> 01:28:00,920
+sadu funkcí nebo toolů,
+
+1445
+01:28:01,659 --> 01:28:09,460
+který on je schopnej použít pro to, aby odpověděl na tuto otázku.
+
+1446
+01:28:09,520 --> 01:28:13,579
+To znamená, že tady, když se pojáte na tenhle list, tak je to funkce.
+
+1447
+01:28:13,800 --> 01:28:18,899
+Ta funkce se jmenuje vrať mi cenu akcie, tady je nějaký popis té funkce, co to dělá.
+
+1448
+01:28:19,199 --> 01:28:21,279
+A tady jsou vstupní parametry do té funkce.
+
+1449
+01:28:21,279 --> 01:28:25,880
+Vstupní parametry je objekt a má to jméno nebo jeho.
+
+1450
+01:28:26,699 --> 01:28:30,899
+jméno, jména, je to pole, pole stringů,
+
+1451
+01:28:31,119 --> 01:28:33,180
+a zase tady je popis toho vlastně,
+
+1452
+01:28:33,180 --> 01:28:39,279
+co to takové znamená ten vstupní parametr 1 pole.
+
+1453
+01:28:39,659 --> 01:28:42,600
+A povinný je vlastně vstupní parametr
+
+1454
+01:28:42,739 --> 01:28:45,840
+do této funkce je names.
+
+1455
+01:28:46,220 --> 01:28:48,899
+Tady druhá funkce, ze které si může vybrat je úplně
+
+1456
+01:28:48,779 --> 01:28:52,680
+Vrať mi velký big stocks, velký akcie,
+
+1457
+01:28:52,680 --> 01:28:55,559
+vrať mi jména těch největších N akcí
+
+1458
+01:28:55,559 --> 01:28:58,440
+podle velikosti té společnosti.
+
+1459
+01:28:58,720 --> 01:29:01,720
+Má to zase nějaké parametry, parametry to má dva.
+
+1460
+01:29:01,739 --> 01:29:05,520
+Počet těch akcí a region,
+
+1461
+01:29:05,520 --> 01:29:07,460
+ze kterého já se chci vlastně vybrat.
+
+1462
+01:29:07,520 --> 01:29:09,140
+A povinný je jenom počet.
+
+1463
+01:29:09,319 --> 01:29:10,979
+V případě, že nevyplním region,
+
+1464
+01:29:10,979 --> 01:29:14,699
+tak se tam vyplní nějaký defaultně vybraný.
+
+1465
+01:29:15,140 --> 01:29:25,239
+A teď tím, že já se ozeptám, jestliže uživatelová otázka může být zodpovězena některou z těchto funkcí,
+
+1466
+01:29:25,600 --> 01:29:33,440
+vrať mi JSON objekt, který bude obsahovat jméno té funkce a request, který se má do té funkce poslat.
+
+1467
+01:29:34,380 --> 01:29:39,159
+Jestliže uživatelová otázka nemůže být odpovězena žádnou z těch funkcí, odpověď normálně.
+
+1468
+01:29:39,800 --> 01:29:41,600
+Teď já to takhle jako vemu
+
+1469
+01:29:41,840 --> 01:29:44,079
+a teď tady je ta otázka toho uživatela.
+
+1470
+01:29:44,140 --> 01:29:45,940
+Jak drahý je Microsoft?
+
+1471
+01:29:46,699 --> 01:29:48,260
+A teď já, když to takhle vemu
+
+1472
+01:29:48,800 --> 01:29:50,520
+a zase to vložím, ať už do toho
+
+1473
+01:29:51,199 --> 01:29:53,000
+GPT nebo do toho API,
+
+1474
+01:29:53,000 --> 01:29:54,159
+v tuhle chvíli je to tak nějak
+
+1475
+01:29:54,239 --> 01:29:56,640
+nebo jedno, zase tak
+
+1476
+01:29:56,819 --> 01:29:57,739
+mi to vrátí.
+
+1477
+01:29:58,340 --> 01:29:59,979
+Už dřív to
+
+1478
+01:30:00,000 --> 01:30:01,960
+fungovalo tak, že mi k tomu zase dál
+
+1479
+01:30:01,960 --> 01:30:04,319
+tu omáčku, jako v tomhletom případě.
+
+1480
+01:30:05,260 --> 01:30:07,840
+Tím, že existují
+
+1481
+01:30:08,079 --> 01:30:09,239
+AI agenti a tak
+
+1482
+01:30:09,380 --> 01:30:11,039
+strašně se vyvíjejí ty AI agenti,
+
+1483
+01:30:11,079 --> 01:30:13,579
+je tak velký hype ohledně toho,
+
+1484
+01:30:13,579 --> 01:30:15,340
+spoustu lidí to používá
+
+1485
+01:30:15,439 --> 01:30:16,899
+v těch společnostech, je to opravdu
+
+1486
+01:30:17,720 --> 01:30:18,520
+aktuálně
+
+1487
+01:30:18,520 --> 01:30:21,720
+jedna number one věc,
+
+1488
+01:30:21,720 --> 01:30:23,000
+prostě, která se řeší,
+
+1489
+01:30:24,260 --> 01:30:26,100
+tak už ty modely jsou naučený,
+
+1490
+01:30:26,100 --> 01:30:29,039
+že už odpovídají opravdu jenom ten request.
+
+1491
+01:30:30,060 --> 01:30:32,859
+Tohle vám dává ohromnou sílu,
+
+1492
+01:30:32,880 --> 01:30:34,920
+protože vy v tu chvíli jste,
+
+1493
+01:30:34,979 --> 01:30:36,140
+a to si zase ukážeme,
+
+1494
+01:30:36,600 --> 01:30:38,500
+schopnej tuhletu funkci
+
+1495
+01:30:38,739 --> 01:30:40,500
+vyvolat na základě
+
+1496
+01:30:40,560 --> 01:30:42,159
+této odpovědi, předat mu
+
+1497
+01:30:42,260 --> 01:30:44,060
+tenhleten parametr, protože
+
+1498
+01:30:44,979 --> 01:30:48,840
+už ty modely jsou natrénovaný, takže tohle je správně.
+
+1499
+01:30:48,859 --> 01:30:51,359
+To si můžete být na 99% jistý.
+
+1500
+01:30:51,359 --> 01:30:58,500
+Tady neměla by být žádná halucinace, kde by si vymýšlel atd.
+
+1501
+01:30:58,680 --> 01:31:04,279
+Tohle už je striktně napsané tak, že z 99% se na to můžete spolehnout.
+
+1502
+01:31:04,840 --> 01:31:07,520
+A vy tu funkci jenom zavoláte, přidáte ji tenhle parametr,
+
+1503
+01:31:07,800 --> 01:31:09,319
+zase si ukážeme kód, jak.
+
+1504
+01:31:10,199 --> 01:31:17,359
+A můžete takhle vlastně repetitivně opakovat a ptát se LLM systému.
+
+1505
+01:31:17,359 --> 01:31:19,500
+LLM systém vám vrátí, jakou funkci zavoláte.
+
+1506
+01:31:19,699 --> 01:31:22,520
+Vy si v tom skriptu tu funkci zavoláte, dostanete odpověď,
+
+1507
+01:31:22,520 --> 01:31:24,239
+zase ji vrátíte do LLM systému.
+
+1508
+01:31:24,460 --> 01:31:27,859
+Tady vám zase vrátí odpověď, použijte tenhle ten tool teďkon.
+
+1509
+01:31:27,960 --> 01:31:31,840
+Vy zase použijete ten tool, dostanete odpověď, zase to pošlete do LLM systému.
+
+1510
+01:31:32,060 --> 01:31:34,300
+A v tuhle chvíli už vám vrátí text.
+
+1511
+01:31:34,939 --> 01:31:36,760
+Na místo toho, aby vám řekl.
+
+1512
+01:31:37,600 --> 01:31:42,579
+použít tenhle ten tool. Můžeme si to tady vyzkoušet.
+
+1513
+01:31:46,039 --> 01:31:48,359
+What color is sky?
+
+1514
+01:31:49,420 --> 01:31:57,000
+V tuhleto chvíli bych neměl vrátit, přesně tak, neměl by mi vrátit jako zavolej si tu funkci, protože žádná z toho nevyhovuje,
+
+1515
+01:31:57,319 --> 01:32:03,199
+ale vrátil by mi normální text. A to je, teď jsem vám zhruba tak vysvětlil,
+
+1516
+01:32:04,020 --> 01:32:07,760
+aniž byste si to uvědomovali, jak funguje AI Agent.
+
+1517
+01:32:08,539 --> 01:32:12,260
+Tohle je přesně typické chování EIAgenta.
+
+1518
+01:32:12,260 --> 01:32:15,659
+Vy mu dáte nějakou sladou funkcí, kterou ten agent může použít,
+
+1519
+01:32:15,659 --> 01:32:19,619
+dáte mu k dispozici LLM, za kterýho se má ptát,
+
+1520
+01:32:19,640 --> 01:32:22,399
+a napíšete jednoduchý cyklus,
+
+1521
+01:32:22,600 --> 01:32:25,939
+ve kterém budete říkat na uživatelovou otázku,
+
+1522
+01:32:26,020 --> 01:32:28,640
+tady máš sladou funkcí, kterou já můžu použít,
+
+1523
+01:32:28,779 --> 01:32:31,260
+mám nějakou použít, a on vám vrátí,
+
+1524
+01:32:31,260 --> 01:32:33,500
+buďže máte nějakou použít, tak vy ji použijete
+
+1525
+01:32:33,699 --> 01:32:36,699
+a tu odpověď zase zpátky nakrmíte do toho LLMka,
+
+1526
+01:32:37,000 --> 01:32:40,760
+a tohle děláte do té doby, dokud vám neodpoví text.
+
+1527
+01:32:41,039 --> 01:32:44,899
+Jakmile vám odpoví text, tak ten text vrátíte uživatelovi.
+
+1528
+01:32:45,060 --> 01:32:46,260
+Takhle jednoduchý to je.
+
+1529
+01:32:46,399 --> 01:32:48,840
+Nebudeme z toho dělat žádnou věru z těch AI agentů.
+
+1530
+01:32:50,300 --> 01:32:52,340
+Ono se nám to zesložití, nebojte se.
+
+1531
+01:32:53,779 --> 01:32:57,319
+Ale tohle když pochopíte, tak jste pochopili v zásadě,
+
+1532
+01:32:57,319 --> 01:32:59,899
+jak fungují AI agenty.
+
+1533
+01:33:00,079 --> 01:33:04,739
+Tak, to znamená, že tool usage je zásadní pro něco,
+
+1534
+01:33:04,739 --> 01:33:06,079
+jako je AI agent.
+
+1535
+01:33:06,720 --> 01:33:09,520
+Tak a teďkon se podíváme na domenovou knowledge,
+
+1536
+01:33:09,520 --> 01:33:11,760
+to znamená, že co je autogen.
+
+1537
+01:33:11,760 --> 01:33:16,439
+Já vám jenom tady ukážu, co to je autogen,
+
+1538
+01:33:16,439 --> 01:33:19,000
+abyste věděli.
+
+1539
+01:33:20,159 --> 01:33:21,479
+My se o něm budeme bavit,
+
+1540
+01:33:21,579 --> 01:33:27,079
+ale je to framework na tvorbu multiagentních,
+
+1541
+01:33:27,079 --> 01:33:32,439
+framework na tvorbu multiagent aplikací.
+
+1542
+01:33:32,520 --> 01:33:36,199
+To znamená aplikací, které používají více než jednoho agenta.
+
+1543
+01:33:36,779 --> 01:33:43,859
+A tak, tady je vlastně ten zdroják, nic zajímavého, nebo byste chápali, co to je.
+
+1544
+01:33:44,039 --> 01:33:46,180
+Programovací framework for IGTIC AI.
+
+1545
+01:33:48,020 --> 01:33:51,720
+Překnu vám k tomu víc, až to nastane čas, protože teď to stačí.
+
+1546
+01:33:52,560 --> 01:33:55,140
+Důležitý je, že když se zeptáme,
+
+1547
+01:33:55,960 --> 01:34:01,920
+you are AI assistant, já doufám, že to pořád platí, teda.
+
+1548
+01:34:04,619 --> 01:34:05,520
+Tak je to...
+
+1549
+01:34:05,819 --> 01:34:34,819
+Tak, zajímavý, dobře, tohle odpověděl teda předklapivě správně, já jsem, jo, jo, a tohle už je zase, tohle je špatně, jo, protože tohle, dokonce i v tom machine learningu,
+
+1550
+01:34:35,199 --> 01:34:42,079
+To není správně.
+
+1551
+01:34:42,659 --> 01:34:44,819
+To znamená, že já jsem vám chtěl dokázat,
+
+1552
+01:34:44,859 --> 01:34:47,020
+že ty modely vlastně nevědí,
+
+1553
+01:34:47,739 --> 01:34:52,479
+co to ten autogen je. To znamená, že když vy narazíte na něco takového, nebo budete
+
+1554
+01:34:52,880 --> 01:35:00,619
+budete chtít pravidla Hans Palcky a nebyly mu daný pravidla Hans Palcky, překvapivě teda zná pravidla Hans Palcky, jen tak by the way,
+
+1555
+01:35:00,819 --> 01:35:06,739
+tak my se budeme ukazovat, jak mu vlastně dodat ty znalosti ohledně něčeho, co on nezná.
+
+1556
+01:35:07,079 --> 01:35:08,800
+A tady vidíte, že
+
+1557
+01:35:09,819 --> 01:35:14,619
+Prostě tohle to není správně, Germany during 1920.
+
+1558
+01:35:14,619 --> 01:35:16,619
+On vlastně neví, co to je ten autogen.
+
+1559
+01:35:16,720 --> 01:35:19,039
+Takže já jenom nad tím chci demonstrovat to,
+
+1560
+01:35:19,420 --> 01:35:25,739
+že existují domény, které neznají ty velký jazykový modely.
+
+1561
+01:35:26,079 --> 01:35:29,859
+Ať už z důvodu toho, že ten framework je novej,
+
+1562
+01:35:29,920 --> 01:35:33,359
+což teda byste zjistili podle zdrojového kódu, že není až zas tak novej,
+
+1563
+01:35:33,560 --> 01:35:34,760
+už by ho měli znát.
+
+1564
+01:35:35,000 --> 01:35:37,779
+tak ho prostě neznají z nějakého důvodu.
+
+1565
+01:35:38,000 --> 01:35:40,340
+Nebo teď už, když tam do GPT,
+
+1566
+01:35:40,819 --> 01:35:42,979
+či GPT, tak uvidíte,
+
+1567
+01:35:43,079 --> 01:35:44,920
+že on když nebude vědět,
+
+1568
+01:35:45,340 --> 01:35:46,939
+tak si prostě jako zaguglí,
+
+1569
+01:35:47,680 --> 01:35:49,619
+tady searching in web,
+
+1570
+01:35:49,819 --> 01:35:52,960
+ale teď už ho zná.
+
+1571
+01:35:53,520 --> 01:35:59,739
+Zase to je rozdíl oproti tomu, když používáte ten produkt, tu aplikaci, než to API.
+
+1572
+01:35:59,739 --> 01:36:04,180
+Protože to API, tam si povídáte blíž k tomu modelu jako takovýmu,
+
+1573
+01:36:04,260 --> 01:36:09,039
+tady už k tomu přidávají, jak jsme si ukazovali, další vrstvy,
+
+1574
+01:36:09,039 --> 01:36:12,779
+to znamená, že tady je větší pravděpodobnost toho, že vám to odpoví správně.
+
+1575
+01:36:13,579 --> 01:36:16,380
+K čemu já jsem se ale chtěl dostat je to,
+
+1576
+01:36:17,199 --> 01:36:23,479
+Co to teda, jako ti hnozí vám řekli, jak testovat ty funkcionality.
+
+1577
+01:36:23,579 --> 01:36:26,899
+Teď si ukážeme, co to ten prompt engineering je
+
+1578
+01:36:26,899 --> 01:36:29,640
+a jak můžeme zlepšit takový odpovědi.
+
+1579
+01:36:30,020 --> 01:36:33,140
+Zase nehledejte v tom vědu, tady jsou odkazy,
+
+1580
+01:36:33,739 --> 01:36:39,079
+kde vám popisujou od OpenAI, Microsoftu, Google, Deep Learning AI,
+
+1581
+01:36:39,500 --> 01:36:41,899
+vlastně jak takový prompt engineering dělat.
+
+1582
+01:36:42,000 --> 01:36:46,279
+Vy si z toho jenom odneste, že to jsou metody a doporučení,
+
+1583
+01:36:46,640 --> 01:36:54,180
+pro to, jak se s takovým modelem povídat, nebo jak tvořit ty prompty, jak se ho dotazovat.
+
+1584
+01:36:54,659 --> 01:36:57,560
+Ale zapamatojte si, že to jsou jenom metody a doporučení.
+
+1585
+01:36:57,600 --> 01:37:01,300
+Ty metody a doporučení se měnějí, tak jak se vyvíjejí ty modely,
+
+1586
+01:37:01,439 --> 01:37:04,619
+to, co platilo před dvouma rokama, už neplatí a tak dále.
+
+1587
+01:37:05,659 --> 01:37:11,840
+Znamená, že my to projdeme velmi rychle, nebudu z toho dělat vědu,
+
+1588
+01:37:12,779 --> 01:37:16,359
+A vy si o tom, když tak, dočtete něco dalšího.
+
+1589
+01:37:16,439 --> 01:37:18,579
+Pro mě je důležité, abyste chápali,
+
+1590
+01:37:18,760 --> 01:37:21,319
+že musíte dávat jasný pokyny,
+
+1591
+01:37:21,640 --> 01:37:24,399
+že byste měli udržovat čistou syntaxi,
+
+1592
+01:37:25,159 --> 01:37:29,079
+takže aby vizuálně on vlastně jakoby viděl, co je co.
+
+1593
+01:37:29,880 --> 01:37:33,760
+Používejte oddělovače, případně nějaký prostě tagy.
+
+1594
+01:37:34,880 --> 01:37:36,460
+Rozdělujte ty úkoly.
+
+1595
+01:37:37,180 --> 01:37:39,619
+Pokud mu budete dávat nějaký větší úkol,
+
+1596
+01:37:39,619 --> 01:37:41,079
+tak ho rozdělte do více kroků.
+
+1597
+01:37:41,539 --> 01:37:44,920
+K každému tomu kroku můžete dát něco do toho kontextu,
+
+1598
+01:37:44,960 --> 01:37:46,279
+použijte zase oddělovač.
+
+1599
+01:37:47,359 --> 01:37:51,800
+Možná by bylo dobré na konci mu zapakovat tu nejdůležitější otázku,
+
+1600
+01:37:51,800 --> 01:37:55,680
+na kterou se vlastně ptáte v případě, že vy generujete dlouhej, velkej prompt.
+
+1601
+01:37:57,720 --> 01:38:01,939
+Metody, které se v tom prompt engineeringu používají, jsou...
+
+1602
+01:38:02,100 --> 01:38:05,439
+Teď já se ještě kouknu tady na otázky, protože slyším, že tady něco pípá.
+
+1603
+01:38:05,920 --> 01:38:08,640
+Teoreticky můžu napsat definici svegru do systému,
+
+1604
+01:38:08,640 --> 01:38:09,300
+protože to jsem říkal.
+
+1605
+01:38:09,600 --> 01:38:12,039
+Ohledně toho API a jeho úprav, myslím,
+
+1606
+01:38:12,039 --> 01:38:13,720
+máme dokonce včera startup,
+
+1607
+01:38:14,560 --> 01:38:18,060
+který se snaží tvořit takové chytré tržiště API.
+
+1608
+01:38:21,159 --> 01:38:23,560
+Jo, já se na to podívám schválně.
+
+1609
+01:38:24,140 --> 01:38:27,319
+Fungují tyhle trénování pro modely jako LAMA,
+
+1610
+01:38:27,359 --> 01:38:28,939
+nebo tam ještě nedošlo?
+
+1611
+01:38:30,079 --> 01:38:31,560
+Tyhle trénování...
+
+1612
+01:38:32,579 --> 01:38:41,140
+Nespecifikoval jsem to, myslel jsem tam ohledně toho, že už generují jak kdyby ten výraz pro ty agenty přímo.
+
+1613
+01:38:41,140 --> 01:38:46,579
+Jo, přesně tohle je dostupné už v těch Open Source modelech taky.
+
+1614
+01:38:46,819 --> 01:38:49,640
+Nicméně v některých to není.
+
+1615
+01:38:49,779 --> 01:38:52,020
+A my si ukážeme ale, jak to tam přidat.
+
+1616
+01:38:52,800 --> 01:38:57,760
+To znamená, že pokud vy byste si vybrali Open Source model, který by tenhle tool usage neuměl,
+
+1617
+01:38:58,239 --> 01:39:01,359
+tak já vám ukážu, jak si ho do toho modelu přidat.
+
+1618
+01:39:03,039 --> 01:39:07,720
+Čím více agentů používám, tím více tokenům spotřebuji při každém promptu?
+
+1619
+01:39:08,199 --> 01:39:14,100
+Ano, protože každej agent má k sobě velký jazykový model.
+
+1620
+01:39:14,140 --> 01:39:19,319
+Teď záleží, jak vy je vlastně zgrupujete,
+
+1621
+01:39:19,739 --> 01:39:22,420
+jestli z nich uděláte hierarchickou strukturu,
+
+1622
+01:39:22,659 --> 01:39:28,039
+nebo je dáte všechny na jednu úroveň a každej dostane šanci k tomu něco říct.
+
+1623
+01:39:28,059 --> 01:39:32,380
+To si všechno ukážeme, jak se můžeme bavit multiagentním frameworku.
+
+1624
+01:39:33,380 --> 01:39:35,600
+Chtěl jsem se zeptat, jak často v případě agentů
+
+1625
+01:39:35,840 --> 01:39:37,260
+modelu musím připomínat,
+
+1626
+01:39:37,340 --> 01:39:38,960
+kolik toolů a jaké má ten model
+
+1627
+01:39:39,159 --> 01:39:41,100
+k dispozici. V každém
+
+1628
+01:39:41,359 --> 01:39:43,600
+requestu, který jde do toho
+
+1629
+01:39:43,979 --> 01:39:44,940
+LLM-ka,
+
+1630
+01:39:45,440 --> 01:39:50,619
+Vy mu přidáváte definici těch toolů.
+
+1631
+01:39:50,819 --> 01:39:52,600
+Takže v každém requestu to jde.
+
+1632
+01:39:52,760 --> 01:39:55,899
+Není to jako system message, že to tam jde jednou na začátku
+
+1633
+01:39:56,239 --> 01:40:00,119
+a pak pokračuje konverzace user, assistant, user, assistant, user, assistant.
+
+1634
+01:40:00,720 --> 01:40:05,319
+V tomto případě to jde vždycky, pokud user se na něco ptá,
+
+1635
+01:40:05,359 --> 01:40:09,699
+tak k tomu je skrytě přidaný seznam těch toolů.
+
+1636
+01:40:09,699 --> 01:40:11,460
+V každém requestu.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

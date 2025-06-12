@@ -1,0 +1,1127 @@
+Transcript:
+
+=================
+2805
+03:00:50,020 --> 03:00:53,440
+lokálně tady vidíte, že v ELL je zrovna zmíněný,
+
+2806
+03:00:53,440 --> 03:00:55,799
+tak používaj TGI,
+
+2807
+03:00:56,020 --> 03:00:58,399
+Text Generation Inference, což je zase jenom
+
+2808
+03:00:58,459 --> 03:01:01,120
+webovej server, kterej vám servíruje
+
+2809
+03:01:01,139 --> 03:01:04,000
+vlastně ten model a vy se s ním můžete povídat.
+
+2810
+03:01:04,100 --> 03:01:07,200
+Má to endpoint normálně jako API, slash generate.
+
+2811
+03:01:07,639 --> 03:01:09,239
+Zase si budeme všechno ukazovat.
+
+2812
+03:01:09,579 --> 03:01:20,000
+tak AO Lama, tak všechny ty webservery, které vlastně vám jsou schopný servírovat ty modely,
+
+2813
+03:01:20,360 --> 03:01:22,420
+tak stejně všechny ty modely kvantizujou.
+
+2814
+03:01:22,440 --> 03:01:30,459
+To znamená, že vy nikdy, když tady mám Lama 4, tak to nebude Lama 4, která je plnohodnotná,
+
+2815
+03:01:30,459 --> 03:01:36,260
+vždycky bude kvantizovaná, to znamená, že vždycky bude používat nějaký 8-bit modul,
+
+2816
+03:01:36,559 --> 03:01:41,760
+Já teď se snažím najít, jestli tady je někde kvantizace.
+
+2817
+03:01:43,620 --> 03:01:45,500
+Není to tady zmíněné teda.
+
+2818
+03:01:47,120 --> 03:01:52,399
+Ale vždycky se to kvantizuje, protože jinak byste vlastně nemohl ty modely vůbec ani pustit lokálně.
+
+2819
+03:01:52,600 --> 03:01:56,520
+Zase my si o tom budeme bavit v tom FI tuningu, takže se o tom bude bavit víc.
+
+2820
+03:01:57,639 --> 03:02:03,500
+Stock, nevím, co ti myslíš Indra, mohu poprosit o upload lekcí dopředu?
+
+2821
+03:02:03,780 --> 03:02:05,379
+Jo, myslel jsem všechny lekce.
+
+2822
+03:02:05,959 --> 03:02:09,659
+To ti nemůžu dát, Indra. Je tomu jednoduchý důvod.
+
+2823
+03:02:09,659 --> 03:02:16,360
+Já mám ty lekce připravený, ale já všechny ty lekce updateuju up to date.
+
+2824
+03:02:16,479 --> 03:02:19,700
+To znamená, že všechny ty knihovny, které jsou tam použitý,
+
+2825
+03:02:20,059 --> 03:02:22,799
+tak musím vždycky updateovat na tu poslední verzi.
+
+2826
+03:02:22,799 --> 03:02:28,000
+Dělám to z toho důvodu, že ten kurz se vykopává třeba 2-3 měsíce dopředu.
+
+2827
+03:02:28,340 --> 03:02:30,319
+Já vím, o čem budu mluvit.
+
+2828
+03:02:30,639 --> 03:02:33,760
+Samozřejmě všechno se to vyvíjí hrozně rychle,
+
+2829
+03:02:33,819 --> 03:02:38,180
+takže i to vlastně pro mě,
+
+2830
+03:02:38,479 --> 03:02:41,079
+některé ty věci v tom kurzu ohybám,
+
+2831
+03:02:41,239 --> 03:02:44,600
+tak abyste měli vždycky ty latest up-to-date informace
+
+2832
+03:02:45,059 --> 03:02:47,840
+a ty zdrojáky a ty prezentace updateuji taky.
+
+2833
+03:02:47,899 --> 03:02:50,340
+To znamená, že i dneska jsem updateoval ty prezentace
+
+2834
+03:02:50,340 --> 03:02:54,159
+pro dnešní hodinu, abyste měli i ty PyTorch,
+
+2835
+03:02:54,159 --> 03:02:56,600
+které se tam používají v těch verzích,
+
+2836
+03:02:57,100 --> 03:02:58,180
+v těch nejposledních.
+
+2837
+03:02:59,000 --> 03:03:01,319
+A k se bavíme o pojmy jazykový model,
+
+2838
+03:03:01,319 --> 03:03:03,639
+je to prakticky natrénovaná neuronová sítě.
+
+2839
+03:03:03,940 --> 03:03:05,860
+Architektura průzváhy, přesně tak.
+
+2840
+03:03:06,000 --> 03:03:09,180
+Proto je tam důležitá ta teoretická část,
+
+2841
+03:03:09,299 --> 03:03:12,760
+proto je tam důležitá ta feedforward neuronec, CNN,
+
+2842
+03:03:13,040 --> 03:03:16,659
+abyste chápali, že ve výsledku to není nic jiného
+
+2843
+03:03:16,719 --> 03:03:18,239
+než prostě sada neuronů,
+
+2844
+03:03:18,739 --> 03:03:20,260
+který mají nějaké váhy
+
+2845
+03:03:20,479 --> 03:03:23,120
+a funguje tam stejné pravidlo při trénování.
+
+2846
+03:03:23,120 --> 03:03:25,739
+Je tam forward pass a backward pass.
+
+2847
+03:03:25,899 --> 03:03:27,319
+A pak už se jenom řeší,
+
+2848
+03:03:27,340 --> 03:03:29,840
+jestli se vlastně
+
+2849
+03:03:29,979 --> 03:03:32,639
+skládají ty neuronové sítě do sebe.
+
+2850
+03:03:33,260 --> 03:03:34,760
+Takže my jsme se vysvětlovali
+
+2851
+03:03:34,840 --> 03:03:36,719
+takový základní
+
+2852
+03:03:36,920 --> 03:03:37,780
+výsledek
+
+2853
+03:03:38,520 --> 03:03:41,440
+kameny, ze kterých pak můžete
+
+2854
+03:03:41,700 --> 03:03:43,819
+poskládat ty složitější věci.
+
+2855
+03:03:43,819 --> 03:03:45,479
+Samozřejmě v CNN můžete jít
+
+2856
+03:03:45,620 --> 03:03:47,159
+zase i dolů v tom stromě,
+
+2857
+03:03:47,219 --> 03:03:48,840
+můžete jít do různých větve,
+
+2858
+03:03:48,840 --> 03:03:51,360
+tý CNN s různýma změnama
+
+2859
+03:03:51,360 --> 03:03:53,000
+v tý architektuře,
+
+2860
+03:03:53,299 --> 03:03:55,500
+ale i tenhle velký jazykový
+
+2861
+03:03:55,500 --> 03:03:57,020
+model má forward pass, backward pass,
+
+2862
+03:03:58,360 --> 03:03:59,899
+ten transformer funguje
+
+2863
+03:03:59,899 --> 03:04:00,700
+stejně.
+
+2864
+03:04:01,760 --> 03:04:05,500
+Počítá se v průběhu kurzu s nějakým srazem pivo?
+
+2865
+03:04:05,680 --> 03:04:10,479
+Nebráním se tomu, jestli budete mít nějaký dobrý návrh.
+
+2866
+03:04:12,360 --> 03:04:16,700
+Preferoval bych Karlín, tak třeba Dvakohouti nebo Pivokarlín.
+
+2867
+03:04:18,120 --> 03:04:20,420
+www.dvakohouti.cz
+
+2868
+03:04:21,340 --> 03:04:24,260
+nebo www.pivokarlín.cz
+
+2869
+03:04:25,059 --> 03:04:30,780
+nebo je tam Lokál u Dvou Kohoutů, tak klidně tam já přijdu.
+
+2870
+03:04:34,360 --> 03:04:41,379
+Pokud nemáme k dispozici doma GPU, bude pro zpuštění příkladů účel stačit Google Colab ve verzi Pro, tak je to možný.
+
+2871
+03:04:41,379 --> 03:04:44,479
+Já jsem používal sám Google Colab ve verzi Pro.
+
+2872
+03:04:44,879 --> 03:04:50,159
+Já nejsem moc fanoušek těch Jupyter notebooků, spíš mám radši kód.
+
+2873
+03:04:50,440 --> 03:04:52,120
+Já jsem prostě ten inženýr.
+
+2874
+03:04:52,959 --> 03:04:58,120
+Ale některé věci budeme taky ukazovat v těch notebookách, takže
+
+2875
+03:04:58,719 --> 03:05:04,559
+Dá se to. Já spíš používám právě ten run pod IO
+
+2876
+03:05:05,860 --> 03:05:16,059
+a v jeskout si vlastně připojím do toho run pod IO
+
+2877
+03:05:17,079 --> 03:05:22,219
+Já teď si nepamatuji přes kterou extentionu to dělám, tak se to nebudu teď hledat.
+
+2878
+03:05:22,540 --> 03:05:26,340
+Ale já si zaplatím tu GPU, pronejmu si tu GPU na tom RunPod IO,
+
+2879
+03:05:26,420 --> 03:05:28,979
+odevřu si Jupyter notebook ve VS Code
+
+2880
+03:05:29,520 --> 03:05:39,299
+a ten Jupyter notebook si vzda, jako pošlu, nebo linknu si to s tím GPU, které mám projena na tom RunPodu.
+
+2881
+03:05:39,559 --> 03:05:43,459
+Vychází mi to levnějc, ještě než ten Collab ve verzi Pro.
+
+2882
+03:05:43,639 --> 03:05:45,040
+Takže ukážeme si taky.
+
+2883
+03:05:45,360 --> 03:05:48,020
+Řekneme si něco o vibe codingu.
+
+2884
+03:05:48,120 --> 03:05:50,059
+Já to znám jenom jako buzzword,
+
+2885
+03:05:50,280 --> 03:05:52,200
+že neprogramátoři se snaží
+
+2886
+03:05:52,440 --> 03:05:53,780
+programovat podle
+
+2887
+03:05:53,840 --> 03:05:55,860
+vibu. Je dneska strašně jednoduchý
+
+2888
+03:05:55,860 --> 03:05:57,899
+programovat. Já nevím,
+
+2889
+03:05:58,000 --> 03:05:59,159
+pokud by mě někoho zajímalo.
+
+2890
+03:05:59,959 --> 03:06:02,639
+Já tím, že jsem z Microsoftu, tak mám
+
+2891
+03:06:04,100 --> 03:06:05,600
+tak mám
+
+2892
+03:06:05,600 --> 03:06:07,059
+kopilota v té
+
+2893
+03:06:07,280 --> 03:06:09,239
+pro verzi. Já zase nevím, jestli
+
+2894
+03:06:09,239 --> 03:06:13,260
+já se tady
+
+2895
+03:06:13,260 --> 03:06:15,399
+odevřu nějaký projekt.
+
+2896
+03:06:15,500 --> 03:06:15,719
+Ten
+
+2897
+03:06:17,620 --> 03:06:19,639
+New AAAA
+
+2898
+03:06:21,159 --> 03:06:22,340
+tak select folder
+
+2899
+03:06:23,899 --> 03:06:25,659
+a teď tady bych někde měl mít toho
+
+2900
+03:06:25,799 --> 03:06:27,440
+kopilotové frzy Agenta
+
+2901
+03:06:29,879 --> 03:06:30,360
+tady
+
+2902
+03:06:31,840 --> 03:06:33,500
+Hey write me a
+
+2903
+03:06:34,719 --> 03:06:36,459
+snake game
+
+2904
+03:06:38,020 --> 03:06:39,280
+with pygame
+
+2905
+03:06:39,520 --> 03:06:40,020
+UI
+
+2906
+03:06:41,780 --> 03:06:44,100
+ale on by měl tady začít tvořit teďkon ty
+
+2907
+03:06:44,280 --> 03:06:45,559
+filey a
+
+2908
+03:06:48,079 --> 03:06:49,360
+kopilotové frzy
+
+2909
+03:06:50,079 --> 03:06:51,760
+tak si to neinstall
+
+2910
+03:06:52,020 --> 03:06:53,799
+že mi to něco nevzg...
+
+2911
+03:06:53,799 --> 03:06:55,379
+ne to nepokurví
+
+2912
+03:06:58,379 --> 03:07:00,620
+Ale on by si měl teď začít.
+
+2913
+03:07:00,620 --> 03:07:03,379
+Client, jestli znáte Client,
+
+2914
+03:07:03,379 --> 03:07:05,540
+taky tím to začalo,
+
+2915
+03:07:05,600 --> 03:07:07,459
+nebo to je to první, co jsem viděl
+
+2916
+03:07:08,559 --> 03:07:11,620
+jako extensionu do VS Code,
+
+2917
+03:07:11,620 --> 03:07:13,520
+který měl tuhletu feature, že
+
+2918
+03:07:14,819 --> 03:07:17,360
+Klein AI, to si vyzkoušejte.
+
+2919
+03:07:17,479 --> 03:07:21,319
+Zase MCP servery, to je něco, o čem se bavím v tom druhém kurzu,
+
+2920
+03:07:21,319 --> 03:07:27,399
+AI Agents, ale to je opravdu něco, co vám celý ten projekt navrhne,
+
+2921
+03:07:27,639 --> 03:07:31,299
+architekturu vám to udělá, vy mu ho odsouhlasíte,
+
+2922
+03:07:31,379 --> 03:07:35,760
+přetnete ho do Act modu, že tam je Design mod a Act mod,
+
+2923
+03:07:35,979 --> 03:07:40,420
+tak v Design modu si to celý spolu vyříkáte, co vlastně chcete od něj udělat
+
+2924
+03:07:41,139 --> 03:07:42,479
+a pak to přepnete do
+
+2925
+03:07:42,579 --> 03:07:44,360
+plan mod a act mod
+
+2926
+03:07:45,020 --> 03:07:46,760
+a v tom act modu to přepnete
+
+2927
+03:07:46,819 --> 03:07:48,700
+a on vlastně začne tvořit ty soubory,
+
+2928
+03:07:48,780 --> 03:07:50,760
+teď všechny ty soubory začne přepisovat,
+
+2929
+03:07:50,840 --> 03:07:52,440
+teď si začne vlastně
+
+2930
+03:07:52,979 --> 03:07:54,860
+uvědomovat, že v tom předchozím
+
+2931
+03:07:55,040 --> 03:07:56,760
+souboru, co vytvořil poprvý, když vytvořil
+
+2932
+03:07:56,760 --> 03:07:58,979
+tadyhle ty CSS klásy, tak musí
+
+2933
+03:07:59,040 --> 03:08:00,639
+tam je použít, takže
+
+2934
+03:08:01,780 --> 03:08:02,840
+je to, to je asi to, co já
+
+2935
+03:08:02,840 --> 03:08:04,780
+považu za vibe coding, je to takový coding
+
+2936
+03:08:04,780 --> 03:08:07,299
+bez toho aniž bych rozuměl, co to vlastně píše.
+
+2937
+03:08:07,639 --> 03:08:08,360
+Já tím, že nejsem
+
+2938
+03:08:09,440 --> 03:08:09,440
+vlastně
+
+2939
+03:08:09,260 --> 03:08:11,579
+neprogramátor, nebo já jsem
+
+2940
+03:08:11,700 --> 03:08:13,159
+těžký programátor,
+
+2941
+03:08:13,600 --> 03:08:15,840
+tak já už to dělám 17 let,
+
+2942
+03:08:16,700 --> 03:08:18,379
+tak pro mě je těžký
+
+2943
+03:08:18,379 --> 03:08:19,299
+vlastně
+
+2944
+03:08:21,180 --> 03:08:22,719
+kodovat něco, čemu nerozumím,
+
+2945
+03:08:22,719 --> 03:08:24,579
+co dělá, takže já vždycky vím,
+
+2946
+03:08:24,579 --> 03:08:26,239
+co to zhruba tak dělá, takže
+
+2947
+03:08:27,299 --> 03:08:28,780
+pro mě je to takový buzzword,
+
+2948
+03:08:29,319 --> 03:08:30,899
+no tak tady vidíte,
+
+2949
+03:08:31,000 --> 03:08:33,139
+už to začíná něco dělat, tady se to začíná něco
+
+2950
+03:08:33,139 --> 03:08:35,340
+přepisovat, takže to je asi to,
+
+2951
+03:08:35,340 --> 03:08:36,819
+čemu já rozumím pod pojmem
+
+2952
+03:08:37,079 --> 03:08:39,500
+vibe coding, že prostě jo, continue.
+
+2953
+03:08:41,540 --> 03:08:44,239
+že to začne prostě samodělat něco.
+
+2954
+03:08:45,780 --> 03:08:50,979
+Tak, jo, tak CPU, main, Pi,
+
+2955
+03:08:51,000 --> 03:08:54,040
+jo, jeden single, ten feedforward neural net,
+
+2956
+03:08:54,100 --> 03:08:56,879
+main Pi na CPUčku, to je hned.
+
+2957
+03:08:57,500 --> 03:09:00,500
+Tak to jsem psal, já, jsou transformy v ordine pro time series,
+
+2958
+03:09:00,600 --> 03:09:05,120
+predikce, dneska se používají na všechno,
+
+2959
+03:09:05,620 --> 03:09:08,219
+Time Stock
+
+2960
+03:09:08,600 --> 03:09:10,879
+Prediction Transformer
+
+2961
+03:09:11,239 --> 03:09:12,760
+jsou na to prostě už celý
+
+2962
+03:09:12,760 --> 03:09:14,540
+projekty, nebo hodně
+
+2963
+03:09:14,659 --> 03:09:16,459
+se teďkon, protože je to zase nový
+
+2964
+03:09:16,559 --> 03:09:17,959
+všechno prostředí, tak tady
+
+2965
+03:09:18,059 --> 03:09:19,840
+v tom archivu
+
+2966
+03:09:20,219 --> 03:09:21,979
+jsou celý
+
+2967
+03:09:22,120 --> 03:09:24,459
+papíry o tom, i knihovny
+
+2968
+03:09:24,680 --> 03:09:26,440
+o tom, jak použít transformery
+
+2969
+03:09:26,500 --> 03:09:29,000
+na Time Series Forecasting for Stocks
+
+2970
+03:09:29,260 --> 03:09:30,620
+jsou i celý
+
+2971
+03:09:30,760 --> 03:09:32,219
+projekty na to, takže určitě, když
+
+2972
+03:09:32,239 --> 03:09:33,680
+pogooglíte, tak to určitě najdete.
+
+2973
+03:09:35,399 --> 03:09:39,139
+Byl by jsem pro, no tak můžeme.
+
+2974
+03:09:39,420 --> 03:09:44,159
+Budeme se určitě upravovat modely na rozpoznávání a generování obrázků nebo jenom textu.
+
+2975
+03:09:45,079 --> 03:09:49,760
+My nebudeme upravovat modely na rozpoznávání a generování obrázků.
+
+2976
+03:09:51,959 --> 03:09:55,659
+Přemýšlel jsem o tom, jestli to vám do toho zahrnout, nechtěl jsem ty věci komplikovat.
+
+2977
+03:09:55,680 --> 03:10:01,020
+Myslím si, že budete mít dost toho, už jenom pochopit, jak to funguje pro textu.
+
+2978
+03:10:01,979 --> 03:10:03,760
+a bylo by kontraproduktivní,
+
+2979
+03:10:03,780 --> 03:10:06,059
+kdybych do toho ještě začal házet obrázky.
+
+2980
+03:10:06,100 --> 03:10:07,219
+Ale můžu vás ujistit,
+
+2981
+03:10:07,219 --> 03:10:09,559
+že pokud pochopíte to, jak funguje na text,
+
+2982
+03:10:10,340 --> 03:10:15,979
+tak jste velmi blízko k tomu, abyste si byl schopný opravit modely na obrázky.
+
+2983
+03:10:16,200 --> 03:10:20,440
+Je to stejný princip jako ta FNN síť a RNN síť třeba.
+
+2984
+03:10:20,899 --> 03:10:24,159
+Pokud pochopíte tu FNN síť, tak jste velmi blízko k tomu,
+
+2985
+03:10:24,180 --> 03:10:26,280
+abyste si mohl udělat tu RNN síť.
+
+2986
+03:10:26,760 --> 03:10:29,819
+Tak jsou tam stejné principy, takže tohle bude úplně,
+
+2987
+03:10:30,600 --> 03:10:33,459
+jako to vám pro zjednodušení jsem se zůstal u textu.
+
+2988
+03:10:34,040 --> 03:10:38,840
+Mohu pro existující LLM model změnit počet tokenů, který model dokáže použít?
+
+2989
+03:10:39,319 --> 03:10:41,340
+Ano. Myslíte context window?
+
+2990
+03:10:41,399 --> 03:10:42,719
+Myslíte context window.
+
+2991
+03:10:43,120 --> 03:10:47,459
+Já myslím, že context window nejsme schopni změnit.
+
+2992
+03:10:48,200 --> 03:10:51,579
+To znamená, že z Lamy, která má 160 tisíc parametrů,
+
+2993
+03:10:51,579 --> 03:10:55,020
+nejsme schopni udělat Gemini, která má 2 miliony tokenů.
+
+2994
+03:10:55,680 --> 03:10:59,760
+jsme schopni změnit počet tokenů, který to má generovat.
+
+2995
+03:10:59,760 --> 03:11:02,979
+Nebo to akceptovat jako vstup, ale ne.
+
+2996
+03:11:03,159 --> 03:11:06,760
+Nebo, no vstup ne, no. To by byl context window.
+
+2997
+03:11:07,340 --> 03:11:09,600
+Takže jenom, kolik to má generovat.
+
+2998
+03:11:09,760 --> 03:11:10,840
+Sprac, no.
+
+2999
+03:11:11,639 --> 03:11:13,340
+Je RAC součástí fine-tuningu?
+
+3000
+03:11:13,340 --> 03:11:20,860
+Není součástí fine-tuningu. RAC je, jak si to můžete představit, jo.
+
+3001
+03:11:21,940 --> 03:11:27,239
+Vy se zeptáte, já řeknu o modelu, nějaký input.
+
+3002
+03:11:27,639 --> 03:11:32,020
+Mám tady ještě někde ten, jenom se kouknu, jak tady dopad ten snake.
+
+3003
+03:11:34,219 --> 03:11:38,500
+No, tohle je zrovna tak jednoduchý, že to by mi vygérovalo asi 3GPT,
+
+3004
+03:11:38,500 --> 03:11:40,959
+protože je to jednofajlová záležitost.
+
+3005
+03:11:40,959 --> 03:11:43,739
+Já jsem spíš doufal, že se to udělá nějakou modulární věc,
+
+3006
+03:11:43,799 --> 03:11:46,799
+takže to asi necháme dál.
+
+3007
+03:11:46,979 --> 03:11:49,079
+Ale o co pilotovi se můžeme taky pobavit.
+
+3008
+03:11:50,639 --> 03:11:57,319
+Rax, jste se ptali na Rax, to znamená, že já jsem vám chtěl ukázat,
+
+3009
+03:11:58,219 --> 03:12:03,879
+my se o tom budeme bavit v další hodině, teda víc do detailů v prompt engineeringu,
+
+3010
+03:12:04,920 --> 03:12:09,459
+ale se když já si odevřu tady, já tady mám všude ty svoje projekty,
+
+3011
+03:12:09,879 --> 03:12:12,600
+Luke Kalhos, jo, úplně nebo jo, hej tady,
+
+3012
+03:12:14,139 --> 03:12:19,819
+tak já když se o tady zeptám, hej, describe me the movie,
+
+3013
+03:12:20,579 --> 03:12:23,100
+AAA a on nebude nic znát
+
+3014
+03:12:23,100 --> 03:12:24,979
+o tom movie AAA,
+
+3015
+03:12:25,799 --> 03:12:28,239
+tak mi odpoví, že nic neví.
+
+3016
+03:12:28,399 --> 03:12:29,620
+Ale rak je o tom,
+
+3017
+03:12:29,620 --> 03:12:31,719
+že já vemu tenhle dotaz,
+
+3018
+03:12:32,360 --> 03:12:34,079
+pošlu ho na svoje API,
+
+3019
+03:12:35,000 --> 03:12:36,920
+v tom svým API já udělám
+
+3020
+03:12:37,079 --> 03:12:39,059
+dotaz do databáze, vyselektím
+
+3021
+03:12:39,100 --> 03:12:40,940
+si nějaký data ohledně
+
+3022
+03:12:41,100 --> 03:12:42,799
+toho movie AAA, o kterém
+
+3023
+03:12:42,799 --> 03:12:45,379
+on vlastně není natrénovanej.
+
+3024
+03:12:45,379 --> 03:12:46,500
+Nebo řekni mi
+
+3025
+03:12:46,620 --> 03:12:48,959
+Describe me
+
+3026
+03:12:49,059 --> 03:12:51,159
+employee Daniel.
+
+3027
+03:12:53,540 --> 03:12:55,979
+Daniel Křetínský.
+
+3028
+03:12:57,719 --> 03:12:58,860
+Není employees,
+
+3029
+03:12:58,920 --> 03:12:59,680
+ale samozřejmě...
+
+3030
+03:13:00,319 --> 03:13:04,719
+Tak to, co ten model nezná nic,
+
+3031
+03:13:04,879 --> 03:13:06,479
+nebo o něm zrovna asi bude znát,
+
+3032
+03:13:06,520 --> 03:13:10,200
+tak Novák, tak nebude znát nic o Danielu Novákovi,
+
+3033
+03:13:10,559 --> 03:13:12,559
+tak já to nejdřív pošlu na svoje API.
+
+3034
+03:13:12,739 --> 03:13:14,959
+Moje API udělá select do databáze,
+
+3035
+03:13:14,979 --> 03:13:18,600
+nebo koukne se někam do nějakého zdroje dat,
+
+3036
+03:13:18,600 --> 03:13:22,200
+vytáhne si nějaký informace o Danielu Novákovi
+
+3037
+03:13:22,200 --> 03:13:24,719
+a pak do toho takhle vloží,
+
+3038
+03:13:24,819 --> 03:13:26,899
+do toho mýho dotazu takhle vloží,
+
+3039
+03:13:27,180 --> 03:13:31,680
+Daniel, Novák, narozen, dne, blablabla.
+
+3040
+03:13:31,879 --> 03:13:35,260
+A poskytne tomu modelu vlastně nějaké dodatečné informace,
+
+3041
+03:13:35,659 --> 03:13:39,100
+pozice a teprve pak to pošle do toho modelu.
+
+3042
+03:13:39,620 --> 03:13:41,879
+tak to je ve zkratce RAC.
+
+3043
+03:13:41,979 --> 03:13:44,559
+To, že mu tady do toho dotazu přidáte
+
+3044
+03:13:44,579 --> 03:13:47,219
+nějaký informace dodatečný,
+
+3045
+03:13:47,219 --> 03:13:48,420
+který víte jenom vy,
+
+3046
+03:13:48,440 --> 03:13:50,100
+nebo máte někde v databázi,
+
+3047
+03:13:50,120 --> 03:13:51,059
+tak to je RAC.
+
+3048
+03:13:51,059 --> 03:13:54,000
+To je Retrieve Augmented Generation.
+
+3049
+03:13:54,000 --> 03:13:55,680
+To je to, co to znamená.
+
+3050
+03:13:55,739 --> 03:13:57,159
+Uživatel dá dotaz.
+
+3051
+03:13:57,459 --> 03:13:59,879
+Já jako AI aplikaci...
+
+3052
+03:14:00,360 --> 03:14:03,260
+to je ta moje doména, to není ta modelová doména,
+
+3053
+03:14:03,360 --> 03:14:06,479
+model s tím nemá co dělat, prostě model na neuronová sítě
+
+3054
+03:14:06,559 --> 03:14:09,540
+vůbec nezajímá, pro ně je to jeden input,
+
+3055
+03:14:09,620 --> 03:14:12,739
+tak já na té svý straně té AI aplikace udělám nějaký
+
+3056
+03:14:12,760 --> 03:14:15,799
+enhancement těch dat na to, co se ptá uživatel
+
+3057
+03:14:16,040 --> 03:14:18,559
+a teprve pak to pošlu do toho modelu a ten model
+
+3058
+03:14:19,079 --> 03:14:23,079
+odpoví tomu uživateli tu normální standardní
+
+3059
+03:14:23,239 --> 03:14:26,739
+vygenerovou odpověď. Ale ta kouzlo toho je,
+
+3060
+03:14:26,739 --> 03:14:29,899
+ta magie je to, že já jsem předtím udělal nějaký dotaz do té databázy.
+
+3061
+03:14:30,899 --> 03:14:34,879
+Tak, o tom se budeme bavit víc trochu později.
+
+3062
+03:14:34,920 --> 03:14:38,159
+Do Kohouti to jsem já, Há Karli mi vyvoluje, bydlím tady na Rohanu.
+
+3063
+03:14:38,159 --> 03:14:44,879
+No tak to jsme teda kousek od sebe, já jsem tady Port Carolina.
+
+3064
+03:14:45,479 --> 03:14:47,920
+Já jsem Port Carolina, Davide.
+
+3065
+03:14:48,120 --> 03:14:52,819
+To jsme kousek. Tak až půjdete na pivo, můžete to hodit online, já se dám doma.
+
+3066
+03:14:53,420 --> 03:14:55,299
+Já se dám doma, jsem daleko.
+
+3067
+03:14:56,139 --> 03:14:58,500
+Osobní preference na model pro vibe coding?
+
+3068
+03:14:58,819 --> 03:14:59,620
+Jo.
+
+3069
+03:15:01,000 --> 03:15:03,239
+Podívejte se na tohle.
+
+3070
+03:15:03,239 --> 03:15:03,819
+Já myslím, že
+
+3071
+03:15:04,079 --> 03:15:06,079
+z toho budete unešený.
+
+3072
+03:15:07,079 --> 03:15:09,200
+Tak obecně se říká, že pro programování
+
+3073
+03:15:09,200 --> 03:15:10,459
+nejlepší Cloud,
+
+3074
+03:15:11,159 --> 03:15:12,379
+Cloud Sonnet,
+
+3075
+03:15:13,899 --> 03:15:15,840
+lepší než GPT.
+
+3076
+03:15:15,840 --> 03:15:18,459
+Teď nevím, jak je to s porovnáním s GPT 4.1.
+
+3077
+03:15:18,500 --> 03:15:20,819
+To už je prej o dost lepší,
+
+3078
+03:15:21,319 --> 03:15:22,379
+ale mohlo se to forměnit,
+
+3079
+03:15:22,379 --> 03:15:23,440
+takže si zvykněte.
+
+3080
+03:15:24,459 --> 03:15:26,620
+Tak zase, jestli používáte
+
+3081
+03:15:26,719 --> 03:15:29,260
+GPT nebo OpenAI, API,
+
+3082
+03:15:29,719 --> 03:15:30,799
+začněte používat
+
+3083
+03:15:30,899 --> 03:15:32,020
+i Anthropic API.
+
+3084
+03:15:34,120 --> 03:15:49,159
+Zase Klod, tady máte webové prostředí pro... ne, prosím ne, tadyhle, jestli uvidíte někdy to AIchat.app, tak to nějak shodíte, nebo v hlavě všem řekněte, ať to nikdo nepoužívá, protože to je...
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

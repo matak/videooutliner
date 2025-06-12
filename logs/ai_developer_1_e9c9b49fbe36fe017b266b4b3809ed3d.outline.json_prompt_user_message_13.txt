@@ -1,0 +1,1023 @@
+Transcript:
+
+=================
+3085
+03:15:49,180 --> 03:15:57,120
+Někdo se zaplatil prostě tady sponsoring navšude, na Apple Storeu, na Play Storeu, na webu.
+
+3086
+03:15:57,579 --> 03:15:59,079
+A jenom sbírá data.
+
+3087
+03:15:59,180 --> 03:16:00,579
+Podle mě je to nějaký čínský
+
+3088
+03:16:00,579 --> 03:16:02,959
+produkt a jenom chtějí, aby lidi
+
+3089
+03:16:03,040 --> 03:16:05,299
+se tam přihlašovali, dávali tam kreditní karty
+
+3090
+03:16:05,440 --> 03:16:07,239
+a pak to prostě zneužijou.
+
+3091
+03:16:07,260 --> 03:16:08,639
+Takže tady to je
+
+3092
+03:16:08,639 --> 03:16:10,860
+hlavně na to všechny upozorněte.
+
+3093
+03:16:11,459 --> 03:16:12,700
+Tady to je Meet Cloud,
+
+3094
+03:16:12,700 --> 03:16:14,959
+Entropic a zase tady
+
+3095
+03:16:15,340 --> 03:16:17,159
+Try Cloud, nebo se přihlásíte,
+
+3096
+03:16:17,159 --> 03:16:18,799
+má to taky API.
+
+3097
+03:16:18,819 --> 03:16:19,059
+A tady prostě
+
+3098
+03:16:19,059 --> 03:16:22,459
+Cloud je nejlepší na programování,
+
+3099
+03:16:22,459 --> 03:16:24,899
+co já jsem vám chtěl ukázat, je Cloud Code.
+
+3100
+03:16:26,180 --> 03:16:31,219
+což je prej nejlepší na wipe coding.
+
+3101
+03:16:31,219 --> 03:16:33,540
+Já aktuálně prostě preferuju,
+
+3102
+03:16:33,540 --> 03:16:35,479
+tohle je terminálová věc,
+
+3103
+03:16:36,680 --> 03:16:38,139
+ale to nemá žádný GUI,
+
+3104
+03:16:38,559 --> 03:16:41,760
+je to klod, povídáte se s tím přes terminál
+
+3105
+03:16:42,799 --> 03:16:48,260
+Já jsem to osobně ještě neskoušel, ale všichni říkali, že tohle je to nejlepší, co může být.
+
+3106
+03:16:48,260 --> 03:16:54,899
+No jsou tady i nějaký příklady, že to vygeneruje aplikaci webovou se stripeem naintegrovaným,
+
+3107
+03:16:54,899 --> 03:17:01,260
+takže lidi jsou přesto schopni platit přes kredytní karty, jako a takovýhle různý věci.
+
+3108
+03:17:01,459 --> 03:17:06,180
+Já jsem spíš přes to, že to chci vidět, takže já proto preferuju ten VS Code.
+
+3109
+03:17:06,739 --> 03:17:13,159
+A teď se snažím učit s copilotem, já jsem byl hrozně proti tomu, nebo mi to hrozně nevyhovovalo.
+
+3110
+03:17:14,000 --> 03:17:22,880
+Ale ten Klein je dobrý, takže na Vibe Coding doporučuji za sebe začít Kleinem, popřípadně tím Google Copilotem.
+
+3111
+03:17:23,100 --> 03:17:26,399
+A jinak nejlepší by měl být ten Cloud Code.
+
+3112
+03:17:27,459 --> 03:17:31,500
+Je finetuning přenositelný? Byt částečně mezi modely?
+
+3113
+03:17:31,819 --> 03:17:32,860
+Ne, není to tak.
+
+3114
+03:17:33,360 --> 03:17:39,380
+Vždycky budete muset, ať už použijete klasický fine tuning, tak není rozhodně.
+
+3115
+03:17:39,380 --> 03:17:44,840
+Když použijete adaptéry nebo lorů, tak ani to se nedá přenašet mezi modelama.
+
+3116
+03:17:44,840 --> 03:17:46,860
+Budete vždycky muset začít od peaky.
+
+3117
+03:17:46,860 --> 03:17:54,420
+S tím se řeší takový věci, jako že si představte, že fine tune ten model a teď mu vyjde nová verze toho modelu.
+
+3118
+03:17:54,459 --> 03:17:57,440
+A teď vy zase musíte dělat ten fine tuning. Nebo že budete mít
+
+3119
+03:17:57,959 --> 03:18:01,520
+naučíte jeden model tohle,
+
+3120
+03:18:01,600 --> 03:18:02,040
+a teď,
+
+3121
+03:18:02,299 --> 03:18:04,840
+protože budete chtít vlastně jiný model,
+
+3122
+03:18:04,860 --> 03:18:06,780
+a teď každej ale ten model,
+
+3123
+03:18:06,780 --> 03:18:09,219
+i ty trénovací data, který tomu budete dávat,
+
+3124
+03:18:09,860 --> 03:18:11,420
+tak vám můžou začít generovat
+
+3125
+03:18:11,520 --> 03:18:12,639
+různé výsledky.
+
+3126
+03:18:12,799 --> 03:18:14,680
+To se za sebou ukazují toho fine tuningu.
+
+3127
+03:18:14,739 --> 03:18:16,719
+Takže jsou na to knihovny,
+
+3128
+03:18:16,719 --> 03:18:18,579
+jako je DSPy,
+
+3129
+03:18:19,020 --> 03:18:20,380
+DSPy,
+
+3130
+03:18:20,380 --> 03:18:21,680
+zase ze Stanfordu,
+
+3131
+03:18:21,680 --> 03:18:26,020
+no ani ne,
+
+3132
+03:18:26,020 --> 03:18:26,700
+ne, teda...
+
+3133
+03:18:27,479 --> 03:18:31,880
+To je asi jak AI nebo něco takový, nebo IO.
+
+3134
+03:18:34,760 --> 03:18:40,180
+Tady DSPy a to je něco, co vlastně pomáhá s tím, že vy
+
+3135
+03:18:42,239 --> 03:18:44,619
+jste zase odproštěný do určitý míry
+
+3136
+03:18:45,420 --> 03:18:47,799
+od toho, jaký model se používá pod tím.
+
+3137
+03:18:47,799 --> 03:18:50,559
+Vy vždycky jenom pustíte DSPy,
+
+3138
+03:18:50,559 --> 03:18:52,600
+vlastně on se na...
+
+3139
+03:18:53,600 --> 03:18:55,219
+Jako jste trénovali neuronovou sít,
+
+3140
+03:18:55,280 --> 03:18:57,399
+tak tohle se natrénuje na LLM,
+
+3141
+03:18:57,520 --> 03:18:58,600
+který je pod tím.
+
+3142
+03:18:59,079 --> 03:19:01,059
+A vy vlastně pak, když vyměníte to LLM,
+
+3143
+03:19:01,059 --> 03:19:03,459
+tak zase jenom pustíte ten trénink toho DSPy
+
+3144
+03:19:03,459 --> 03:19:04,659
+a on vám to zase
+
+3145
+03:19:04,659 --> 03:19:08,299
+nageneruje ty nejlepší prompty,
+
+3146
+03:19:08,760 --> 03:19:12,299
+Na to, abyste dosáhli těch nejlepších odpovědí.
+
+3147
+03:19:12,420 --> 03:19:13,540
+Nechme to u toho.
+
+3148
+03:19:14,000 --> 03:19:18,159
+Já jsem měl v minulých běhách přímo lekci na to DSPy.
+
+3149
+03:19:19,159 --> 03:19:24,260
+Zatím se mi neukázalo v praxi to až zase tak použít.
+
+3150
+03:19:24,260 --> 03:19:26,500
+Tolik projektů to nepoužívá.
+
+3151
+03:19:26,619 --> 03:19:30,280
+Je to taková níž věc, ale je to ze Stanfordu.
+
+3152
+03:19:30,700 --> 03:19:32,459
+Takže zůstanejme u toho.
+
+3153
+03:19:32,459 --> 03:19:33,119
+DSPy.
+
+3154
+03:19:34,059 --> 03:19:40,200
+RoboFlow, uprava modely na rozpoznání a generování obrázků jenom v novém textu. RoboFlow asi neznám.
+
+3155
+03:19:41,579 --> 03:19:46,739
+Na obrázky jsou to Confi, UI, těch služeb je strašně moc.
+
+3156
+03:19:47,100 --> 03:19:48,920
+Assembly, AI a různý.
+
+3157
+03:19:48,959 --> 03:19:55,399
+Ten navazující kurs, jak byl zmínil na začátku na dotaz ohledně NA, ten kde se o tom dá, prosím, dozvědět více. Jo, to je ono.
+
+3158
+03:19:55,559 --> 03:19:56,959
+AI agenti.
+
+3159
+03:19:57,979 --> 03:20:00,880
+Osobní preference pro vibe coding asi Cloth.
+
+3160
+03:20:00,880 --> 03:20:02,000
+Jojojo Cloth.
+
+3161
+03:20:02,180 --> 03:20:07,260
+ARAX 1.0 Giga PDF, tedy vypadá tak, že celý obsah PDF naštu do nějakého Elastiku.
+
+3162
+03:20:07,260 --> 03:20:09,899
+Ano, přesně tak. Najdříve data vyhledám.
+
+3163
+03:20:10,119 --> 03:20:12,619
+A pak je postrčím jazykovému modelu, přesně tak.
+
+3164
+03:20:12,920 --> 03:20:17,760
+Teď máte několik možností. Zase v tom AI Agent kůru zase o tom bavím.
+
+3165
+03:20:19,180 --> 03:20:26,380
+Je tam Full Text, můžete použít Full Text, můžete použít nějakou SQL databázi, můžete použít Elastik.
+
+3166
+03:20:26,780 --> 03:20:31,600
+Můžete použít vektorovou databázi, která zase nehledá fulltextem,
+
+3167
+03:20:31,840 --> 03:20:35,500
+ale rozumí významu těch slov, protože je to vektorová databáze
+
+3168
+03:20:35,520 --> 03:20:38,280
+a ve vektoru všechno má význam a směr.
+
+3169
+03:20:38,659 --> 03:20:43,020
+Tak tam zase prostě, když vyhledáváte, vyhledáváte líp.
+
+3170
+03:20:43,280 --> 03:20:47,659
+Takže je několik druhů databází, které se vlastně pro ten rák používají.
+
+3171
+03:20:48,100 --> 03:20:53,600
+Já si za sebe můžu něco doporučit, tak se, pokud o tom máte zájem a čas,
+
+3172
+03:20:53,719 --> 03:20:55,260
+tak se podívejte na grafrak.cz.
+
+3173
+03:20:55,639 --> 03:20:57,639
+Je to zase od Microsoftu,
+
+3174
+03:20:57,780 --> 03:21:00,200
+ale je to vlastně grafová struktura
+
+3175
+03:21:00,920 --> 03:21:02,319
+pro dělání RAGU.
+
+3176
+03:21:02,380 --> 03:21:04,079
+Takže je to zase, pokud jsme
+
+3177
+03:21:04,200 --> 03:21:05,540
+doteď používali nějaký
+
+3178
+03:21:06,680 --> 03:21:12,260
+Je to všechno založený na algoritmech a datových strukturách.
+
+3179
+03:21:12,299 --> 03:21:16,260
+Pokud jsme používali do teďka nějaký arraye a kolekce,
+
+3180
+03:21:16,399 --> 03:21:19,920
+tak ta zase grafová struktura je vhodná na něco jinýho.
+
+3181
+03:21:19,920 --> 03:21:23,840
+Takže tady si můžete představit, že ty data právě jsou jako združený,
+
+3182
+03:21:23,840 --> 03:21:28,079
+zklastrovaný k sobě a je to celý takový přístup.
+
+3183
+03:21:28,340 --> 03:21:33,100
+Mně se to zatím moc nelíbí, ale někteří lidi jsou s toho unešený,
+
+3184
+03:21:33,100 --> 03:21:35,260
+tak tady na ten grafRAC se můžete podívat.
+
+3185
+03:21:35,899 --> 03:21:46,880
+Já tam bych možná mohl vždycky dát ten odkaz, tak a když se tady o tom bavím, tak bych to mohl takhle odpovědět.
+
+3186
+03:21:48,180 --> 03:21:53,899
+Má smysl databáze Wikipage přigenerovat embeddings jako vektory? Jo, má určitě.
+
+3187
+03:21:54,079 --> 03:21:56,479
+Zase záleží na tom use case, ale
+
+3188
+03:21:57,760 --> 03:22:16,639
+Jo, jako vektory se to tam dává právě kvůli podobnosti slov, ale zase každá ta databáze má svoje plusy a mínusy, takže neřekl bych, že na všechno použijte vektor, nebo použijte Elastic, nebo použijte Fulltext, tak to není, je to use case.
+
+3189
+03:22:17,219 --> 03:22:18,959
+Uvodí už ke Jizu.
+
+3190
+03:22:18,959 --> 03:22:21,280
+V kterého databáze udas několika GB,
+
+3191
+03:22:21,319 --> 03:22:23,600
+budeme se o tomto tady povědomit jenom více.
+
+3192
+03:22:23,600 --> 03:22:25,380
+Já to v tomhle kurzu,
+
+3193
+03:22:25,399 --> 03:22:27,399
+já se tady podívám do toho syllabusu,
+
+3194
+03:22:27,440 --> 03:22:29,119
+myslím, mám zmíněný jenom tak
+
+3195
+03:22:29,880 --> 03:22:34,280
+z řídka a to u těch frameworků v té druhé půlce,
+
+3196
+03:22:34,899 --> 03:22:47,119
+To znamená, až se budeme bavit o lang chainu, jak si ukážeme, jak tam dělat RAG, v lang grafu si ukážeme, jak tam dělat RAG, ale nebudeme si ukazovat, jak dělat RAG s fulltextem, s elastikem a s vektorem.
+
+3197
+03:22:47,340 --> 03:22:55,479
+To je právě v té AI agenti, kde si ukážeme vlastně ten nejpoužívanější způsob RAGu, který pro ten daný framework je.
+
+3198
+03:22:56,880 --> 03:23:01,079
+comfy UI je jako spojení OLAMy a OpenWeb UI pro obrázky,
+
+3199
+03:23:01,079 --> 03:23:02,860
+je to lokální generátor.
+
+3200
+03:23:02,860 --> 03:23:03,840
+No, to je zároveň...
+
+3201
+03:23:03,840 --> 03:23:05,780
+No, já bych říkal, že to je to, co jsem ptal, tak...
+
+3202
+03:23:05,780 --> 03:23:06,459
+Jo, jo, jo, jo.
+
+3203
+03:23:06,459 --> 03:23:08,020
+...a rozhodně.
+
+3204
+03:23:08,299 --> 03:23:09,840
+Jo, jo, jo.
+
+3205
+03:23:10,020 --> 03:23:13,680
+Jo, teď říkám, těch služeb je prostě mraky a zvykněte si,
+
+3206
+03:23:13,680 --> 03:23:19,280
+že pokud chcete jako v této doméně nějak jako fungovat,
+
+3207
+03:23:19,280 --> 03:23:23,819
+tak je to prostě FOMO velký, než to znáte, to FOMO.
+
+3208
+03:23:24,579 --> 03:23:27,659
+Fear of missing out.
+
+3209
+03:23:28,479 --> 03:23:30,399
+To je furt něco.
+
+3210
+03:23:30,659 --> 03:23:32,760
+Furt něco a je velmi těžký
+
+3211
+03:23:32,760 --> 03:23:34,899
+držet krok s celým tím
+
+3212
+03:23:34,940 --> 03:23:37,239
+odvětvím a vždycky někdo
+
+3213
+03:23:37,239 --> 03:23:39,299
+něco přijde, tak je hype okolo toho,
+
+3214
+03:23:39,340 --> 03:23:41,739
+tak se zase musíte prostě na to podívat,
+
+3215
+03:23:41,819 --> 03:23:43,239
+musíte zjistit, o čem to je a
+
+3216
+03:23:44,139 --> 03:23:52,020
+Právě řešíme to, že pokud máme velký počet PDF dokumentů s velkým množstvím textu, tak se jeví, že je potřeba tyto dokumenty pro faktury předzpracovat.
+
+3217
+03:23:52,079 --> 03:23:59,860
+Musíte udělat z nich čanky atd. Protože tak to zrovna nedopadá.
+
+3218
+03:24:00,459 --> 03:24:06,420
+protože on vyhledává jenom v tom daném čanku a teď máte větu, která začíná v jednom čanku,
+
+3219
+03:24:06,440 --> 03:24:10,360
+končí v druhém čanku a teď vy potřebujete ale, aby on našel celou tu větu.
+
+3220
+03:24:10,420 --> 03:24:11,799
+To je ta vaše odpověď.
+
+3221
+03:24:11,940 --> 03:24:14,280
+Takže se to dělá tak, že pak ty čanky se překrývají,
+
+3222
+03:24:14,540 --> 03:24:21,040
+že vy máte prostě kus 25 nebo 10% z toho dokumentu v jednom čanku,
+
+3223
+03:24:21,040 --> 03:24:22,899
+ale máte to i v tom druhém čanku.
+
+3224
+03:24:22,899 --> 03:24:26,619
+A to jsou různý prostě praktiky na to a...
+
+3225
+03:24:27,380 --> 03:24:35,860
+Pokud se s tím nechcete moc zabývat, tak AI Search teď v Azure šel hodně dopředu s tím,
+
+3226
+03:24:36,020 --> 03:24:40,780
+protože hodně enterprise, customerů právě chce dělat všechny ty chatboty,
+
+3227
+03:24:40,819 --> 03:24:43,559
+které mají tu znalost o těch jejich interních dokumentech.
+
+3228
+03:24:44,020 --> 03:24:48,780
+Takže AI Search to začal řešit, i tam mají nějaký hybrid,
+
+3229
+03:24:49,020 --> 03:24:51,260
+systém, kde to podporuje
+
+3230
+03:24:51,440 --> 03:24:53,100
+jak fulltext, tak vektor,
+
+3231
+03:24:53,159 --> 03:24:54,780
+neboli vy mu dáte jenom ty dokumenty,
+
+3232
+03:24:54,819 --> 03:24:57,479
+on už si to sám nahází do fulltextu
+
+3233
+03:24:57,479 --> 03:24:59,119
+i do vektorů a pak vlastně
+
+3234
+03:24:59,420 --> 03:25:01,219
+nějakým způsobem je schopný
+
+3235
+03:25:01,319 --> 03:25:03,159
+rozpoznat, kdo našel
+
+3236
+03:25:03,299 --> 03:25:05,659
+lepší výsledek a to vytáhnout,
+
+3237
+03:25:05,780 --> 03:25:07,200
+takže jsou tam.
+
+3238
+03:25:08,659 --> 03:25:10,500
+To mám pořád. AI a cyber,
+
+3239
+03:25:10,639 --> 03:25:12,239
+nekonečné, no, to je
+
+3240
+03:25:13,180 --> 03:25:14,899
+teďka, no, to bude pěkný.
+
+3241
+03:25:15,819 --> 03:25:18,659
+To předpracování vlastní, například PDF dokument,
+
+3242
+03:25:18,659 --> 03:25:22,600
+který je ve dvou sloupcích, to rozumě do ničeho nedám,
+
+3243
+03:25:22,619 --> 03:25:24,880
+protože to nejde číst pořádcích.
+
+3244
+03:25:26,059 --> 03:25:28,280
+Dokument, který je ve dvou sloupcích,
+
+3245
+03:25:29,239 --> 03:25:33,639
+Teď to nerozumím, i když je ten dokument ve dvou sloupcích, tak je to ex?
+
+3246
+03:25:33,719 --> 03:25:39,079
+Tam vlastně jde o typické obchodní podmínky třeba, když má někdo, tak jsou vlastně jeden sloupec, druhej sloupec a
+
+3247
+03:25:39,500 --> 03:25:46,020
+vlastně to já nenávodu žádnou elastiku nebo něčeho podobného, protože vlastně musím umět to pdf-ko číst, podobně jako tabulkový data, že jo.
+
+3248
+03:25:46,020 --> 03:25:51,260
+Tak mě zajímá, jestli jako už je to vyřešený, nebo se to každý řeší sám, pokud to teda musím dát do nějaký databáze.
+
+3249
+03:25:52,159 --> 03:25:59,479
+PDF jsou čitelný v tom AI strt, či třeba tam je podpora pro PDF, takže on nějakým způsobem umí vyčíst to PDF, ale
+
+3250
+03:25:59,860 --> 03:26:05,920
+zase počítejte s tím, že je to velmi limitovaný vyčtení toho PDF, je to jako něco,
+
+3251
+03:26:05,940 --> 03:26:12,000
+jako kdybyste dal, dneska umí i, jako když už se o tom bavíme dneska, i OpenAI vám přečte PDF,
+
+3252
+03:26:12,000 --> 03:26:16,380
+nebo vycucávám z toho ten text, protože z toho obrázku je to schopný udělat.
+
+3253
+03:26:16,819 --> 03:26:18,459
+Ale je to třeba bez obrázků.
+
+3254
+03:26:19,600 --> 03:26:19,600
+Takže
+
+3255
+03:26:21,079 --> 03:26:23,959
+s těma PDF-kama je to problém.
+
+3256
+03:26:24,020 --> 03:26:25,360
+Já chápu jedno PDF-ko,
+
+3257
+03:26:25,559 --> 03:26:27,280
+ale vlastně když mám třeba gigabyte PDF-ek,
+
+3258
+03:26:27,299 --> 03:26:28,500
+ve kterých potřebuji něco hledat,
+
+3259
+03:26:28,639 --> 03:26:30,360
+aby ten chatbot mě tam něco hledal,
+
+3260
+03:26:30,479 --> 03:26:31,579
+tak to už je úplně něco jiného.
+
+3261
+03:26:32,399 --> 03:26:35,100
+Vlastně ty data musím předpracovat jí už dopředu,
+
+3262
+03:26:35,260 --> 03:26:36,579
+ale ve chvíli, kdy se ptám.
+
+3263
+03:26:36,739 --> 03:26:37,840
+Ano, ano, ano.
+
+3264
+03:26:37,979 --> 03:26:40,500
+Tam buď prostě nějaká existující služba,
+
+3265
+03:26:40,500 --> 03:26:42,059
+která to řeší do určitý míry za vás,
+
+3266
+03:26:42,059 --> 03:26:44,500
+jako je ten AI Search v tom Azure,
+
+3267
+03:26:44,880 --> 03:26:46,159
+nebo
+
+3268
+03:26:46,159 --> 03:26:49,639
+vlastně nějaká vlastní
+
+3269
+03:26:50,319 --> 03:26:57,639
+nějaké vlastní zpracování, předzpracování těch dokumentů a to už se zase bavíme o jiných úrovních.
+
+3270
+03:26:57,700 --> 03:27:03,799
+Já mám Mistral OCR, tak vidíte, tak je Introducing Best Document Understanding API, no, tak, tak,
+
+3271
+03:27:04,520 --> 03:27:09,780
+Ve výsledku, když si chvilku počkáte, tak oni to o tom vyřeší za vás.
+
+3272
+03:27:09,860 --> 03:27:14,520
+Protože to je něco, co každá ta firma dneska chce.
+
+3273
+03:27:14,920 --> 03:27:18,479
+Ať už to bude Google, nebo to bude Amazon, nebo to bude Microsoft.
+
+3274
+03:27:18,899 --> 03:27:21,579
+Spravdě pro ně asi spíš Microsoft, jak to vypadá.
+
+3275
+03:27:22,079 --> 03:27:23,700
+Tak oni to vyřeší za vás.
+
+3276
+03:27:29,059 --> 03:27:33,119
+Tak jo, pánové, hodinu a půl přes.
+
+3277
+03:27:34,799 --> 03:27:35,780
+To jste tady ještě.
+
+3278
+03:27:36,680 --> 03:27:37,840
+To je teda úžasný.
+
+3279
+03:27:40,100 --> 03:27:41,260
+Kolik vás tady je?
+
+3280
+03:27:43,700 --> 03:27:45,079
+Já vidím to tady někde.
+
+3281
+03:27:45,340 --> 03:27:46,219
+38.
+
+3282
+03:27:46,899 --> 03:27:47,579
+38.
+
+3283
+03:27:48,799 --> 03:27:50,680
+38 lidí tady ještě, jo.
+
+3284
+03:27:51,579 --> 03:27:54,799
+Já si myslím, že tady zůstají tři poslední držáci.
+
+3285
+03:27:56,680 --> 03:27:59,840
+No tak jo, hele, tak já se taky půjdu odpočinout,
+
+3286
+03:28:00,000 --> 03:28:02,920
+ale děkuju teda za dnešní lekci, za to, že jste poslouchali,
+
+3287
+03:28:03,059 --> 03:28:04,200
+za ty vaše dotazy.
+
+3288
+03:28:05,719 --> 03:28:08,840
+Já myslím, že na první hodinu to bylo dobrý
+
+3289
+03:28:08,940 --> 03:28:12,540
+a příště se můžeme těšit na co?
+
+3290
+03:28:12,700 --> 03:28:13,719
+Můžeme se na to podívat.
+
+3291
+03:28:15,880 --> 03:28:18,079
+Příští hodinu se můžeme těšit na...
+
+3292
+03:28:20,340 --> 03:28:23,139
+Návrh promptu a hodnocení LLM.
+
+3293
+03:28:23,380 --> 03:28:24,299
+Ano, tak tam si uděláme
+
+3294
+03:28:24,299 --> 03:28:26,540
+prompt engineering, to byl taky takový
+
+3295
+03:28:26,600 --> 03:28:28,319
+buzzword. Ukážeme si, jak
+
+3296
+03:28:28,479 --> 03:28:29,579
+zlepšit vlastně
+
+3297
+03:28:30,299 --> 03:28:32,700
+výsledky toho LLM modelu
+
+3298
+03:28:32,700 --> 03:28:34,479
+jenom z toho, jak se ptáme
+
+3299
+03:28:35,159 --> 03:28:36,600
+a jak můžeme
+
+3300
+03:28:38,420 --> 03:28:40,280
+ohodnotit pro ten náš daný
+
+3301
+03:28:40,479 --> 03:28:41,959
+use case vlastně ty nejlepší.
+
+3302
+03:28:43,819 --> 03:28:45,780
+Tak jo, a pak myslím si,
+
+3303
+03:28:45,780 --> 03:28:47,040
+že návrh promptu
+
+3304
+03:28:48,180 --> 03:28:53,860
+Příprava na trénování, tam už si začneme připravovat data na ten fine tuning.
+
+3305
+03:28:54,000 --> 03:29:00,139
+OpenAI a fine tuning, tam už začneme produkovat nějaký vlastní modely pomocí OpenAI.
+
+3306
+03:29:00,440 --> 03:29:06,719
+Hugging phase bude pro vás hodně zajímavý, to je prostě všechno ty open source modely, jak to funguje, jak si ty modely stáhnout.
+
+3307
+03:29:07,159 --> 03:29:11,139
+Fine tuning, zase jak si vytvořit vlastní verzi toho modelu.
+
+3308
+03:29:11,540 --> 03:29:14,200
+No a od té lekce 7, jak jsem říkal, tam už začneme
+
+3309
+03:29:14,200 --> 03:29:16,399
+prostě programovat pomocí těch
+
+3310
+03:29:16,700 --> 03:29:18,319
+frameworků, tam si myslím, že by vás to mohlo
+
+3311
+03:29:18,440 --> 03:29:20,260
+začít hodně bavit
+
+3312
+03:29:20,420 --> 03:29:22,600
+a doufám, že nejvíc vás
+
+3313
+03:29:22,799 --> 03:29:24,880
+bude bavit ta lekce 11,
+
+3314
+03:29:24,880 --> 03:29:26,920
+to vývoj AI agentu.
+
+3315
+03:29:27,319 --> 03:29:29,020
+Tam už začne být něco pořádného.
+
+3316
+03:29:31,579 --> 03:29:33,420
+Co teda máme dělat do příště?
+
+3317
+03:29:36,360 --> 03:29:38,139
+Nemusíte dělat nic.
+
+3318
+03:29:38,739 --> 03:29:45,680
+Můžete si počkat, anebo si můžete všechny ty materiály, co jsem vám tady řekl, tak si to můžete projít.
+
+3319
+03:29:45,680 --> 03:29:53,420
+Já, co na té první lekci doporučuji, nebo to, co jsem úplně nestih udělat, je, že jsem vám chtěl ukázat úplně já, jak se s tím bavit.
+
+3320
+03:29:53,559 --> 03:29:59,979
+Já teda předpokládám, že trtivá většina z vás si s ČPT povídala, jak se vám chtěl ukázat plik.
+
+3321
+03:30:00,000 --> 03:30:02,540
+a chtěl se vám ukázat tu Olamu.
+
+3322
+03:30:02,540 --> 03:30:04,319
+Takže za mě je doporučení,
+
+3323
+03:30:04,360 --> 03:30:05,979
+zkuste si s těma modelama
+
+3324
+03:30:06,540 --> 03:30:08,860
+popovídat. Teď myslím s těma
+
+3325
+03:30:10,219 --> 03:30:12,360
+lokálníma, open source-ovýma
+
+3326
+03:30:12,459 --> 03:30:14,459
+v té Olamě. Popřípadně,
+
+3327
+03:30:14,459 --> 03:30:16,399
+jestli jste ještě nepovídali si s Anthropicem,
+
+3328
+03:30:16,540 --> 03:30:18,100
+zkuste si popovídat s Anthropicem.
+
+3329
+03:30:18,200 --> 03:30:19,219
+Zkuste si zjistit,
+
+3330
+03:30:20,040 --> 03:30:23,000
+jaký jsou mezi nimi rozdíly, v čem jsou některý lepší,
+
+3331
+03:30:23,000 --> 03:30:24,399
+v čem jsou některý zhorší.
+
+3332
+03:30:24,639 --> 03:30:26,659
+To je to, co my budeme dělat příště.
+
+3333
+03:30:26,680 --> 03:30:31,020
+Budeme si ukazovat, jak co nejlíp formulovat ty prompty,
+
+3334
+03:30:31,020 --> 03:30:35,680
+ptát se jich a jak dělat nějaký benchmarking toho,
+
+3335
+03:30:35,680 --> 03:30:39,100
+jak si pro ten váš use case vybrat vlastně ten nejlepší model.
+
+3336
+03:30:41,299 --> 03:30:43,000
+Tak jo, ještě jednou děkuju.
+
+3337
+03:30:43,559 --> 03:30:46,899
+Už konečná a mějte se hezky.
+
+3338
+03:30:48,840 --> 03:30:50,200
+Ať se sám.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

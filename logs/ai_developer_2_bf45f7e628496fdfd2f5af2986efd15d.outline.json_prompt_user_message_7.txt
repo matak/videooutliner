@@ -1,0 +1,979 @@
+Transcript:
+
+=================
+1637
+01:40:13,159 --> 01:40:19,960
+To je něco, co my si právě ukážeme, proto potřebuji, abyste chápali ten rozdíl mezi aplikací, API a ještě modelem.
+
+1638
+01:40:19,960 --> 01:40:32,819
+To jsou ty tři levly vlastně, protože aplikace má tu vaši historii těch zpráv, to jde do API a to jde pak do modelu.
+
+1639
+01:40:33,500 --> 01:40:42,819
+Ale ten model jako takovej třeba vůbec neví žádnou historii zpráv, to znamená, že pro ně je každá zpráva uživatele nová.
+
+1640
+01:40:43,440 --> 01:40:50,279
+To znamená, že to API, proto je to vždycky připlácnuté ke každé uživatelové správě.
+
+1641
+01:40:50,279 --> 01:40:56,079
+Aby on vždycky mohl od ten model odpovědět, nehledě na to, co bylo vlastně v té historii.
+
+1642
+01:40:58,119 --> 01:41:01,340
+To API si drží vlastně tu historii.
+
+1643
+01:41:02,039 --> 01:41:06,920
+Jak agenta donutím, aby vracel vždy nějakou konkrétní strukturu v JSONu?
+
+1644
+01:41:07,020 --> 01:41:12,380
+Stačí mu to říct. Stačí mu říct, to je tady tadyhle ten metody output.
+
+1645
+01:41:13,020 --> 01:41:17,979
+Vy mu definujete output, co po něm, jak chcete, aby to bylo napsané.
+
+1646
+01:41:17,979 --> 01:41:20,140
+Markdown napiš, vrať mi to v Markdownu.
+
+1647
+01:41:20,380 --> 01:41:22,300
+Nebo vrať mi to jako JSON.
+
+1648
+01:41:22,720 --> 01:41:27,119
+A ještě mu nadefinujete, nevracej nic jinýho, jenom ten JSON.
+
+1649
+01:41:27,119 --> 01:41:28,100
+Tři vykřičníky.
+
+1650
+01:41:28,399 --> 01:41:30,279
+Hrozně tyhle věci pomáhají.
+
+1651
+01:41:32,220 --> 01:41:34,399
+Nebo hodně se s tím žartovalo jednu dobu,
+
+1652
+01:41:34,399 --> 01:41:36,159
+ale když mu řeknete, jdeme o život...
+
+1653
+01:41:36,960 --> 01:41:38,779
+tak on zase se chová
+
+1654
+01:41:38,779 --> 01:41:40,319
+trochu jinak. Všechny tyhle
+
+1655
+01:41:41,000 --> 01:41:43,119
+detaily ovlivňují
+
+1656
+01:41:43,180 --> 01:41:44,659
+to, jak vám
+
+1657
+01:41:44,840 --> 01:41:45,640
+odpovídá.
+
+1658
+01:41:47,159 --> 01:41:49,880
+když jsem to definoval ve složitějším systém promptu,
+
+1659
+01:41:49,920 --> 01:41:51,520
+tak to někdy fungovalo a někdy to bylo
+
+1660
+01:41:51,619 --> 01:41:53,520
+ignorováno. Ano. Protože vy byste
+
+1661
+01:41:53,640 --> 01:41:55,279
+mu to měl zmínit
+
+1662
+01:41:55,399 --> 01:41:57,079
+v každý té zprávě,
+
+1663
+01:41:57,180 --> 01:41:59,760
+kterou chcete od něj,
+
+1664
+01:41:59,760 --> 01:42:01,220
+aby vrátil v tom JSONu.
+
+1665
+01:42:01,220 --> 01:42:03,260
+To znamená, že se to řeší
+
+1666
+01:42:03,479 --> 01:42:05,500
+tak, že jaká uživatelová zpráva
+
+1667
+01:42:05,559 --> 01:42:07,220
+přichází, vy ji vlastně na tom
+
+1668
+01:42:07,680 --> 01:42:09,079
+API obohatíte. Proto tam
+
+1669
+01:42:09,279 --> 01:42:10,539
+i ty APIčka jsou, jo. Protože uživatel
+
+1670
+01:42:10,539 --> 01:42:13,079
+a zase budeme si to ukazovat,
+
+1671
+01:42:13,079 --> 01:42:14,220
+vám vrátí text
+
+1672
+01:42:15,159 --> 01:42:35,399
+Vy, co na tom API typicky děláte, je, že vy třeba můžete tu zprávu o toho uživatele, jak to říct česky, převordovat, změníte, napíšete to jinak.
+
+1673
+01:42:35,680 --> 01:42:40,579
+A k tomu přidáte ještě nějaké vaše aplikační věci.
+
+1674
+01:42:40,579 --> 01:42:45,760
+To znamená, že jako mluv jako Joe Rogan, něco mu tam ještě do toho přidáte.
+
+1675
+01:42:45,859 --> 01:42:48,039
+Třeba výstupu, vrát se jenom Jason.
+
+1676
+01:42:48,380 --> 01:42:52,600
+V každé té správě, kterou posíláte do toho modelu, byste mu to měli zmínit.
+
+1677
+01:42:52,859 --> 01:42:58,340
+Když mu to zmíníte v system message, tak pravděpodobně by tomu měl dát větší váhu a měl by to dodržovat.
+
+1678
+01:42:58,500 --> 01:43:08,699
+Ale myslím si, že mnohem lepší pro vaši funkcionetu bude, když mu to nebudete zmínit do system message, ale vlastně mu to zmíníte při každé té zprávě.
+
+1679
+01:43:08,699 --> 01:43:11,659
+A teď mi vrať JSON, a teď mi vrať JSON, a teď mi vrať JSON.
+
+1680
+01:43:12,059 --> 01:43:13,460
+Ono vám ho vždycky vrátí.
+
+1681
+01:43:15,359 --> 01:43:20,359
+Tak v user zprávy odpovídání JSON je především záležitost modelu, starší to neuměli.
+
+1682
+01:43:20,619 --> 01:43:25,260
+Pro kód je to response format type JSON object.
+
+1683
+01:43:26,020 --> 01:43:30,640
+To znamená, že teď si podíváme na ty metody toho prompt engineeringu.
+
+1684
+01:43:31,239 --> 01:43:33,220
+Zase berte to jako doporučení.
+
+1685
+01:43:33,840 --> 01:43:37,279
+Máme tady direct prompty, to znamená takzvaný zero shot.
+
+1686
+01:43:38,039 --> 01:43:40,859
+To znamená, my mu vlastně, my se ho jenom zeptáme.
+
+1687
+01:43:40,940 --> 01:43:44,159
+To je defaultně to, jak vy s ním komunikujete.
+
+1688
+01:43:44,159 --> 01:43:47,180
+Zero shot. Vy mu dáte otázku, on vám vrátí odpověď.
+
+1689
+01:43:47,619 --> 01:43:52,079
+Já když zase tady to budu překlikávat mezi tím,
+
+1690
+01:43:53,760 --> 01:43:56,520
+vězkodem a tou prezentací,
+
+1691
+01:43:57,100 --> 01:44:01,220
+tak to je nejzákladnější přímý promptování.
+
+1692
+01:44:01,220 --> 01:44:02,940
+Prostě zero shot.
+
+1693
+01:44:02,940 --> 01:44:05,420
+To je to, co vy děláte, na co jste zvyklí.
+
+1694
+01:44:05,739 --> 01:44:09,720
+To znamená klasifikuj sentiment následujícího reviewu.
+
+1695
+01:44:10,420 --> 01:44:13,779
+Tento interfejs je velmi intuitivní,
+
+1696
+01:44:13,800 --> 01:44:17,100
+ale API dokumentace je nic moc,
+
+1697
+01:44:17,100 --> 01:44:18,800
+nebo něco jí chybí.
+
+1698
+01:44:19,260 --> 01:44:21,279
+Takže tohle já když prostě dám do toho
+
+1699
+01:44:23,479 --> 01:44:29,460
+do toho APIčka tady, tak on by mi měl vrátit ten sentiment.
+
+1700
+01:44:29,460 --> 01:44:31,940
+Sentiment review is mixed, blablabla.
+
+1701
+01:44:32,920 --> 01:44:37,180
+Teď oproti tomu je few shot prompting.
+
+1702
+01:44:38,000 --> 01:44:47,140
+To znamená, že jediný rozdíl mezi tím je, že mu dám nějaké příklady toho, jak chci, aby
+
+1703
+01:44:47,979 --> 01:44:50,420
+aby ta odpověď jeho vypadala.
+
+1704
+01:44:50,420 --> 01:44:53,399
+To znamená, že ten prompt by pak vypadal pro few shot
+
+1705
+01:44:53,880 --> 01:44:56,420
+tím, že mu dám nějaký review
+
+1706
+01:44:57,059 --> 01:44:59,979
+a dám mu, co chci vlastně od něj, aby vrátil.
+
+1707
+01:44:59,979 --> 01:45:03,559
+A tohle mu takhle vrátím, nebo pošlu mu to
+
+1708
+01:45:04,059 --> 01:45:08,520
+a on si uvědomí, že tohleto předtím jsou vlastně příklady, které já mu dávám
+
+1709
+01:45:09,359 --> 01:45:12,399
+A že teď místo toho otazníku on má vlastně doplnit,
+
+1710
+01:45:12,500 --> 01:45:14,220
+jestli to je pozitivní nebo negativní.
+
+1711
+01:45:14,220 --> 01:45:18,399
+Takže on by mi měl teď navést k tomu,
+
+1712
+01:45:18,440 --> 01:45:21,420
+aby mi vlastně vrátil, jestli to je pozitivní nebo negativní.
+
+1713
+01:45:21,500 --> 01:45:23,340
+Já si myslím, že mi stejně vrátí mixed.
+
+1714
+01:45:23,380 --> 01:45:24,619
+Jo, nevrátí, víte.
+
+1715
+01:45:25,199 --> 01:45:26,460
+Tak to zafungovalo.
+
+1716
+01:45:26,800 --> 01:45:35,699
+Předtím to bylo mix pro něj, ale teď jsem mu vlastně řekl pozitivní, negativní, negativní a teď po něm chci, aby vrátil, aby se rozhodnul.
+
+1717
+01:45:35,720 --> 01:45:39,579
+Takže on se opravdu rozhodnul a vrátil mi vlastně jenom to negativní.
+
+1718
+01:45:40,340 --> 01:45:49,260
+Tak jo, to je jenom ukázka zase, těch ukázek je spousta, pokud já bych třeba to chtěl aplikovat na...
+
+1719
+01:45:50,000 --> 01:45:54,800
+Ten swagger file, tak si představte, kdybych mu tady vždycky dal otázku uživatele
+
+1720
+01:45:54,940 --> 01:45:57,059
+nebo nějaký request, co od něj chce vygenerovat.
+
+1721
+01:45:57,420 --> 01:46:00,760
+Pak bych mu dal do kontextu swagger file a tady bych mu dal tu odpověď,
+
+1722
+01:46:00,760 --> 01:46:02,539
+kterou vlastně on má dát.
+
+1723
+01:46:02,720 --> 01:46:07,500
+Swagger file je obrovský, takže asi to není něco, co budete používat na few shot,
+
+1724
+01:46:07,840 --> 01:46:11,920
+ale tím byste ho mohli přesvědčit o tom, že mi má vrátit vlastně jenom ten
+
+1725
+01:46:12,859 --> 01:46:17,340
+tu JSON request, ne tu vomáčku okolo, žádnej text vlastně nechcete.
+
+1726
+01:46:18,180 --> 01:46:20,220
+Tak, role.
+
+1727
+01:46:20,239 --> 01:46:23,100
+To je ta systém role, o kterým jsme se bavili.
+
+1728
+01:46:23,539 --> 01:46:24,739
+Je důležitá
+
+1729
+01:46:24,859 --> 01:46:25,880
+z toho důvodu, proč jsem
+
+1730
+01:46:26,380 --> 01:46:27,720
+to už zmiňoval,
+
+1731
+01:46:27,720 --> 01:46:30,119
+má speciální místo vlastně
+
+1732
+01:46:30,119 --> 01:46:32,140
+v tom modelu. My si to
+
+1733
+01:46:32,380 --> 01:46:34,199
+ukážeme v rámci toho,
+
+1734
+01:46:34,579 --> 01:46:36,020
+až budeme řešit fine tuning,
+
+1735
+01:46:36,020 --> 01:46:37,260
+tak si ukážeme, že ten
+
+1736
+01:46:37,659 --> 01:46:40,059
+systém message má speciální
+
+1737
+01:46:40,260 --> 01:46:42,059
+tokeny, který mají
+
+1738
+01:46:41,760 --> 01:46:49,119
+kterýma je otagovaná, aby ten model ji poznal speciálně, tuto System Message.
+
+1739
+01:46:49,140 --> 01:46:54,260
+Když trénují ten model, tak už ho učí, že tady takhle vypadá System Message,
+
+1740
+01:46:54,300 --> 01:46:57,260
+tady ji najdeš a je to pro tebe něco speciálního.
+
+1741
+01:46:58,659 --> 01:47:01,159
+Tak, kontext jsme si taky říkali, to znamená,
+
+1742
+01:47:01,159 --> 01:47:02,880
+že já tady mám nějaký data,
+
+1743
+01:47:03,039 --> 01:47:04,600
+je to stand-up Joe Arogena
+
+1744
+01:47:04,600 --> 01:47:06,340
+a takhle by vypadal teda ten prompt,
+
+1745
+01:47:06,440 --> 01:47:09,079
+kdybych já chtěl, aby ten
+
+1746
+01:47:09,079 --> 01:47:11,479
+stand-up vlastně nějak zohlednil,
+
+1747
+01:47:11,880 --> 01:47:13,559
+zeptal bych se ho na nějakou
+
+1748
+01:47:13,859 --> 01:47:15,020
+otázku a tady bych mu dal
+
+1749
+01:47:15,319 --> 01:47:16,680
+vlastně do toho kontextu zase
+
+1750
+01:47:17,440 --> 01:47:19,180
+o, jakoby,
+
+1751
+01:47:19,180 --> 01:47:21,579
+clear syntax, bych mu tam
+
+1752
+01:47:21,899 --> 01:47:23,920
+vložil vlastně ten
+
+1753
+01:47:27,659 --> 01:47:27,960
+stand-up.
+
+1754
+01:47:28,180 --> 01:47:47,699
+Ještě mi teď napadlo, že jsem vám vlastně, ten kontext je opravdu něco důležitýho a třeba já mám napsanou, můžu vám jít na dispozici, kdyby to někoho zajímalo, ale tady na pravý tlačítko na VS Code, já mám tady ty dvě nový, které vy nemáte.
+
+1755
+01:47:48,199 --> 01:47:52,319
+A to je jenom moje extangena do VS Code, kterou jsem si napsal.
+
+1756
+01:47:52,779 --> 01:47:56,279
+Nebo kterou mi napsalo GGPT, když půjdu úplně upřímnej.
+
+1757
+01:47:56,279 --> 01:47:58,699
+Já jsem si to ani napsal. Já jsem jenom řekl, co chci.
+
+1758
+01:47:59,420 --> 01:48:01,420
+A format for LLM.
+
+1759
+01:48:01,600 --> 01:48:06,059
+A to je já, když potřebuji prostě něco skopírovat pro to LLM,
+
+1760
+01:48:06,180 --> 01:48:08,460
+tak já jenom dám tady Copy to LLM.
+
+1761
+01:48:08,940 --> 01:48:12,640
+A už to můžu vkládat do ČGBT třeba.
+
+1762
+01:48:12,880 --> 01:48:17,440
+A vlastně všechny ty, obsah těch souborů je vždycky oddělený
+
+1763
+01:48:17,440 --> 01:48:19,819
+tadyhletím oddělovačem.
+
+1764
+01:48:20,340 --> 01:48:26,899
+To znamená, že první, první file je vlastně tadyhleten,
+
+1765
+01:48:30,279 --> 01:48:33,720
+tadyhleten, druhej file vlastně byl tadyhleto,
+
+1766
+01:48:35,119 --> 01:48:38,279
+a teď já jsem kliknul na 3, takže by tady ještě měl být jeden.
+
+1767
+01:48:38,720 --> 01:48:41,079
+Jo, jo, jo, tady, tady takhle.
+
+1768
+01:48:41,840 --> 01:48:51,659
+Taky jenom jsem vám chtěl zdůraznit důležitost těch oddělovačů a vlastně já mu třeba tím odděluju soubory, které já mu kopíruji.
+
+1769
+01:48:51,659 --> 01:49:03,739
+Takže zdrojové kódy, já jim takhle označím vskoru a zase mohl bych si tady hrát s kopilotem a vlastně mu tady dávat jenom do kontextu ty soubory.
+
+1770
+01:49:04,059 --> 01:49:07,819
+Kontext nebo něco takového, takhle to jak bylo.
+
+1771
+01:49:08,819 --> 01:49:13,539
+FILE, jo tady byly soubory, bych mu tady jenom takhle dal.
+
+1772
+01:49:13,559 --> 01:49:16,020
+On už by je bral v tom kontextu.
+
+1773
+01:49:16,920 --> 01:49:22,319
+Já to kopilo tam moc, zatím jsem mu nepřišel na chuť, takže já to kopíruji takhle.
+
+1774
+01:49:22,380 --> 01:49:29,420
+Tak jenom jsem vám chtěl říct, to je tu důležitost vlastně toho oddělovače, toho kontextu.
+
+1775
+01:49:29,880 --> 01:49:36,180
+To znamená, že tady takhle bych mu to tam dal, on by zase zohlednil ten kontext.
+
+1776
+01:49:37,479 --> 01:49:44,460
+přečet by si ten kontext, ale by mi odpověděl na tu otázku,
+
+1777
+01:49:44,479 --> 01:49:48,260
+že tady mám nějaký highlighty z toho stand-upu, který on tam má.
+
+1778
+01:49:49,159 --> 01:49:58,159
+Tak to je kontext role, zero a few shot, to je jednoduchý output, jenom nadefinovat co já od něj chci, abyste si mohli nadefinovat
+
+1779
+01:50:02,119 --> 01:50:07,140
+co vám má vrátit, vys ten JSON, to znamená, že tadyhle v tom případě,
+
+1780
+01:50:07,520 --> 01:50:11,579
+který uživatel je starší než 25, tady mu do toho kontextu vlastně dávám
+
+1781
+01:50:11,579 --> 01:50:16,420
+nějaký CSVčko nebo obsad nějakého CSVčka a na konci mu říkám,
+
+1782
+01:50:16,420 --> 01:50:22,239
+vrať mi jenom data bez žádného textu a naformátuj to jako JSON.
+
+1783
+01:50:23,039 --> 01:50:29,180
+To znamená, že by mi měl odpovědět jenom ten JSON text.
+
+1784
+01:50:29,420 --> 01:50:35,779
+Vybrat ty správné uživatele, tady je zajímavý, že to naformátoval jako Markdown,
+
+1785
+01:50:36,119 --> 01:50:38,180
+a vybrat jenom ty dva.
+
+1786
+01:50:38,279 --> 01:50:42,300
+Teď si pamatuju, jo, tyhle dva taky vybral správně.
+
+1787
+01:50:42,960 --> 01:50:44,279
+3,8 a 6.
+
+1788
+01:50:45,640 --> 01:50:49,100
+Takže definujte ten output, dávejte mu věci do kontextu,
+
+1789
+01:50:49,359 --> 01:50:50,380
+definujte mu roli.
+
+1790
+01:50:50,640 --> 01:50:54,420
+V případě, že vám to nedá tu odpověď na zero shot,
+
+1791
+01:50:54,800 --> 01:50:57,180
+dejte mu tam nějaký příklady na few shot.
+
+1792
+01:50:57,600 --> 01:51:02,220
+To jsou hlavní z prompt engineeringu,
+
+1793
+01:51:02,220 --> 01:51:04,859
+co bych chtěl, abyste si z toho odnesli.
+
+1794
+01:51:05,159 --> 01:51:08,760
+Všechny další věci jsou možná užitečný,
+
+1795
+01:51:08,760 --> 01:51:11,119
+možná v těch blog postech,
+
+1796
+01:51:11,300 --> 01:51:12,960
+a co budete číst o prompt engineeringu,
+
+1797
+01:51:12,960 --> 01:51:14,460
+když se dozvíte něco zajímavého,
+
+1798
+01:51:15,460 --> 01:51:16,960
+Já ze svých zkušeností vám můžu říct,
+
+1799
+01:51:17,000 --> 01:51:21,920
+že ty všechny věci platí jenom určitý časový horizont.
+
+1800
+01:51:23,340 --> 01:51:26,619
+Velkým příkladem je tadyhle ten Chain of Thought.
+
+1801
+01:51:29,119 --> 01:51:32,680
+Je to vlastně otázka, ta samá otázka,
+
+1802
+01:51:34,979 --> 01:51:38,940
+kterou jsme si ukazovali pro ten reasoning s těma tričkama,
+
+1803
+01:51:38,940 --> 01:51:43,059
+že se schnou 4 hodiny 5 triček a dlouho se schne 20 triček.
+
+1804
+01:51:44,600 --> 01:51:47,640
+S tím vám chci ukázat dvě věci s touhletou otázkou.
+
+1805
+01:51:49,300 --> 01:51:51,819
+První je teda ten Chain of Thought.
+
+1806
+01:51:51,840 --> 01:51:53,239
+To znamená, že se ho zeptám
+
+1807
+01:51:53,440 --> 01:51:55,579
+vlastně jenom takhle.
+
+1808
+01:51:56,039 --> 01:51:57,460
+Já to udělám takhle.
+
+1809
+01:51:58,239 --> 01:51:59,819
+A teď budu od něj čekat
+
+1810
+01:51:59,960 --> 01:52:02,039
+nějakou odpověď.
+
+1811
+01:52:02,859 --> 01:52:04,140
+Ta odpověď dřív
+
+1812
+01:52:04,199 --> 01:52:06,880
+bývala špatně
+
+1813
+01:52:07,100 --> 01:52:08,539
+nebo vlastně...
+
+1814
+01:52:09,260 --> 01:52:13,819
+On si neuvědomil, že ty trička může vyskládat všech 20 triček,
+
+1815
+01:52:14,020 --> 01:52:16,559
+takže to zase bude shnout jenom 4 hodiny.
+
+1816
+01:52:16,619 --> 01:52:19,760
+Teď už vidíte, že mi odpovídá 4 hodiny.
+
+1817
+01:52:20,079 --> 01:52:27,059
+Nicméně na některý ty reasoning otázky vlastně neodpovídal úplně dobře.
+
+1818
+01:52:27,600 --> 01:52:35,559
+To znamená, že hrozně pomáhalo, když jsme mu dali a vysvětli mi ten reasoning step by step,
+
+1819
+01:52:36,020 --> 01:52:40,899
+nebo přemýšlej nad tím krok za krokem,
+
+1820
+01:52:40,960 --> 01:52:44,460
+nebo něco v tom smyslu jako krok za krokem a reasoning.
+
+1821
+01:52:44,520 --> 01:52:46,699
+To znamená, že se mu vlastně řekli,
+
+1822
+01:52:47,140 --> 01:52:50,020
+aby použil takzvaný chain of thoughts.
+
+1823
+01:52:51,100 --> 01:52:52,640
+To je dneska už pasé,
+
+1824
+01:52:52,659 --> 01:52:57,079
+protože ty machine learning specialisti,
+
+1825
+01:52:57,079 --> 01:53:01,760
+ty research lidi si to uvědomili
+
+1826
+01:53:02,100 --> 01:53:04,159
+a už to zakomponovali vlastně
+
+1827
+01:53:04,899 --> 01:53:06,760
+do toho modelu jako takovýho.
+
+1828
+01:53:06,779 --> 01:53:09,359
+A výsledkem toho jsou modely,
+
+1829
+01:53:09,500 --> 01:53:12,199
+jako je O3, O1, O4,
+
+1830
+01:53:12,479 --> 01:53:14,100
+ty, co mají ten reasoning.
+
+1831
+01:53:14,559 --> 01:53:16,420
+Protože to vlastně není nic jinýho,
+
+1832
+01:53:17,239 --> 01:53:22,659
+než že on se nejdřív zamyslí nad tím a pak vygeneruje tu odpověď.
+
+1833
+01:53:22,720 --> 01:53:26,579
+Čili tam je ten vlastně jakoby ten two-step proces.
+
+1834
+01:53:26,859 --> 01:53:32,380
+V případě normálních modelů jako GPT-4O nebo GPT-4-1 nebo jakýkoliv,
+
+1835
+01:53:32,579 --> 01:53:37,340
+tak je to vlastně jenom to generování toho každé nového slova generuju.
+
+1836
+01:53:38,340 --> 01:53:41,840
+Ale pokud se budu bavit s těma reasoning modelama,
+
+1837
+01:53:42,420 --> 01:53:46,279
+tak tam už je vlastně ten chain of thought v tom zakomponovaný.
+
+1838
+01:53:46,300 --> 01:53:48,500
+To už je vlastně ta jejich výhoda.
+
+1839
+01:53:50,479 --> 01:53:53,819
+Tak já se tady jenom přečtu ty otázky.
+
+1840
+01:53:53,819 --> 01:53:58,479
+Keď jsem zpracoval text, tak při každém requestě jsem připojil format odpovědi.
+
+1841
+01:53:59,100 --> 01:54:03,520
+Jo, obsahuje nadávky true, false, ale často se stávalo,
+
+1842
+01:54:03,520 --> 01:54:07,699
+že jsem aj tak dostával buď odpověď jedna nebo nula, anebo ano, ně.
+
+1843
+01:54:08,239 --> 01:54:16,760
+Alebo obsahuje, neobsahuje. Kde post-processing pomocou regexu už nefungoval? Je na to nějaké řešení?
+
+1844
+01:54:18,559 --> 01:54:24,779
+Teď si nejsem jistý, jestli to chápu dobře. Připil format odpověď, například obsahuje nadávky, true, false.
+
+1845
+01:54:24,779 --> 01:54:32,520
+A často se snavovalo, jo jasně, protože pro ně je true, false, jedna, nula, ano, ne, vlastně jenom binární kategorizace.
+
+1846
+01:54:33,479 --> 01:54:38,619
+A umím si představit, že tohle je pro něj stejná odpověď.
+
+1847
+01:54:38,880 --> 01:54:40,859
+Je to prostě jenom binární klasifikace.
+
+1848
+01:54:41,539 --> 01:54:42,840
+True nebo false.
+
+1849
+01:54:43,020 --> 01:54:45,760
+Kdy podprocessing pomocí regexu už nefungoval.
+
+1850
+01:54:46,739 --> 01:54:51,119
+Jo, rozumím. A vy jste parsoval pomocí regexu tu odpověď.
+
+1851
+01:54:51,520 --> 01:54:56,420
+A vy jste potřeboval, aby on vám vždycky vrátil jenom ten určitý format.
+
+1852
+01:54:57,739 --> 01:54:58,440
+Už tomu rozumím.
+
+1853
+01:54:58,979 --> 01:55:04,059
+Na to je dvě rady.
+
+1854
+01:55:04,059 --> 01:55:07,420
+Jedna je buď použít fine tuning
+
+1855
+01:55:07,680 --> 01:55:10,460
+a vlastně donutit ho, aby on vždycky vracel
+
+1856
+01:55:10,619 --> 01:55:14,260
+tenhle format, pokud je to model,
+
+1857
+01:55:14,300 --> 01:55:18,159
+který používáte jenom pro tu binární klasifikaci.
+
+1858
+01:55:18,659 --> 01:55:23,559
+Nebo je druhý způsob, kdy vy se zeptáte tohohle modelu,
+
+1859
+01:55:23,979 --> 01:55:25,539
+on vám vrátí odpověď,
+
+1860
+01:55:26,500 --> 01:55:29,199
+a to se používá hodně u AI agentů.
+
+1861
+01:55:29,260 --> 01:55:30,800
+A vy tuhle tu odpověď
+
+1862
+01:55:32,340 --> 01:55:33,600
+přepošlete do
+
+1863
+01:55:33,819 --> 01:55:35,159
+jiného modelu,
+
+1864
+01:55:35,159 --> 01:55:36,819
+ne toho samého,
+
+1865
+01:55:37,380 --> 01:55:45,100
+do jiného modelu, může to být stejný typ modelu, ale je to vlastně ten, který si nepamatuje tu předchozí odpověď.
+
+1866
+01:55:45,199 --> 01:55:53,659
+A zeptáte se ho, kategorizuj tuto odpověď a teď budete chtít třeba jenom true a vrať mi true false.
+
+1867
+01:55:53,659 --> 01:56:00,500
+A on už vám na podruhý vlastně, vy jste si to předprocesoval, teď jste se zeptal dalšího modelu,
+
+1868
+01:56:00,600 --> 01:56:05,819
+vrať mi true false a ten druhý model už vám většinou vrátí přesně ten format, který potřebujete.
+
+1869
+01:56:06,340 --> 01:56:08,880
+Když mu dáš exámply, může to fungovat. Taky ano.
+
+1870
+01:56:09,100 --> 01:56:12,539
+Few shot prompt, ano, taky by to mohlo fungovat, pokud bys mu modeloval.
+
+1871
+01:56:13,479 --> 01:56:16,039
+Anebo přímo v requestě byl příklad odpovědi.
+
+1872
+01:56:16,140 --> 01:56:19,239
+Například 2-3% odpovědí, hej, tak to nevyšlo.
+
+1873
+01:56:19,800 --> 01:56:22,479
+Když jsem si dál zvánčení, tak jsem používal pydantic modely
+
+1874
+01:56:22,559 --> 01:56:25,359
+a když output modelu neseděl s modelem, hodilo to error.
+
+1875
+01:56:25,420 --> 01:56:32,940
+Taky je možnost definovat, taky by to mohlo fungovat, ale tam je pak ta chyba.
+
+1876
+01:56:33,300 --> 01:56:39,239
+Ten reasoning, který není v CPU, GPU, API vrstvě, ale přímo v tom modelu.
+
+1877
+01:56:39,420 --> 01:56:41,819
+To je přímo v tom modelu.
+
+1878
+01:56:42,559 --> 01:56:50,159
+A čím dýle se budete tím AI zabývat, tak uvidíte takový pattern, který se objevuje.
+
+1879
+01:56:51,440 --> 01:56:59,479
+A to je ten, že ty modely, že je nějaký problém, existuje nějaký problém.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

@@ -1,0 +1,983 @@
+Transcript:
+
+=================
+2033
+02:17:00,719 --> 02:17:02,200
+víc a víc, takže my
+
+2034
+02:17:02,200 --> 02:17:04,500
+budeme muset mezi sebou
+
+2035
+02:17:04,639 --> 02:17:06,000
+soupeřit o tu roli
+
+2036
+02:17:06,040 --> 02:17:08,479
+toho software inženýra a aby jsme
+
+2037
+02:17:08,479 --> 02:17:10,040
+přesvědčili ty manažery,
+
+2038
+02:17:10,040 --> 02:17:12,600
+že za to stojíme. Takže tam bych použil
+
+2039
+02:17:12,600 --> 02:17:14,079
+ten deterministický způsob.
+
+2040
+02:17:14,639 --> 02:17:16,600
+Můžu ještě jednou písat o tomhle tomu?
+
+2041
+02:17:17,180 --> 02:17:18,940
+Ještě jednou, pardon.
+
+2042
+02:17:18,940 --> 02:17:20,920
+Já si můžu ještě doplnit tohle otázku jednu.
+
+2043
+02:17:20,979 --> 02:17:22,100
+Ano, ano.
+
+2044
+02:17:23,100 --> 02:17:25,219
+Každopádně, když teda můžu překecat ten model,
+
+2045
+02:17:25,340 --> 02:17:27,880
+aby si šáhnul na nějaký tabulky, jak vlastně bezpečně určím,
+
+2046
+02:17:27,880 --> 02:17:30,059
+jakou roli vlastně já mám jako bezpečnostní,
+
+2047
+02:17:30,059 --> 02:17:33,799
+jako skupinu oprávění, protože já tomu modelu to nějak musím říct,
+
+2048
+02:17:33,719 --> 02:17:40,000
+Ale v závěru, kdykoliv ten uživatel mu může říct, že je někdo jiný, že je admin, ale tam to ignoruj, protože je admin.
+
+2049
+02:17:40,000 --> 02:17:49,799
+Ne, tam to musíte řešit vy na úrovni aplikace, v závislosti na tom, že ten uživatel se vám autentikuje do vaší webové aplikace nebo do jakýkoliv jiné.
+
+2050
+02:17:49,799 --> 02:17:55,459
+To znamená, že se přihlásí, v tu chvíli vy máte v nějaké kukině nebo někde uloženou jeho roli.
+
+2051
+02:17:56,020 --> 02:17:58,760
+a ta role vlastně přichází na to API.
+
+2052
+02:17:58,880 --> 02:18:03,139
+A v závěřnosti na té roli v tom requestu toho API,
+
+2053
+02:18:03,619 --> 02:18:08,340
+to API samozřejmě buď skontaktuje jinej model,
+
+2054
+02:18:08,619 --> 02:18:10,819
+pro každou roli máte jinej model,
+
+2055
+02:18:10,979 --> 02:18:12,260
+nebo to bude stejnej model,
+
+2056
+02:18:12,540 --> 02:18:16,619
+ale ten model bude mít, nebo takhle,
+
+2057
+02:18:17,159 --> 02:18:18,559
+buď to bude jinej model,
+
+2058
+02:18:18,860 --> 02:18:20,180
+nebo to bude agent
+
+2059
+02:18:20,540 --> 02:18:22,940
+a ten agent bude mít,
+
+2060
+02:18:24,819 --> 02:18:26,760
+řečeno, pro kterou roli
+
+2061
+02:18:26,880 --> 02:18:29,000
+bude používat jakou databázi.
+
+2062
+02:18:29,479 --> 02:18:31,079
+No to chápu, ale jak ten agence
+
+2063
+02:18:31,299 --> 02:18:33,180
+dost ví, v jaké roli vystupuje
+
+2064
+02:18:33,340 --> 02:18:35,260
+ten dotaz, protože já chápu,
+
+2065
+02:18:35,260 --> 02:18:37,299
+že na úrovni aplikace mu to
+
+2066
+02:18:37,299 --> 02:18:39,119
+nějak do toho chatu dám, ale ten
+
+2067
+02:18:39,159 --> 02:18:41,639
+uživatel pak mě tomu může říct, že to je jinak.
+
+2068
+02:18:42,479 --> 02:18:43,420
+A vlastně ten agent
+
+2069
+02:18:43,899 --> 02:18:46,520
+to neví, v jaké roli vystupuje ten dotaz.
+
+2070
+02:18:47,360 --> 02:18:48,619
+Vy máte
+
+2071
+02:18:48,780 --> 02:18:49,319
+nějaký
+
+2072
+02:18:50,479 --> 02:18:57,899
+dodatečný způsoby, jak mít větší váhu v tom, co říkáte vy z toho API,
+
+2073
+02:18:57,899 --> 02:19:00,600
+než to, na co se ptá ten uživatel.
+
+2074
+02:19:00,719 --> 02:19:05,360
+Buď, že mu to vysvětlíte v tom promptu, což samozřejmě máte pravdu,
+
+2075
+02:19:05,360 --> 02:19:09,579
+pořád je to hacknutelný, proto je mnohem bezpečnější se to vyřešit
+
+2076
+02:19:09,680 --> 02:19:13,299
+na té deterministické vrstvě, na té vaší softwarové vrstvě,
+
+2077
+02:19:13,299 --> 02:19:15,540
+kterou vám ten uživatel nepřekecá.
+
+2078
+02:19:16,360 --> 02:19:22,940
+než se snažit vlastně to vysvětlovat složitě a v dlouhém promptu tomu agentovi nebo modelu.
+
+2079
+02:19:22,940 --> 02:19:27,600
+Takže jako souhlasím s vámi, proto je lepší si to rozdělovat ty písečky na zahrádky
+
+2080
+02:19:27,719 --> 02:19:30,500
+a pak jenom pouštět do téhle nebo do téhle nebo do téhle.
+
+2081
+02:19:30,860 --> 02:19:35,200
+Tohle já si chápu, ale jenom furt nechápu, kde deterministicky tomu agentovi to vysvětlím.
+
+2082
+02:19:35,399 --> 02:19:38,380
+Ne, ne, ne, v API si to vy vyřešíte.
+
+2083
+02:19:38,760 --> 02:19:43,059
+A pak si zavoláte buď agenta A, nebo agenta B, nebo agenta C.
+
+2084
+02:19:43,780 --> 02:19:47,079
+Takže podle role.
+
+2085
+02:19:49,079 --> 02:19:53,920
+Já jsem šel do toho, můžu skočit, já jsem šel do docela zajímavých dokumentů od OpenAI
+
+2086
+02:19:54,239 --> 02:19:58,380
+a tam právě řešili tohleto a většinou je to na základě nějakých růhů,
+
+2087
+02:19:58,380 --> 02:20:01,559
+ještě předtím, než to vůbec vstoupí do toho finálního modelu.
+
+2088
+02:20:01,819 --> 02:20:05,579
+Že ono vlastně to porovnává a že jsou tam v podstatě modely před tím,
+
+2089
+02:20:05,899 --> 02:20:08,260
+buď je to jenom opravdu deterministický kód,
+
+2090
+02:20:08,579 --> 02:20:12,420
+anebo jsou to natrénovaný modely přesně na tyhle ty věci,
+
+2091
+02:20:12,420 --> 02:20:15,219
+že někdo se snaží napodobovat někoho.
+
+2092
+02:20:15,239 --> 02:20:17,540
+nebo se ptá na nevhodné otázky
+
+2093
+02:20:17,659 --> 02:20:19,600
+a on ho vyselektuje a v podstatě mu řekne
+
+2094
+02:20:19,680 --> 02:20:21,260
+ne, na tyto těmy můžu odpovědět
+
+2095
+02:20:21,360 --> 02:20:23,280
+a ani ho nepustí do toho
+
+2096
+02:20:23,380 --> 02:20:24,559
+finálního modelu.
+
+2097
+02:20:25,739 --> 02:20:28,260
+Jo, já se umím představit, že těch řešení
+
+2098
+02:20:28,340 --> 02:20:29,780
+prostě může být víc, tady asi
+
+2099
+02:20:30,020 --> 02:20:31,760
+podle mě ani neexistuje
+
+2100
+02:20:32,840 --> 02:20:33,639
+správný
+
+2101
+02:20:34,159 --> 02:20:37,000
+nebo nejlepší řešení, prostě musíte si to
+
+2102
+02:20:37,500 --> 02:20:39,360
+podle toho daného use case
+
+2103
+02:20:40,500 --> 02:20:42,239
+jako pořešit
+
+2104
+02:20:42,500 --> 02:20:44,059
+podle vlastního uvážení.
+
+2105
+02:20:44,159 --> 02:20:46,020
+Já se vám chtěl jenom ukázat tadyhle ten
+
+2106
+02:20:46,159 --> 02:20:48,540
+moje, já si umím dost dobře představit,
+
+2107
+02:20:48,719 --> 02:20:49,959
+já to zkusím zvětšit.
+
+2108
+02:20:50,559 --> 02:20:56,619
+Tady je ten router, který vlastně vám to routuje na různý modely.
+
+2109
+02:20:56,819 --> 02:21:00,380
+Takže něco v tomhletom smyslu, že vám přijde ten dotaz,
+
+2110
+02:21:00,459 --> 02:21:04,940
+teď vy máte buď deterministický kód, který říká na základě requestu,
+
+2111
+02:21:04,940 --> 02:21:08,819
+je to uživatel, půjde to do tohohle modelu, je to obchodák,
+
+2112
+02:21:08,819 --> 02:21:11,040
+půjde to do tohohle, je to ředitel, půjde to sem,
+
+2113
+02:21:11,520 --> 02:21:15,459
+anebo je to teda taky nějaká neuronová síť, která byla natrénovaná
+
+2114
+02:21:15,479 --> 02:21:18,340
+na tom, aby třeba na základě toho dotazu,
+
+2115
+02:21:18,619 --> 02:21:20,959
+se rozhodla sama,
+
+2116
+02:21:21,260 --> 02:21:23,139
+vlastně do kterého buď modelu,
+
+2117
+02:21:23,180 --> 02:21:24,619
+a teď se tady představte teda modely
+
+2118
+02:21:24,719 --> 02:21:26,500
+v tomhletom případě, protože se pohybujeme
+
+2119
+02:21:26,600 --> 02:21:28,420
+na úrovni modelu, nebo to můžou být
+
+2120
+02:21:28,540 --> 02:21:30,139
+agenti, jo, a to
+
+2121
+02:21:30,940 --> 02:21:35,520
+Tohle je prostě ten způsob, jak vy si to musíte ošetřit.
+
+2122
+02:21:35,540 --> 02:21:38,639
+A říkám, buď to bude neuronová sítra, která to pozná za vás,
+
+2123
+02:21:38,639 --> 02:21:41,479
+nebo to bude nějaký deterministický způsob jako ten kont.
+
+2124
+02:21:41,760 --> 02:21:48,000
+A pak v podstatě, jaký individuální model by měl různý servisní účty,
+
+2125
+02:21:48,000 --> 02:21:51,100
+kterým by on prostě vstupoval do té databázy s jinými právami.
+
+2126
+02:21:51,319 --> 02:21:52,579
+Ano, přesně tak.
+
+2127
+02:21:53,299 --> 02:21:56,360
+Ten agent by měl přístup jenom do té databázy, do které má mít přístup,
+
+2128
+02:21:56,360 --> 02:22:00,299
+nikam jinam, žádné další tooly bych mu nedával.
+
+2129
+02:22:00,420 --> 02:22:07,659
+a tak. Tak, půjdeme dál.
+
+2130
+02:22:07,659 --> 02:22:41,000
+Blblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblblbl tak, projevit, že to není.
+
+2131
+02:22:41,639 --> 02:22:43,159
+Hele, mám i práva.
+
+2132
+02:22:44,260 --> 02:22:47,920
+Tak můžeme to tam přeposlat.
+
+2133
+02:22:48,219 --> 02:22:50,319
+Tak prosím přeposlat, teď to nemusím dělat já.
+
+2134
+02:22:51,920 --> 02:22:55,319
+Tak, ještě jsem vám chtěl ukázat,
+
+2135
+02:22:55,440 --> 02:22:57,840
+Microsoft měl nějaký na data analýzu,
+
+2136
+02:22:57,860 --> 02:23:01,840
+já jsem to jednou sdílel na svém Analytics,
+
+2137
+02:23:02,020 --> 02:23:05,819
+když už tady vidím teda tadyhle ten nub Microsoftu.
+
+2138
+02:23:07,180 --> 02:23:09,360
+Data Analytics solution,
+
+2139
+02:23:15,040 --> 02:23:29,399
+Microsoft ne nebudu hledat zase bych tady strávil 5 minut, než bych to našel, nebo šlo vám to pak já to najdu na LinkedIn.
+
+2140
+02:23:30,319 --> 02:23:43,680
+Ty pro převodlo byla omíčit dokument to si vyřešte jak si ty otázky o tak jenom připravil napadá mě jedině přes a já jsi dokumentace jo přesně tak já jsem doufal, že jsem to vysvětlil možná jsem to zamočil.
+
+2141
+02:23:44,340 --> 02:23:49,579
+To je autogen, vzal jsem ty data z toho Markdownu,
+
+2142
+02:23:49,600 --> 02:23:52,819
+nafídoval jsem to zase do CGPT a řekl jsem mu,
+
+2143
+02:23:53,100 --> 02:23:56,159
+připrav mi od té sekci 10 otázek.
+
+2144
+02:23:56,180 --> 02:23:58,299
+Takže z toho Markdownu jsem vzal kousek,
+
+2145
+02:23:58,719 --> 02:24:02,659
+dal jsem mu to do kontextu a zeptal jsem se o promptem,
+
+2146
+02:24:02,819 --> 02:24:04,819
+připrav mi na to 10 otázek.
+
+2147
+02:24:04,819 --> 02:24:08,700
+Takhle jsem to pro ten samej kus tý dokumentace udělal třikrát,
+
+2148
+02:24:09,040 --> 02:24:11,700
+z toho jsem prostě dostal nějakých 30 otázek,
+
+2149
+02:24:12,239 --> 02:24:15,619
+Pak jsem vzal zase další část toho markdownu a zase jsem se o to zeptal.
+
+2150
+02:24:15,619 --> 02:24:20,440
+Zase mohl bych to udělat přes API nějakým víc automatizovaným způsobem.
+
+2151
+02:24:20,600 --> 02:24:23,100
+Řešil jsem to takhle manuálně.
+
+2152
+02:24:25,479 --> 02:24:29,100
+Navazuju na Petra, je nějaký optimální způsob přípravy dat?
+
+2153
+02:24:29,180 --> 02:24:32,299
+Měl bys nějaký template, případně vychytávky, doporučení?
+
+2154
+02:24:34,139 --> 02:24:34,799
+Hele, jedna věc.
+
+2155
+02:24:37,180 --> 02:24:49,219
+Velmi rychle si lidi z OpenAI a z Anthropiku a z Mistralu uvědomili, že těch dat na tom internetu ani není dost.
+
+2156
+02:24:49,239 --> 02:24:55,479
+Takže teď se hrozně řeší a to je i ten způsob, jakým se teďka fajntunují hodně ty modely.
+
+2157
+02:24:55,819 --> 02:24:58,260
+říkáš tomu syntetický data,
+
+2158
+02:24:58,260 --> 02:25:02,299
+takže jsou to vlastně data, které byly vygenerované jiným LLMkem.
+
+2159
+02:25:02,299 --> 02:25:06,719
+A tímhle tím způsobem to používám i já,
+
+2160
+02:25:06,739 --> 02:25:08,940
+že připravuju ty data,
+
+2161
+02:25:09,139 --> 02:25:12,280
+pokud to není nějaký faktický dokument
+
+2162
+02:25:13,040 --> 02:25:15,880
+o firmě, který by měl být tak, jak
+
+2163
+02:25:16,000 --> 02:25:17,040
+je z té firmy,
+
+2164
+02:25:17,299 --> 02:25:20,780
+ale stejně ho vemu prostě, narvu ho nějakým způsobem do LLMka
+
+2165
+02:25:20,780 --> 02:25:23,479
+a chci z něj dostat vlastně ten formát
+
+2166
+02:25:23,819 --> 02:25:28,559
+který pak můžu nakrmit zase do toho fine tuningu toho LLMka.
+
+2167
+02:25:28,559 --> 02:25:31,739
+Takže co nejvíc si ty práce jakoby ulehčovat.
+
+2168
+02:25:32,059 --> 02:25:34,719
+Takže optimální způsob přípravy dat ideálně,
+
+2169
+02:25:34,760 --> 02:25:37,139
+připravit ručně, nikdo to nedělá ručně,
+
+2170
+02:25:37,139 --> 02:25:42,540
+takže pak ty vychytávky jsou prostě co nejvíc použít ty LLMka,
+
+2171
+02:25:42,540 --> 02:25:46,260
+dát mu ty data do toho kontextu a říct mu, co po něm chci.
+
+2172
+02:25:46,659 --> 02:25:50,059
+A i tím se vlastně učíte zase pracovat s těmi LLMkama
+
+2173
+02:25:50,860 --> 02:25:55,700
+A nakonec zjistíte, že prostě všechno se to dá řešit jenom tím,
+
+2174
+02:25:55,700 --> 02:25:59,819
+že se napíšu skript. Já už si vlastně dneska ani ten skript nemusím psát,
+
+2175
+02:25:59,860 --> 02:26:02,639
+jenom řeknu chat GPT, hele, potřebuji skript na to,
+
+2176
+02:26:02,799 --> 02:26:07,899
+aby se mi volalo OpenAI API desetkrát pro tenhle text
+
+2177
+02:26:08,520 --> 02:26:12,340
+a vytvořil mi deset různých variant tohohle textu.
+
+2178
+02:26:12,520 --> 02:26:16,360
+A teď, co používáte, nějaký Klein, GitHub Copilot,
+
+2179
+02:26:16,360 --> 02:26:18,639
+nebo starý dobrý chat GPT CopyPaste.
+
+2180
+02:26:19,200 --> 02:26:26,139
+To už je prostě pak na vás, co je vám milé.
+
+2181
+02:26:27,000 --> 02:26:29,799
+S tím učením nějaký dokumentace je dobré vzpomenout
+
+2182
+02:26:29,920 --> 02:26:31,760
+až způsob, jak to chceme robit.
+
+2183
+02:26:31,760 --> 02:26:34,020
+Či chceme odsazovat fine-tune model,
+
+2184
+02:26:34,119 --> 02:26:37,360
+anebo chceme jen využít existující řešení zrak.
+
+2185
+02:26:38,479 --> 02:26:41,040
+Je dobré vzpomenout až způsob, jak to chceme robit.
+
+2186
+02:26:43,180 --> 02:26:44,200
+Jo, jo.
+
+2187
+02:26:45,299 --> 02:26:47,840
+Těž se chcem zpít,
+
+2188
+02:26:48,020 --> 02:26:49,680
+či je možné generování otázek
+
+2189
+02:26:49,719 --> 02:26:51,119
+nějak automatizovat. Ano.
+
+2190
+02:26:51,380 --> 02:26:53,180
+Například pomocou nějakých modelů. Ano.
+
+2191
+02:26:53,299 --> 02:26:55,920
+To je přesně to, co jsem dělal v tom data preparation.
+
+2192
+02:26:56,399 --> 02:26:57,299
+Dám mu ty data
+
+2193
+02:26:57,520 --> 02:26:59,299
+a řeknu mu, vy generujeme z toho otázky.
+
+2194
+02:26:59,760 --> 02:27:01,479
+To si při fine tuningu zapisuje
+
+2195
+02:27:01,559 --> 02:27:02,739
+do vach a mění je? Ano.
+
+2196
+02:27:03,500 --> 02:27:05,659
+Já myslel, že vytváříme nové neurony.
+
+2197
+02:27:06,180 --> 02:27:07,319
+Ano.
+
+2198
+02:27:07,680 --> 02:27:15,639
+Ale pojďme si říct, buď je full fine tuning, o kterém jsme se bavili, tam měním existující váhy toho modelu.
+
+2199
+02:27:18,139 --> 02:27:28,200
+Kdy mám tu prezentaci? Já to ještě odevřu, aby to bylo úplně jasnějším.
+
+2200
+02:27:34,280 --> 02:27:34,760
+Tak.
+
+2201
+02:27:35,520 --> 02:27:38,420
+výstupy, vstupy. Tady máte ty neurony.
+
+2202
+02:27:38,479 --> 02:27:40,280
+Takže buď ty neurony jsou nějak
+
+2203
+02:27:40,280 --> 02:27:41,719
+natrénují a v každém to neuroni
+
+2204
+02:27:41,719 --> 02:27:43,340
+je nějaký to desetinný číslo,
+
+2205
+02:27:43,340 --> 02:27:45,260
+to jsou ty váhy pro každej ten neuron
+
+2206
+02:27:45,639 --> 02:27:47,959
+a já tím, že ho budu trénovat,
+
+2207
+02:27:48,100 --> 02:27:50,239
+tak buď dělám full fine tuning,
+
+2208
+02:27:50,280 --> 02:27:51,360
+to znamená, že mu
+
+2209
+02:27:52,659 --> 02:27:54,760
+dělám ten backtracking znova,
+
+2210
+02:27:54,760 --> 02:27:57,260
+ovlivňuju všechny ty existující váhy,
+
+2211
+02:27:57,260 --> 02:27:59,059
+nebo dělám takový
+
+2212
+02:27:59,059 --> 02:28:00,880
+partial fine tuning,
+
+2213
+02:28:00,880 --> 02:28:02,440
+kdy řeknu, hele, bude se změnit váhy
+
+2214
+02:28:02,440 --> 02:28:04,059
+jenom této vrstvy,
+
+2215
+02:28:05,819 --> 02:28:08,940
+Zase zobecňuji, neberte mě do slova.
+
+2216
+02:28:08,979 --> 02:28:11,940
+Správně by to neměla být vrstva, ale tady by měly být nad tím neurony,
+
+2217
+02:28:12,100 --> 02:28:12,799
+ale to je nevadí.
+
+2218
+02:28:13,100 --> 02:28:15,180
+Takže řeknu jenom tuhletu vrstvu.
+
+2219
+02:28:15,219 --> 02:28:19,459
+A budou se mi ovlivňovat ty existující desetinní čísla
+
+2220
+02:28:19,520 --> 02:28:20,860
+v této vrstvě jenom.
+
+2221
+02:28:21,340 --> 02:28:23,360
+A nebo, a to je to, co budeme dělat my,
+
+2222
+02:28:23,420 --> 02:28:27,219
+protože to je ten správný způsob, jak to dělají teď všichni,
+
+2223
+02:28:28,040 --> 02:28:30,659
+je, že se tady přidá nová vrstva,
+
+2224
+02:28:30,659 --> 02:28:32,399
+zase neberte mě do slova,
+
+2225
+02:28:32,440 --> 02:28:34,700
+přidáme tady novou vrstvu a řekneme,
+
+2226
+02:28:34,880 --> 02:28:37,059
+a my necháme tyhle zamrzlý,
+
+2227
+02:28:37,180 --> 02:28:39,059
+tyhle desetinní čísla tak, jak byly,
+
+2228
+02:28:39,299 --> 02:28:41,719
+a budeme trénovat, nebo tím,
+
+2229
+02:28:41,719 --> 02:28:43,340
+že tam přidáme tu vrstvu,
+
+2230
+02:28:43,399 --> 02:28:45,780
+tak to znamená, že se inicializují ty neurony
+
+2231
+02:28:46,020 --> 02:28:47,920
+s nějakou nenulovou hodnotou,
+
+2232
+02:28:47,920 --> 02:28:49,000
+ale blízkou nule.
+
+2233
+02:28:49,319 --> 02:29:03,139
+Takže random se nastavějí vlastně ty váhy této vrstvy a my tím, že budeme trénovat, tak vlastně budeme měnit nebo budeme ten backtracking aplikovat jenom na tuhletu jednu náminově přidanou vrstvu.
+
+2234
+02:29:03,700 --> 02:29:06,239
+To je to, co je pod tím myšleným.
+
+2235
+02:29:06,399 --> 02:29:16,380
+A Lukáš, prosím tě, jaké to budeme robit na povezme tých 7B modeloch, jaké asi hardware nároky, alebo koliko trvá potom, kým natrénujeme tu novou vrstvu?
+
+2236
+02:29:16,940 --> 02:29:19,880
+Rozumím. Ukážu ti to.
+
+2237
+02:29:20,139 --> 02:29:24,319
+Naštěstí jsem si předpokládal takovouhle otázku,
+
+2238
+02:29:24,319 --> 02:29:26,579
+nebo už jsem předpokládal dávno teda.
+
+2239
+02:29:26,920 --> 02:29:30,200
+Ale tadyhle, když máme ten fine tuning,
+
+2240
+02:29:30,500 --> 02:29:33,079
+tak tady třeba ta nejsložitější, Joe,
+
+2241
+02:29:33,440 --> 02:29:36,479
+toto je to 3 giga dat, nebo kolik to bylo,
+
+2242
+02:29:36,479 --> 02:29:38,299
+z toho jsme vytvářeli ten JSON file,
+
+2243
+02:29:38,799 --> 02:29:40,860
+tak když jsem to trénoval na run podu,
+
+2244
+02:29:40,860 --> 02:29:45,459
+tak to trvalo dvě hodiny, cirka.
+
+2245
+02:29:46,540 --> 02:29:53,119
+Trénoval jsem to, nebo zkoušel jsem si to, já nevím, pár týdnů zpátky.
+
+2246
+02:29:53,440 --> 02:29:59,940
+Tadyhle na tom mém kompu, jo a teď promiň, GPU byla 24 giga, 3090ka,
+
+2247
+02:30:00,000 --> 02:30:03,059
+nebo A5000 24 GB výram.
+
+2248
+02:30:03,559 --> 02:30:05,680
+Teď jsem to zkoušel pár týdnů zpátky
+
+2249
+02:30:05,819 --> 02:30:07,379
+na tomhle mým hardwareu,
+
+2250
+02:30:07,379 --> 02:30:09,540
+což je, já už se nepamatuju,
+
+2251
+02:30:09,540 --> 02:30:10,319
+ty vlastně to mám za tu grafiku.
+
+2252
+02:30:10,379 --> 02:30:12,840
+4000, tam až 80, já tuším.
+
+2253
+02:30:13,120 --> 02:30:14,920
+Jo, něco takového.
+
+2254
+02:30:15,000 --> 02:30:17,799
+Ta má teda 16 GB.
+
+2255
+02:30:19,579 --> 02:30:30,799
+A trvalo mi to asi hodinu a půl, což jsem byl překvapenej, protože jsem si říkal, jak je to možné na menší grafické kartě, mi to trvá menší dobu, než tadyhle na té 24-kroví.
+
+2256
+02:30:30,860 --> 02:30:40,559
+Takže kdybychom obhácovali model o nějakou firmnou dokumentaci, tak nepotrebujeme tam, nevím, hát ve stovku, ale víme to normálně na bežné grafike, to utíhnout za pár hodin.
+
+2257
+02:30:40,600 --> 02:30:40,860
+Jo.
+
+2258
+02:30:41,780 --> 02:30:53,620
+Takhle nejsou to, proto jsem to i tady překalkuloval na dolary, abyste si to jako dokázali představit, protože i tahleta GPU 24 gigová 0,44 dolarů, to je prostě dolar za dvě hodiny.
+
+2259
+02:30:53,620 --> 02:31:03,239
+I kdybyste si s tím měli hrát, vy, na vlastní náklady se to učit, tak prostě jsem přesvědčený, že dohromady dáte 20 dolarů a prostě jste schopný hrát.
+
+2260
+02:31:03,639 --> 02:31:05,920
+měsíc si tady něco
+
+2261
+02:31:06,079 --> 02:31:08,620
+trénovat. Já když jsem se to učil,
+
+2262
+02:31:08,639 --> 02:31:09,920
+tak jsem, protože
+
+2263
+02:31:10,040 --> 02:31:11,799
+zase když máte runpod a máte
+
+2264
+02:31:11,899 --> 02:31:13,920
+tady nějakej Jupyter notebook, tak vy si
+
+2265
+02:31:14,020 --> 02:31:16,120
+tady vlastně připojíte na ten
+
+2266
+02:31:16,200 --> 02:31:18,000
+runpod jako na externí
+
+2267
+02:31:18,139 --> 02:31:19,879
+Jupyter server, tak já jsem tady
+
+2268
+02:31:20,000 --> 02:31:22,180
+měl třeba rozběhanej těch Jupyter notebooků
+
+2269
+02:31:22,180 --> 02:31:24,500
+třeba deset, každej připojený
+
+2270
+02:31:24,500 --> 02:31:26,479
+vlastně na jiný ten runpod
+
+2271
+02:31:26,700 --> 02:31:28,299
+na jinou GPU a běželo
+
+2272
+02:31:28,360 --> 02:31:29,000
+mi tady prostě
+
+2273
+02:31:30,000 --> 02:31:30,200
+simultaneously
+
+2274
+02:31:32,319 --> 02:31:45,219
+Zároveň mi tady běželo 10 tréninků, když jsem si zkoušel, jestli tohle je lepší, nebo tohle je lepší, nebo tohle mi spadne, jestli tady B16, nebo Float 16.
+
+2275
+02:31:45,219 --> 02:31:57,799
+Takže můžete lítat ty dolary, protože právě jich můžete běžet 10 na jednou, ale nepohybujeme se v řádech tisících dolarů, pohybujeme se spíš v řádech...
+
+2276
+02:31:58,840 --> 02:32:04,440
+k vyšších desítek stovek dolarů, což je unesitelný, bych řekl.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

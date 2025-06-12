@@ -1,0 +1,1079 @@
+Transcript:
+
+=================
+1
+00:00:08,679 --> 00:00:11,000
+Mysl byste podle mě měli mít v mailu,
+
+2
+00:00:11,279 --> 00:00:15,759
+a někdo ho sem i dával do nějakýho chatu,
+
+3
+00:00:16,879 --> 00:00:19,260
+nebo to bylo posílané jenom mě.
+
+4
+00:00:22,120 --> 00:00:23,379
+Samozřejmě podívám.
+
+5
+00:00:25,019 --> 00:00:29,019
+Minimálně na Classroomu je u každého záznamu psane.
+
+6
+00:00:29,839 --> 00:00:30,280
+Nedvedle.
+
+7
+00:00:30,280 --> 00:00:32,439
+Tak vidíte, to je dobrá rada.
+
+8
+00:00:33,060 --> 00:00:34,880
+Záznam lekce, ano, je to tak.
+
+9
+00:00:36,679 --> 00:00:38,060
+Já to tady takhle dám.
+
+10
+00:00:38,600 --> 00:00:41,299
+Doufám, že teda, jo, to asi vidíme všichni stejné to heslo.
+
+11
+00:00:41,299 --> 00:00:45,820
+Takže tady vždycky u toho záznamu lekce je tady heslo.
+
+12
+00:00:46,280 --> 00:02:50,199
+Ježiš. Tak máme tady dvě minuty. Já jsem tady s váma chtěl ještě něco sdílet.
+
+13
+00:03:52,379 --> 00:03:58,979
+Ahoj. Ahoj ahoj všichni. Máme minutu ještě do začátku, tak ještě než začneme.
+
+14
+00:03:59,539 --> 00:04:07,219
+Minulé byla otázka na protokoly nebo alternativy k MCP, tak já jsem se o tom začal trošku pídit.
+
+15
+00:04:08,099 --> 00:04:09,919
+A vypadá to, že existují.
+
+16
+00:04:10,300 --> 00:04:12,280
+Byla to moje ignorace,
+
+17
+00:04:12,400 --> 00:04:14,900
+že jsem si o nich nevím.
+
+18
+00:04:15,800 --> 00:04:16,800
+Ale MCP je
+
+19
+00:04:16,819 --> 00:04:18,620
+každopádně nejpoužívanější,
+
+20
+00:04:18,620 --> 00:04:20,420
+to adaptují teď všichni.
+
+21
+00:04:21,980 --> 00:04:24,439
+Potom je A2A od Google.
+
+22
+00:04:24,740 --> 00:04:25,839
+To vypadá, že
+
+23
+00:04:26,079 --> 00:04:28,379
+taky získává nějakou trakci.
+
+24
+00:04:28,579 --> 00:04:29,779
+Minimálně i Microsoft
+
+25
+00:04:31,199 --> 00:04:31,759
+to zmiňoval
+
+26
+00:04:32,319 --> 00:04:33,620
+na Build konferenci.
+
+27
+00:04:34,699 --> 00:04:36,120
+Takže agent to agent.
+
+28
+00:04:36,639 --> 00:04:37,980
+Otázka je prostě, který
+
+29
+00:04:39,019 --> 00:04:41,879
+ta komunita přijme nejlíp.
+
+30
+00:04:43,639 --> 00:04:45,000
+Dozvím zkušenosti,
+
+31
+00:04:45,139 --> 00:04:45,500
+jako
+
+32
+00:04:46,620 --> 00:04:47,560
+firmy jako Microsoft
+
+33
+00:04:47,699 --> 00:04:50,000
+velmi zřídka
+
+34
+00:04:50,199 --> 00:04:52,159
+adaptujou něco, co
+
+35
+00:04:52,540 --> 00:04:53,840
+příjmej konkurent
+
+36
+00:04:53,879 --> 00:04:56,759
+vlastně vykopnul,
+
+37
+00:04:56,759 --> 00:04:58,220
+to znamená, že
+
+38
+00:04:59,040 --> 00:05:00,519
+teď možná budou
+
+39
+00:05:00,980 --> 00:05:02,800
+adaptovat A2A, ale
+
+40
+00:05:03,220 --> 00:05:04,740
+myslím si, že budou opřednostně mít spíš
+
+41
+00:05:04,740 --> 00:05:06,639
+MCP, to je jenom
+
+42
+00:05:06,980 --> 00:05:08,439
+takový pohled Microsoftu,
+
+43
+00:05:08,980 --> 00:05:18,240
+A potom je ACP, což je od ABIBM a ta teda taky získává nějakou trakci.
+
+44
+00:05:18,319 --> 00:05:27,800
+Takže je vidět, že ta MCP, ta standardizace vlastně tý komunikace mezi agentama nebo agent vs. tool,
+
+45
+00:05:28,160 --> 00:05:33,720
+agent vs. databáze už nějakým způsobem vzniká. To je to, o čem jsem mluvil minule.
+
+46
+00:05:35,560 --> 00:05:43,519
+Předtím byla doba, kdy se definovaly AI agenti, co to znamená,
+
+47
+00:05:44,560 --> 00:05:47,519
+jak můžu zgrupovat ty AI agenty.
+
+48
+00:05:47,540 --> 00:05:52,060
+Teď se začíná řešit komunikace mezi nimi.
+
+49
+00:05:52,060 --> 00:05:56,079
+Jako to bylo u IoT, tam to taky bylo.
+
+50
+00:05:56,399 --> 00:05:58,939
+Nejdřív postupně každý ten mikrokontroler,
+
+51
+00:05:59,060 --> 00:06:02,519
+potom jak je zapojovat dohromady do nějaké sítě, jak z nich sbírat data.
+
+52
+00:06:02,959 --> 00:06:07,160
+Takže tady to bylo podobné. Tak jenom jsem to chtěl s vámi sdílet.
+
+53
+00:06:08,120 --> 00:06:11,439
+Můžeš si prosím upravit roz... jo, rozliší na HD, děkuju.
+
+54
+00:06:12,279 --> 00:06:14,199
+To jsem zapomněl udělat, ano.
+
+55
+00:06:17,620 --> 00:06:21,319
+Tak, mám to tady, System, Display.
+
+56
+00:06:24,019 --> 00:06:27,120
+9.20.1080.
+
+57
+00:06:28,319 --> 00:06:31,300
+Tak už by to mělo být lepší, tentokrát by teda barvy měly...
+
+58
+00:06:31,399 --> 00:06:36,840
+Aha, stuk ještě jednou.
+
+59
+00:06:40,019 --> 00:06:42,800
+Tentokrát by barvy měly být v pohodě.
+
+60
+00:06:42,800 --> 00:06:47,220
+Já jsem nepoužil ten způsob, co jsem použil minule.
+
+61
+00:06:47,220 --> 00:06:48,959
+Keep changes.
+
+62
+00:06:50,139 --> 00:06:53,620
+Takže kdyby nebylo, tak se o zvěté předpokládám,
+
+63
+00:06:53,620 --> 00:06:55,740
+nebo budu předpokládat, že to je v pohodě.
+
+64
+00:06:58,340 --> 00:07:00,779
+Vidíte, to je dost dobrá a vše ostatní taky.
+
+65
+00:07:00,800 --> 00:07:01,720
+Super.
+
+66
+00:07:02,040 --> 00:07:07,420
+Tak, pojďme se teda podívat na dnešní lekci.
+
+67
+00:07:08,379 --> 00:07:10,199
+Dneska to bude o přípravě dat.
+
+68
+00:07:11,759 --> 00:07:13,100
+To znamená, že...
+
+69
+00:07:13,819 --> 00:07:16,420
+Na začátku jsme si vysvětlili teoreticky,
+
+70
+00:07:16,879 --> 00:07:18,620
+jak neuronové sítě fungují.
+
+71
+00:07:19,519 --> 00:07:21,100
+Minulé hodině jsme se bavili,
+
+72
+00:07:22,060 --> 00:07:24,600
+jak můžete vy sami,
+
+73
+00:07:24,600 --> 00:07:28,560
+bez zásahu do té neuronové sítě,
+
+74
+00:07:29,000 --> 00:07:32,659
+ovlivňovat nebo zlepšovat odpovědi
+
+75
+00:07:32,720 --> 00:07:34,399
+nebo výsledky, do co vám to vrací.
+
+76
+00:07:35,699 --> 00:07:37,579
+Dneska se podíváme,
+
+77
+00:07:37,600 --> 00:07:40,240
+nebo odteď se na to budeme koukat
+
+78
+00:07:40,240 --> 00:07:41,500
+z té druhé strany.
+
+79
+00:07:41,899 --> 00:07:42,939
+To znamená, že...
+
+80
+00:07:43,939 --> 00:07:48,879
+Pokud jsme se minule koukali jako uživatel, může prompt engineering technikama,
+
+81
+00:07:49,699 --> 00:07:54,159
+o tom byla hlavně ta hodina, zlepšit výsledky,
+
+82
+00:07:54,519 --> 00:07:58,459
+a teď jsme si vysvětlili, jaký ty prompt engineering techniky jsou,
+
+83
+00:07:59,079 --> 00:08:01,620
+tak dneska se na to budeme koukat z té druhé strany.
+
+84
+00:08:01,620 --> 00:08:07,220
+To znamená, že dneska od dnešní hodiny se budeme zabývat tím procesem fine tuningu.
+
+85
+00:08:07,860 --> 00:08:11,399
+Dneska se podíváme na to, jak si připravit data,
+
+86
+00:08:11,399 --> 00:08:14,800
+nebo dataset na to, aby jsme takový fine tuning mohli provést.
+
+87
+00:08:15,339 --> 00:08:20,120
+V příští hodině se podíváme na takový close source způsob,
+
+88
+00:08:20,220 --> 00:08:23,379
+neboli fine tuning close source modelu.
+
+89
+00:08:23,920 --> 00:08:25,600
+Ukážeme se to na OpenAI.
+
+90
+00:08:26,139 --> 00:08:28,800
+V následující hodině potom si ukážeme,
+
+91
+00:08:28,800 --> 00:08:34,100
+jak udělat fine tuning open source modelu na hackingfacu.
+
+92
+00:08:35,500 --> 00:08:43,799
+Což by vám mělo dát do ruky nástroje k tomu, jak dosáhnout těch nejlepších možných výsledků
+
+93
+00:08:47,039 --> 00:08:52,539
+nebo přizpůsobit si dosáhnout těch nejlepších možných výsledků v závislosti na tom vašem use case.
+
+94
+00:08:52,539 --> 00:08:58,080
+To znamená, ať už budete používat prompt engineering techniky, abyste zlepšili ten výstup,
+
+95
+00:08:58,179 --> 00:09:03,860
+pokud to nebude stačit, zase naučili jsme se benchmarking, čím to ohodnotíte,
+
+96
+00:09:04,559 --> 00:09:07,899
+Tak pokud to nebude stačit, tak vlastně pak budete muset přistoupit
+
+97
+00:09:08,960 --> 00:09:13,179
+k upravě toho modelu nebo k vybrání toho nejoptimálnějšího modelu
+
+98
+00:09:13,179 --> 00:09:14,899
+a trochu si ho možná upravit.
+
+99
+00:09:15,320 --> 00:09:18,279
+K tomu právě bude ten proces fine tuningu.
+
+100
+00:09:18,980 --> 00:09:23,200
+Jakmile obsáhneme tuhletu část kurzu,
+
+101
+00:09:23,259 --> 00:09:25,659
+což by mělo být přesně v polovině,
+
+102
+00:09:26,720 --> 00:09:30,799
+tak pak se od té druhé půlky začneme zabývat tou softwareovou částí,
+
+103
+00:09:30,799 --> 00:09:31,019
+čili...
+
+104
+00:09:31,340 --> 00:09:37,600
+hlavně těma dvouma zelenejma obdelníkama.
+
+105
+00:09:38,440 --> 00:09:43,799
+Takže dneska to bude o datech, jak si ty data připravit pro různé use cases.
+
+106
+00:09:43,919 --> 00:09:46,960
+My budeme pokrývat tři use cases,
+
+107
+00:09:47,259 --> 00:09:49,200
+já tady takto jenom přeskočím,
+
+108
+00:09:49,360 --> 00:09:56,600
+budeme se učit, aby se ten model začal chovat nebo odpovídat jako někdo,
+
+109
+00:09:56,659 --> 00:09:59,960
+nebo změnit způsob odpovídání,
+
+110
+00:10:00,200 --> 00:10:04,200
+Potom se budeme učit, jak mu přidat nějakou novou vlastnost,
+
+111
+00:10:04,240 --> 00:10:07,340
+konkrétně tool usage, protože některý ty open source modely
+
+112
+00:10:07,379 --> 00:10:08,960
+nepodporují tool usage.
+
+113
+00:10:09,460 --> 00:10:12,539
+Minule jsme si vysvětlili, nebo já to ještě dneska budu zdůrazněvat,
+
+114
+00:10:12,539 --> 00:10:14,960
+proč ten tool usage je tak hrozně důležitý.
+
+115
+00:10:15,779 --> 00:10:18,539
+A potom ho budeme učit nějakou domenovou znalost.
+
+116
+00:10:18,700 --> 00:10:23,179
+Nebo-li nebudeme upravovat to, jak odpovídá, jakým stylem,
+
+117
+00:10:23,179 --> 00:10:28,240
+ale budeme mu přidávat nějakou novou vědomost.
+
+118
+00:10:28,500 --> 00:10:34,559
+což je vlastně jiný způsob, jak musíte ty data připravit.
+
+119
+00:10:37,039 --> 00:10:41,759
+Je to složitější naučit ho nějakou novou znalost,
+
+120
+00:10:42,080 --> 00:10:44,799
+než jemu jenom jednoduše změnit styl odpovídání.
+
+121
+00:10:46,059 --> 00:10:50,460
+Tak já ještě tady v průběhu budu takhle koukat na ty otázky,
+
+122
+00:10:50,519 --> 00:10:52,639
+jestli nějakou mám odpovědět hned,
+
+123
+00:10:52,700 --> 00:10:54,740
+anebo jestli můžu počkat na potom.
+
+124
+00:11:01,019 --> 00:11:02,120
+Tak to můžu počkat.
+
+125
+00:11:02,980 --> 00:11:15,539
+Takže dneska se podíváme, nebo první, co musíte pochopit, když začnete připravovat ty data, tak vlastně do jakého formátu je tam máte připravit.
+
+126
+00:11:16,580 --> 00:11:18,940
+A tohle je hrozně důležitý obrázek.
+
+127
+00:11:20,019 --> 00:11:25,960
+Chci ho pokusit zvětšit, anebo přepnu teď do toho.
+
+128
+00:11:26,799 --> 00:11:32,860
+A jo, zase tam by to mohla být lepší kvalita.
+
+129
+00:11:39,100 --> 00:11:40,700
+Pokažte, ale tohle je vidět pěkně.
+
+130
+00:11:41,340 --> 00:11:42,340
+Je to vidět pěkně?
+
+131
+00:11:42,440 --> 00:11:43,000
+Hm.
+
+132
+00:11:43,980 --> 00:11:52,659
+Tak tohle by mělo vyjadřit dobře.
+
+133
+00:11:55,399 --> 00:11:59,840
+Zase ty boxíky už chápete a rozumíte, co znamenají.
+
+134
+00:11:59,840 --> 00:12:03,519
+Teď se budeme bavit o těchto obdelníkách,
+
+135
+00:12:03,600 --> 00:12:06,179
+neboli jak se vlastně ty data mění.
+
+136
+00:12:06,360 --> 00:12:10,620
+Doteď jste si mohli všimnout, že to je text 1, text 2, text 3
+
+137
+00:12:10,759 --> 00:12:12,080
+a tady nějaké čísla.
+
+138
+00:12:12,399 --> 00:12:17,059
+Dneska už začneme řešit to, co vlastně ty jednotlivé proměny,
+
+139
+00:12:17,279 --> 00:12:18,500
+co si pod nimi představit.
+
+140
+00:12:18,720 --> 00:12:23,059
+To znamená, že když máte uživatele, který mluví s nějakou tou aplikací,
+
+141
+00:12:23,539 --> 00:12:33,440
+tak tohle je typicky nějaký text, který do té aplikace napíše a zmáže Enter, to znamená, že ho odešle do té aplikace, nebo ho tam napíše.
+
+142
+00:12:34,159 --> 00:12:46,080
+Co odchází z té aplikace do toho aplikačního API, je většinou nějaké restové API, nebo máte SPA aplikaci, což ty aplikace webové, které používáte, jsou.
+
+143
+00:12:46,600 --> 00:12:51,500
+a odejde nějaký request. Tohle je jenom ukázka toho requestu,
+
+144
+00:12:51,500 --> 00:12:54,879
+jenom JSON format klasický, je s nějakým user ID
+
+145
+00:12:55,840 --> 00:12:59,259
+a ta zpráva, kterou ten uživatel napsal, případně nějaké
+
+146
+00:12:59,659 --> 00:13:03,820
+přílohy, kterou k tomu přiložil. A odejde to na té aplikační API.
+
+147
+00:13:04,919 --> 00:13:09,159
+Tady máte tu uživatelskou databázi podle user ID, ono si to vyselektí,
+
+148
+00:13:09,419 --> 00:13:14,600
+ty jeho konverzace, možná tady pravděpodobně budete mít ještě nějakou chat ID,
+
+149
+00:13:15,139 --> 00:13:18,080
+v závislosti ne, jaký konverzaci se ptá,
+
+150
+00:13:18,240 --> 00:13:21,019
+protože ta historie se ukládá samozřejmě někdy na serveru,
+
+151
+00:13:21,019 --> 00:13:23,059
+ne na tom klientovi jako takovém.
+
+152
+00:13:23,759 --> 00:13:25,879
+Takže to by byl ten format.
+
+153
+00:13:25,879 --> 00:13:30,899
+Z toho aplikačního API už to odchází na to AI API.
+
+154
+00:13:31,759 --> 00:13:34,539
+Na to vy přistupujete případně jako developer,
+
+155
+00:13:34,639 --> 00:13:37,440
+když jsme si ukazovali, jsme si psali přímo s tím API
+
+156
+00:13:37,440 --> 00:13:40,019
+přes třeba platform s OpenAI.com,
+
+157
+00:13:40,399 --> 00:13:43,519
+tak tam se bavíte přímo tady s tím AI API.
+
+158
+00:13:44,899 --> 00:13:48,779
+Tak a tam už odchází určitý format,
+
+159
+00:13:48,779 --> 00:13:50,960
+který je jasně definovaný.
+
+160
+00:13:51,360 --> 00:13:53,019
+A my si budeme ukazovat,
+
+161
+00:13:53,919 --> 00:13:57,299
+nechám to trochu napozdit,
+
+162
+00:13:58,379 --> 00:14:00,779
+předem definovaný format, který je
+
+163
+00:14:01,320 --> 00:14:05,860
+Pole, tady vidíte, a potom jsou tam objekty.
+
+164
+00:14:05,860 --> 00:14:07,899
+Každý ten objekt obsahuje dvě property.
+
+165
+00:14:08,580 --> 00:14:15,240
+Roli, nebo kdo to poslal, kdo tu zprávu říká, kdo ten text říká.
+
+166
+00:14:15,340 --> 00:14:18,659
+A content, nebo co je obsahem té zprávy.
+
+167
+00:14:19,659 --> 00:14:25,179
+Může tam být ještě image ID, pokud je to multimodální zpráva,
+
+168
+00:14:25,179 --> 00:14:26,720
+ale o tom se budeme bavit později.
+
+169
+00:14:27,120 --> 00:14:28,840
+Pro zjednodušení si zatím pamatujte,
+
+170
+00:14:29,340 --> 00:14:35,899
+které jsme říkali, že pro teď budeme brát spota z tři,
+
+171
+00:14:36,100 --> 00:14:37,820
+systém, user a assistant.
+
+172
+00:14:38,980 --> 00:14:41,440
+Takže systémová zpráva jsme si říkali,
+
+173
+00:14:41,740 --> 00:14:43,980
+to je ta důležitá jenom jedna a na začátku,
+
+174
+00:14:44,200 --> 00:14:48,320
+a potom se střídá ta komunikace mezi uživatelem a assistantem.
+
+175
+00:14:48,720 --> 00:14:50,299
+Tak to probíhá mezi...
+
+176
+00:14:50,759 --> 00:14:54,320
+aplikačním API nebo nějakým vaším kódem,
+
+177
+00:14:54,320 --> 00:14:56,500
+pokud to voláte z nějakého Python kódu
+
+178
+00:14:56,720 --> 00:14:59,580
+nebo používáte tu platformu OpenAI.
+
+179
+00:14:59,919 --> 00:15:01,720
+Tak a co se s tím děje dál?
+
+180
+00:15:02,320 --> 00:15:05,700
+My jsme si říkali, že tohle není to, co vlastně do toho modelu jde.
+
+181
+00:15:06,120 --> 00:15:09,460
+To znamená, že potom se stane něco.
+
+182
+00:15:09,460 --> 00:15:12,639
+Tohle je pro všechny modely tak nějak jako stejný.
+
+183
+00:15:12,740 --> 00:15:16,399
+Tam se toho mění poměrně málo.
+
+184
+00:15:16,899 --> 00:15:20,379
+Změny tam jsou určitý, budem si je ukazovat.
+
+185
+00:15:20,659 --> 00:15:25,659
+ale můžeme pro teď brát, že tenhle format je pro všechny modely stejný.
+
+186
+00:15:25,659 --> 00:15:28,139
+Ať už se bavíte s OpenAI, nebo s Anthropic,
+
+187
+00:15:28,559 --> 00:15:30,559
+nebo s nějakým OpenSource modelem.
+
+188
+00:15:31,379 --> 00:15:36,039
+To, co nastane potom, je model specific.
+
+189
+00:15:36,440 --> 00:15:42,059
+To znamená, že každý model má definovaný určitý format,
+
+190
+00:15:42,799 --> 00:15:44,159
+na kterým byl trénovaný.
+
+191
+00:15:44,220 --> 00:15:46,759
+Tady máte ukázaný jeden z těch formatů.
+
+192
+00:15:48,120 --> 00:15:54,500
+Vy se zaměřte na ty S v tom tagu, což je vlastně začátek a konec, tady vidíte.
+
+193
+00:15:54,879 --> 00:15:58,679
+a inst je jako instrukce, což tady vidíte ten text,
+
+194
+00:15:58,799 --> 00:16:00,899
+tady je vlastně konec té instrukce
+
+195
+00:16:01,360 --> 00:16:04,960
+a zatím je odpověď toho modelu.
+
+196
+00:16:05,159 --> 00:16:07,820
+A tady je konec vlastně toho stringu.
+
+197
+00:16:08,039 --> 00:16:11,500
+Začátek stringu, instrukce, to je otázka uživatele,
+
+198
+00:16:11,700 --> 00:16:15,539
+konec instrukce, odpověď toho modelu, konec toho stringu.
+
+199
+00:16:15,679 --> 00:16:20,179
+Zase začátek stringu, instrukce, otázka uživatele další,
+
+200
+00:16:20,179 --> 00:16:23,299
+protože je to ten chat a konec té instrukce.
+
+201
+00:16:24,000 --> 00:16:27,240
+My si budeme ukazovat pro víc modelů,
+
+202
+00:16:27,539 --> 00:16:31,460
+jaké typy formatů můžete tak nějak očekávat.
+
+203
+00:16:33,080 --> 00:16:35,080
+Je to pro vás důležité jen v případě,
+
+204
+00:16:35,080 --> 00:16:38,899
+že se budete chtít zabývat těmi open source modelama.
+
+205
+00:16:39,700 --> 00:16:42,500
+Pokud budete využívat jen služby,
+
+206
+00:16:42,500 --> 00:16:47,259
+tak je Mistral API, Anthropic API, OpenAI API,
+
+207
+00:16:48,419 --> 00:16:50,799
+tohle s tímhle nepřijdete do kontaktu.
+
+208
+00:16:51,960 --> 00:16:56,940
+Ale pro chápání toho, jak ty modely fungují,
+
+209
+00:16:57,320 --> 00:17:01,139
+zvlášť ty open source modely, je to důležité si to uvědomovat.
+
+210
+00:17:01,559 --> 00:17:07,740
+A tohle je format, který pak ten tokenizer je schopnej
+
+211
+00:17:08,900 --> 00:17:13,799
+přeložit na ty čísla, které jdou do toho modelu.
+
+212
+00:17:14,019 --> 00:17:16,900
+To znamená, že můžete si představit,
+
+213
+00:17:18,420 --> 00:17:21,799
+že s AI API to odchází v tomto textovém formátu,
+
+214
+00:17:21,799 --> 00:17:23,160
+který je model-specific format,
+
+215
+00:17:23,440 --> 00:17:27,700
+A na model API už máte nasazený ten jeden konkrétní model.
+
+216
+00:17:27,940 --> 00:17:31,240
+Zase, když máte víc modelů, tak máte víc těchto modelů API.
+
+217
+00:17:31,839 --> 00:17:36,220
+A ten daný format přijme a je schopnej pomocí tokenizu
+
+218
+00:17:36,339 --> 00:17:37,460
+s toho udělat ty čísla.
+
+219
+00:17:37,859 --> 00:17:43,140
+A tam vlastně v rámci svýho procesu zavolá ten model s těma číslama.
+
+220
+00:17:43,539 --> 00:17:46,839
+Zase model odpoví zpátky v čísleném formátu.
+
+221
+00:17:47,160 --> 00:17:51,000
+Model API pomocí tokenizu to přiloží do tohohle formátu.
+
+222
+00:17:51,700 --> 00:17:56,279
+a vám to odejde zase v tomhle tom jako odpověď.
+
+223
+00:17:56,420 --> 00:18:00,240
+Většinou už vám neodchází jako celá zase ta historie,
+
+224
+00:18:00,400 --> 00:18:04,420
+už vám odejde jenom ta role, asistent a content.
+
+225
+00:18:04,640 --> 00:18:06,819
+Tak.
+
+226
+00:18:10,420 --> 00:18:12,559
+Je k tomuhle nějaká otázka?
+
+227
+00:18:12,579 --> 00:18:14,779
+Bylo by rád, aby tohle bylo jasný.
+
+228
+00:18:17,279 --> 00:18:38,099
+Pyt, tesseract, OCR pro češtinu.
+
+229
+00:18:39,160 --> 00:18:40,119
+Zajímavý.
+
+230
+00:18:41,099 --> 00:18:48,720
+Já bych volal asi něco jiného, pokud to češtino neumí automaticky, ale z OCR já si moc nehraju.
+
+231
+00:18:49,680 --> 00:18:53,160
+Možná asi ne, určitě ne, to bych o tom něco věděl.
+
+232
+00:18:53,599 --> 00:18:55,519
+Prosím tady o chytření, děkuji.
+
+233
+00:18:56,400 --> 00:19:00,960
+Tak můžu se podívat na nějaký jiný OCR, co by zvládlo češtinu.
+
+234
+00:19:01,500 --> 00:19:03,779
+Nebo co by přečetl ten text, nicméně.
+
+235
+00:19:04,539 --> 00:19:16,059
+Jako dneska už GPT-4.1, pokud mu pošlete text, tak on vám je schopný vrátit, nebo pošlete obrázek s textem, tak je vám schopný vrátit ten text.
+
+236
+00:19:16,680 --> 00:19:22,720
+Pokud mě dočetuje v češtině, tak ve kterém ukamžiku dochází k překladu do anglištiny? Na vrstvě APP?
+
+237
+00:19:23,400 --> 00:19:28,539
+Jo, jo, tohle to já ještě se musím podívat, neměl jsem bohužel čase na to podívat.
+
+238
+00:19:29,660 --> 00:19:30,400
+Ehm...
+
+239
+00:19:30,880 --> 00:19:33,200
+Nejsem si jistý, popravdě.
+
+240
+00:19:33,299 --> 00:19:35,539
+Pokud tomu můžu něco zkusit říct,
+
+241
+00:19:35,660 --> 00:19:37,119
+tak já bych řekl, že asi
+
+242
+00:19:37,319 --> 00:19:39,079
+k toho tokenizoru, protože když jsem
+
+243
+00:19:39,140 --> 00:19:41,319
+modelu teďka zkusil poslat
+
+244
+00:19:41,420 --> 00:19:43,440
+českou otázku, ale měl jsem
+
+245
+00:19:43,660 --> 00:19:45,220
+nastavený, myslím, že to bylo právě
+
+246
+00:19:46,460 --> 00:19:47,819
+u Gemi,
+
+247
+00:19:48,079 --> 00:19:49,440
+ale měl jsem nastavený
+
+248
+00:19:49,619 --> 00:19:51,400
+vlastně přes Python template,
+
+249
+00:19:51,400 --> 00:19:53,220
+že mi jenom nadhodil
+
+250
+00:19:53,220 --> 00:19:55,380
+template anglicky, tak mi odpověděl
+
+251
+00:19:55,380 --> 00:19:58,359
+anglicky. Takže pravděpodobně
+
+252
+00:19:58,359 --> 00:20:00,839
+to bude někde u těch tokenů, že si...
+
+253
+00:20:01,480 --> 00:20:04,539
+Dobře, ale já můžu anglicky říct, ať mi odpoví česky,
+
+254
+00:20:04,539 --> 00:20:05,700
+ale mi odpoví česky.
+
+255
+00:20:05,700 --> 00:20:08,500
+Ano, ale beru základní odpověď.
+
+256
+00:20:08,519 --> 00:20:10,319
+Když jsem mu k tomu přidal, ať odpoví česky,
+
+257
+00:20:10,319 --> 00:20:12,259
+tak samozřejmě odpověděl česky, ale...
+
+258
+00:20:14,960 --> 00:20:18,700
+Je to otázka.
+
+259
+00:20:19,079 --> 00:20:20,960
+Co mě nedochází je to,
+
+260
+00:20:22,000 --> 00:20:23,819
+jak se ten model vlastně
+
+261
+00:20:24,279 --> 00:20:26,759
+vevnitř, v těch váhách
+
+262
+00:20:26,759 --> 00:20:27,660
+de facto...
+
+263
+00:20:27,900 --> 00:20:30,039
+Mně je jasný, že ten tokenizer mi to přiloží
+
+264
+00:20:30,140 --> 00:20:31,619
+podle těch čísl. Mně spíš jde o to,
+
+265
+00:20:31,619 --> 00:20:33,339
+jak ten model vlastně
+
+266
+00:20:34,019 --> 00:20:36,759
+vygeneruje ty čísla.
+
+267
+00:20:37,019 --> 00:20:39,000
+Ty čísla znamenají vlastně ty tokeny,
+
+268
+00:20:39,140 --> 00:20:40,980
+takže ty jsou pak přeložený do té češtiny.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

@@ -1,0 +1,1003 @@
+Transcript:
+
+=================
+1276
+01:29:19,039 --> 01:29:23,039
+ještě se teda kouknu, abych nekecal do dokumentace na Hugging Face,
+
+1277
+01:29:23,100 --> 01:29:30,079
+zase to tady ukážu, ať víte, jak se to hledá třeba.
+
+1278
+01:29:30,319 --> 01:29:32,899
+Lama3, More results.
+
+1279
+01:29:33,979 --> 01:29:38,059
+A teď já tady jsem ukazoval Lama3, Instruct.
+
+1280
+01:29:40,819 --> 01:29:43,520
+Chtěl bych to asi odmětit rovnou.
+
+1281
+01:29:45,340 --> 01:29:48,039
+A chtěl bych tady modely.
+
+1282
+01:29:50,140 --> 01:29:51,940
+Já ne 3.1, já chci 3.
+
+1283
+01:29:52,100 --> 01:29:52,899
+Tady je 2.
+
+1284
+01:29:55,100 --> 01:29:57,340
+Oni 3. smazali nebo co?
+
+1285
+01:29:58,300 --> 01:29:59,979
+Lama3, 8b.
+
+1286
+01:30:02,840 --> 01:30:06,720
+Lama 370B, to by se nemělo nějak lišit, tyhle dva modely,
+
+1287
+01:30:06,960 --> 01:30:12,779
+nebo lišejí se samozřejmě, lišejí se počtem velikostí té neuronové sítě
+
+1288
+01:30:12,899 --> 01:30:18,460
+a počtem parametrů, který to má, ale co se týče funkcionality,
+
+1289
+01:30:18,460 --> 01:30:21,859
+by se ty modely nějak lišit neměly.
+
+1290
+01:30:23,100 --> 01:30:27,119
+Já teď tady se snažím najít tool, these tools,
+
+1291
+01:30:27,579 --> 01:30:29,180
+has proven to take a reduce,
+
+1292
+01:30:29,779 --> 01:30:35,479
+Instruct, Safely Tools, Leverage Additions, Safety Tools, to není ono.
+
+1293
+01:30:36,060 --> 01:30:44,819
+Community Tooling, These Tools, no nevidím tady teda žádný popis toho, že by to umělo tooli, takže je možné, že se nepleteme.
+
+1294
+01:30:45,579 --> 01:30:48,039
+A opravdu tooli neumí.
+
+1295
+01:30:48,180 --> 01:30:56,579
+A ještě tady se podívám, jestli abych vám ukázal, že tadyhle teda by měly být někde zmíněny ty tooli.
+
+1296
+01:30:58,359 --> 01:31:02,380
+Abych vám ukázal protiklad. Verze 2.
+
+1297
+01:31:03,180 --> 01:31:09,739
+Tak verze 3, to teda nebude mít tu skvělou dokumentaci, jako má tadyhleta Instruct.
+
+1298
+01:31:10,199 --> 01:31:15,300
+Verze 2, já bych teda měl ukázat spíš Instruct verze 3, takže tadyhletu.
+
+1299
+01:31:16,920 --> 01:31:20,100
+Tak a tady by měly být někde tool.
+
+1300
+01:31:24,000 --> 01:31:26,100
+Taky to není tady zmíněný, jo.
+
+1301
+01:31:27,819 --> 01:31:30,500
+To jsem teda doufal, že to tady bude.
+
+1302
+01:31:31,739 --> 01:31:33,140
+A03.
+
+1303
+01:31:35,979 --> 01:31:38,619
+Jo, tak toto tady má funkce, tooli.
+
+1304
+01:31:38,619 --> 01:31:44,560
+Jo, tak 02 to neuměla, jasně. 02 to neuměla a přidali to 03, to je pravda.
+
+1305
+01:31:44,760 --> 01:31:49,239
+Protože já jsem vlastně v tom předchozím kurzu, kde jsme použili 02, učil,
+
+1306
+01:31:49,239 --> 01:31:54,100
+jak vlastně změnit ten topinájizer tak, aby to obsahovaly ty tooli. Takže jo.
+
+1307
+01:31:54,880 --> 01:31:59,859
+Takže takhle to pak uvidíte již tak v té dokumentaci, pokud to ty tooli nebo function calling podporuje,
+
+1308
+01:31:59,939 --> 01:32:03,460
+tak oni vám to většinou jakoby se tím pochlubějí, takže vám to tam ukážou.
+
+1309
+01:32:04,119 --> 01:32:07,859
+Takže pro třeba LAMO 3, která nemá to použití tool use,
+
+1310
+01:32:07,859 --> 01:32:13,640
+tam byste to použili, jinak tady letá v tom Mistral verze 3,
+
+1311
+01:32:13,659 --> 01:32:16,100
+to byl i jeden z důvodů, proč já jsem ten Mistral preferoval,
+
+1312
+01:32:16,119 --> 01:32:17,460
+že to měl ten tool use.
+
+1313
+01:32:17,920 --> 01:32:21,840
+Tak tady vlastně ty tokeny speciální na ten tool use máte.
+
+1314
+01:32:22,079 --> 01:32:27,960
+To znamená, že tool selection new byste použili na Mistral.
+
+1315
+01:32:30,180 --> 01:32:32,479
+Teď by se někdo mohl zeptat, proč bych...
+
+1316
+01:32:33,020 --> 01:32:38,199
+proč bych vlastně chtěl fine-tunovat Mistral, když tam ty tokeny má,
+
+1317
+01:32:38,340 --> 01:32:41,760
+tak vlastně to znamená, že na těch tool-ech byl trénovanej,
+
+1318
+01:32:41,880 --> 01:32:44,220
+to znamená, že by měl podporovat.
+
+1319
+01:32:44,239 --> 01:32:49,859
+Tak máte pravdu, ale stalo se mi v historii to,
+
+1320
+01:32:50,119 --> 01:32:54,039
+že vlastně Mistral neměl tool-use,
+
+1321
+01:32:54,460 --> 01:33:00,899
+Nicméně Mixed Tral, o kterém se budeme bavit dál, v tokenizeru měl tyto tokeny.
+
+1322
+01:33:02,199 --> 01:33:09,079
+Takže jste schopni vlastně tomu tokenizeru změnit tzv. chat templateu,
+
+1323
+01:33:10,060 --> 01:33:13,119
+což je vlastně jenom Jinja templéta.
+
+1324
+01:33:13,119 --> 01:33:16,239
+Já teďka zase nevím, jestli vy znáte Jinja templétu.
+
+1325
+01:33:16,239 --> 01:33:18,720
+To je takováhle templéta, která vlastně jenom říká,
+
+1326
+01:33:18,899 --> 01:33:21,600
+když mi přijde zpráva nebo ten format,
+
+1327
+01:33:21,699 --> 01:33:24,819
+kde bude role system, tak já z toho vytvořím
+
+1328
+01:33:24,960 --> 01:33:27,640
+a teď vám tohle je ta templéta,
+
+1329
+01:33:27,640 --> 01:33:32,680
+která vám udělá z tohohle formatu
+
+1330
+01:33:33,560 --> 01:33:35,819
+tenhle format. To je ta templéta.
+
+1331
+01:33:36,279 --> 01:33:38,539
+A stalo se to, že vlastně...
+
+1332
+01:33:38,880 --> 01:33:43,159
+Vy jste mohli samozřejmě vytvořit tenhle format, kde bude role tool,
+
+1333
+01:33:43,159 --> 01:33:46,439
+to je další role, o které si budeme povídat,
+
+1334
+01:33:47,060 --> 01:33:51,779
+ale už to nebyl schopný ten model tím tokenizerem převést na tenhle format,
+
+1335
+01:33:51,800 --> 01:33:58,840
+protože mu v té template chybila ta sekce, kde on ví, co má dělat s tou rolí token.
+
+1336
+01:33:58,939 --> 01:34:02,680
+Tak co vy můžete udělat je, že mu změníte tu templateu,
+
+1337
+01:34:03,640 --> 01:34:07,399
+tadyhle tu templatu, že já jsem ji skopíroval z toho Mixtralu,
+
+1338
+01:34:07,520 --> 01:34:10,420
+narval jsem ji do toho tokenizoru pro Mistral,
+
+1339
+01:34:10,420 --> 01:34:12,800
+kde on měl řečený, co ty tooly jsou,
+
+1340
+01:34:12,880 --> 01:34:19,239
+protože jsem si všimnul, že v tom tokenizoru ty tokeny tady vlastně má,
+
+1341
+01:34:19,680 --> 01:34:24,340
+ale v té templatě, takže ten model tomu rozuměl,
+
+1342
+01:34:24,420 --> 01:34:26,560
+co ten tool znamená, byl na tom trénovanej,
+
+1343
+01:34:26,779 --> 01:34:31,420
+ale oni to vlastně zakázali tím, že to z té templaty vynechali.
+
+1344
+01:34:31,739 --> 01:34:50,180
+To znamená, že já jsem pak jenom mohl změnit tu templatu, aby on správně to z tohohle formátu převedl na tenhle formát a pak už ten model tomu rozuměl. Takovýhle věci se vám můžou stát, nebo můžete je zjistit, takže jenom, abyste rozuměli zhruba ty dopady.
+
+1345
+01:34:50,859 --> 01:34:54,020
+Takže tohle byste použili pro jakýkoliv model,
+
+1346
+01:34:54,020 --> 01:34:56,659
+který nemá v tokenizeru ty tokeny pro tooly,
+
+1347
+01:34:56,659 --> 01:34:58,579
+to znamená, že nebyl na tom natrénovaný,
+
+1348
+01:34:58,579 --> 01:35:00,899
+neumí žádnou schopnost těch toolů.
+
+1349
+01:35:01,119 --> 01:35:03,000
+Tohle byste mohli použít na model,
+
+1350
+01:35:03,100 --> 01:35:06,420
+který v tom tokenizeru má ty tooly,
+
+1351
+01:35:06,420 --> 01:35:11,699
+ale nemá to v té template, v tom překladači.
+
+1352
+01:35:12,279 --> 01:35:14,659
+Tak pojďme se pojďme na ten jednodušší způsob.
+
+1353
+01:35:15,100 --> 01:35:18,060
+Tam ty data vypadají zhruba...
+
+1354
+01:35:21,000 --> 01:35:24,760
+Takhle. Já teď asi vám spíš ukážu tenhle format,
+
+1355
+01:35:24,859 --> 01:35:26,840
+protože ten bude takový čítelnější.
+
+1356
+01:35:28,199 --> 01:35:33,199
+Takže vzhledem k tomu, že on nemá ty tooly jako feature,
+
+1357
+01:35:33,220 --> 01:35:38,859
+tak co vy můžete ale udělat je, že mu to dáte normálně do toho promptu.
+
+1358
+01:35:39,479 --> 01:35:44,340
+Naučíte ho vlastně, že když ten uživatel se na něco zeptá,
+
+1359
+01:35:44,760 --> 01:35:49,079
+to znamená otázka uživatele je tohle,
+
+1360
+01:35:52,500 --> 01:35:55,800
+To je to, co by vám přišlo v aplikaci, co by se tam uživatel.
+
+1361
+01:35:56,020 --> 01:36:02,579
+Vy byste na API vlastně vždycky to obohatili, jakýkoliv request toho uživatela byste obohatili od tuhletu část.
+
+1362
+01:36:03,079 --> 01:36:05,539
+a to byste poslali do toho modelu.
+
+1363
+01:36:05,539 --> 01:36:09,460
+A ten model už by byl naučenej, natrénovanej,
+
+1364
+01:36:09,560 --> 01:36:15,399
+že vlastně z tohohle toho si může vybrat nějakou funkci nebo tool, který se může zavolat.
+
+1365
+01:36:15,739 --> 01:36:22,960
+Tohle je otázka toho uživatele a on na základě té otázky vybere si ten správnej tool nebo tu správnou funkci
+
+1366
+01:36:23,039 --> 01:36:27,300
+a vrátí vám odpověď. Tady zrovna u tohohle příkladu ho učím,
+
+1367
+01:36:28,319 --> 01:36:34,460
+To je taky důležité možná zmínit, ale pojďme se podívat nejdřív, jak vypadá.
+
+1368
+01:36:35,539 --> 01:36:42,460
+Tak tadyhle. To znamená, že tadyhle je to, co já bych vždycky přidal v tom API.
+
+1369
+01:36:42,560 --> 01:36:48,159
+Toto je ta otázka toho uživatele a tadyhle je to, co ho učím, aby mi vrátil.
+
+1370
+01:36:48,319 --> 01:36:53,220
+Aby si vybral tu správnou funkci a naformátoval ji správně.
+
+1371
+01:36:54,079 --> 01:36:57,920
+Vy si pamatujete, že jsem vám ukazoval v tom prompt engineeringu,
+
+1372
+01:36:57,920 --> 01:37:00,020
+když jsem vlastně tohleto dal do toho promptu,
+
+1373
+01:37:00,460 --> 01:37:03,279
+tak on mi to správně naformátoval,
+
+1374
+01:37:03,399 --> 01:37:07,899
+protože jsem vám říkal, že oni ho to učejí vlastně.
+
+1375
+01:37:08,140 --> 01:37:11,479
+To je jedna z velmi důležitých vlastností těch výrobců,
+
+1376
+01:37:13,699 --> 01:37:15,220
+jazykových modelů,
+
+1377
+01:37:15,220 --> 01:37:16,779
+na tom jsou založený vlastně
+
+1378
+01:37:16,819 --> 01:37:18,979
+celý ty AI agenti.
+
+1379
+01:37:18,979 --> 01:37:20,420
+Takže vidíte, že bez keců,
+
+1380
+01:37:20,539 --> 01:37:22,399
+bez jakéhokoliv dalšího textu,
+
+1381
+01:37:22,600 --> 01:37:24,439
+mi vrátil ten správnej format,
+
+1382
+01:37:24,560 --> 01:37:26,560
+tak, jak se to od něj čeká, protože na tohle
+
+1383
+01:37:26,739 --> 01:37:28,720
+přesně je natrénovanej. A
+
+1384
+01:37:30,159 --> 01:37:32,720
+Takže toho vlastně naučili.
+
+1385
+01:37:33,020 --> 01:37:36,659
+Nicméně vy ho musíte, nebo v těch datech by bylo dobrý pokrejit
+
+1386
+01:37:36,680 --> 01:37:40,479
+i ostatní scénáře, aby se vám nedělo to,
+
+1387
+01:37:40,840 --> 01:37:44,359
+že pokud by tam nebyla žádná relevantní funkce,
+
+1388
+01:37:44,359 --> 01:37:47,159
+kterou by si měl vybrat, a teď se teda pojďme podívat
+
+1389
+01:37:48,220 --> 01:37:51,779
+na vlastně ty tooly, který má k dispozici, to jsou tyhle.
+
+1390
+01:37:51,939 --> 01:37:55,699
+Takže tady má funkci jménem GetCryptoPrice,
+
+1391
+01:37:55,840 --> 01:37:57,819
+což si asi umíte představit, co dělá.
+
+1392
+01:37:58,460 --> 01:38:02,159
+A druhá funkce je GetTopCryptos.
+
+1393
+01:38:02,979 --> 01:38:04,939
+To jsou dvě funkce, které má k dispozici.
+
+1394
+01:38:04,939 --> 01:38:12,359
+A uživatel se ptá, kolik stojí Bitcoin.
+
+1395
+01:38:12,600 --> 01:38:17,000
+Takže on si správně má vybrat jednu z těch dvou funkcí,
+
+1396
+01:38:17,000 --> 01:38:19,460
+což je GetCryptoPrice.
+
+1397
+01:38:19,479 --> 01:38:21,699
+A teď do těch argumentů má správně dát jméno
+
+1398
+01:38:22,039 --> 01:38:25,579
+té kryptomince, kryptoměny.
+
+1399
+01:38:26,020 --> 01:38:28,180
+a to by byl Bitcoin.
+
+1400
+01:38:28,600 --> 01:38:30,140
+Máte ale i situace,
+
+1401
+01:38:30,600 --> 01:38:32,039
+kdy vlastně chcete,
+
+1402
+01:38:32,140 --> 01:38:33,159
+aby odpověděl normálně.
+
+1403
+01:38:33,239 --> 01:38:36,059
+To znamená, kdybyste mu dali v těch datech
+
+1404
+01:38:36,059 --> 01:38:37,800
+na fine tuning jenom tyhle data,
+
+1405
+01:38:38,039 --> 01:38:44,340
+tak ho vlastně učíte, aby si vždycky vám vygeneroval ten JSON.
+
+1406
+01:38:44,340 --> 01:38:51,300
+A on by se mohl naučit i to, že i když žádný nevyhovuje žádná ta funkce, tak on by si nějakou vymyslel.
+
+1407
+01:38:51,399 --> 01:38:56,579
+Takže byste ho vlastně naučili nežádoucí chování, naučili byste ho, že vám vždycky bude vracet ten JSON.
+
+1408
+01:38:56,739 --> 01:39:00,659
+To znamená, že by bylo dobré v těch datech mu dát i ukázku toho,
+
+1409
+01:39:00,880 --> 01:39:04,039
+aby se choval normálně nebo odpovídal normálně,
+
+1410
+01:39:04,180 --> 01:39:07,619
+pokud žádná z těch funkcí neodpovídá té otázce.
+
+1411
+01:39:08,380 --> 01:39:11,699
+To znamená zase, pojďme si tady označit...
+
+1412
+01:39:12,359 --> 01:39:16,319
+Tohle je ten text, který vždycky mu dáváte.
+
+1413
+01:39:16,479 --> 01:39:19,260
+Teď se vám akorát mění ten seznam funkcí,
+
+1414
+01:39:19,279 --> 01:39:20,840
+který máte k dispozici,
+
+1415
+01:39:20,979 --> 01:39:23,260
+nebo který by měl ten model k dispozici.
+
+1416
+01:39:23,559 --> 01:39:25,000
+Takže tady jaký funkce máme?
+
+1417
+01:39:25,059 --> 01:39:29,859
+Get stock price a druhá je tady get big stocks.
+
+1418
+01:39:30,059 --> 01:39:31,940
+To je celkem podobné jako to krypto,
+
+1419
+01:39:32,199 --> 01:39:36,319
+ale tady se ptám, jaké jsou primární barvy.
+
+1420
+01:39:37,260 --> 01:39:41,559
+Takže tady v tom případě mu ukazuju, učím ho,
+
+1421
+01:39:41,800 --> 01:39:44,440
+že tady ani jedna ta funkce nevyhovuje.
+
+1422
+01:39:44,619 --> 01:39:46,680
+Takže chci, aby mi odpověděl normálně.
+
+1423
+01:39:47,140 --> 01:39:49,720
+Takže tady odpovídám normálně.
+
+1424
+01:39:50,380 --> 01:39:53,739
+A tímhletím způsobem, jako s malým dítětem,
+
+1425
+01:39:54,020 --> 01:39:57,180
+nebo se psem, prostě ho tímhletím způsobem
+
+1426
+01:39:57,340 --> 01:39:59,699
+ho učíte to žádoucí chování.
+
+1427
+01:40:00,180 --> 01:40:03,020
+To zase čím víc těch modelů budete trénovat,
+
+1428
+01:40:03,020 --> 01:40:04,340
+nebo budete trénovat,
+
+1429
+01:40:05,979 --> 01:40:09,300
+tím víc vám budou tyhle věci připadat zřejmý.
+
+1430
+01:40:10,319 --> 01:40:14,059
+Že ho nejenom musíte naučit to, co od něj chcete,
+
+1431
+01:40:14,260 --> 01:40:19,239
+ale i to, jak se má chovat, když vlastně třeba žádnou tu funkci,
+
+1432
+01:40:19,239 --> 01:40:22,600
+žádná ta funkce nebude vyhovovat té odpovědi.
+
+1433
+01:40:22,819 --> 01:40:26,220
+Tak aby nezačal fabulovat, nezačal vám halucinovat zbytečně,
+
+1434
+01:40:26,340 --> 01:40:30,500
+tak si uvědomíte, aha, tak možná když mu dám příklady,
+
+1435
+01:40:30,720 --> 01:40:34,140
+kde nic nebude vyhovovat a v tu chvíli se zbavíte těch halucinací,
+
+1436
+01:40:34,140 --> 01:40:38,100
+už vám nebude vracet vždycky ty JSON faily.
+
+1437
+01:40:38,819 --> 01:40:43,520
+Takže tohle je jeden způsob, jak toho dosáhnout.
+
+1438
+01:40:43,539 --> 01:40:46,460
+Vy teď si koukněte, kolik je tam dat.
+
+1439
+01:40:47,619 --> 01:40:51,399
+Zase nějakých x prostě, stovky.
+
+1440
+01:40:51,940 --> 01:40:53,260
+Jak jsem k tomu dospěl?
+
+1441
+01:40:53,779 --> 01:40:59,180
+Já jsem tady neseděl týden a každou tu otázku jsem ručně nepsal.
+
+1442
+01:40:59,440 --> 01:41:00,960
+Takže zase buďme chytří.
+
+1443
+01:41:02,640 --> 01:41:06,559
+Je tady markdown file, kde vám ukazuju...
+
+1444
+01:41:06,940 --> 01:41:11,800
+zase nějaký prompt, který mi pomohl s tím to vyplnit.
+
+1445
+01:41:12,059 --> 01:41:14,840
+To znamená, že já jsem mu řekl,
+
+1446
+01:41:15,100 --> 01:41:20,779
+nebo budu to vkládat do chat GPT, nebo budu volat API,
+
+1447
+01:41:20,779 --> 01:41:22,559
+tadyhle v tom případě v tom dalším.
+
+1448
+01:41:22,899 --> 01:41:26,380
+Tadyhle to bude první krok, jak to můžete začít řešit.
+
+1449
+01:41:26,559 --> 01:41:28,340
+Vložíte to normálně do chat GPT.
+
+1450
+01:41:29,199 --> 01:41:32,399
+Potřebuji naučit LLM, aby dělal function calling.
+
+1451
+01:41:32,680 --> 01:41:34,640
+Takže připravuju data na fine tuning.
+
+1452
+01:41:35,079 --> 01:41:40,100
+Potřebuji od tebe vygenerovat CSV data, které obsahují tři sloupečky.
+
+1453
+01:41:40,319 --> 01:41:44,359
+List funkcí, vstupní a výstupní hodnoty.
+
+1454
+01:41:44,859 --> 01:41:46,680
+Tady jsou nějaké ukázkové data.
+
+1455
+01:41:47,220 --> 01:41:50,760
+Tak a teď jsem mu tady vložil ukázkový function list, jak vypadá.
+
+1456
+01:41:50,920 --> 01:41:54,859
+Pak jsem mu tady vložil input, to by teda mělo být takhle.
+
+1457
+01:41:55,479 --> 01:41:58,880
+A potom output, co od něj vlastně chci.
+
+1458
+01:41:58,899 --> 01:42:03,600
+A teď jsem mu tady napsal, to jsem mu vložil tady zase ty moje tři rovnáse.
+
+1459
+01:42:04,239 --> 01:42:07,479
+čím odděluji kontext,
+
+1460
+01:42:07,479 --> 01:42:11,760
+teď teda vidím, že mi tady chybí ty tři rovná se tady,
+
+1461
+01:42:13,579 --> 01:42:16,119
+prosím vygeneruji deset takových příkladů.
+
+1462
+01:42:16,140 --> 01:42:20,420
+Zkoušel jsem sto, zasek se na nějakým dvanáctym, vždycky,
+
+1463
+01:42:20,859 --> 01:42:22,800
+nehledě na to, co generoval,
+
+1464
+01:42:22,880 --> 01:42:24,539
+v okolo dvanácti, třinácti příkladů se zasek,
+
+1465
+01:42:25,079 --> 01:42:28,699
+vygeneroval čtvrtku nebo půlku a skončil.
+
+1466
+01:42:29,720 --> 01:42:30,819
+Takže pak jsem to dělal po deseti příkladů.
+
+1467
+01:42:31,739 --> 01:42:34,979
+Vygeneruj mi 10 příkladů do CSV souboru,
+
+1468
+01:42:35,039 --> 01:42:36,579
+abych ho mohl stáhnout.
+
+1469
+01:42:36,760 --> 01:42:38,600
+Tady už je to updatované,
+
+1470
+01:42:38,840 --> 01:42:41,579
+takže on mi byl schopnej to CSV vygenerovat.
+
+1471
+01:42:42,059 --> 01:42:44,000
+A já jsem to pak jenom vždycky stáhnul,
+
+1472
+01:42:44,220 --> 01:42:46,119
+připlát jsem to tady k tomu CSV,
+
+1473
+01:42:46,600 --> 01:42:48,239
+zase jsem to do něj poslal
+
+1474
+01:42:48,760 --> 01:42:51,300
+a koneckoncu vám to můžu tady ukázat.
+
+1475
+01:42:55,380 --> 01:42:58,720
+A takovýmhle způsobem jsem to udělal 15x
+
+1476
+01:42:58,720 --> 01:43:00,020
+a bylo to hotové.
+
+1477
+01:43:01,020 --> 01:43:02,380
+Samozřejmě,
+
+1478
+01:43:02,880 --> 01:43:08,159
+Takhle úplně hloupě to nebylo, protože já jsem pak měnil třeba ty funkce,
+
+1479
+01:43:08,159 --> 01:43:11,359
+které on má k dispozici, aby on se furt neopakoval,
+
+1480
+01:43:11,359 --> 01:43:15,380
+jako get crypto, get big crypto a tak dále.
+
+1481
+01:43:15,539 --> 01:43:19,699
+Takže snažil jsem se, aby byly ty data pestrý.
+
+1482
+01:43:19,899 --> 01:43:24,579
+Čím pestřejší ty data budou, tím lepších výsledků dosáhnete.
+
+1483
+01:43:24,600 --> 01:43:28,199
+Čím víc těch dat bude, tím lepších výsledků dosáhnete.
+
+1484
+01:43:28,479 --> 01:43:30,260
+To jsou ty pravidla.
+
+1485
+01:43:31,559 --> 01:43:33,960
+tak tady mi vytvoří nějaký CSV,
+
+1486
+01:43:33,960 --> 01:43:36,600
+prostě to už asi nebudeme na to čekat.
+
+1487
+01:43:37,399 --> 01:43:41,260
+V druhém případě jsem tady poskytnul
+
+1488
+01:43:41,260 --> 01:43:45,260
+takové lepší řešení, kdy tady máte Python notebook.
+
+1489
+01:43:46,720 --> 01:43:55,500
+kdy budeme provolávat API, abyste to nemuseli manuálně furt tam copy-pastovat, downloadovat CSV, někam to zase kopírovat.
+
+1490
+01:43:55,579 --> 01:44:00,640
+Takže zase se posuneme pokrok dál a trochu víc si ten problém zautomatizujeme.
+
+1491
+01:44:00,920 --> 01:44:07,539
+Takže zase tady máme knihovnu OpenAI, je to teda Python notebook, abyste jednotlivý ty sekce mohli pouštět zvlášť,
+
+1492
+01:44:07,720 --> 01:44:10,140
+nemusíte pouštět celý ten skript.
+
+1493
+01:44:10,260 --> 01:44:14,760
+Tady si vložíte API klíč pro vaši OpenAI API.
+
+1494
+01:44:15,100 --> 01:44:18,059
+Zbytek si můžete poupravit.
+
+1495
+01:44:18,059 --> 01:44:22,559
+To znamená, že tady já mám nějaké příklady.
+
+1496
+01:44:23,199 --> 01:44:26,420
+Tohle jsou příklady zaměření na vyhledávání.
+
+1497
+01:44:26,420 --> 01:44:28,260
+Tady mám seznam vždycky toolů.
+
+1498
+01:44:29,000 --> 01:44:33,760
+A tady je input, otázka uživatele a výstup vlastně toho modelu, co já ho chci naučit.
+
+1499
+01:44:33,760 --> 01:44:36,920
+Tady zase seznam toolů.
+
+1500
+01:44:37,539 --> 01:44:43,159
+Otázka uživatele, odpověď toho modelu.
+
+1501
+01:44:43,460 --> 01:44:49,420
+Tady jsou ukázky na generování JSON odpovědi.
+
+1502
+01:44:50,020 --> 01:44:52,100
+Takže tady je zase seznam toolů.
+
+1503
+01:44:53,640 --> 01:44:55,020
+Tady je zase otázka.
+
+1504
+01:44:55,319 --> 01:45:02,359
+A tady je vlastně poučím, jak správně vygenerovat JSON odpověď jako argument.
+
+1505
+01:45:03,079 --> 01:45:06,239
+Teď jenom přemýšlím, tadyhle to byla taky JSON odpověď,
+
+1506
+01:45:06,239 --> 01:45:08,880
+nevím z jakého důvodu jsem to nepřiplácnul,
+
+1507
+01:45:08,880 --> 01:45:10,300
+tady to byla taky,
+
+1508
+01:45:10,600 --> 01:45:12,220
+takže co jsem tím chtěl říct.
+
+1509
+01:45:12,420 --> 01:45:14,100
+Search examples,
+
+1510
+01:45:15,479 --> 01:45:17,819
+Tavili search a human,
+
+1511
+01:45:18,920 --> 01:45:21,699
+Google search a convert temperature,
+
+1512
+01:45:23,579 --> 01:45:26,220
+a tadyhle to byly
+
+1513
+01:45:28,380 --> 01:45:29,399
+airquotes,
+
+1514
+01:45:32,559 --> 01:45:36,159
+takže tady byl output, byla jména, funkce,
+
+1515
+01:45:37,800 --> 01:45:40,619
+a argumenty byl normální JSON,
+
+1516
+01:45:43,100 --> 01:45:45,720
+To teď mi uniká, proč jsem to rozděloval,
+
+1517
+01:45:45,960 --> 01:45:49,300
+protože ta odpověď je vždycky JSON,
+
+1518
+01:45:49,300 --> 01:45:52,220
+tak teď mi to uniká.
+
+1519
+01:45:52,239 --> 01:45:54,380
+To nevadí, ale pro vás to nic nemění.
+
+1520
+01:45:58,020 --> 01:46:02,039
+Jakým způsobem můžete začít provolávat nějakým cyklu?
+
+1521
+01:46:02,119 --> 01:46:05,500
+Ještě si všimněte, tady je human jako funkce.
+
+1522
+01:46:06,100 --> 01:46:09,199
+Je určitá funkcionalita v AI agentech,
+
+1523
+01:46:09,199 --> 01:46:10,819
+která je žádoucí,
+
+1524
+01:46:12,059 --> 01:46:14,300
+a to je, že on si může říct o pomoc.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

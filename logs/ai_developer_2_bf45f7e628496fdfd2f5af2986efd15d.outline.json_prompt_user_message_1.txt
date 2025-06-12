@@ -1,0 +1,1135 @@
+Transcript:
+
+=================
+1
+00:00:06,219 --> 00:00:09,099
+Tak teď byste mě měli vidět, je to tak?
+
+2
+00:00:14,099 --> 00:00:15,199
+Jo, jo.
+
+3
+00:00:15,359 --> 00:00:16,500
+Super.
+
+4
+00:00:20,519 --> 00:00:25,600
+Tak, máme ještě pár minut, kdybyste měli někdo nějaký dotaz, tak se klidně zeptejte.
+
+5
+00:00:26,719 --> 00:00:33,119
+Já počkám těch pět minut a začli bychom.
+
+6
+00:00:47,299 --> 00:00:53,060
+Dneska to bude taková volnější hodina, nebo volnější oproti minulý hodině, tam to bylo docela nabitý.
+
+7
+00:00:55,119 --> 00:00:56,600
+My hrajeme hokej, že jo?
+
+8
+00:00:59,039 --> 00:01:00,799
+Něco takového jsem slyšel.
+
+9
+00:01:01,259 --> 00:01:02,979
+Jak to vypadá zatím?
+
+10
+00:01:06,239 --> 00:01:07,480
+I dnes...
+
+11
+00:01:08,159 --> 00:01:12,819
+Já jsem viděl, že jsme prohrávali 1-0 a 2-1 vedeme. Výborně.
+
+12
+00:01:13,799 --> 00:01:20,659
+Otočku zařídili Pastrňák s Nečasem. To je krásný.
+
+13
+00:01:32,640 --> 00:01:34,439
+Takže se na to můžu podívat zpětně.
+
+14
+00:01:41,219 --> 00:01:45,060
+Tak, jinak ještě máme novinky Microsoft Build.
+
+15
+00:01:45,140 --> 00:01:50,280
+Nevím, jestli to sledujete, ale taky pěkný novinky.
+
+16
+00:01:50,400 --> 00:01:53,680
+Tak kdyžtak se taky podívejte, Satya tam teďkon...
+
+17
+00:01:56,879 --> 00:02:01,159
+Jo, já jsem nezmenšil tu obrazovku, takže vy to vidíte useklý.
+
+18
+00:02:02,219 --> 00:02:11,879
+Saťa tam zmiňoval hodně agenty, AI agenty, všechno je to jenom ohledně AI agentů, takže když tak se na to taky podívejte.
+
+19
+00:02:12,759 --> 00:02:30,639
+Nicméně ve zkratce budou přidávat, jak mám ten navazující kurz, tak tam mluvím o MCP servery, kdyby náhodou někdo věděl, o čem to je, tak vlastně Windowsy začnou mít MCP server jako takovej.
+
+20
+00:02:31,740 --> 00:02:39,479
+Což znamená, že vy dostanete v rámci Windowsu
+
+21
+00:02:39,659 --> 00:02:44,860
+fungující MCP server, na který se AI agent bude moct připojit.
+
+22
+00:02:45,420 --> 00:02:50,639
+A bude moct začít ty Windowsy ovládat tím pádem.
+
+23
+00:02:50,939 --> 00:02:52,439
+Standardizovaným způsobem.
+
+24
+00:02:52,659 --> 00:02:55,039
+MCP server si představte jako API server,
+
+25
+00:02:55,539 --> 00:02:58,879
+akorát to poskytuje vlastně tooli pro AI agenty.
+
+26
+00:03:00,080 --> 00:03:01,979
+Takže což je zajímavý krok,
+
+27
+00:03:02,460 --> 00:03:03,879
+Zatím MCPS
+
+28
+00:03:03,879 --> 00:03:06,699
+nejsou moc zabezpečený,
+
+29
+00:03:06,699 --> 00:03:07,819
+takže
+
+30
+00:03:09,020 --> 00:03:10,139
+oni pracují teď,
+
+31
+00:03:10,659 --> 00:03:12,379
+vyšel s tím Anthropix,
+
+32
+00:03:12,520 --> 00:03:14,500
+MCPS jako s tím standardem,
+
+33
+00:03:14,620 --> 00:03:17,319
+takže oni takové spolupracují s Anthropicem
+
+34
+00:03:17,319 --> 00:03:18,159
+na tom, aby
+
+35
+00:03:19,240 --> 00:03:27,740
+Tam přidali nějaký security protokol jako je HTTPS, máme HTTP, HTTPS, tak něco podobného.
+
+36
+00:03:27,900 --> 00:03:33,159
+Kdyby tam byla jaká autentikace, bylo to zabezpečené a dalo se to vlastně takhle používat.
+
+37
+00:03:33,920 --> 00:03:37,159
+Ty informace na tom buildu berte taky trochu s rezervou.
+
+38
+00:03:37,740 --> 00:03:42,800
+Je to všechno ušitý horkou jehlou, je to o tom, aby akcie zase šly nahoru.
+
+39
+00:03:43,240 --> 00:04:04,120
+aby lidi byli zaujatí, udělalo to nějaký wow efekt, část těch věcí určitě prostě nefunguje, je to jenom fake it till make it, já nevím jestli to znáte ze Silicon Valley, fake it till make it, tak to je takový podobný princip, takže...
+
+40
+00:04:04,719 --> 00:04:11,219
+Říkám, pár těch věcí nebude fungovat nebo nefunguje určitě, je to jenom udělaní a prezentaci,
+
+41
+00:04:11,219 --> 00:04:15,139
+aby zjistili jaká je zpětná reakce od lidí, ale
+
+42
+00:04:16,180 --> 00:04:22,019
+rovná MCPS revie si myslím, že budou fungovat, pak je tam zajímavý NL web,
+
+43
+00:04:22,579 --> 00:04:24,759
+myslím, že se to takhle jmenuje ta zkrátka.
+
+44
+00:04:25,699 --> 00:04:33,600
+Ve výsledku je to, že každá webová stránka by měla mít svýho vlastního agenta, který ji bude rozumět,
+
+45
+00:04:34,340 --> 00:04:39,659
+Tím pádem vlastně vy si budete povídat už s tím agentem
+
+46
+00:04:39,659 --> 00:04:43,420
+té webové stránky, ne s tou stránkou samotnou.
+
+47
+00:04:43,819 --> 00:04:47,459
+To znamená, že vy jste schopný pak používat
+
+48
+00:04:47,459 --> 00:04:50,240
+natural language, abyste se zeptali na něco,
+
+49
+00:04:50,259 --> 00:04:52,240
+ten agent to vlastně najde na té stránce
+
+50
+00:04:52,240 --> 00:04:53,840
+nebo to provede, tu akci.
+
+51
+00:04:54,459 --> 00:04:59,819
+Tím pádem vlastně vznikne takovej novej celý web
+
+52
+00:04:59,840 --> 00:05:01,660
+založenej na AI agentech.
+
+53
+00:05:03,420 --> 00:05:11,000
+To, co já už říkám dlouhou dobu, je, že teď vlastně pominula ta fáze AI agentů,
+
+54
+00:05:11,199 --> 00:05:14,139
+ten hype už je jasný, kam to bude směřovat.
+
+55
+00:05:14,240 --> 00:05:19,339
+Teď se to všechno bude zase nahypovávat na komunikaci mezi agentama,
+
+56
+00:05:19,420 --> 00:05:22,720
+vlastně vytváření nějakých protokolů, komunikačních vrstev,
+
+57
+00:05:23,040 --> 00:05:25,639
+aby se ty agenti mezi sebou mohli povídat.
+
+58
+00:05:26,740 --> 00:05:29,920
+K tomu se ještě dostaneme, to je jenom takový novinky z Buildu.
+
+59
+00:05:30,740 --> 00:05:47,519
+Dotezi při lekci MTP jako protokol, ale zatím není standard, který přijímají všichni, ne? Jsou alternativy k němu? Já o alternativy nevím, o žádný a vykrystalizovává se to jako standard, který všichni přijímají.
+
+60
+00:05:48,399 --> 00:05:52,459
+Včetně Microsoftu, přišel s tím Anthropic a Microsoft to adaptuje,
+
+61
+00:05:52,959 --> 00:05:55,079
+všichni to začínají adaptovat, nebo všechny.
+
+62
+00:05:55,740 --> 00:05:59,279
+Je to komunitně velmi oblíbený standard.
+
+63
+00:05:59,779 --> 00:06:01,139
+Dává to smysl.
+
+64
+00:06:01,279 --> 00:06:03,939
+Je možný, že někdo přijde s alternativou,
+
+65
+00:06:04,540 --> 00:06:07,100
+já jsem zatím žádnou alternativu neviděl.
+
+66
+00:06:07,240 --> 00:06:09,740
+Nebo jestli existuje, tak je to tak nějaký níž,
+
+67
+00:06:10,579 --> 00:06:13,800
+prostě nějaký repo na GitHubu,
+
+68
+00:06:13,800 --> 00:06:16,199
+ale tohle má opravdu komunitně...
+
+69
+00:06:16,980 --> 00:06:19,319
+velkej potenciál.
+
+70
+00:06:20,459 --> 00:06:22,279
+Dobře, máme 0 a 1,
+
+71
+00:06:22,300 --> 00:06:24,300
+tak bychom mohli začít, byl jsem zmínil
+
+72
+00:06:25,600 --> 00:06:26,819
+a jdeme na to.
+
+73
+00:06:28,360 --> 00:06:30,220
+Tak, jak jsem říkal, dneska by to mělo být
+
+74
+00:06:30,220 --> 00:06:32,939
+takový víc v pohodě, neuspěchaný,
+
+75
+00:06:32,939 --> 00:06:34,399
+ale uvidíme, jak nám to půjde,
+
+76
+00:06:34,399 --> 00:06:36,139
+já se občas zapovídám.
+
+77
+00:06:37,019 --> 00:06:39,220
+Tak, dneska
+
+78
+00:06:41,139 --> 00:06:41,980
+je někdo nějakou otázku?
+
+79
+00:06:41,980 --> 00:06:43,819
+Já nebo jsem přišel o zvuk?
+
+80
+00:06:44,639 --> 00:06:46,579
+Já ne o zvuk, ale je to strašně
+
+81
+00:06:46,579 --> 00:06:50,939
+přesvětlené. Ještě jednou, zvuk
+
+82
+00:06:50,939 --> 00:06:52,920
+slyšíme nebo neslyšíme?
+
+83
+00:06:53,300 --> 00:06:55,279
+Já zvuk slyším.
+
+84
+00:06:56,079 --> 00:07:00,420
+Slyšíte mě v pořádku, jako normálně, nemusím křičet.
+
+85
+00:07:00,540 --> 00:07:01,100
+Normálně.
+
+86
+00:07:01,339 --> 00:07:03,399
+Ten obraz aspoň já mám strašně světlý.
+
+87
+00:07:04,160 --> 00:07:08,339
+Dobře, zkusím tady se pohrát teda s nastavením.
+
+88
+00:07:08,339 --> 00:07:15,879
+Tady si přemýšlím, když já si to změním na monitoru, to vy asi neuvidíte, ne?
+
+89
+00:07:16,180 --> 00:07:19,759
+Můžu tady zkusit Nightline.
+
+90
+00:07:20,120 --> 00:07:22,519
+Tohle je lepší nebo horší? Asi horší, ne?
+
+91
+00:07:25,920 --> 00:07:28,600
+Ještě absolutně nič to neurobilo.
+
+92
+00:07:28,800 --> 00:07:32,740
+Nic to neudělalo vůbec jo. Dobře.
+
+93
+00:07:33,540 --> 00:07:34,980
+Nevím ostatně se to nezdá světlé?
+
+94
+00:07:36,699 --> 00:07:38,340
+Mně se to taky zdá světlejší.
+
+95
+00:07:38,579 --> 00:07:40,180
+Taky se vám to zdá světlý.
+
+96
+00:07:40,180 --> 00:07:41,379
+Pojďte tam do tebe.
+
+97
+00:07:41,899 --> 00:07:46,939
+Možná zkusit nějakej slide, kde je víc textů, tedy jenom nadpis, možná to bude v pohodě.
+
+98
+00:07:47,860 --> 00:07:49,199
+Prosím na tohle.
+
+99
+00:07:50,000 --> 00:07:51,019
+No tak špatný.
+
+100
+00:07:51,079 --> 00:07:52,819
+Obrázek je špatně vidět, špatný kontrast.
+
+101
+00:07:53,019 --> 00:07:54,560
+Všechno je špatný kontrast.
+
+102
+00:07:56,279 --> 00:07:59,560
+Zajímavý, dobře.
+
+103
+00:08:02,519 --> 00:08:04,980
+Přemýšlím, jestli to bude monitorem teda.
+
+104
+00:08:04,980 --> 00:08:10,079
+Já když tady přece hybnu s monitorem, tak to vám nikdy čemu nepomůže, ne?
+
+105
+00:08:10,259 --> 00:08:11,980
+Já to z toho zkusím.
+
+106
+00:08:12,019 --> 00:08:15,399
+Tady Picture, Brightness.
+
+107
+00:08:19,660 --> 00:08:21,319
+Tmavné mám to, nebo ne?
+
+108
+00:08:22,819 --> 00:08:23,959
+Nemění se to.
+
+109
+00:08:24,220 --> 00:08:26,500
+Nemění se to, no tak mi je to tady tmavné.
+
+110
+00:08:26,500 --> 00:08:28,459
+Brightness na monitoru nemůže mít vliv.
+
+111
+00:08:28,459 --> 00:08:32,299
+No právě, to jsem si říkal tak, jenom jsem to tak zkusil.
+
+112
+00:08:35,120 --> 00:08:37,419
+Takže to by mělo být teda systémový.
+
+113
+00:08:38,100 --> 00:08:40,720
+Anebo sdílení.
+
+114
+00:08:43,200 --> 00:08:47,639
+Display, Color profile,
+
+115
+00:08:49,620 --> 00:08:52,779
+automatic manage for, calibrate display.
+
+116
+00:08:52,779 --> 00:08:54,080
+Ježiš, zkusíme.
+
+117
+00:08:56,080 --> 00:08:58,120
+Otevřelo tady to okno.
+
+118
+00:08:58,340 --> 00:09:00,240
+Anebo to je v zoomu.
+
+119
+00:09:02,139 --> 00:09:03,659
+Na sharování.
+
+120
+00:09:04,240 --> 00:09:05,779
+Zkusím tady edit.
+
+121
+00:09:07,080 --> 00:09:08,759
+Optimize for video sharing.
+
+122
+00:09:09,159 --> 00:09:10,539
+Změnilo se něco?
+
+123
+00:09:13,659 --> 00:09:14,460
+Ani ne.
+
+124
+00:09:21,279 --> 00:09:22,799
+To je pěkný teda.
+
+125
+00:09:24,299 --> 00:09:29,139
+Full visible name, share computer, optimize for video sharing.
+
+126
+00:09:32,299 --> 00:09:33,779
+To je nic.
+
+127
+00:09:36,580 --> 00:09:37,980
+Color management.
+
+128
+00:09:43,440 --> 00:09:47,279
+Tak řekněte, jestli se vám něco mění, já tady klikám tak různě.
+
+129
+00:09:47,399 --> 00:09:48,899
+Razionalitace.
+
+130
+00:09:49,500 --> 00:09:50,340
+Tím nic.
+
+131
+00:09:50,519 --> 00:09:53,279
+Mění, ale teďka se to ještě trochu víc rozpadlo.
+
+132
+00:09:53,860 --> 00:09:55,600
+To není dobrý teda.
+
+133
+00:09:55,980 --> 00:09:57,080
+Kontrast.
+
+134
+00:09:57,340 --> 00:09:58,879
+Tohle bylo trochu k lepšímu.
+
+135
+00:10:00,759 --> 00:10:03,980
+Oh, dust, color, contrast.
+
+136
+00:10:05,019 --> 00:10:06,740
+Ježiš, tohle přece...
+
+137
+00:10:07,980 --> 00:10:13,659
+Apply, žež co to je.
+
+138
+00:10:15,820 --> 00:10:17,600
+No, Apply.
+
+139
+00:10:24,940 --> 00:10:26,639
+Přesystem.
+
+140
+00:10:26,639 --> 00:10:29,820
+To musí být display přece.
+
+141
+00:10:47,159 --> 00:10:47,500
+No,
+
+142
+00:10:50,980 --> 00:10:51,899
+Apply.
+
+143
+00:10:52,700 --> 00:11:06,440
+Četuje otázka, jestli to nemůže být
+
+144
+00:11:06,440 --> 00:11:11,620
+bitrate. Já teda nevím.
+
+145
+00:11:11,679 --> 00:11:13,179
+Zkusím ještě udělat
+
+146
+00:11:13,360 --> 00:11:15,259
+jednu věc.
+
+147
+00:11:15,740 --> 00:11:16,820
+Zkus vypnout
+
+148
+00:11:16,980 --> 00:11:19,980
+HDR-ko, jestli ho máš
+
+149
+00:11:20,120 --> 00:11:21,940
+zapnutý, případně zapnutí
+
+150
+00:11:22,100 --> 00:11:23,659
+akcelerace grafiky v Zoomu.
+
+151
+00:11:25,340 --> 00:11:29,580
+To je dobrý nápad. HDR mám vypnutý.
+
+152
+00:11:29,899 --> 00:11:33,840
+Musím ho tady jako zapnout, jestli se něco změní.
+
+153
+00:11:33,980 --> 00:11:39,279
+Je to lepší nebo ne? Já to tady vidím takový tmavší celý.
+
+154
+00:11:40,100 --> 00:11:42,120
+My teď nevidíme prezentaci.
+
+155
+00:11:42,299 --> 00:11:43,919
+Už se odsekla, ale...
+
+156
+00:11:43,919 --> 00:11:46,120
+Jo, prezentace tady.
+
+157
+00:11:46,320 --> 00:11:48,720
+Vypadá to nadějně.
+
+158
+00:11:49,500 --> 00:11:51,399
+Já to vidím lepší jako o dost.
+
+159
+00:11:52,059 --> 00:11:54,620
+No není to lepší, není to lepší, to byl jen ten slide.
+
+160
+00:11:55,100 --> 00:11:59,539
+Aha, dobře. Lepší to možná je, ale ne o moc ještě.
+
+161
+00:11:59,600 --> 00:12:07,679
+Dobře, tak ještě zkusíme teda, co jste to říkali, vypnout v Zoomu...
+
+162
+00:12:07,879 --> 00:12:10,559
+Hardzerová akcelerace grafiky by někde měla být.
+
+163
+00:12:12,419 --> 00:12:16,259
+... převyšel, že to může být, share.
+
+164
+00:12:18,500 --> 00:12:24,460
+Já vlastně sdílim obrazovku, host only, ok, teď zopak nic nevidím, jo.
+
+165
+00:12:28,220 --> 00:12:32,100
+Use hardware acceleration for screen sharing.
+
+166
+00:12:32,419 --> 00:12:34,240
+Tak buď to zapnout nebo vypnout.
+
+167
+00:12:34,639 --> 00:12:40,200
+Screen share. Advanced. Dole.
+
+168
+00:12:40,200 --> 00:12:42,700
+Aha, advanced.
+
+169
+00:12:44,820 --> 00:12:50,960
+No nebo pro screen sharing něco tady, nevím, kde se to potom ještě potvrduje.
+
+170
+00:12:51,000 --> 00:12:54,580
+... window, nic, show screen border, to je nic.
+
+171
+00:12:56,139 --> 00:12:58,879
+... by side silence.
+
+172
+00:12:59,559 --> 00:13:01,580
+Tady nic moc nevidím.
+
+173
+00:13:01,679 --> 00:13:04,139
+Otázka, jestli to není třeba pro nový sdílení.
+
+174
+00:13:05,100 --> 00:13:07,240
+Je to možný.
+
+175
+00:13:07,360 --> 00:13:09,799
+Já ještě zkusím tady s tím si pohrát.
+
+176
+00:13:10,000 --> 00:13:11,860
+Original ratio, nic ne.
+
+177
+00:13:11,940 --> 00:13:16,000
+To je ještě pro Logitech, já nemám podle mě ten Logitech zapnutý teďko.
+
+178
+00:13:17,559 --> 00:13:20,440
+Nebylo selfie, ne.
+
+179
+00:13:20,440 --> 00:13:21,940
+Nic.
+
+180
+00:13:22,519 --> 00:13:25,019
+Dobře, ještě mě napadá...
+
+181
+00:13:25,519 --> 00:13:28,679
+Zkusit fullscreen té prezentace, jestli se to třeba nezlepší.
+
+182
+00:13:30,759 --> 00:13:32,679
+F1.
+
+183
+00:13:32,740 --> 00:13:33,500
+No.
+
+184
+00:13:34,279 --> 00:13:37,299
+To je to lepší.
+
+185
+00:13:40,879 --> 00:13:42,679
+Pojď mi na ten, no.
+
+186
+00:13:42,779 --> 00:13:44,879
+Ten malý text je špatně čitelný.
+
+187
+00:13:44,879 --> 00:13:46,419
+Asi by se to dohalo, ale
+
+188
+00:13:46,519 --> 00:13:47,620
+nevím no.
+
+189
+00:13:48,100 --> 00:13:49,480
+Znouze velmi za mě teda.
+
+190
+00:13:49,539 --> 00:13:52,600
+Na tomhle, z tom screenu ty texty nejsou čitelné,
+
+191
+00:13:52,600 --> 00:13:54,399
+ale ten zbytek vypadal použitelně.
+
+192
+00:13:54,460 --> 00:13:55,960
+Tak pošli screen do
+
+193
+00:13:56,639 --> 00:13:58,179
+Discordu a pokračujme.
+
+194
+00:13:58,639 --> 00:14:01,559
+Ještě zkusím jednu věc.
+
+195
+00:14:01,779 --> 00:14:04,360
+Ještě zkusím, kde to mám ten zoom?
+
+196
+00:14:04,679 --> 00:14:05,759
+Tady. Share.
+
+197
+00:14:07,059 --> 00:14:09,379
+A zkusím našerovat takhle screen.
+
+198
+00:14:10,559 --> 00:14:15,779
+Co teď? Je to čitelný?
+
+199
+00:14:18,120 --> 00:14:19,480
+Ani náhodou.
+
+200
+00:14:19,779 --> 00:14:20,600
+Ne, už to naskočilo?
+
+201
+00:14:20,620 --> 00:14:22,379
+Ano, to naskočilo.
+
+202
+00:14:23,700 --> 00:14:26,019
+Za mě ty malé texty nic moc teda.
+
+203
+00:14:27,019 --> 00:14:30,399
+Je to lepší, ale ty malé texty, to už bude obrázkem asi.
+
+204
+00:14:31,179 --> 00:14:38,940
+Ale asi máme všichni přístup těm slajdům, takže asi jako když ten nějakej slajd bude horšitelný, asi by to znovu se šlo otevřít stranou.
+
+205
+00:14:39,480 --> 00:14:45,220
+Dobře, ještě udělám, je to lepší teda než to bylo předtím, nebo se mám rádi k tomu, co bylo předtím?
+
+206
+00:14:46,620 --> 00:14:48,019
+Podle mě to něco zmenilo.
+
+207
+00:14:48,799 --> 00:14:49,919
+Nic se nezměnilo.
+
+208
+00:14:49,919 --> 00:14:50,279
+Absolutně.
+
+209
+00:14:50,360 --> 00:14:52,299
+Teďka ten slide vidím dobře teda.
+
+210
+00:14:52,539 --> 00:14:55,360
+Teď je to v pohodě celkem.
+
+211
+00:14:55,360 --> 00:14:56,500
+Teď je to čistší.
+
+212
+00:14:56,759 --> 00:15:00,399
+Dobře, takže to bylo tímhle tím, že ten obrázek je malej teda.
+
+213
+00:15:00,419 --> 00:15:02,159
+Tento je asi problém můj.
+
+214
+00:15:02,360 --> 00:15:06,779
+Dobrý, tak já na to mám řešení, takže já udělám jednu věc.
+
+215
+00:15:08,639 --> 00:15:11,019
+Já udělám jednu věc.
+
+216
+00:15:11,019 --> 00:15:16,039
+Share a tadyhleto okno našeru znova.
+
+217
+00:15:16,259 --> 00:15:18,580
+Tě tam vidíte v rohu teda.
+
+218
+00:15:20,700 --> 00:15:22,899
+se nasdílelo nebo ne.
+
+219
+00:15:27,879 --> 00:15:29,779
+Tak tohle mám tady.
+
+220
+00:15:29,799 --> 00:15:31,940
+A kde mám ty prezentace? Tady.
+
+221
+00:15:33,799 --> 00:15:37,240
+Tohle já jsem chtěl odevřít si tady browser.
+
+222
+00:15:38,240 --> 00:15:41,340
+Jo to mám tady. To mám tady, to je dobrý.
+
+223
+00:15:42,019 --> 00:15:45,720
+Takže odevřu tady browser a odevřu ten obrázek normálně ve
+
+224
+00:15:46,000 --> 00:15:50,620
+v Draw.io, kde jsem to maloval.
+
+225
+00:15:51,039 --> 00:15:54,340
+A podíváme se již tak na ten obrázek, tam já můžu zoomovat.
+
+226
+00:15:55,799 --> 00:15:57,659
+Takže zkusíme tohle.
+
+227
+00:15:59,419 --> 00:16:00,620
+Tady to vidíte líp?
+
+228
+00:16:02,039 --> 00:16:03,600
+Ještě se nepřeplav?
+
+229
+00:16:06,480 --> 00:16:11,080
+Jo, ono je to pauzlý tady, jak je to možný. Stop share.
+
+230
+00:16:11,860 --> 00:16:17,860
+Ještě jednou. Share application window.
+
+231
+00:16:20,100 --> 00:16:22,700
+To je trojka tady.
+
+232
+00:16:23,519 --> 00:16:26,899
+Já jsem chtěl application window tohle.
+
+233
+00:16:29,419 --> 00:16:30,899
+Share. Teď to vidíte?
+
+234
+00:16:32,519 --> 00:16:33,460
+Začítá se.
+
+235
+00:16:34,539 --> 00:16:35,460
+Jo.
+
+236
+00:16:35,879 --> 00:16:36,600
+Ale je to lepší.
+
+237
+00:16:36,600 --> 00:16:37,820
+Ano, ano.
+
+238
+00:16:39,259 --> 00:16:48,299
+Tak fajn, takže obrázky, teda ty grafy budeme koukat normálně v originálu v tom Draw.io, tam já můžu zoomovat takhle, takže tam to ještě tak je lepší.
+
+239
+00:16:48,440 --> 00:16:49,600
+A tebe nevidíme.
+
+240
+00:16:49,879 --> 00:17:03,240
+Mě nevidíte, jo. Tak ačkej, ještě jednou sharing a já musím bejt full projector screen share. Teď byste mě měli vidět.
+
+241
+00:17:04,460 --> 00:17:05,000
+Jo, jo.
+
+242
+00:17:05,000 --> 00:17:05,420
+Ano.
+
+243
+00:17:06,220 --> 00:17:08,359
+Super, tak jo. Tak jdeme na to.
+
+244
+00:17:09,599 --> 00:17:13,240
+To znamená, že dneska to bude o prompt engineeringu.
+
+245
+00:17:13,480 --> 00:17:18,619
+Jednak si řekneme tak nějak, jak AI software vypadá, to bude na začátku,
+
+246
+00:17:18,680 --> 00:17:24,259
+abyste se dokázali ukotvit v tom, kde vlastně takovej AI engineer funguje
+
+247
+00:17:24,259 --> 00:17:26,319
+a jak takovej AI software vypadá.
+
+248
+00:17:27,400 --> 00:17:32,660
+Předpokládám, že tak nějak znáte, jak normální software vypadá,
+
+249
+00:17:32,779 --> 00:17:36,539
+nebo webový software vypadá, že to má webovou aplikaci a nějaké API,
+
+250
+00:17:36,680 --> 00:17:40,599
+zatím je nějaká databáze, takže je to taková jednoduchá architektura.
+
+251
+00:17:41,099 --> 00:17:42,799
+Nebo pak máme mikroservisy.
+
+252
+00:17:43,779 --> 00:17:48,559
+Takže si to nějak tak jako porovnáme, abyste v tom měli trošku větší pořádek.
+
+253
+00:17:48,559 --> 00:17:50,140
+Takže AI software bude jedna část.
+
+254
+00:17:50,480 --> 00:17:53,740
+Druhá část bude prompt engineering, tam si ukážeme...
+
+255
+00:17:54,960 --> 00:17:59,220
+Prompt engineering byl jednu dobu takovej hrozný buzzword.
+
+256
+00:17:59,779 --> 00:18:04,180
+Říkalo se, že vznikají pozice ve firmách na prompt ingeniera.
+
+257
+00:18:04,660 --> 00:18:07,160
+Já jsem tomu nevěřil, nikdy jsem žádnou neviděl.
+
+258
+00:18:07,839 --> 00:18:10,980
+Takže si jenom řekneme, o čem ten prompt engineering je
+
+259
+00:18:11,440 --> 00:18:14,019
+a nakonec si ukážeme benchmarking,
+
+260
+00:18:14,019 --> 00:18:18,720
+neboli jak vy můžete ohodnotit takovej velkej jazykovej model
+
+261
+00:18:19,220 --> 00:18:20,819
+v závislosti na tom, jak se vám to připravová.
+
+262
+00:18:21,240 --> 00:18:26,599
+jak umí matematiku, jak vyhovuje vašemu use caseu konkrétnímu,
+
+263
+00:18:26,660 --> 00:18:30,980
+jak si takový benchmarking pro velký jazykový model udělá,
+
+264
+00:18:31,299 --> 00:18:32,700
+jak takový vypadá.
+
+265
+00:18:33,599 --> 00:18:39,839
+Takže AI software, ještě tady koukám, jo, dobrý.
+
+266
+00:18:40,660 --> 00:18:46,779
+Takže nějaký naivní pohled toho, jak AI vypadá,
+
+267
+00:18:47,079 --> 00:18:50,319
+tak asi si umíte představit, že máte uživatele,
+
+268
+00:18:51,359 --> 00:18:53,980
+uživatele a ten si povídá s nějakým AI.
+
+269
+00:18:54,059 --> 00:18:56,000
+Ať už je to Cloud, ať už je to Grok,
+
+270
+00:18:56,000 --> 00:18:57,259
+či GPT, Gemini.
+
+271
+00:18:57,339 --> 00:19:00,079
+Tak to je hodně naivní pohled
+
+272
+00:19:00,319 --> 00:19:02,000
+a ještě naivnější je
+
+273
+00:19:02,000 --> 00:19:03,819
+si myslet, že to běží na tom
+
+274
+00:19:04,019 --> 00:19:05,660
+lokálním zařízení.
+
+275
+00:19:05,920 --> 00:19:07,779
+To vaše zařízení většinou
+
+276
+00:19:08,240 --> 00:19:09,619
+není v 90%
+
+277
+00:19:09,619 --> 00:19:12,099
+není tak výkonný, nebo v 99%
+
+278
+00:19:12,099 --> 00:19:13,500
+není tak výkonný, aby tam mohl
+
+279
+00:19:13,640 --> 00:19:15,339
+nějaký AI běžet.
+
+280
+00:19:15,539 --> 00:19:17,720
+Samozřejmě je to cíl a tak to nakonec
+
+281
+00:19:17,720 --> 00:19:18,740
+dopadne.
+
+282
+00:19:18,819 --> 00:19:23,380
+aby jsme měli AI modely a běželi vám na hodinkách a na mobilech a tak dále.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

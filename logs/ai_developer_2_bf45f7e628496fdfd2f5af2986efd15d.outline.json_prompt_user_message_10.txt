@@ -1,0 +1,1067 @@
+Transcript:
+
+=================
+2417
+02:28:13,659 --> 02:28:15,880
+A vy si můžete u toho Deepseeku všimnout,
+
+2418
+02:28:15,880 --> 02:28:17,920
+i na videích, co uvidíte,
+
+2419
+02:28:18,180 --> 02:28:21,180
+tak lidi, když se ho zeptají na ten Tiaman Square,
+
+2420
+02:28:21,500 --> 02:28:22,619
+co se tam stalo,
+
+2421
+02:28:23,119 --> 02:28:25,239
+tak vám vlastně začne odpovídat,
+
+2422
+02:28:25,880 --> 02:28:34,260
+a pak vlastně smaže tu odpověď a napíše, o tomhle se třeba nebudeme bavit nebo něco takovýho.
+
+2423
+02:28:34,319 --> 02:28:38,880
+A tam je hezky vidět, jak on vlastně o tom pak začne přemýšlet.
+
+2424
+02:28:38,880 --> 02:28:50,000
+To znamená, tady ty tokény TING jsou specificky určený k tomu, aby on vlastně si jako zamyslel, vygeneroval si něco do toho párovýho takového TING,
+
+2425
+02:28:50,380 --> 02:28:53,360
+a na základě toho pak pokračoval dál.
+
+2426
+02:28:53,360 --> 02:28:57,280
+A tady jsou všechny tokeny, které vlastně v tom tokenizoru
+
+2427
+02:28:57,299 --> 02:28:59,380
+neboli v tom modelu jsou použitý.
+
+2428
+02:28:59,380 --> 02:29:02,959
+Tady uvidíte ty toolkoly, že mají speciální tokeny
+
+2429
+02:29:03,059 --> 02:29:05,200
+v rámci toho natrénování.
+
+2430
+02:29:05,340 --> 02:29:08,760
+Tady vidíte, že user message má speciální token,
+
+2431
+02:29:09,000 --> 02:29:10,979
+assistant message má speciální token
+
+2432
+02:29:11,399 --> 02:29:14,799
+a co jsem vám chtěl ukázat je, že tady je jeden token,
+
+2433
+02:29:14,940 --> 02:29:18,059
+který je určenej system messagee.
+
+2434
+02:29:19,719 --> 02:29:28,840
+A teď ho tady zrovna tady u toho modulu nevidím teda, ale myslím, že to je beginning sentence, to se mi teda úplně nezdá.
+
+2435
+02:29:31,479 --> 02:29:34,760
+Think, BIM, hold, begin.
+
+2436
+02:29:36,479 --> 02:29:40,760
+Tady teda to úplně nevidím popravdě, já vám to ukážu na jiném.
+
+2437
+02:29:41,860 --> 02:29:47,119
+Já vám to ukážu na Lamě, nebo na Mistralu.
+
+2438
+02:29:49,020 --> 02:29:58,360
+Tak, tady jsou nějaký rezervovaný tokeny, speciální tokeny.
+
+2439
+02:30:00,000 --> 02:30:04,159
+beginning of text, start header ID, end header ID.
+
+2440
+02:30:04,159 --> 02:30:06,899
+Teď bych vám nerad kecal, já LAMu moc
+
+2441
+02:30:07,940 --> 02:30:10,799
+nepoužívám, to ukážu u toho Mistralu,
+
+2442
+02:30:10,840 --> 02:30:12,959
+protože tam jsem si jistý, jak to vypadá.
+
+2443
+02:30:14,120 --> 02:30:16,819
+A zase, až se k tomu dostaneme a bude víc času,
+
+2444
+02:30:16,879 --> 02:30:19,079
+tak se můžeme poját i do dokumentace tý LAMy,
+
+2445
+02:30:19,079 --> 02:30:21,299
+a tam by to mělo být specifikovaný.
+
+2446
+02:30:22,260 --> 02:30:26,459
+Takže tadyhle v tom tokenizoru já vidím, že tato s
+
+2447
+02:30:27,299 --> 02:30:31,040
+je vlastně ta systémová message, která tam jde.
+
+2448
+02:30:31,059 --> 02:30:34,280
+A pak tady máte instrukci, což je ta uživatelová zpráva
+
+2449
+02:30:34,940 --> 02:30:40,760
+a pak zase za ní máte odpověď toho asistenta.
+
+2450
+02:30:41,079 --> 02:30:46,860
+Vidíte, že tady máte i ty tooly, mají speciální tokeny.
+
+2451
+02:30:47,379 --> 02:30:51,139
+Toto tokenizr si představte jako tabulku, překladač
+
+2452
+02:30:51,940 --> 02:30:57,299
+a veškerý text se překládá do určitýho formátu.
+
+2453
+02:30:57,399 --> 02:31:02,079
+A to, jaký formát to bude mít, definuje tadyhle tokenizer.
+
+2454
+02:31:04,159 --> 02:31:07,280
+A tyhle tokény, které vám ukazuji, jsou speciální tokény.
+
+2455
+02:31:07,399 --> 02:31:10,340
+To nejsou všechny tokény, které jsou v dispozici.
+
+2456
+02:31:10,420 --> 02:31:16,100
+Ty bysme viděli tady, v té tabulce, které konec koncu já vám můžu ukázat tady v tom CSV.
+
+2457
+02:31:16,180 --> 02:31:23,280
+A jakýkoliv text, který vy napíšete, tak se podle tohoto překladače
+
+2458
+02:31:24,520 --> 02:31:28,540
+přeloží, takže tady vidíte zrovna jako písmena teda,
+
+2459
+02:31:28,780 --> 02:31:31,139
+ale pokud budeme scrollovat dát, tak tady už máte
+
+2460
+02:31:31,260 --> 02:31:32,719
+vlastně poloslova.
+
+2461
+02:31:32,719 --> 02:31:34,940
+Tohle je speciální token.
+
+2462
+02:31:35,159 --> 02:31:38,639
+To by mě zajímalo, co, když do Lamy 3 vložím tadyhle to,
+
+2463
+02:31:39,520 --> 02:31:40,639
+co se teda stane.
+
+2464
+02:31:40,799 --> 02:31:44,239
+Protože tohle to má speciální token, to není úplně,
+
+2465
+02:31:44,700 --> 02:31:46,459
+no teď kde mám tady ten,
+
+2466
+02:31:46,459 --> 02:31:53,659
+to není úplně běžný token,
+
+2467
+02:31:55,260 --> 02:31:58,600
+Lama 3, já chci novej.
+
+2468
+02:31:58,739 --> 02:32:00,040
+Lama 3.
+
+2469
+02:32:00,959 --> 02:32:02,719
+A teď nevím, jestli to je Lama 3
+
+2470
+02:32:02,760 --> 02:32:04,379
+nebo Lama 3.2.
+
+2471
+02:32:08,440 --> 02:32:10,620
+Tak je zareagovat se ještě v pohodě.
+
+2472
+02:32:11,239 --> 02:32:12,780
+Čekal jsem něco horšího.
+
+2473
+02:32:13,260 --> 02:32:15,000
+Tak tady vlastně týmhle tím překladačem
+
+2474
+02:32:15,100 --> 02:32:17,040
+vidíte všechny ty tokeny,
+
+2475
+02:32:17,399 --> 02:32:18,739
+na co se to překládá.
+
+2476
+02:32:18,739 --> 02:32:20,200
+Ještě když už jsme teda u toho,
+
+2477
+02:32:20,659 --> 02:32:23,659
+tak pokud by to někoho víc zajímalo,
+
+2478
+02:32:24,180 --> 02:32:25,079
+tak tokenizer
+
+2479
+02:32:25,079 --> 02:32:26,520
+OpenAI.
+
+2480
+02:32:28,399 --> 02:32:29,139
+TikToken
+
+2481
+02:32:30,200 --> 02:32:37,200
+TikToken online tokenizer.
+
+2482
+02:32:38,059 --> 02:32:41,799
+Ne, tady byla taková hezká stránka.
+
+2483
+02:32:41,940 --> 02:32:46,760
+TikTokenizer. Já jsem to zapomněl.
+
+2484
+02:32:48,620 --> 02:32:51,639
+Online tokenizer.
+
+2485
+02:32:52,200 --> 02:32:54,540
+OpenAI.
+
+2486
+02:32:56,059 --> 02:33:00,319
+OpenAI tokenizer to ne. Tokenization. OpenAI.
+
+2487
+02:33:00,620 --> 02:33:06,100
+Je to blzdrna. Ježišmarja.
+
+2488
+02:33:08,239 --> 02:33:09,819
+Jo, tohle je ono.
+
+2489
+02:33:10,360 --> 02:33:12,399
+Tady když napíšete jakýkoliv text,
+
+2490
+02:33:12,520 --> 02:33:13,940
+tak on vám to ukáže,
+
+2491
+02:33:14,000 --> 02:33:17,979
+hezky do jakých tokenů se to přiloží.
+
+2492
+02:33:17,979 --> 02:33:19,420
+Tak já tady mám,
+
+2493
+02:33:19,420 --> 02:33:21,120
+mám tu nějakou zprávu od vás.
+
+2494
+02:33:22,120 --> 02:33:23,260
+A tady přesně vidíte,
+
+2495
+02:33:23,260 --> 02:33:27,180
+jak on vlastně parsuje ten text na tokeny.
+
+2496
+02:33:27,180 --> 02:33:29,299
+Takže vidíte, že to není co slovo,
+
+2497
+02:33:29,299 --> 02:33:31,479
+to jde do toho modelu,
+
+2498
+02:33:31,479 --> 02:33:33,440
+nebo to, jak to chápe,
+
+2499
+02:33:33,440 --> 02:33:34,639
+ale on to chápe,
+
+2500
+02:33:35,459 --> 02:33:40,959
+Tohle je pro něj prostě separátní token, tohle je pro něj separátní token.
+
+2501
+02:33:40,959 --> 02:33:46,799
+A takže je to takový, tady pak vidíte IDčka těch tokenů, který opravdu jdou do toho modelu.
+
+2502
+02:33:46,799 --> 02:33:50,479
+Tohle je to, co jde do toho modelu. A tohle je to, co ten model generuje.
+
+2503
+02:33:50,799 --> 02:33:55,059
+Jakmile vygeneruje tyhle čísla, tak to jde do toho překladače, do toho tokenizoru,
+
+2504
+02:33:55,059 --> 02:33:58,059
+a ten z toho zase zpátky udělá vlastně tenhle ten text.
+
+2505
+02:33:58,059 --> 02:34:02,360
+Tak to jenom abyste, ne pro příště, ještě se o tom budeme bavit, takže.
+
+2506
+02:34:03,040 --> 02:34:08,540
+Tak, čiže takovýto manuální benchmark budeme robit v praktickém cvičení?
+
+2507
+02:34:09,059 --> 02:34:11,979
+Vy to máte za domácí úkol teďko.
+
+2508
+02:34:12,260 --> 02:34:15,879
+A teďko já jsem schválně to nechal otevřený na vás.
+
+2509
+02:34:15,899 --> 02:34:18,799
+A teď zkusím tady, kde mám ten...
+
+2510
+02:34:20,559 --> 02:34:23,399
+Classroom.
+
+2511
+02:34:27,020 --> 02:34:31,020
+A tady je domácí cvičení pro vás.
+
+2512
+02:34:31,780 --> 02:34:33,059
+Praktické cvičení.
+
+2513
+02:34:33,879 --> 02:34:37,600
+aby vy jste si vybrali určitou doménu,
+
+2514
+02:34:37,700 --> 02:34:41,979
+ve které chcete otestovat výkon nebo výkonnost
+
+2515
+02:34:42,559 --> 02:34:46,200
+určitýho jazykovýho modelu nebo více jazykových modelů.
+
+2516
+02:34:46,260 --> 02:34:49,120
+Teď to nechám právě na vás, aby vy jste si zvolili to,
+
+2517
+02:34:49,120 --> 02:34:53,860
+co je vám nejbližší nějakému vašemu reálnímu použití.
+
+2518
+02:34:53,899 --> 02:34:57,680
+Buď budete porovnávat mezi sebou vícero modelů
+
+2519
+02:34:57,680 --> 02:35:02,100
+z hlediska toho, jak třeba uměj generovat unitesty,
+
+2520
+02:35:02,799 --> 02:35:03,719
+nebo si vyberete...
+
+2521
+02:35:05,100 --> 02:35:06,899
+jeden model a zkusíte více
+
+2522
+02:35:07,360 --> 02:35:09,159
+do prompt engineering technik.
+
+2523
+02:35:09,200 --> 02:35:10,500
+Schválně proto jsem vám
+
+2524
+02:35:10,799 --> 02:35:13,000
+do toho dal, do toho kódu,
+
+2525
+02:35:13,739 --> 02:35:15,239
+jak víc modelů, tak víc
+
+2526
+02:35:15,239 --> 02:35:17,200
+prompt engineering technik.
+
+2527
+02:35:19,600 --> 02:35:21,319
+Teď schválně
+
+2528
+02:35:21,319 --> 02:35:22,780
+jsem nechám na vás,
+
+2529
+02:35:23,500 --> 02:35:25,100
+abyste provedli ten benchmark
+
+2530
+02:35:25,360 --> 02:35:27,020
+a zaznamali odpovědi.
+
+2531
+02:35:27,500 --> 02:35:28,659
+A teďkon,
+
+2532
+02:35:29,479 --> 02:35:31,340
+jasně, aplikujte metody
+
+2533
+02:35:31,340 --> 02:35:33,459
+prompt engineeringu, tím ale
+
+2534
+02:35:33,700 --> 02:35:35,059
+znovu zdůraznuju,
+
+2535
+02:35:35,700 --> 02:35:37,579
+nechám to na vás,
+
+2536
+02:35:37,639 --> 02:35:39,540
+jestli vy si budete testovat
+
+2537
+02:35:39,659 --> 02:35:41,239
+spíš metody prompt engineeringu
+
+2538
+02:35:41,340 --> 02:35:43,219
+nebo testovat modely mezi sebou.
+
+2539
+02:35:43,459 --> 02:35:45,799
+Každopádně ty výsledky tak nějak porovnejte
+
+2540
+02:35:46,540 --> 02:35:47,719
+a dodejte mi
+
+2541
+02:35:49,020 --> 02:35:55,500
+V jakýkoliv formě je vám to nejbližší, tak mi dodejte ty výsledky.
+
+2542
+02:35:55,520 --> 02:36:01,120
+Takže buď nějaký Excel, nebo to bude PDF, nebo to bude ručně napsaný,
+
+2543
+02:36:01,139 --> 02:36:04,780
+prosím, ať to hlavně přečtu a vyfocený, je mi to tak nějak jedno.
+
+2544
+02:36:04,819 --> 02:36:09,819
+Spíš mi jde o to, aby vy jste si prakticky vyzkoušeli a porovnali mezi sebou
+
+2545
+02:36:10,340 --> 02:36:14,239
+z hlediska nějaký výkonnosti ty jazykový modely.
+
+2546
+02:36:15,000 --> 02:36:18,020
+Jestli to budete dělat automaticky pomocí skriptu,
+
+2547
+02:36:18,399 --> 02:36:21,739
+jako jsem vám ukázal, nebo jako máte v tom zdrojáku,
+
+2548
+02:36:21,940 --> 02:36:25,500
+tak prosím, dodejte ten skript, nejenom ten výsledek.
+
+2549
+02:36:25,799 --> 02:36:28,239
+Pokud to budete dělat manuálně,
+
+2550
+02:36:29,139 --> 02:36:34,340
+tak mi zkuste aspoň naznačit, jakým způsobem jste je hodnotili.
+
+2551
+02:36:34,440 --> 02:36:36,120
+Jestli to hodnocení bylo,
+
+2552
+02:36:36,139 --> 02:36:39,719
+a teď myslím, neabyste mi popisovali u každého,
+
+2553
+02:36:41,139 --> 02:36:44,100
+jakou jste jim dali známku,
+
+2554
+02:36:44,120 --> 02:36:46,559
+ale spíš, abyste mi ukázali,
+
+2555
+02:36:47,780 --> 02:36:50,459
+tak kde to mám, benchmarking,
+
+2556
+02:36:50,459 --> 02:36:52,100
+ne, já to mám v tom výjezku,
+
+2557
+02:36:52,520 --> 02:36:54,420
+abyste mi ukázali
+
+2558
+02:37:00,680 --> 02:37:01,879
+tuhletu tabulku.
+
+2559
+02:37:02,879 --> 02:37:05,559
+Jestli jim dáváte 2, 1 nebo 0,
+
+2560
+02:37:05,559 --> 02:37:10,059
+nebo jestli jste jim dali 10, 5 a až 0,
+
+2561
+02:37:10,059 --> 02:37:11,319
+nebo jestli jste měli
+
+2562
+02:37:12,260 --> 02:37:14,459
+větší škálu toho hodnocení,
+
+2563
+02:37:14,540 --> 02:37:16,840
+jenom tahle tu tabulku mi dodejte,
+
+2564
+02:37:17,739 --> 02:37:19,819
+na co jste to testovali.
+
+2565
+02:37:20,280 --> 02:37:23,219
+To, jaký promty jste jim vytvářeli,
+
+2566
+02:37:23,219 --> 02:37:24,899
+pokud budete chtít, tak mi to určitě
+
+2567
+02:37:24,940 --> 02:37:25,879
+dejte taky.
+
+2568
+02:37:26,299 --> 02:37:28,500
+Pokud to nebudete mít v nějakém
+
+2569
+02:37:28,500 --> 02:37:30,059
+prezentovatelném formátu,
+
+2570
+02:37:30,420 --> 02:37:32,059
+tak mi stačí ty výsledky
+
+2571
+02:37:32,200 --> 02:37:34,379
+a ta škála toho hodnocení,
+
+2572
+02:37:34,399 --> 02:37:35,559
+který jste k tomu použili.
+
+2573
+02:37:38,200 --> 02:37:40,459
+Takže to je v tom Classroomu
+
+2574
+02:37:40,459 --> 02:37:42,340
+tady to praktické cvičení.
+
+2575
+02:37:44,299 --> 02:37:48,600
+Tak je u ty linking modelů vidětých interních děl.
+
+2576
+02:37:48,920 --> 02:37:52,340
+Google AI má hezky vidět Chain of Thought i přímo na webu.
+
+2577
+02:37:52,520 --> 02:37:54,840
+Tak to se schválně podívám.
+
+2578
+02:37:57,899 --> 02:38:02,920
+Zkusím se ozeptat na nějakou otázku toho reasoningu.
+
+2579
+02:38:03,719 --> 02:38:06,440
+Prompt engineering, testovací otázky.
+
+2580
+02:38:07,420 --> 02:38:11,079
+A tady zkusím ty sviče.
+
+2581
+02:38:11,260 --> 02:38:13,959
+Jsem docela dobloký hezkým mentálním cvičením.
+
+2582
+02:38:16,920 --> 02:38:17,920
+Tak ukážu.
+
+2583
+02:38:18,899 --> 02:38:23,819
+A teď se Google AI Studio, dobře, tak jo, Thinking.
+
+2584
+02:38:24,920 --> 02:38:27,319
+Jo tady, Unveiling Connection, jojojo.
+
+2585
+02:38:27,479 --> 02:38:30,940
+To má ale myslím si, GPD taky.
+
+2586
+02:38:32,860 --> 02:38:36,860
+No já zkusím tuhletu otrojku.
+
+2587
+02:38:37,819 --> 02:38:41,219
+Nebo aspoň to měla, že se to tady taky dalo rozkliknout.
+
+2588
+02:38:43,340 --> 02:38:45,059
+Teď už to nevypadá teda.
+
+2589
+02:38:46,340 --> 02:38:47,659
+Hm, teď už to nevypadá.
+
+2590
+02:38:48,319 --> 02:38:51,120
+Tak to Google AI to má hezčí teda, to je pravda.
+
+2591
+02:38:53,620 --> 02:38:56,159
+Na druhou stranu, jak často to čtete,
+
+2592
+02:38:56,500 --> 02:39:02,780
+ale aspoň pro ty edukační principy to dává smysl.
+
+2593
+02:39:03,659 --> 02:39:06,120
+Tak jo, jsou tady ještě nějaké jiné otázky
+
+2594
+02:39:06,219 --> 02:39:07,799
+ohledně toho prompt engineeringu?
+
+2595
+02:39:07,819 --> 02:39:09,540
+Nebo takhle je to v pohodě?
+
+2596
+02:39:12,280 --> 02:39:16,600
+Nechám tady pár minut, kdyby si někdo něco vzpomněl.
+
+2597
+02:39:17,600 --> 02:39:19,879
+Nebo nějakou jinou otázku, jestli budete mít?
+
+2598
+02:39:21,920 --> 02:39:23,139
+Kledně ještě píšte.
+
+2599
+02:39:29,219 --> 02:39:33,780
+Na minulém meetingu jsi popisoval, že si na vycházce povídáš s Ea v reálním čase.
+
+2600
+02:39:33,780 --> 02:39:37,020
+Opravdu to probíhá jako konverzace pouze mikrofona, slouchátka,
+
+2601
+02:39:37,020 --> 02:39:39,600
+nebo člověk musí pořád koukat na obrazovku mobilu?
+
+2602
+02:39:39,739 --> 02:39:41,299
+Ne, ne, ne.
+
+2603
+02:39:41,299 --> 02:39:42,520
+Já mám...
+
+2604
+02:39:43,840 --> 02:39:45,739
+Já to tady ukážu na kameru.
+
+2605
+02:39:49,280 --> 02:39:52,360
+Co jsem tady dneska neukázal, to je pravda, to jsem neukázal.
+
+2606
+02:39:53,219 --> 02:39:55,120
+Jsou ty aplikace, že jo.
+
+2607
+02:39:55,420 --> 02:39:57,940
+Protože CGPT má aplikaci,
+
+2608
+02:39:58,260 --> 02:40:01,520
+takže to není webová verze, ale je to aplikace.
+
+2609
+02:40:01,819 --> 02:40:03,879
+A to tady má taky to dictate.
+
+2610
+02:40:05,219 --> 02:40:06,760
+Jo, voice mode, tohle je ono.
+
+2611
+02:40:07,040 --> 02:40:08,899
+Tohle je ono, to, co já používám,
+
+2612
+02:40:08,920 --> 02:40:10,139
+ale já to používám na mobilu
+
+2613
+02:40:10,479 --> 02:40:12,639
+a vlastně tohle to zmáčknu a teď se s ním
+
+2614
+02:40:12,639 --> 02:40:14,500
+vlastně takhle povídám,
+
+2615
+02:40:14,500 --> 02:40:16,159
+teď mu teda musím dát práva
+
+2616
+02:40:16,559 --> 02:40:18,340
+a teď přesně tohle toho vidím na tom mobilu
+
+2617
+02:40:18,440 --> 02:40:20,600
+a takhle se s ním povídám a teď, když přestanu mluvit,
+
+2618
+02:40:20,760 --> 02:40:21,860
+tak on mi začne odpovídat.
+
+2619
+02:40:23,459 --> 02:40:31,680
+Tohle zní jako scénář, kdy máš v telefonu spuštěnou aplikaci na rozpoznávání řeči nebo asistenta.
+
+2620
+02:40:46,260 --> 02:40:49,100
+Takže tohle je to, co používám na tom mobilu.
+
+2621
+02:40:49,100 --> 02:40:52,479
+Jde to teda i na počítači, co já teda vidím,
+
+2622
+02:40:52,579 --> 02:40:55,180
+v té aplikaci, ne na webu asi.
+
+2623
+02:40:55,399 --> 02:40:56,280
+Teď to teda vyzkouším.
+
+2624
+02:40:56,379 --> 02:40:57,639
+Jo, má to tady taky VoiceOver,
+
+2625
+02:40:57,639 --> 02:40:59,620
+takže tohle to můžete použít na webu taky.
+
+2626
+02:41:00,260 --> 02:41:07,040
+Já proč nepoužívám ty aplikace, používám spíš ten web, protože já mám více záložek prostě odevřených najednou.
+
+2627
+02:41:07,040 --> 02:41:12,059
+To v té aplikaci nejde, tam máte vždycky jenom jeden chat a pak musíte mezi nimi překlikávat.
+
+2628
+02:41:12,100 --> 02:41:18,680
+Já často mám rozepsanej ten prompt, odevřu si jinou záložku, tam zase zeptám o něco jiného.
+
+2629
+02:41:18,860 --> 02:41:24,299
+Na základě toho, co mi odpoví v té další záložce, já dopíšu ten první prompt v té první záložce.
+
+2630
+02:41:24,500 --> 02:41:27,360
+Takže já to používám spíš tímhle způsobem.
+
+2631
+02:41:27,360 --> 02:41:31,420
+Ještě CGPT není jediný, kdo má aplikaci.
+
+2632
+02:41:31,680 --> 02:41:34,040
+Cloud má taky aplikaci, ale jak říkám,
+
+2633
+02:41:34,040 --> 02:41:36,079
+já preferuju spíš tu webovou verzi,
+
+2634
+02:41:36,079 --> 02:41:37,959
+protože tam můžu mít víc těch záložek.
+
+2635
+02:41:38,500 --> 02:41:40,579
+Tady u toho těch víc záložek nejde,
+
+2636
+02:41:40,700 --> 02:41:42,819
+tady musíte překlikávat mezi těma chatama.
+
+2637
+02:41:43,559 --> 02:41:46,739
+A já ani nevím, jestli když tady něco rozepíšu,
+
+2638
+02:41:47,500 --> 02:41:55,819
+Teď napíšu novej chat, tak jestli se mi to někde, no, nezůstane, tady mi zůstane nějakhle rozepsaný ten první chat, takže
+
+2639
+02:41:56,620 --> 02:42:03,440
+kdyby aspoň šlo mít rozepsáno víc chatů, tak možná, ale preferuju teda spíš tu webovou verzi.
+
+2640
+02:42:05,780 --> 02:42:09,680
+Nějaké existující benchmarky ještě doporučuješ?
+
+2641
+02:42:12,879 --> 02:42:22,440
+Ani ne, ani ne. Já jsem, já jsem preferoval spíš to DSPy.
+
+2642
+02:42:23,020 --> 02:42:25,920
+na to, aby mi vlastně natunil ty prompty,
+
+2643
+02:42:25,959 --> 02:42:27,739
+protože na to to přesně je.
+
+2644
+02:42:27,739 --> 02:42:31,059
+Já místo toho, aby jsem používal tu prompt engineering techniku,
+
+2645
+02:42:31,780 --> 02:42:35,540
+tak jsem spíš dal otázku.
+
+2646
+02:42:35,540 --> 02:42:38,500
+To DSPy vlastně našlo tu nejlepší
+
+2647
+02:42:38,520 --> 02:42:40,420
+prompt engineering techniku,
+
+2648
+02:42:40,459 --> 02:42:44,479
+ať se to zdá magic, jak to zní,
+
+2649
+02:42:44,979 --> 02:42:48,079
+tak najde tu nejoptimálnější techniku
+
+2650
+02:42:49,399 --> 02:42:51,399
+a vloží si pro ten daný model
+
+2651
+02:42:52,399 --> 02:42:57,079
+do JSONu vlastně ty prompty, který k tomu použil.
+
+2652
+02:42:57,100 --> 02:43:00,639
+Takže já jsem se spíš inklinoval k tomu, aby jsem
+
+2653
+02:43:01,239 --> 02:43:03,940
+nemusel ten prompt engineering tolik řešit.
+
+2654
+02:43:03,959 --> 02:43:05,959
+Protože ono, když se nad tím zamyslíte,
+
+2655
+02:43:06,620 --> 02:43:12,520
+a vy i vytvoříte nějaký AI software,
+
+2656
+02:43:13,200 --> 02:43:21,559
+A teď ho, vy to otestujete vlastně na nějakým určitým modelu, tak jak se to chová na ty vaše otázky, když to budete vyvíjet.
+
+2657
+02:43:21,639 --> 02:43:34,920
+A teď si představte, že vyjde nová verze toho modelu. A teď vy máte vlastně v tom vašem AI softwaru nadefinovaný ty systém prompty a ty user message, který do toho large language modelu posíláte.
+
+2658
+02:43:35,159 --> 02:43:36,959
+Vy tam nebudete nikdy představovat.
+
+2659
+02:43:37,799 --> 02:43:42,479
+posílat jenom to, co vám ten uživatel napíše. Ať už je to chatbot, ať už je to
+
+2660
+02:43:42,500 --> 02:43:47,000
+jakákoliv aplikace na vaší webový stránce, která zná vaši firmu
+
+2661
+02:43:47,159 --> 02:43:49,860
+a uživatelé se o ní můžou ptát, ať už je to
+
+2662
+02:43:49,879 --> 02:43:53,340
+nějaký first line support nebo secondary support
+
+2663
+02:43:53,979 --> 02:43:58,139
+nějakýho call centra, to je úplně jedno. Vždycky přijde otázka od uživatelé.
+
+2664
+02:43:58,239 --> 02:44:04,180
+Vy jako v tom AI softwaru tomu dáte nějaký system prompt, system message
+
+2665
+02:44:05,200 --> 02:44:14,840
+Vobalíte to nějakou vaší verzi toho user message, ať už tam napíšete, nebo rozumíte mi, teď nechci tady vymýšlet.
+
+2666
+02:44:15,500 --> 02:44:17,639
+To pošlete do toho large language modelu.
+
+2667
+02:44:17,659 --> 02:44:25,819
+A teď vy to naimplementujete s tím, že se vám to chová dobře s tímhletím určitým jedním large language modelem.
+
+2668
+02:44:25,819 --> 02:44:28,940
+Ale teď vám vyjde nová verze toho modelu.
+
+2669
+02:44:28,979 --> 02:44:30,659
+Ta nová verze může mít nový...
+
+2670
+02:44:30,739 --> 02:44:33,840
+funkčnosti, nebo ty trénovací data se změnily,
+
+2671
+02:44:33,840 --> 02:44:36,139
+nebo se změnily ty guy traily,
+
+2672
+02:44:36,219 --> 02:44:39,120
+nebo se mění ten formát té odpovědi,
+
+2673
+02:44:39,239 --> 02:44:41,920
+nebo si vyberete dokonce jiný i model,
+
+2674
+02:44:41,920 --> 02:44:45,120
+nějaký open source-ovej místo open AI,
+
+2675
+02:44:45,360 --> 02:44:47,299
+a v tu chvíli se vám vlastně mění
+
+2676
+02:44:49,040 --> 02:44:51,260
+ty odpovědi, které to vrací.
+
+2677
+02:44:51,260 --> 02:44:53,059
+A vy byste zase měli správně
+
+2678
+02:44:53,319 --> 02:44:56,159
+přijít a udělat ten prompt engineering tak,
+
+2679
+02:44:56,360 --> 02:44:59,680
+abyste vytuněli ty odpovědi
+
+2680
+02:44:59,860 --> 02:45:01,840
+k co nejlepší možný verzi.
+
+2681
+02:45:01,860 --> 02:45:05,059
+Což se mi zdá vždycky strašně práce.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

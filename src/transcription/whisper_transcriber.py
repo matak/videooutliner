@@ -4,15 +4,18 @@ import requests
 from pathlib import Path
 import subprocess
 from src.utils.srt_utils import SRTUtils
+from src.utils.api_interaction_logger import ApiInteractionLogger
 
 class WhisperTranscriber:
-    def __init__(self, api_key, import_path, drive_uploader=None, ftp_uploader=None, chunk_duration_minutes=30):
+    def __init__(self, api_key, logs_dir, import_path, drive_uploader=None, ftp_uploader=None, chunk_duration_minutes=30):
         self.whisper_api_key = api_key
         self.drive_uploader = drive_uploader
         self.ftp_uploader = ftp_uploader
         self.callback_url = "https://videooutliner.24gatel.eu/whisper_callback.php"
         self.import_path = os.path.abspath(import_path)
+        self.logs_dir = os.path.abspath(logs_dir)
         self.chunk_duration_minutes = chunk_duration_minutes
+        self.api_logger = ApiInteractionLogger(self.logs_dir)
 
     def split_audio_into_chunks(self, audio_path, chunk_duration=None):  # chunk_duration in seconds
         """Split audio file into chunks of specified duration"""
@@ -127,12 +130,38 @@ class WhisperTranscriber:
                 print("Using local file for transcription")
                 files = {"file": open(audio_path, 'rb')}
 
+            # Log the request before sending
+            log_base_name = f"{audio_path}_{chunk_name}"
+            self.api_logger.log_request(log_base_name, {
+                'timestamp': time.strftime('%Y-%m-%dT%H:%M:%S'),
+                'url': url,
+                'headers': headers,
+                'data': data,
+                'files': 'file_url' if file_url else 'local file',
+                'chunk_name': chunk_name
+            })
+
             try:
                 print(f"Attempting to connect to WhisperAPI at {url}")
-                response = requests.post(url, headers=headers, files=files, data=data)
+                response = requests.post(
+                    url, 
+                    headers=headers, 
+                    files=files, 
+                    data=data
+                    )
                 
                 # debug the response
                 print(f"WhisperAPI response: {response.text}")
+
+                # Log the response after receiving
+                self.api_logger.log_response(log_base_name, {
+                    'timestamp': time.strftime('%Y-%m-%dT%H:%M:%S'),
+                    'status_code': response.status_code,
+                    'headers': dict(response.headers),
+                    'text': response.text,
+                    'encoding': response.encoding,
+                    'chunk_name': chunk_name
+                })
 
                 if response.status_code != 200:
                     print(f"WhisperAPI returned status code: {response.status_code}")

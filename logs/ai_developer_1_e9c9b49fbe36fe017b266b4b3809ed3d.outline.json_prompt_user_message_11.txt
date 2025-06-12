@@ -1,0 +1,955 @@
+Transcript:
+
+=================
+2568
+02:43:44,239 --> 02:43:47,219
+v tom světě AI, v celosvětově.
+
+2569
+02:43:47,659 --> 02:43:52,559
+Teď on má ten startup Bottlecap AI nově teď dva dny zpátky,
+
+2570
+02:43:52,559 --> 02:43:56,040
+tak on vlastně teď má startup na to, že je zefektivní
+
+2571
+02:43:57,319 --> 02:43:58,959
+jazykový modely, to znamená, že
+
+2572
+02:43:58,959 --> 02:44:00,379
+vidíte, že training time
+
+2573
+02:44:00,500 --> 02:44:03,100
+na úroveň GPT
+
+2574
+02:44:03,479 --> 02:44:05,020
+bylo prostě 50%
+
+2575
+02:44:05,899 --> 02:44:07,319
+toho času, co trvá
+
+2576
+02:44:07,479 --> 02:44:08,659
+GPT, takže on
+
+2577
+02:44:08,959 --> 02:44:11,840
+je ten člověk, který pracoval s Jeffrey Hintonem,
+
+2578
+02:44:11,920 --> 02:44:13,020
+který pracoval
+
+2579
+02:44:13,840 --> 02:44:14,659
+s
+
+2580
+02:44:16,120 --> 02:44:17,639
+jak se jmenuje
+
+2581
+02:44:23,680 --> 02:44:25,780
+Ilja
+
+2582
+02:44:25,920 --> 02:44:26,440
+Suckevr
+
+2583
+02:44:27,319 --> 02:44:29,760
+to je ten, co
+
+2584
+02:44:29,760 --> 02:44:31,379
+způsobil ten
+
+2585
+02:44:32,540 --> 02:44:41,579
+Jestli jste sledovali tu telenovelu ohledně OpenAI, jak sama Altmana vlastně vyhodili ten bord vlastně,
+
+2586
+02:44:41,600 --> 02:44:45,760
+pak se tam zase za týden vrátil, protože všichni z OpenAI řekli, že teda odejdou,
+
+2587
+02:44:45,760 --> 02:44:50,180
+tak tohle je strujce toho převratu, toho kupu.
+
+2588
+02:44:50,399 --> 02:44:55,479
+Elias Uckever Rus, co spolu založil, nebo
+
+2589
+02:44:56,459 --> 02:45:04,700
+spolu založil OpenAI, tak ho tam tak vyštípali a teďka on má svůj startup, tak Tomáš třeba o něm říkal, že
+
+2590
+02:45:04,979 --> 02:45:13,260
+Ilja mu odsizil nějaký nápady, takže když pracovali vlastně spolu ještě v Google, takže Tomáš pracoval v Google,
+
+2591
+02:45:13,260 --> 02:45:19,020
+v Microsoftu a do Metyho přetáhnul sám Zuckerberg, takže to je člověk, který opravdu ví, jak
+
+2592
+02:45:20,440 --> 02:45:28,059
+do detailů fungují na úrovni těch matic, jak fungují ty neurónové sítě nebo ty velký jazykový modely.
+
+2593
+02:45:28,120 --> 02:45:35,500
+Zase je to člověk, který rád bagatelizuje, zjednodušuje ty věci, vysvětluje to velmi stravitelnou formou,
+
+2594
+02:45:35,500 --> 02:45:40,360
+nedělá z toho zase vědu, nedělá z toho magii, jo, atd.
+
+2595
+02:45:40,360 --> 02:45:45,860
+Takže tohohle rozhodně sledujte, pokud budete mít příležitost, tak ho nějak i podpořte.
+
+2596
+02:45:46,520 --> 02:45:47,979
+Myslím si, že to stojí za to.
+
+2597
+02:45:49,040 --> 02:45:53,899
+Tak, tohle jsem vám chtěl ukázat, to byly ty lidi a ještě tady.
+
+2598
+02:45:55,299 --> 02:46:02,399
+Takže Tomáš Mikolov, Jan Lekun jsem říkal,
+
+2599
+02:46:03,000 --> 02:46:12,319
+koho jsem tu tam ještě měl, Filip Dvořák a Aleš...
+
+2600
+02:46:15,000 --> 02:46:15,680
+Hlaček.
+
+2601
+02:46:16,780 --> 02:46:17,579
+Ještě jednou?
+
+2602
+02:46:17,799 --> 02:46:18,340
+Hlaček.
+
+2603
+02:46:18,459 --> 02:46:19,360
+Hlaček, děkuju.
+
+2604
+02:46:21,540 --> 02:46:27,520
+Oleček, to je z toho českého takového prostředí lidi, co já rád poslouchám nebo sleduju.
+
+2605
+02:46:28,120 --> 02:46:31,559
+Takže my už se tady nebudeme zabývat tvorbou vlastních modelů,
+
+2606
+02:46:31,659 --> 02:46:34,420
+ale jenom upravující existujících open source modelů. Ano.
+
+2607
+02:46:34,840 --> 02:46:40,840
+Protože nemáme kapacity na to, aby jsme vytvářeli vlastní velký jazykový modely,
+
+2608
+02:46:40,920 --> 02:46:44,180
+to prostě vyžaduje spoustu GPUs.
+
+2609
+02:46:44,180 --> 02:46:50,459
+Já po vás nemůžu chtít, abyste se tady pronajímali prostě 500, já nevím,
+
+2610
+02:46:51,059 --> 02:46:53,819
+A pěti tisícověk prostě na nějakém cloudu.
+
+2611
+02:46:53,819 --> 02:46:58,959
+Takže my budeme přepoužívat, budeme využívat chytře to,
+
+2612
+02:46:59,100 --> 02:47:04,639
+co je naučili ty firmy jako je meta a budeme jenom doučovat
+
+2613
+02:47:04,639 --> 02:47:08,479
+nějaký vlastní funkcionality, jako třeba mluvit jako Joe Rogan
+
+2614
+02:47:08,600 --> 02:47:15,380
+nebo mluvit o frameworku, který ještě neexistoval v době,
+
+2615
+02:47:15,380 --> 02:47:17,459
+kdy byl ten model trénovaný a tak dále.
+
+2616
+02:47:18,100 --> 02:47:21,979
+Je možné Lora použít pro decenzoring existujících modelů?
+
+2617
+02:47:22,000 --> 02:47:25,340
+To je zajímavá otázka.
+
+2618
+02:47:27,119 --> 02:47:31,780
+Já jsem se decenzoringem upřímně úplně nestudoval.
+
+2619
+02:47:32,059 --> 02:47:36,719
+Spíš vy byste ho museli naučit,
+
+2620
+02:47:36,860 --> 02:47:41,479
+doučit něco, co oni záměrně z toho vyštípali
+
+2621
+02:47:41,520 --> 02:47:44,880
+nebo ho vyštípali z těch dat, když ho učili.
+
+2622
+02:47:45,479 --> 02:47:54,840
+Ale mám takový pocit, že jsou tam zahrnutý i guide rails toho modelu, který vám nebudou dovolovat ho to naučit.
+
+2623
+02:47:54,840 --> 02:47:59,479
+Nebo on záměrně bude tyhle věci zapomínat.
+
+2624
+02:48:00,360 --> 02:48:04,299
+Lépe se o tom budeme bavit, až se budeme ukazovat ten fine tuning toho Hugging Faceu,
+
+2625
+02:48:04,299 --> 02:48:09,200
+a budeme si ukazovat ty tokeny a jak se ty tokeny překládají a ty čísla atd.
+
+2626
+02:48:09,200 --> 02:48:09,200
+Takže...
+
+2627
+02:48:10,619 --> 02:48:14,600
+zjistíte, že tam ty tokény vůbec na slovo je atomová bomba,
+
+2628
+02:48:14,600 --> 02:48:17,639
+ale můžou chybět, nebo tak dále.
+
+2629
+02:48:18,719 --> 02:48:22,139
+Tak podle čeho se člověk rozhodne, kolik sekcí modelů
+
+2630
+02:48:22,180 --> 02:48:26,440
+je třeba přetrénovat. Nerozumím celému konceptu toho,
+
+2631
+02:48:26,459 --> 02:48:28,180
+jak mohou trénovat jenom část modelů.
+
+2632
+02:48:30,760 --> 02:48:35,600
+To je klasický fine tuning, vy vlastně řeknete, že natrénujete jen určité vrstvy.
+
+2633
+02:48:35,600 --> 02:48:39,360
+To my nebudeme dělat, protože zase to není efektivní.
+
+2634
+02:48:39,360 --> 02:48:42,639
+My budeme přidávat novou vrstvu.
+
+2635
+02:48:42,860 --> 02:48:50,899
+Představte si na tom obrázku, kde jsou neuronové sítě.
+
+2636
+02:48:50,899 --> 02:48:57,799
+Můžete si to zhruba tak představit, že my tady k této vrstvě přidáme další tři neurony.
+
+2637
+02:48:58,219 --> 02:48:59,940
+K této taky další tři.
+
+2638
+02:49:00,540 --> 02:49:11,860
+Propojíme to dohromady, tyhle neurony budou mít váhy natrénovaný, ale tyhle těch šest, které jsme tam přidali, budou nulový, nebudou mít žádné váhy.
+
+2639
+02:49:11,880 --> 02:49:19,639
+A teď my jsme schopní udělat metodu fine tuningu, která natrénuje jenom těhle těch šest neuronů.
+
+2640
+02:49:20,840 --> 02:49:27,940
+To znamená, že těhle těch šest bude držet tu novou znalost, kterou my doučíme ten velký jazykový model.
+
+2641
+02:49:27,940 --> 02:49:34,399
+Třeba to, že budou mluvit jako Joe Rogan, tak to bude zajišťovat jenom tadyhle těch šest vlastně neuronů.
+
+2642
+02:49:34,479 --> 02:49:36,880
+Zase zjednodušená forma vysvětlování.
+
+2643
+02:49:39,799 --> 02:49:45,680
+Tak pokud mluvíme o Open Source, to má podměr. Není to spíše Open Weight, protože nemáme trénovací data.
+
+2644
+02:49:47,700 --> 02:49:55,479
+To je terminologie, do které bych se moc nechtěl pouštět.
+
+2645
+02:49:57,000 --> 02:50:00,020
+Každej si to vysvětluje trošku jinak, ale máte pravdu.
+
+2646
+02:50:00,059 --> 02:50:03,659
+Je to ve výsledku jako open weight, kdy máme dočenou architekturu
+
+2647
+02:50:03,680 --> 02:50:06,280
+a ty váhy, které jsou v tom daném modelu.
+
+2648
+02:50:06,559 --> 02:50:10,819
+Není to tak, že bychom měli k dispozici ten zdrojový kód toho modelu,
+
+2649
+02:50:10,819 --> 02:50:15,579
+protože když se podíváme na Hugging Face, to tady odevřu,
+
+2650
+02:50:16,059 --> 02:50:18,840
+Tak zase trošku předběhnu.
+
+2651
+02:50:21,239 --> 02:50:24,280
+Tak když já si tady dám Lama.
+
+2652
+02:50:28,180 --> 02:50:31,899
+Třeba tady ten Instruct. Kouknu se tady do těch souborů.
+
+2653
+02:50:32,940 --> 02:50:36,020
+Tak tadyhle to je vlastně všechno, to je jako ten GitHub.
+
+2654
+02:50:36,059 --> 02:50:38,819
+Takže tadyhle je všechno, co mám k dispozici k tomu danému modelu.
+
+2655
+02:50:39,000 --> 02:50:42,500
+Nevidím tady žádný Python faily.
+
+2656
+02:50:42,619 --> 02:50:48,100
+Vidím tady váhy, které jsou tady k dispozici, to jsou tadyhle ty velký soubory.
+
+2657
+02:50:48,880 --> 02:50:52,380
+A vidím tady nějaký konfig, který mi určuje...
+
+2658
+02:50:54,380 --> 02:50:57,619
+Oni mi to nedovolí určitě, protože jsem v Evropě.
+
+2659
+02:50:57,619 --> 02:50:58,639
+Je to mě tak...
+
+2660
+02:50:59,180 --> 02:51:02,920
+Dobře, já to nebudu ukazovat tady na tom,
+
+2661
+02:51:02,920 --> 02:51:06,159
+protože to tady musím vyplnit, nebo můžu to tady vyplnit rychle.
+
+2662
+02:51:06,860 --> 02:51:08,540
+To chce VPN-ky, no.
+
+2663
+02:51:08,719 --> 02:51:11,420
+No, oni zakázali, já nevím zase, jestli to víte,
+
+2664
+02:51:11,459 --> 02:51:13,040
+ale tím, že jsme v Evropské unii,
+
+2665
+02:51:13,459 --> 02:51:21,619
+tak oni zakázali do Evropské unie poskytovat...
+
+2666
+02:51:24,299 --> 02:51:31,719
+tyhle ty modely, protože vlastně nemohli použít na trénování naše data evropský, tak museli použít americký, tak řekli no tak
+
+2667
+02:51:33,059 --> 02:51:38,659
+FU a vy nebudete moc používat naše modely, ale
+
+2668
+02:51:38,819 --> 02:51:43,840
+někde mi to funguje a v VPNku si snad mám nebo si zaplatím, takže
+
+2669
+02:51:44,739 --> 02:51:49,860
+jo a tady je ten config, ne, tak já fakt to nemůžu odeřít, jo, nebo co
+
+2670
+02:51:51,040 --> 02:51:55,559
+Oni mi budou dávat teprve svolení.
+
+2671
+02:51:55,559 --> 02:51:59,979
+To je nové, oni to musí povolit, jinak se to nedá stáhnout.
+
+2672
+02:51:59,979 --> 02:52:02,280
+A když ho musí povolit, tak do hodiny.
+
+2673
+02:52:02,899 --> 02:52:08,219
+Dřív to bylo trošku jiné, dřív to bylo jako auto-approved, něco takovýho, a teď už ani to nejde.
+
+2674
+02:52:08,260 --> 02:52:10,239
+Tak do hodiny lítá, no, do dvou.
+
+2675
+02:52:10,319 --> 02:52:17,059
+Tak to nepotřebuji teda, dobře, tak já ukážu Mistral, ten je evropský, ten je 7B.
+
+2676
+02:52:18,180 --> 02:52:24,540
+Takže tady mám ty váhy, to jsou ty SafeTensors a tady je Confi, který mi říká architekturu vlastně té neuronové sítě.
+
+2677
+02:52:24,559 --> 02:52:32,180
+To znamená, že mi říká, a to je ta abstrakce toho transformeru, to je ta abstrakce, na kterým my se budeme pohybovat.
+
+2678
+02:52:32,520 --> 02:52:37,180
+My už nepůjdeme do té architektury, protože pro nás už to bude black box.
+
+2679
+02:52:37,180 --> 02:52:40,239
+Nám to jenom bude stačit, že nám to říká, jaká architektura to je.
+
+2680
+02:52:40,340 --> 02:52:45,440
+Oni už vědí, co přesně, jak ta architektura vypadá, my už to nemusíme vědět.
+
+2681
+02:52:45,899 --> 02:52:48,840
+a pak nám říkají konfiguraci k tý architektuře.
+
+2682
+02:52:48,840 --> 02:52:53,819
+A my jenom nahodíme vlastně ty váhy, což jsou tady ty Sage Tensory nebo ty BINy
+
+2683
+02:52:54,260 --> 02:53:01,780
+a už máme vlastně ten Mistral v tý podobě, ve který to vyoutputoval vlastně ten Mistral AI, ta společnost nebo ta meta.
+
+2684
+02:53:02,219 --> 02:53:04,959
+Takže to je ta úroveň abstrakce, na který my se budeme pohybovat.
+
+2685
+02:53:05,059 --> 02:53:11,200
+My už nebudeme měnit tu architekturu toho velkýhozikového modelu, protože bysme to zase museli natrénovat znova,
+
+2686
+02:53:12,119 --> 02:53:14,119
+ale budeme jenom brát to, co je.
+
+2687
+02:53:15,020 --> 02:53:19,399
+Takže ano, OpenWeb, protože nemáme testovací, trénovací data,
+
+2688
+02:53:19,479 --> 02:53:23,899
+nemáme ani tu architekturu pořád nevidí, nemáme ten zdrojový kód k tomu
+
+2689
+02:53:24,059 --> 02:53:26,119
+a nemáme ani ty trénovací data.
+
+2690
+02:53:26,559 --> 02:53:31,719
+Pro Olamu velmi doporučuji toto, OpenWebUI, to je to, co jsem ukazoval.
+
+2691
+02:53:32,440 --> 02:53:36,000
+Teď nevím, jestli Jindro jsem to ukázal po tom, co jsi to napsal,
+
+2692
+02:53:36,000 --> 02:53:39,739
+nebo jsi mě nevnímal, ale myslím, že to je spíše, že jsi to napsal dřív.
+
+2693
+02:53:41,020 --> 02:53:43,459
+Tak, nebo je to to samé, co jsem...
+
+2694
+02:53:44,299 --> 02:53:49,280
+já ukázal. Ano, to je ono, Open Web UI, no.
+
+2695
+02:53:49,280 --> 02:53:52,159
+Tak to je, to je, já jsem akorát odkázal na dokumentaci,
+
+2696
+02:53:52,159 --> 02:53:54,819
+ale jinak to je ta samý, ta samý UI.
+
+2697
+02:53:54,880 --> 02:54:00,079
+Výhoda toho je, jenom tady takhle zase ukážu,
+
+2698
+02:54:00,139 --> 02:54:02,280
+co to je, localhost,
+
+2699
+02:54:03,219 --> 02:54:06,239
+je, že si můžete tady přidat vlastně několik modelů.
+
+2700
+02:54:06,520 --> 02:54:09,040
+Takže vy se můžete zeptat vlastně
+
+2701
+02:54:09,619 --> 02:54:14,440
+32, 33 a mistrala na tu, na tu, hey, tell me a joke.
+
+2702
+02:54:15,780 --> 02:54:28,799
+A to je jedna z těch feature, který to má. Ty lidi mají nějakého investora asi věnují tomu čas prostě a dělají takhle to UI a teď mi vyplivne ty tři džouky.
+
+2703
+02:54:29,559 --> 02:54:35,799
+V závislosti zase na tom, jak je ten model velký a co se musíš jenom natáhnout do paměti a tak dále, že vidíte.
+
+2704
+02:54:36,719 --> 02:54:42,020
+To je docela dobré na porovnávání, to budeme používat na prompt engineeringu a tak dále.
+
+2705
+02:54:43,100 --> 02:54:46,340
+Vyplatí se na hraní koupit vlastní GPU nebo spíš pronajmout?
+
+2706
+02:54:46,380 --> 02:54:52,659
+Rozhodně pronajmout. Já jsem si koupil vlastní, protože pro mě je to moje živnost
+
+2707
+02:54:53,000 --> 02:54:58,000
+a já se s tím tak nějak hraju. Zase jsem se nekoupil nic ohromnýho.
+
+2708
+02:54:58,739 --> 02:55:06,139
+Já jsem si koupil RTX 4070 Ti, což je nějaký...
+
+2709
+02:55:08,200 --> 02:55:14,079
+To je to, co mám, ne? Teď jsem zmataný. Já mám 3070... 4060...
+
+2710
+02:55:16,200 --> 02:55:25,719
+60 Ti, já jsem si koupil tu 16 gigovou, ježiš ti do prdele, konfigurátor nechci žádnej.
+
+2711
+02:55:26,559 --> 02:55:36,260
+Máte tady 8 gigový, já jsem si koupil 16 gigovou, takže to bylo nějakých 10 000, 11 000, něco takovýho.
+
+2712
+02:55:36,680 --> 02:55:42,920
+Oni už je ani nemají, oni už je nemají, to je hezký, to byl asi přišel nový model.
+
+2713
+02:55:43,700 --> 02:55:59,399
+Takže tak a když už je budete pronajímat, to zase si budeme ukazovat v tom fine tuningu, ale tak říkám, mě nevadí se o tom bavit, takže jestli tady ještě někdo je, tak nemůžeme pokračovat, tak budeme používat RAM POD.
+
+2714
+02:56:00,280 --> 02:56:08,799
+A tady si budeme pronajímat za drobný nějaké grafické karty. Tam budeme pouštět ten náš fine tuning.
+
+2715
+02:56:08,799 --> 02:56:14,979
+To znamená, že jestli se tam někdo ptá nebo bude ptát na to, jaký hardware k tomu potřebujete, tak vlastně nepotřebujete.
+
+2716
+02:56:15,319 --> 02:56:17,280
+protože my sami si budeme tady,
+
+2717
+02:56:17,619 --> 02:56:20,559
+třeba budeme tady tu RTX 6000 ADA,
+
+2718
+02:56:20,600 --> 02:56:23,119
+tady prostě 77 centů na hodinu,
+
+2719
+02:56:23,540 --> 02:56:26,219
+nebo já jsem si tady pronajímal A5 těžícovku
+
+2720
+02:56:26,319 --> 02:56:28,360
+za 26 centů na hodinu,
+
+2721
+02:56:28,360 --> 02:56:30,119
+to má 24 GB výramu,
+
+2722
+02:56:30,319 --> 02:56:31,880
+já mám 16 lokálně,
+
+2723
+02:56:31,959 --> 02:56:33,520
+tohle to je jednou tak,
+
+2724
+02:56:33,520 --> 02:56:33,819
+nebo...
+
+2725
+02:56:34,540 --> 02:56:37,180
+skoro jednou tak silnější 24 GB.
+
+2726
+02:56:37,500 --> 02:56:39,559
+Když se tady pojáme na Community Cloud,
+
+2727
+02:56:39,559 --> 02:56:40,619
+což znamená Security Cloud,
+
+2728
+02:56:40,799 --> 02:56:42,899
+jsou grafické karty, které poskytuje RunPod,
+
+2729
+02:56:43,200 --> 02:56:45,739
+nebo vy jako komunita si můžete pronajmout
+
+2730
+02:56:45,780 --> 02:56:49,500
+nebo dát k pronajmutí vlastní grafické karty,
+
+2731
+02:56:49,719 --> 02:56:51,940
+tak se dostanete na nějakou cenu 16 centů
+
+2732
+02:56:51,940 --> 02:56:53,860
+prostě za hodinu, což prostě tam
+
+2733
+02:56:54,440 --> 02:56:58,479
+pro ty naše účely to je asi 25 minut trénování
+
+2734
+02:56:59,200 --> 02:57:06,100
+toho nejsložitějšího finetuningu, který my budeme dělat, takže to bude nějakých 8 centů, nějaký drobný úplný.
+
+2735
+02:57:06,380 --> 02:57:07,979
+Takže pro nejmoc.
+
+2736
+02:57:10,520 --> 02:57:15,360
+RAND AI, ano, jsou těch služeb je víc, já používám ten RunPod.
+
+2737
+02:57:16,420 --> 02:57:21,979
+A i oproti Azure, já vlastně nemám moc přístup ani k GPU na Azure, protože OpenAI všechno vzal,
+
+2738
+02:57:22,059 --> 02:57:26,639
+a CoPilot vzal zbytek, takže ani já jako zaměstnanec nemám přístupy moc k GPU.
+
+2739
+02:57:28,520 --> 02:57:32,340
+Jakové systémy zdroje budu potřebovat, aby si pustil nějaký model na vlastním hardware?
+
+2740
+02:57:32,979 --> 02:57:36,020
+Záleží, jak velký model, kolik bude mít bilionů parametrů,
+
+2741
+02:57:36,020 --> 02:57:39,719
+protože všechny ty modely mají různý biliony parametrů,
+
+2742
+02:57:39,719 --> 02:57:44,040
+který si můžete nadefinovat, ale viděl jste, že já jsem pustil
+
+2743
+02:57:44,119 --> 02:57:48,659
+tu největší LAMO 3.3, tady trvalo to teda, ale pustilo se to.
+
+2744
+02:57:49,860 --> 02:57:55,079
+Tento bych nepouštěl, jak pustit ETH 27 bilionů na 16 výram.
+
+2745
+02:57:55,260 --> 02:57:59,420
+Tak existuje něco, čemu se říká kvantizace, to znamená,
+
+2746
+02:57:59,840 --> 02:58:03,559
+váhy toho modelu v 32 bitech
+
+2747
+02:58:04,180 --> 02:58:07,920
+uložený, to je to 32 bitový číslo,
+
+2748
+02:58:07,920 --> 02:58:11,520
+desetiný, tak vy můžete říct, že to chcete kvantizovat
+
+2749
+02:58:11,700 --> 02:58:15,159
+na 8 bitů. Takže z těch 32 bitů vlastně to
+
+2750
+02:58:15,159 --> 02:58:20,040
+ze 4 násobně zmenšíte ty váhy toho modelu.
+
+2751
+02:58:20,100 --> 02:58:22,540
+To znamená, že díky tomu jste pak schopni, a teď jsou
+
+2752
+02:58:25,440 --> 02:58:26,979
+jak to funguje do budoucna,
+
+2753
+02:58:27,399 --> 02:58:30,200
+Je tady ještě někdo, nebo si povídám sám pro sebe?
+
+2754
+02:58:30,500 --> 02:58:31,719
+Ne, rástu hodně ještě.
+
+2755
+02:58:32,040 --> 02:58:33,659
+Jo, fakt jo, to jste dobrý.
+
+2756
+02:58:34,260 --> 02:58:37,700
+tak je tady jednobitová architektura
+
+2757
+02:58:37,899 --> 02:58:39,579
+teď od Microsoftu nově,
+
+2758
+02:58:39,579 --> 02:58:43,219
+takže z těch 32 bitů děláte jednobitový model,
+
+2759
+02:58:43,280 --> 02:58:47,360
+což znamená, že jste schopni pustit i ty opravdu extrémně velký modely
+
+2760
+02:58:47,780 --> 02:58:52,219
+na opravdu slim hardware, dělá se to kvůli IoT věcem,
+
+2761
+02:58:52,719 --> 02:58:55,760
+jak si umíte, jestli jste někdo dělal s Edge computingem,
+
+2762
+02:58:55,760 --> 02:58:58,959
+tak víte, že z toho cloudu se všechno přenáší
+
+2763
+02:58:59,360 --> 02:59:02,719
+blíž k tomu zdroji těch dat nebo k tomu cíli,
+
+2764
+02:59:03,079 --> 02:59:12,299
+To znamená, že ten ultimátní cíl je, abyste mohli ty AI modely běžet lokálně na mobilu, nebo na hodinkách, nebo na těch malejch zařízeních v autě.
+
+2765
+02:59:12,639 --> 02:59:16,680
+Takže z toho důvodu se to potřebuje zmenšovat, optimalizovat, to je ten trend.
+
+2766
+02:59:17,819 --> 02:59:19,380
+Samozřejmě ty hardwary
+
+2767
+02:59:19,799 --> 02:59:22,000
+morů v zákon platí,
+
+2768
+02:59:22,000 --> 02:59:23,600
+to se prostě všechno dubluje,
+
+2769
+02:59:23,700 --> 02:59:25,639
+tripluje ty výkony,
+
+2770
+02:59:25,799 --> 02:59:28,239
+takže pokud jednobitový
+
+2771
+02:59:28,380 --> 02:59:30,260
+model bude pořád použitelný,
+
+2772
+02:59:30,260 --> 02:59:31,739
+protože zase vy sice
+
+2773
+02:59:31,840 --> 02:59:33,559
+zmenšíte velikost té váhy,
+
+2774
+02:59:33,619 --> 02:59:35,239
+ale zase znepřesníte
+
+2775
+02:59:35,260 --> 02:59:37,479
+tu predikci, jestli mi rozumíte.
+
+2776
+02:59:37,579 --> 02:59:38,659
+Když mám desetinní číslo
+
+2777
+02:59:39,479 --> 02:59:41,659
+dlouhý prostě a najednou z toho udělám
+
+2778
+02:59:41,819 --> 02:59:43,700
+0,1 nebo 0,2, 0,3,
+
+2779
+02:59:43,700 --> 02:59:45,920
+tak jste ztratili určitou
+
+2780
+02:59:46,000 --> 02:59:47,780
+schopnost té predikce nebo detail té
+
+2781
+02:59:47,780 --> 02:59:50,000
+predikce. Tak ale zase vám to
+
+2782
+02:59:50,059 --> 02:59:51,899
+pomůže, abyste běželi takovýhle velký
+
+2783
+02:59:52,000 --> 02:59:54,239
+modely na výrazně slabém
+
+2784
+02:59:54,440 --> 02:59:56,719
+hardwareu. Tak ona má
+
+2785
+02:59:56,840 --> 02:59:58,540
+rychlé spuštění, ale pro ty větší
+
+2786
+02:59:58,680 --> 02:59:59,979
+modely není úplně vhodná, že se
+
+2787
+03:00:00,000 --> 03:00:01,819
+zrovna nedávno jsem se na to díval
+
+2788
+03:00:01,959 --> 03:00:03,659
+a i GPT se k tomu vyjadřoval,
+
+2789
+03:00:03,719 --> 03:00:05,739
+že OLAMA je spíše pro menší lokální modely
+
+2790
+03:00:05,760 --> 03:00:08,500
+na test pro větší modely VLLM,
+
+2791
+03:00:08,739 --> 03:00:10,180
+použitelný víc,
+
+2792
+03:00:10,200 --> 03:00:12,239
+popřípadně něco podobného.
+
+2793
+03:00:12,620 --> 03:00:14,579
+VLLM, TGI,
+
+2794
+03:00:14,819 --> 03:00:16,299
+OLAMA, všechno to
+
+2795
+03:00:16,340 --> 03:00:17,780
+dělá kvantizovaný modely.
+
+2796
+03:00:17,879 --> 03:00:20,120
+To znamená, že všechny modely, který vy běžíte
+
+2797
+03:00:20,120 --> 03:00:22,879
+na OLAMě, nebo je to TGI,
+
+2798
+03:00:23,079 --> 03:00:24,299
+zase, aby jsme
+
+2799
+03:00:24,479 --> 03:00:26,299
+si mluvili o tom samym,
+
+2800
+03:00:26,700 --> 03:00:28,620
+tak TGI...
+
+2801
+03:00:29,100 --> 03:00:34,520
+je to, co Hugging Face používá na nasazování modelů,
+
+2802
+03:00:34,559 --> 03:00:38,600
+protože vy v Hugging Face si můžete s těmi modelami také povídat.
+
+2803
+03:00:39,260 --> 03:00:44,739
+Mistral. Tady máte deploy model.
+
+2804
+03:00:44,799 --> 03:00:49,040
+Toto mají, že si to můžete nadeployovat, kam potřebujete, nebo použít ten model.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

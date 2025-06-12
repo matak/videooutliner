@@ -1,0 +1,1019 @@
+Transcript:
+
+=================
+1525
+01:46:15,800 --> 01:46:18,739
+Zase se to řeší těma funkcama neboli toolama.
+
+1526
+01:46:18,800 --> 01:46:21,100
+To znamená, že vy mu dáváte jako tool,
+
+1527
+01:46:22,059 --> 01:46:24,380
+tady je vyhledávač,
+
+1528
+01:46:25,140 --> 01:46:29,640
+a dáváte mu jako tool i možnost zeptat se nějakého uživatele.
+
+1529
+01:46:29,739 --> 01:46:34,279
+Takže ať je to nějaký message, kterou on pošle do chatu
+
+1530
+01:46:34,479 --> 01:46:37,600
+a teď čeká, než mu ten uživatel odpoví,
+
+1531
+01:46:37,800 --> 01:46:41,559
+nebo to je nějaký pop-up v okno, který se vlastně tím AI agentem vyhodí
+
+1532
+01:46:41,640 --> 01:46:44,899
+a teď on čeká, než ten uživatel tam něco natajpuje,
+
+1533
+01:46:45,300 --> 01:46:48,800
+nebo ať je to SMS, kterou pošle a pak čeká,
+
+1534
+01:46:48,800 --> 01:46:52,039
+než se mu vrátí odpověď tou SMS, to už je úplně jedno.
+
+1535
+01:46:52,380 --> 01:46:57,300
+Říká se tomu human in the loop a je to zase velmi důležitá věc,
+
+1536
+01:46:58,659 --> 01:47:01,559
+kterou vlastně ty AI agenti umožňují dělat.
+
+1537
+01:47:03,460 --> 01:47:10,239
+Tak a teď si vytvoříme ty syntetický data. To znamená, že se tady mám nějakej konfigurák, nějakej settings, kde vlastně jenom říkám,
+
+1538
+01:47:10,720 --> 01:47:18,579
+vlastně pro sebe jenom si to tak nějak pomenovávám, tu sekci, kolikrát, koliky chci vygenerovat, nebo kolikrát chci ten prompt zavolat,
+
+1539
+01:47:19,000 --> 01:47:27,520
+jaký example chci tomu API nebo tomu chat GPT vlastně dát a na co se má zaměřit.
+
+1540
+01:47:27,940 --> 01:47:32,819
+A z tohoto, z této jedné řádky, a teď těch řádek mám víc,
+
+1541
+01:47:32,819 --> 01:47:39,640
+jednoduché příklady, komplexní, kreativní, coding, neobvyklý nebo nezřejmý,
+
+1542
+01:47:39,859 --> 01:47:44,800
+běžné odpovědi a vyhledávání, tady jsou ještě nějaké human.
+
+1543
+01:47:44,880 --> 01:47:47,840
+To znamená, že takové různé, aby ty data byly pestré,
+
+1544
+01:47:48,059 --> 01:47:53,680
+tak si to zase, snažím se pokrýt nějaké větší množství těch příkladů.
+
+1545
+01:47:53,920 --> 01:47:56,300
+To znamená, když se zaměříme tady na ten jeden,
+
+1546
+01:47:56,920 --> 01:48:00,859
+Tadyhle je ten prompt, který tím budu skládat,
+
+1547
+01:48:01,159 --> 01:48:04,119
+protože procházím všechny ty settingy,
+
+1548
+01:48:04,119 --> 01:48:05,940
+tadyhle v té kolekci těch settingů,
+
+1549
+01:48:06,260 --> 01:48:13,819
+Prosím, vyměruj pět nových příkladů pro poskytnuté příklady v sekci Current Examples.
+
+1550
+01:48:13,979 --> 01:48:16,020
+Tady je ta sekce Current Examples.
+
+1551
+01:48:16,059 --> 01:48:23,699
+Každý příklad by měl mít odlišné tooly, které se můžou použít.
+
+1552
+01:48:24,159 --> 01:48:28,100
+V poli toolů by měly být minimálně dva, maximálně čtyři tooly.
+
+1553
+01:48:28,100 --> 01:48:33,100
+Každý output by měl obsahovat volání pouze jedné funkce.
+
+1554
+01:48:33,600 --> 01:48:38,640
+vyprinti všechny příklady do jednoho JSONu v poli
+
+1555
+01:48:38,960 --> 01:48:44,340
+a vrať vždy jenom JSON, neodpovídej a žádný jiný text nechci.
+
+1556
+01:48:44,380 --> 01:48:48,180
+Takže tady má ten příklad, to je ten settings,
+
+1557
+01:48:48,800 --> 01:48:51,940
+tady ten example, takže tady z toho JSON example
+
+1558
+01:48:52,619 --> 01:48:55,020
+si vlastně vezme tady ten první,
+
+1559
+01:48:55,520 --> 01:48:59,859
+tady ten celý, včetně ten input a output, to se mu vlastně vloží.
+
+1560
+01:49:00,920 --> 01:49:03,340
+sem do tohohle toho kontextu
+
+1561
+01:49:03,559 --> 01:49:05,239
+a tady jenom říkám zaměř se
+
+1562
+01:49:05,319 --> 01:49:06,920
+ve svých příkladech na
+
+1563
+01:49:07,020 --> 01:49:08,340
+a teď zase z toho
+
+1564
+01:49:08,500 --> 01:49:11,479
+z těho konfiguráku si beru ten fokus,
+
+1565
+01:49:11,699 --> 01:49:13,180
+že tadyhle toto zaměřený
+
+1566
+01:49:13,180 --> 01:49:14,699
+na co se mám vlastně zaměřit.
+
+1567
+01:49:14,979 --> 01:49:17,059
+Tímhletím zkonstruuju vlastně
+
+1568
+01:49:17,140 --> 01:49:19,479
+celý ten prompt a ten
+
+1569
+01:49:19,659 --> 01:49:21,340
+pošlu jako normální hot-top request
+
+1570
+01:49:21,520 --> 01:49:23,619
+do toho OpenAI API,
+
+1571
+01:49:23,720 --> 01:49:25,100
+což se vlastně děje tady.
+
+1572
+01:49:25,720 --> 01:49:27,460
+Tadyhle to je celý ten request,
+
+1573
+01:49:27,800 --> 01:49:29,920
+který se vlastně pošle
+
+1574
+01:49:30,819 --> 01:49:34,479
+přes normální request post do toho API.
+
+1575
+01:49:34,739 --> 01:49:36,300
+Tady se mu jen dávají headery,
+
+1576
+01:49:36,319 --> 01:49:38,819
+aby on věděl, jaký ten API klíč má použít.
+
+1577
+01:49:39,140 --> 01:49:42,079
+Tady má celý ten request a tohle je ten endpoint,
+
+1578
+01:49:42,180 --> 01:49:44,319
+který se k té komunikaci používá.
+
+1579
+01:49:44,640 --> 01:49:49,640
+My se o tom OpenAI API budeme ještě bavit v příští hodině,
+
+1580
+01:49:49,640 --> 01:49:51,760
+kdy si budeme ukazovat ten fine tuning API,
+
+1581
+01:49:52,159 --> 01:49:59,819
+Takže nevěžte hlavy, pokud tohle vám není úplně jasný, ještě se o tom budeme bavit, budu vám ukazovat, kde ta dokumentace je.
+
+1582
+01:50:00,100 --> 01:50:08,539
+Ve výsledku z tohohle si odnáste jenom to, že se zavolá to API, vrátí se mi z toho ta odpověď, takže namísto toho, abych já to dělal repetitivně přes 3GPT,
+
+1583
+01:50:09,079 --> 01:50:13,720
+tak jsem si to usnadnil a volám to vlastně přes API.
+
+1584
+01:50:14,779 --> 01:50:18,220
+Všechny ty data si vlastně uložím do jakých JSON fileů,
+
+1585
+01:50:18,220 --> 01:50:20,819
+ty máte koneckonců tady, synthetic data.
+
+1586
+01:50:20,979 --> 01:50:22,840
+Tady jsou ty snapshoty,
+
+1587
+01:50:22,840 --> 01:50:26,659
+takže když já vlastně v tom konfiguráku říkám, že se to má zavolat 3x,
+
+1588
+01:50:26,659 --> 01:50:31,340
+tak tady máte všechny ty 3 odpovědi na coding třeba,
+
+1589
+01:50:31,640 --> 01:50:33,559
+tady na komplex,
+
+1590
+01:50:33,559 --> 01:50:38,680
+takže se můžete podívat vlastně, jak ty odpovědi od něj vypadaly, co on vlastně vygeneroval,
+
+1591
+01:50:38,680 --> 01:50:41,979
+všechny ty 3 a
+
+1592
+01:50:46,460 --> 01:50:49,159
+pak je akorát dávám v dalším skriptu,
+
+1593
+01:50:49,239 --> 01:50:50,239
+což je tady ten merge,
+
+1594
+01:50:50,500 --> 01:50:52,500
+je mergeů dohromady, takže místo toho,
+
+1595
+01:50:52,500 --> 01:50:54,640
+až mělo tři codingy, tak mám nakonec jenom jeden
+
+1596
+01:50:55,279 --> 01:50:57,319
+a ještě pak je tady jeden merge,
+
+1597
+01:50:57,319 --> 01:50:59,039
+kdy to dávám všechno dohromady,
+
+1598
+01:50:59,220 --> 01:51:00,720
+abych z toho vytvořil vlastně
+
+1599
+01:51:01,220 --> 01:51:03,239
+ten jeden JSON file,
+
+1600
+01:51:03,340 --> 01:51:05,380
+který vlastně naleju
+
+1601
+01:51:05,479 --> 01:51:07,920
+nebo z toho vygeneruju vlastně
+
+1602
+01:51:08,000 --> 01:51:09,739
+ať už ten OpenAI format
+
+1603
+01:51:10,180 --> 01:51:11,920
+anebo ten Hugging Face format.
+
+1604
+01:51:12,039 --> 01:51:13,880
+To se nebudu už to procházet,
+
+1605
+01:51:13,960 --> 01:51:15,640
+tenhle ten script, protože to je jenom
+
+1606
+01:51:15,640 --> 01:51:17,699
+parsování tohohle souboru
+
+1607
+01:51:17,800 --> 01:51:19,239
+do těch dvou formatů
+
+1608
+01:51:19,699 --> 01:51:21,899
+a ve výsledku vždycky ten Hugging Face
+
+1609
+01:51:21,899 --> 01:51:25,059
+format, ne, já to tady nemám,
+
+1610
+01:51:25,680 --> 01:51:27,220
+ale to nevadí,
+
+1611
+01:51:27,220 --> 01:51:28,159
+my si to ukážeme
+
+1612
+01:51:28,520 --> 01:51:30,159
+v hodině o Hugging Face.
+
+1613
+01:51:30,159 --> 01:51:32,279
+Tam, co já udělám, je vlastně,
+
+1614
+01:51:32,279 --> 01:51:34,579
+že já vemu tadyhle ten JSON, skopíruji ho
+
+1615
+01:51:34,859 --> 01:51:40,579
+tady do toho datasetu a na uploadu to do toho HuggingFace, to si ještě ale ukážeme,
+
+1616
+01:51:40,579 --> 01:51:46,140
+jenom abyste viděli, že to není jako konečná práce s těma datama.
+
+1617
+01:51:46,340 --> 01:51:51,380
+Ale už se dostali do stavu, kdy máme ty data připravený pro všechny ty tři use cases,
+
+1618
+01:51:51,460 --> 01:51:58,380
+vždycky tadyhle v tom JSON formátu, tak abysme je mohli jenom na uploadovat do toho HuggingFace a použít.
+
+1619
+01:51:58,880 --> 01:52:01,239
+anebo jsme je mohli použít přímo už
+
+1620
+01:52:01,260 --> 01:52:03,000
+v OpenAI, jenom je tam
+
+1621
+01:52:03,220 --> 01:52:05,059
+na uploadovat a prostě vybrat
+
+1622
+01:52:05,199 --> 01:52:06,840
+model a pustit.
+
+1623
+01:52:07,000 --> 01:52:09,180
+Hotovo. Pak už budeme jenom čekat,
+
+1624
+01:52:09,180 --> 01:52:11,079
+až se ten model natrénuje, koukneme se
+
+1625
+01:52:11,159 --> 01:52:12,859
+na ty výsledky toho trénování,
+
+1626
+01:52:13,220 --> 01:52:14,619
+jestli se nám ta křivka
+
+1627
+01:52:15,600 --> 01:52:16,880
+vlastně snižuje.
+
+1628
+01:52:17,739 --> 01:52:18,880
+Je to stejný princip,
+
+1629
+01:52:18,940 --> 01:52:20,300
+jako jsme si ukazovali při
+
+1630
+01:52:21,279 --> 01:52:24,460
+těch obecných neuronových sítích,
+
+1631
+01:52:24,579 --> 01:52:26,659
+když jsme viděli tu loss funkci,
+
+1632
+01:52:26,659 --> 01:52:27,859
+jak klesá,
+
+1633
+01:52:28,020 --> 01:52:29,739
+jsem říkal, že budete trénovat do té doby,
+
+1634
+01:52:29,819 --> 01:52:31,520
+dokud ta loss funkce bude klesat,
+
+1635
+01:52:31,800 --> 01:52:34,119
+jakmile ta loss funkce přestane klesat,
+
+1636
+01:52:34,399 --> 01:52:36,600
+tak vlastně po nějaký čas se to zastaví.
+
+1637
+01:52:36,600 --> 01:52:37,979
+Stejné principy platí
+
+1638
+01:52:37,979 --> 01:52:41,159
+i u těch velkých jazykových modelů
+
+1639
+01:52:41,159 --> 01:52:43,100
+a i u toho fine tuningu.
+
+1640
+01:52:45,159 --> 01:52:48,300
+Tak, já jsem vám chtěl ještě tady v rychlosti ukázat,
+
+1641
+01:52:48,300 --> 01:52:52,579
+ať to stihneme do 8 a pak teda bude ten čas na otázky
+
+1642
+01:52:52,619 --> 01:52:56,079
+a teď projdu ty otázky v tom chatu.
+
+1643
+01:52:56,100 --> 01:53:00,359
+Nicméně to už bude po oficiální hodině,
+
+1644
+01:53:05,579 --> 01:53:07,300
+to už bude po oficiální hodině,
+
+1645
+01:53:07,319 --> 01:53:10,680
+takže po té 8 už se můžete odpojit,
+
+1646
+01:53:10,680 --> 01:53:14,460
+kdo bude potřebovat a já už teda jenom ze svý vlastní vůle
+
+1647
+01:53:14,460 --> 01:53:16,559
+budu odpovídat na otazy a...
+
+1648
+01:53:17,279 --> 01:53:20,559
+budu tady trávit s vámi nějaký čas navíc.
+
+1649
+01:53:21,899 --> 01:53:24,979
+Jo, tohle to jsem chtěl ukázat.
+
+1650
+01:53:24,979 --> 01:53:27,020
+Já to tady asi budu teda klikat,
+
+1651
+01:53:27,800 --> 01:53:31,359
+přemýšlím, asi to budu klikat takhle.
+
+1652
+01:53:32,760 --> 01:53:35,779
+Tak vy byste měli mít
+
+1653
+01:53:35,880 --> 01:53:38,000
+dostupný i v tom
+
+1654
+01:53:38,520 --> 01:53:40,960
+AI developeru tadyhleto Readme,
+
+1655
+01:53:42,039 --> 01:53:45,000
+který já mám teď odevřený, já to teda zkusím naformatovat
+
+1656
+01:53:45,000 --> 01:53:48,059
+v tom Markdownu, ať to vidíte v nějakém stravitelnějším formátu.
+
+1657
+01:53:48,619 --> 01:53:54,619
+A tady jsou tedy v Open Source sekci, máte tady několik těch různých formatů, abyste si uvědomili.
+
+1658
+01:53:55,199 --> 01:53:59,619
+že ty formáty pro ty modely jsou opravdu model-specific.
+
+1659
+01:53:59,619 --> 01:54:02,640
+To znamená, že když my se tady bavíme o tomhle tom formátu
+
+1660
+01:54:02,979 --> 01:54:07,380
+a že z tohohle, tenhle ten formát je pro všechny stejný, to si zapamatojte.
+
+1661
+01:54:07,460 --> 01:54:09,779
+Tady pocať je to prostě stejný.
+
+1662
+01:54:09,979 --> 01:54:12,979
+Tady odsaď už to začíná být model-specific.
+
+1663
+01:54:13,140 --> 01:54:17,180
+To znamená, že tenhle ten text, který se tady do toho převede, bude model-specific
+
+1664
+01:54:17,779 --> 01:54:21,119
+a ty čísla, které z toho vypadnou, budou model-specific.
+
+1665
+01:54:21,520 --> 01:54:23,119
+To znamená, že v závislosti na tom,
+
+1666
+01:54:23,220 --> 01:54:24,899
+jaký model vy si budete vybírat
+
+1667
+01:54:25,440 --> 01:54:28,359
+nebo budete chtít trénovat,
+
+1668
+01:54:28,659 --> 01:54:31,520
+takovej formát budete muset vytvářet.
+
+1669
+01:54:31,720 --> 01:54:34,600
+Za pleť pámvu, že existuje Hugging Face,
+
+1670
+01:54:35,159 --> 01:54:37,840
+do té doby, než existoval Hugging Face,
+
+1671
+01:54:38,600 --> 01:54:43,520
+jste si museli vlastně tyhle ty věci tak nějak prasovat sami,
+
+1672
+01:54:43,520 --> 01:54:51,440
+nebo za nějakých různých knihoven pro každý model napsaný v jiném jazyce, jo,
+
+1673
+01:54:51,699 --> 01:54:54,020
+a tak prostě bylo to takový roztříštění celý.
+
+1674
+01:54:54,359 --> 01:55:01,039
+Hugging Face vám to strašně usnadnil a ukážeme si to v té hodině, kdy se o Hugging Face budeme bavit.
+
+1675
+01:55:01,260 --> 01:55:10,239
+Takže není to žádný velký problém pro vás teď aktuálně, ale byval to velký problém, ta roztříštěnost na ty modely.
+
+1676
+01:55:10,699 --> 01:55:18,260
+To znamená, že tady máte vždycky odkazy na to, kde vy uvidíte, jaké formáty...
+
+1677
+01:55:18,739 --> 01:55:25,399
+se používají, takže zase tady ta stejná stránka s tím Mistralem, abyste viděli tady ten formát.
+
+1678
+01:55:25,420 --> 01:55:27,659
+Takže to akceptuje ten standardní formát.
+
+1679
+01:55:28,020 --> 01:55:35,539
+Lama formát je trošku jinej, takže zase si ho ukážeme tady. Já jsem vám to usnadnil, že jsem vám tam dal ty linky.
+
+1680
+01:55:36,079 --> 01:55:44,579
+Tady vidíte, že tady jsou ty role, který on používá, takže teď už se začínáme, už se začněte pomalu zvykat na to, že existuje nová role, která se jmenuje Tool.
+
+1681
+01:55:46,260 --> 01:55:51,359
+Bere se to jako prostě role, to znamená, že systémová zpráva je jedna,
+
+1682
+01:55:51,420 --> 01:55:56,359
+uživatel se něco zeptá, asistent mi vrátí odpověď typu
+
+1683
+01:55:56,760 --> 01:56:01,979
+použijí tenhle ten tool, teď já zavolám ten tool,
+
+1684
+01:56:02,000 --> 01:56:07,199
+ať už je to databáza nebo cokoliv, tu odpověď z toho toolu přidám
+
+1685
+01:56:07,399 --> 01:56:11,079
+do té kolekce těch messageí, ale dá mi roli tool,
+
+1686
+01:56:11,699 --> 01:56:14,940
+aby on pochopil, že to je odpověď z toho toolu
+
+1687
+01:56:15,260 --> 01:56:17,640
+a zase to pošlu do toho jazykového modelu.
+
+1688
+01:56:17,680 --> 01:56:21,059
+Ještě jsem to neodeslal tomu uživateli zpátky jako odpověď.
+
+1689
+01:56:21,800 --> 01:56:25,600
+V tu chvíli ten velký jazykový model vlastně zohlední
+
+1690
+01:56:26,260 --> 01:56:28,579
+tu odpověď z toho toolu
+
+1691
+01:56:28,579 --> 01:56:29,619
+a znova, ať už je to
+
+1692
+01:56:29,979 --> 01:56:31,739
+výsledek vyhledávání v Google,
+
+1693
+01:56:31,760 --> 01:56:33,440
+ať už je to prostě výsledek
+
+1694
+01:56:33,440 --> 01:56:35,659
+vyhledávání z databáze, neboli
+
+1695
+01:56:36,039 --> 01:56:38,300
+RAC, tak v tu chvíli
+
+1696
+01:56:38,440 --> 01:56:40,220
+on zohlední tu odpověď a vy generujete
+
+1697
+01:56:40,239 --> 01:56:41,680
+prvě mi tu odpověď pro toho
+
+1698
+01:56:41,800 --> 01:56:44,579
+uživatele. Pokud usoudí
+
+1699
+01:56:45,059 --> 01:56:50,340
+že už má dostatek informací na to vlastně vrátit mi tu odpověď pro uživatele.
+
+1700
+01:56:50,380 --> 01:56:54,059
+V tu chvíli mi vrátí zprávu asistent s nějakým textem
+
+1701
+01:56:54,420 --> 01:56:57,680
+a pro toho agenta už je to zase signál,
+
+1702
+01:56:57,699 --> 01:57:01,140
+OK, už mám text, tak už to můžu vrátit uživateli.
+
+1703
+01:57:01,440 --> 01:57:04,000
+Pokud ten velký jazykový model mi zase vrátí,
+
+1704
+01:57:04,000 --> 01:57:05,979
+hele, zavolej ještě tenhle tool,
+
+1705
+01:57:06,440 --> 01:57:08,739
+tak zase se takhle točíte prostě dokola,
+
+1706
+01:57:08,739 --> 01:57:12,319
+dokud vám nevrátí v té odpovědi ten model text,
+
+1707
+01:57:12,199 --> 01:57:15,079
+zprávu asistant a v contentu
+
+1708
+01:57:15,079 --> 01:57:15,940
+bude text.
+
+1709
+01:57:16,520 --> 01:57:19,559
+Zase práce toho agenta končí,
+
+1710
+01:57:19,579 --> 01:57:21,159
+teď se bavíme o úplně
+
+1711
+01:57:21,399 --> 01:57:23,539
+nejednodušším agentovi, který existuje
+
+1712
+01:57:24,140 --> 01:57:25,199
+a pak už odpovídáte
+
+1713
+01:57:25,260 --> 01:57:27,020
+uživateli. Takže začněte si zvykat,
+
+1714
+01:57:27,020 --> 01:57:29,020
+že teď už existují 4,
+
+1715
+01:57:29,779 --> 01:57:31,100
+tak nějak pomalu,
+
+1716
+01:57:31,300 --> 01:57:33,020
+než se k tomu dostaneme do té
+
+1717
+01:57:33,340 --> 01:57:34,600
+AI software
+
+1718
+01:57:35,760 --> 01:57:36,940
+části kurzu,
+
+1719
+01:57:37,420 --> 01:57:39,260
+tak už budeme mít 4.
+
+1720
+01:57:39,260 --> 01:57:41,199
+A nicméně tady máte ty tokeny.
+
+1721
+01:57:42,059 --> 01:57:44,720
+To znamená, že ta správa, tato,
+
+1722
+01:57:45,659 --> 01:57:48,699
+Takhle naformátovaná nebude platit pro LAMu,
+
+1723
+01:57:48,899 --> 01:57:52,380
+LAMA si ji bude formátovat takovýmhle nějakým způsobem.
+
+1724
+01:57:52,520 --> 01:57:54,840
+Begin text, end of text, head start.
+
+1725
+01:57:55,920 --> 01:57:59,260
+Jakmile se dostaneme k Hugging Face lekci,
+
+1726
+01:57:59,699 --> 01:58:03,359
+budou tam tokenizery, já vám ukážu ten samej text,
+
+1727
+01:58:03,380 --> 01:58:08,119
+vygenerovaný pro Mistral, pro LAMu v tomhletom formátu
+
+1728
+01:58:08,399 --> 01:58:12,940
+a pro nějaký, myslím, že já vám budu ukazovat jenom tyhle dva teda,
+
+1729
+01:58:13,859 --> 01:58:24,699
+Ale ještě tady máte jeden, tady je třeba taková ukázka, takže tady vidíte začátek z textu je místo toho s, pak je head start,
+
+1730
+01:58:25,020 --> 01:58:36,119
+system zpráva, takže tohle je vlastně ta system message a teď už začínáte chápat, že to má speciální místo, vlastně tadyhle v tom případě
+
+1731
+01:58:36,940 --> 01:58:48,199
+Jo, speciální místo. To znamená, že tadyhle v tom případě je to ta systém zpráva, takže ten model vlastně vyhledá tadyhle ten Head Start s tím systémem, protože na to byl trénovanej.
+
+1732
+01:58:48,460 --> 01:58:56,979
+Tadyhle v tom případě je to ještě víc vidět, protože tadyhle zatím S vlastně je ještě ta systém message.
+
+1733
+01:58:58,720 --> 01:59:01,899
+A pak tady máte tu otázku uživatelé a odpověď.
+
+1734
+01:59:02,199 --> 01:59:05,659
+Dobře, si chápete ty formáty,
+
+1735
+01:59:05,659 --> 01:59:08,840
+nebudu se nad tím moc zdržovat dál.
+
+1736
+01:59:08,960 --> 01:59:12,119
+Ještě vám tady ukážu jeden format a to je FI.
+
+1737
+01:59:12,579 --> 01:59:16,380
+A to má takový podobnej format, jako je ta LAMA,
+
+1738
+01:59:17,779 --> 01:59:20,180
+ale jiný taky.
+
+1739
+01:59:20,600 --> 01:59:22,640
+Je tam EM Start, EM Set,
+
+1740
+01:59:22,979 --> 01:59:26,059
+používají jiný vlastně ty oddělovače,
+
+1741
+01:59:26,059 --> 01:59:26,979
+dalo by se říct.
+
+1742
+01:59:27,039 --> 01:59:28,420
+Je to jako kdybychom se bavili o...
+
+1743
+01:59:29,039 --> 01:59:33,699
+HTML a JSON a různých takovýchhle formátech,
+
+1744
+01:59:33,779 --> 01:59:36,380
+tak každej ten model používá trochu něco jiného.
+
+1745
+01:59:36,380 --> 01:59:39,640
+Ani se mě neptejte, proč, sám to nevím.
+
+1746
+01:59:41,020 --> 01:59:43,319
+Mohli by se sladit taky kluci.
+
+1747
+01:59:43,840 --> 01:59:47,300
+A potom máte Closers, kde máte OpenAI format,
+
+1748
+01:59:47,420 --> 01:59:50,579
+Mistral format, Anthropic format,
+
+1749
+01:59:50,579 --> 01:59:54,680
+zase tady máte ty linky, takže se na to můžete podívat.
+
+1750
+01:59:55,579 --> 01:59:57,140
+Já vám...
+
+1751
+02:00:00,199 --> 02:00:12,220
+Já teď přemýšlím tiše, jestli vám mám začít říkat ty rozdíly mezi těmi A a P,
+
+1752
+02:00:12,760 --> 02:00:18,720
+ale myslím si, že to nebudu dělat, aby jsem vás nezmátnul.
+
+1753
+02:00:21,159 --> 02:00:26,500
+Nicméně ty základy, úplně ty základy, vlastně teď už chápete a znáte.
+
+1754
+02:00:27,220 --> 02:00:34,020
+A pak už se vám to jenom rozšiřuje v závislosti na tom, jak daleko ty jednotlivé společnosti jsou,
+
+1755
+02:00:34,539 --> 02:00:37,020
+a kolik dalších funkcionality
+
+1756
+02:00:37,420 --> 02:00:38,819
+oni absorbovali do toho
+
+1757
+02:00:38,899 --> 02:00:40,539
+svýho APIčka. Ale
+
+1758
+02:00:40,779 --> 02:00:42,680
+tyhle ty základy, o kterých se bavíme,
+
+1759
+02:00:42,739 --> 02:00:44,739
+to najdete vlastně v každém tom
+
+1760
+02:00:44,920 --> 02:00:47,460
+modelu. To je to bare minimum,
+
+1761
+02:00:47,880 --> 02:00:48,779
+který musíte
+
+1762
+02:00:48,899 --> 02:00:50,659
+tomu rozumět. Pak už se tady můžeme
+
+1763
+02:00:50,720 --> 02:00:52,600
+začít bavit o tom, že
+
+1764
+02:00:52,600 --> 02:00:54,659
+tady máme sekci na MCP
+
+1765
+02:00:54,819 --> 02:00:56,760
+servery, že tady máme prostě
+
+1766
+02:00:57,260 --> 02:00:59,460
+že tady máme Thinking,
+
+1767
+02:00:59,600 --> 02:01:02,479
+objekt týká nějakého Thinking modelu,
+
+1768
+02:01:02,479 --> 02:01:06,220
+že tady pak jsou ty role na Tool Choice a Tool,
+
+1769
+02:01:06,520 --> 02:01:10,659
+a to už jsou takové rozdíly, které si myslím, že zvládnete
+
+1770
+02:01:11,239 --> 02:01:28,720
+si domyslet, ale tyhle ty, tohle ten základ, to role, uživatel, asistent, systém, teď content tool, to je něco, čemu byste měli určitě rozumět. To může se tady vytvářit nějaký další format, tomu byste taky měli rozumět.
+
+1771
+02:01:32,039 --> 02:01:36,260
+Tak, teď já se ještě vrátím k té prezentaci,
+
+1772
+02:01:36,260 --> 02:01:38,479
+protože tady byly skilly,
+
+1773
+02:01:38,479 --> 02:01:42,479
+to znamená jasně, jaký je nejlepší nástroj na seznamu,
+
+1774
+02:01:42,479 --> 02:01:45,159
+pokud je použití nejlepší odpovědi na toho z uživatele.
+
+1775
+02:01:45,779 --> 02:01:48,340
+To je v pohodě, domain knowledge, to jsme si taky řekli,
+
+1776
+02:01:48,380 --> 02:01:50,619
+tady je pak jenom odkaz na GitHub do toho autogenu,
+
+1777
+02:01:50,619 --> 02:01:53,500
+abyste si případně přečetli, o čem to je ten autogen.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

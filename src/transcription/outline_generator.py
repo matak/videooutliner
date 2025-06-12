@@ -5,24 +5,16 @@ import os
 import datetime
 import traceback
 from src.utils.srt_utils import SRTUtils
+import uuid
+from src.utils.api_interaction_logger import ApiInteractionLogger
 
 class OutlineGenerator:
-    def __init__(self, api_key):
+    def __init__(self, api_key, logs_dir, import_path):
         self.openrouter_api_key = api_key
         # Create logs directory if it doesn't exist
-        self.logs_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "logs", "api")
-        os.makedirs(self.logs_dir, exist_ok=True)
-
-    def _log_api_interaction(self, interaction_type, data):
-        """Log API interaction to a timestamped file"""
-        timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S_%f')
-        log_file = os.path.join(self.logs_dir, f'{interaction_type}_{timestamp}.json')
-        
-        try:
-            with open(log_file, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
-        except Exception as e:
-            print(f"Failed to log {interaction_type}: {str(e)}")
+        self.logs_dir = os.path.abspath(logs_dir)
+        self.import_path = os.path.abspath(import_path)
+        self.api_logger = ApiInteractionLogger(self.logs_dir)
 
     def _get_chunk_json_path(self, outline_path, chunk_index):
         """Get the cache path for a specific chunk"""
@@ -32,6 +24,9 @@ class OutlineGenerator:
         """Process a single chunk of SRT content"""
         json_path = self._get_chunk_json_path(outline_path, chunk_index)
         print(f"Processing chunk {chunk_index} ... {json_path}")
+
+        outline_path_base = os.path.basename(outline_path)
+        print(f"outline_path_base: {outline_path_base}")
     
         # Check for cached response first
         try:
@@ -39,7 +34,7 @@ class OutlineGenerator:
             print(f"Using cached response for chunk ... {json_path}")
             return cached_response
         except Exception as e:
-            print(f"Error loading cached response for chunk {chunk_index} ... {json_path}: {str(e)}")
+            print(f"Not yet cached response for chunk {chunk_index} ... {json_path}: {str(e)}")
             pass
 
         #raise Exception(f"Processing not cached chunk {chunk_index} ... {json_path}")
@@ -57,9 +52,15 @@ class OutlineGenerator:
         prompt_user_message = prompt_user_message.replace("{chunk_index}", str(chunk_index)).replace("{chunk_total}", str(chunk_total)).replace("{chunk}", chunk)
         #print(f"prompt_user_message: {prompt_user_message}")
 
+        log_path = os.path.join(self.logs_dir, f"{outline_path_base}_prompt_system_message_{chunk_index}.txt")
+        #print(f"outline_path: {outline_path}")
+        #print(f"self.logs_dir: {self.logs_dir}")
+        print(f"Saving prompt system message to {log_path}")
+        self._save_content(prompt_system_message, log_path)
 
-        self._save_content(prompt_system_message, os.path.join(self.logs_dir, f"prompt_system_message_{chunk_index}.txt"))
-        self._save_content(prompt_user_message, os.path.join(self.logs_dir, f"prompt_user_message_{chunk_index}.txt"))
+        log_path = os.path.join(self.logs_dir, f"{outline_path_base}_prompt_user_message_{chunk_index}.txt")
+        print(f"Saving prompt user message to {log_path}")
+        self._save_content(prompt_user_message, log_path)
 
         #raise Exception(f"Processing chunk {chunk_index} ... {json_path}")
     
@@ -79,7 +80,7 @@ class OutlineGenerator:
         }
 
         # Log the request
-        self._log_api_interaction('request', {
+        self.api_logger.log_request(outline_path, {
             'timestamp': datetime.datetime.now().isoformat(),
             'headers': headers,
             'data': data,
@@ -124,7 +125,7 @@ class OutlineGenerator:
             )
 
             # Log the response
-            self._log_api_interaction('response', {
+            self.api_logger.log_response(outline_path, {
                 'timestamp': datetime.datetime.now().isoformat(),
                 'status_code': response.status_code,
                 'headers': dict(response.headers),
@@ -161,6 +162,12 @@ class OutlineGenerator:
         print(f"Combining outlines ... {outline_path}")
         print(f"outlines: {outlines}")
 
+        outline_path_base = os.path.basename(outline_path)
+        print(f"outline_path_base: {outline_path_base}")
+
+        outline_path_base_combined_response = os.path.join(self.import_path, f"{outline_path_base}.combined.response.txt")
+        print(f"outline_path_base_combined_response: {outline_path_base_combined_response}")
+
         prompt_system_message = self._load_content(os.path.join(os.path.dirname(__file__), "prompts", "combine_outlines_prompt_system_message.txt"))
         #print(f"prompt content: {prompt_system_message}")
 
@@ -195,7 +202,7 @@ class OutlineGenerator:
         }
 
         # Log the request
-        self._log_api_interaction('request', {
+        self.api_logger.log_request(outline_path, {
             'timestamp': datetime.datetime.now().isoformat(),
             'headers': headers,
             'data': data,
@@ -204,6 +211,31 @@ class OutlineGenerator:
         })        
 
         try:
+            if os.path.exists(outline_path_base_combined_response):
+                try:
+                    with open(outline_path_base_combined_response, 'r', encoding='utf-8') as f:
+                        log_data = json.load(f)
+                        print(f"log_data: {log_data}")
+                        raise Exception("Cached response found")
+                    
+                    """
+                        if 'text' in log_data:
+                            response_text = log_data['text'].strip()
+                            response_json = json.loads(response_text)
+                            print(f"response_json: {response_json}")
+                            if response_json.get("choices") and response_json["choices"][0].get("message"):
+                                content = response_json["choices"][0]["message"]["content"].strip()
+                                print(f"logged content: {content}")
+                                content_json = json.loads(content)
+                                # Save the response
+                                self._save_json(content_json, json_path)
+                                return content_json
+                    """
+                except Exception as e:
+                    print(f"Error reading cached log file {outline_path_base_combined_response}: {str(e)}")
+                    # Continue with API call if log reading fails
+                    raise
+
             response = requests.post(
                 "https://openrouter.ai/api/v1/chat/completions",
                 headers=headers,
@@ -211,8 +243,10 @@ class OutlineGenerator:
                 timeout=1800
             )
 
+            self._save_content(response.text.strip(), outline_path_base_combined_response)
+
             # Log the response
-            self._log_api_interaction('response', {
+            self.api_logger.log_response(outline_path, {
                 'timestamp': datetime.datetime.now().isoformat(),
                 'status_code': response.status_code,
                 'headers': dict(response.headers),

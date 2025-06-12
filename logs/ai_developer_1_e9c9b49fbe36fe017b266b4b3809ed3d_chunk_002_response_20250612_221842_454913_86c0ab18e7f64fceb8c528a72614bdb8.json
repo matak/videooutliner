@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-06-12T22:18:42",
+  "status_code": 200,
+  "headers": {
+    "Date": "Thu, 12 Jun 2025 20:18:43 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "Access-Control-Allow-Origin": "*",
+    "Report-To": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=G1%2Fkh49la%2FHshD0gQhULPU%2F5PRVFebhcNVhnC%2Bckk56pqCd1CdW%2BgYaiSPmP7s74XEYA8xEH6iWEUYHNttkEwQL0ba36%2FjZlMswllxWWTjwBHThYXjlj7jjuGrHD616xBb8%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+    "Nel": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+    "Vary": "Accept-Encoding",
+    "Server": "cloudflare",
+    "Cf-Ray": "94ec09a87dcddf72-PRG",
+    "alt-svc": "h3=\":443\"; ma=86400",
+    "server-timing": "cfL4;desc=\"?proto=TCP&rtt=5305&min_rtt=5096&rtt_var=1799&sent=12559&recv=31177&lost=0&retrans=0&sent_bytes=2844&recv_bytes=43261431&delivery_rate=480106&cwnd=251&unsent_bytes=0&cid=b7e5fb6f5769e6a0&ts=13742&x=0\""
+  },
+  "text": "{\"status\":200,\"message\":\"Transcription request received. You will receive a callback when it is ready.\"}",
+  "encoding": "utf-8",
+  "chunk_name": "ai_developer_1_e9c9b49fbe36fe017b266b4b3809ed3d_chunk_002"
+}

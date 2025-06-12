@@ -1,0 +1,991 @@
+Transcript:
+
+=================
+269
+00:20:41,000 --> 00:20:43,299
+To znamená, že už ten model vlastně v sobě
+
+270
+00:20:43,339 --> 00:20:46,180
+musí začít generovat ty čísla pro češtinu.
+
+271
+00:20:46,200 --> 00:20:47,319
+A teď mě není jasný,
+
+272
+00:20:48,240 --> 00:20:54,180
+jestli jeho znalost je nějakým způsobem rozdělená.
+
+273
+00:20:54,900 --> 00:20:58,579
+To nemůže být, ale já si jenom snažím přemýšlet nahlas.
+
+274
+00:21:00,619 --> 00:21:02,119
+No, nemůže asi být.
+
+275
+00:21:03,759 --> 00:21:08,839
+No kdyby to bylo, jak říkáte, tak vlastně on by ten model byl rozdělený na úplně každej jinej jazyk.
+
+276
+00:21:09,059 --> 00:21:14,460
+No a znalost hlavně, že jo. To znamená, že prostě pro tu češtinu on by měl velmi limitovanou znalost,
+
+277
+00:21:14,460 --> 00:21:17,339
+protože byl trénovaný na velmi limitovaném úběhu dat.
+
+278
+00:21:17,799 --> 00:21:22,539
+To znamená, že pro něho... Vlastně pro něho jsou to... Jojojojo, pro něho jsou to...
+
+279
+00:21:24,019 --> 00:21:26,539
+No ale čísla, nečísla, to je jedno.
+
+280
+00:21:27,059 --> 00:21:33,019
+Asi myslím, že DOOM a House pro něho bude v číslech, co se významu slova týče, velmi blízko.
+
+281
+00:21:33,319 --> 00:21:39,299
+Ale pak to není možné úplně ne. Tam máte jako A nebo zájmena atd. To jako není úplně...
+
+282
+00:21:39,460 --> 00:21:48,140
+Právě, ten tokenizer, to je to, co mi nedá, co mi vlastně v té hlavě nehraje, že stejný význam v jiném jazyce, pro něj musí být jiný čísla,
+
+283
+00:21:48,400 --> 00:21:55,839
+to znamená, že ta interpretace pro něj vlastně je jiná. Neumím si představit, že by House a Doom pro něj vlastně
+
+284
+00:21:56,559 --> 00:22:00,940
+bylo stejný. Nicméně ve vektorové databázi to taky je,
+
+285
+00:22:01,000 --> 00:22:04,500
+protože tam jsou to vektory a house a dům
+
+286
+00:22:04,599 --> 00:22:08,700
+vlastně jsou vektorově velmi blízko. Je to úplně daleko od pes
+
+287
+00:22:08,880 --> 00:22:12,339
+a kočka. To znamená, že je možný, že i ten model má
+
+288
+00:22:12,799 --> 00:22:15,660
+vlastně tu vektorovou reprezentaci nějakým způsobem.
+
+289
+00:22:15,660 --> 00:22:18,920
+Tohle si budu muset přečíst ještě.
+
+290
+00:22:18,920 --> 00:22:18,920
+Takže.
+
+291
+00:22:19,299 --> 00:22:26,660
+Ono by bylo zajímavé asi tez, pokud se zeptám číštiny, co se stalo na náměstí a v angličtině, tak by mělo odpovědět úplně jako jinak, že jo?
+
+292
+00:22:26,660 --> 00:22:32,180
+Protože v angličtině odpoví tak asi, jak to zná celý svět a v číštině by měl teda odpovědět tak, jak to tam mají cenzurovaný asi, že jo?
+
+293
+00:22:32,180 --> 00:22:34,640
+Protože ty data nebyly asi veřejný, že jo?
+
+294
+00:22:35,160 --> 00:22:37,559
+To je otázka, no. To je přesně ta otázka.
+
+295
+00:22:37,859 --> 00:22:59,420
+Říkám, já se o tom ještě radši něco přečtu, než bychom se tady s tím zdržovali, polemizovali, nebo já se o tom rád svám a pobavím na konci hodiny zase, až ta oficiální hodina skončí, tak bude zase prostor pro nějakou diskuzi, takže tam to můžeme zkusit rozebrat, já si můžu tady rychle zkusit něco zagooglit, ale jinak tohle já si budu zjišťovat ještě.
+
+296
+00:23:01,519 --> 00:23:06,920
+Já ji tvrdí, to používám. Používá se Algeitmus jako byte pair encoding,
+
+297
+00:23:07,319 --> 00:23:13,359
+nebo unigramm lem, který najde nejčastější kombinace znaků nebo slabek a vytvoří z nich tokeny.
+
+298
+00:23:13,500 --> 00:23:16,400
+Model se tak učí jazyk od spodu.
+
+299
+00:23:17,599 --> 00:23:23,319
+To je vyřešeno už jenom na jednoduché přepnutí několik neuronů.
+
+300
+00:23:23,779 --> 00:23:30,500
+No je to zajímavý. Určitě to nebude, nebo myslím si, že to nebude úplně tak jednoduchá odpověď, že těch způsobů bude víc.
+
+301
+00:23:31,039 --> 00:23:34,200
+ale k tomu se ještě dostaneme.
+
+302
+00:23:34,900 --> 00:23:37,579
+Tak teď, když se teda bavíme o formátech
+
+303
+00:23:38,200 --> 00:23:40,000
+a budeme si připravovat data,
+
+304
+00:23:40,000 --> 00:23:43,779
+tak by bylo dobré dát nějaké odkazy na to,
+
+305
+00:23:43,779 --> 00:23:45,619
+kde vlastně ty formáty můžete najít.
+
+306
+00:23:45,720 --> 00:23:50,180
+To znamená, že pro OpenAI, když tady kliknu na zprávy,
+
+307
+00:23:50,740 --> 00:23:53,779
+tak vás to přesměruje na dokumentaci,
+
+308
+00:23:53,779 --> 00:23:57,200
+kde vlastně vy ty zprávy uvidíte.
+
+309
+00:23:57,200 --> 00:24:01,859
+Tak jsem teda nemusel kopírovat URL adresu.
+
+310
+00:24:03,460 --> 00:24:08,680
+ale mohl jsem spíš skopírovat
+
+311
+00:24:10,819 --> 00:24:16,559
+tady ten link, a teď jsem to roztratil.
+
+312
+00:24:18,220 --> 00:24:20,579
+Ty zprávy jako takový, takže počkat.
+
+313
+00:24:23,019 --> 00:24:30,880
+Musím to tady, jdem, jem, jem, jem.
+
+314
+00:24:30,880 --> 00:24:33,940
+Jak to má chyba? Message rose.
+
+315
+00:24:36,839 --> 00:25:13,759
+A d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d-d To znamená, že tady vidíte pak ten format pro to OpenAI, který se používá.
+
+316
+00:25:13,819 --> 00:25:18,200
+My jsme se, jak jsem říkal, my máme User, Assistant, System.
+
+317
+00:25:18,519 --> 00:25:22,039
+Vidíte, že prostě s průběhou času se to vyvíjí.
+
+318
+00:25:22,259 --> 00:25:28,119
+Nevím, jaký je teda přesně důvod, ale přemenovali to na Developer v poslední době,
+
+319
+00:25:28,119 --> 00:25:31,619
+takže teď už je to Developer, User, zase ostatní APIčka,
+
+320
+00:25:32,140 --> 00:25:38,140
+buď se adaptují časem nebo zůstanou u toho asistentu, to se prostě různí.
+
+321
+00:25:38,500 --> 00:25:49,720
+Jak OpenAI vede celé to odvětví, tak většinou oni udělají změnu a pak časem se adaptují vlastně ty ostatní APIčka taky.
+
+322
+00:25:49,799 --> 00:25:58,140
+Bylo to s function callingem, všichni najednou udělali function calling, pak oni to změnili na tool use a najednou všichni zase to přeměnovali na tool use.
+
+323
+00:25:59,140 --> 00:26:02,019
+s nějakýma drobnýma svéma změnama.
+
+324
+00:26:02,420 --> 00:26:03,400
+Zase úplně
+
+325
+00:26:03,859 --> 00:26:06,400
+Antropic třeba úplně slepě nenásleduje,
+
+326
+00:26:06,420 --> 00:26:07,319
+to je jejich API,
+
+327
+00:26:07,599 --> 00:26:09,740
+mají tam nějaké svoje rozdíly,
+
+328
+00:26:09,740 --> 00:26:12,140
+drobný, my se to budeme ukazovat,
+
+329
+00:26:12,140 --> 00:26:13,200
+až se budeme bavit o
+
+330
+00:26:14,240 --> 00:26:15,099
+softwaru.
+
+331
+00:26:15,740 --> 00:26:23,480
+A teď potom je fine tuning, to znamená, že pro ten fine tuning jako takovej se ty data musí připravit zase ve speciálním formátu.
+
+332
+00:26:23,480 --> 00:26:27,720
+To znamená, že když se bavíte s tím API, tak to byl ten formát, který jsem vám ukazoval.
+
+333
+00:26:28,039 --> 00:26:35,400
+Teď, když budete připravovat data pro ten fine tuning, tak musíte použít nebo dá to do JSON-L formatu.
+
+334
+00:26:35,779 --> 00:26:39,160
+JSON-L format je jako JSON, akorát line format.
+
+335
+00:26:39,480 --> 00:26:45,099
+Formát, to znamená, že jeden řádek je vlastně jeden ten JSON objekt.
+
+336
+00:26:45,099 --> 00:26:50,119
+Vidíte, že tady není vlastně značka pro pole, začátek a konec pole.
+
+337
+00:26:50,380 --> 00:26:53,740
+Jeden řádek prostě znamená jeden JSON objekt.
+
+338
+00:26:54,839 --> 00:26:59,099
+Hrozně nemám tady ten format rád, nedá se to ani formatovat v VDS koudu.
+
+339
+00:27:00,299 --> 00:27:03,920
+Nevím, proč to nedali do normálního JSON formatu a...
+
+340
+00:27:04,700 --> 00:27:07,119
+Netuším, nevím, jaký k tomu byl důvod.
+
+341
+00:27:07,160 --> 00:27:11,619
+Každopádně tohle je ten formát, který my budeme vytvářet dneska,
+
+342
+00:27:11,640 --> 00:27:16,640
+abychom byli schopni pak nauploadovat přes UI
+
+343
+00:27:16,920 --> 00:27:20,759
+vlastně ten náš soubor s datama a spustit ten fine tuning.
+
+344
+00:27:21,799 --> 00:27:28,779
+Teď v Hugging Faceu dál jsem vám tady jeden odkaz do jednoho modelu, který my budeme používat.
+
+345
+00:27:28,859 --> 00:27:33,000
+Bude to Mistral 7B, my budeme používat verzi 0.3.
+
+346
+00:27:33,220 --> 00:27:42,720
+V 0.3. deskripci nebo popisu toho modelu není popsanej ten format, to znamená, že proto je tady to 0.2.
+
+347
+00:27:43,180 --> 00:27:44,519
+Vy tady vidíte, že
+
+348
+00:27:45,079 --> 00:27:52,119
+Vidíte dvě věci. Jednak je, že používáme takzvaný Instruct. To je důležité pro vás.
+
+349
+00:27:52,119 --> 00:27:56,519
+Já to tady zavřu a ještě jsem natáhnul jeden.
+
+350
+00:27:57,720 --> 00:28:03,480
+To je 7b03 bez Instructu a pak 02 Instruct.
+
+351
+00:28:03,480 --> 00:28:08,099
+Vy si tady představte trojku, protože ten popis v trojce prostě není.
+
+352
+00:28:08,799 --> 00:28:12,299
+Takže tady vidíte, nebo jaký je v nich rozdíl.
+
+353
+00:28:12,339 --> 00:28:15,339
+Když se budete bavit o Open Source modelech,
+
+354
+00:28:15,440 --> 00:28:19,339
+tak se vždycky, nebo vy se vždycky budete zaměřovat na Instruct modele.
+
+355
+00:28:19,380 --> 00:28:21,420
+To jsou modely, který budete hledat.
+
+356
+00:28:22,019 --> 00:28:23,279
+Důvod je takovejhle.
+
+357
+00:28:23,559 --> 00:28:27,859
+7b verze 0.3 je generování textu.
+
+358
+00:28:28,200 --> 00:28:31,880
+To znamená, že vy mu dáte text, on vám vrátí text.
+
+359
+00:28:32,799 --> 00:28:33,940
+Není to chat model.
+
+360
+00:28:34,700 --> 00:28:39,019
+Nedáváte mu tam žádný role a content.
+
+361
+00:28:39,039 --> 00:28:43,019
+Nic takového to nemá. Je to jenom generování textu.
+
+362
+00:28:43,019 --> 00:28:45,940
+Namísto toho ty verze Instruct,
+
+363
+00:28:46,700 --> 00:28:50,480
+neptejte se mě, proč se to jmenuje Instruct, proč se to jmenuje chat, nebo něco takového,
+
+364
+00:28:51,299 --> 00:28:55,859
+tak ty mají a používají právě tadyhle ten formát, který jsme si ukazovali.
+
+365
+00:28:56,019 --> 00:28:58,259
+Tím pádem přijímají
+
+366
+00:28:59,480 --> 00:29:01,779
+zprávy v takovémhle formátu, kde můžete
+
+367
+00:29:01,980 --> 00:29:03,779
+definovat tu roli a ten kontent, protože
+
+368
+00:29:03,859 --> 00:29:06,059
+tenhle ten formát, oni jsou schopní
+
+369
+00:29:06,160 --> 00:29:07,400
+si vlastně převést do tohohle
+
+370
+00:29:07,799 --> 00:29:10,359
+formátu a byli na tom trénovaní.
+
+371
+00:29:10,359 --> 00:29:11,359
+To je to důležité.
+
+372
+00:29:11,640 --> 00:29:13,420
+Takže ten tokenizer pro ten model
+
+373
+00:29:13,420 --> 00:29:15,480
+vlastně obsahuje tyhle ty tokeny.
+
+374
+00:29:16,640 --> 00:29:18,160
+Pro tenhle ten model,
+
+375
+00:29:19,779 --> 00:29:22,160
+teď jsem si uvědomil, že si vlastně nejsem jistý
+
+376
+00:29:22,259 --> 00:29:23,640
+a nechce vám kecat,
+
+377
+00:29:23,920 --> 00:29:26,759
+takže se tady jenom podíváme tak v rychlosti.
+
+378
+00:29:28,440 --> 00:29:32,279
+Mám takový dojem, že tam ty tokeny nebudou.
+
+379
+00:29:34,579 --> 00:29:38,740
+Teď tady mám Instruct a tady na té straně,
+
+380
+00:29:40,420 --> 00:29:49,799
+tak jsou tady dokonce i ty tooly, tokeny na tooly.
+
+381
+00:29:50,019 --> 00:29:55,880
+Tak dobře, v tokenizeru ten model to má,
+
+382
+00:29:57,380 --> 00:29:59,960
+ale nebyl na tom trénovanej, to znamená,
+
+383
+00:30:00,000 --> 00:30:02,779
+vygeneruje. Bylo by teda zajímavé
+
+384
+00:30:03,039 --> 00:30:06,039
+vyzkoušet, protože to kinajzer
+
+385
+00:30:06,039 --> 00:30:07,640
+mi to převede na čísla,
+
+386
+00:30:07,900 --> 00:30:09,559
+tak by bylo zajímavé vyzkoušet
+
+387
+00:30:09,559 --> 00:30:11,680
+tenhle model s tím, že mu podsunu
+
+388
+00:30:11,720 --> 00:30:14,619
+vlastně převedeným,
+
+389
+00:30:14,759 --> 00:30:16,660
+protože asi pravděpodobně to kinajzer
+
+390
+00:30:16,660 --> 00:30:18,140
+používají stejný oba dva.
+
+391
+00:30:18,779 --> 00:30:20,680
+To znamená, že na ty čísla
+
+392
+00:30:20,740 --> 00:30:22,819
+by mi to převést měl, nicméně asi na to nebude
+
+393
+00:30:22,819 --> 00:30:25,599
+schopný reagovat, protože on tam nebyl natrénovaný.
+
+394
+00:30:26,839 --> 00:30:27,299
+To znamená, nebude vám to
+
+395
+00:30:27,299 --> 00:30:29,519
+vracet správné odpovědi, ale možný
+
+396
+00:30:29,519 --> 00:30:36,720
+teoreticky to zavolat bude. Tak, potom se to volá normálně generate a input,
+
+397
+00:30:36,819 --> 00:30:39,220
+on vám zase vrátí text, který si dekodujete,
+
+398
+00:30:39,259 --> 00:30:40,220
+tomu se ještě dostaneme.
+
+399
+00:30:40,220 --> 00:30:41,960
+Tady je důležitý jenom, abyste si uvědomili
+
+400
+00:30:42,359 --> 00:30:45,480
+ten rozdíl mezi ne-instruct verzi a instruct verzi.
+
+401
+00:30:46,940 --> 00:30:49,920
+Tak, a fine tuning.
+
+402
+00:30:50,079 --> 00:30:53,559
+To znamená, že pro fine tuning toho modelu
+
+403
+00:30:53,559 --> 00:30:55,619
+budeme používat náš vlastní dataset,
+
+404
+00:30:55,619 --> 00:30:58,160
+který si uploadujeme na Hugging Face.
+
+405
+00:30:59,180 --> 00:31:02,700
+Já tady mám třeba pro ten první příklad toho Joe Arogyna,
+
+406
+00:31:03,039 --> 00:31:06,480
+ty ostatní budou dost porovný.
+
+407
+00:31:07,099 --> 00:31:13,220
+My ho budeme formatovat tak, aby se nám dobře procesovalo.
+
+408
+00:31:15,559 --> 00:31:19,640
+A to znamená, že to bude pole, normální JSON format,
+
+409
+00:31:19,759 --> 00:31:23,440
+kde bude pole JSON objektů, který budou mít,
+
+410
+00:31:23,539 --> 00:31:27,039
+každej ten JSON objekt bude mít jednu proportu,
+
+411
+00:31:27,980 --> 00:31:35,839
+To bude text a v tom sloupečku bude celá ta konverzace vlastně toho,
+
+412
+00:31:35,940 --> 00:31:38,059
+v našem případě podcastu.
+
+413
+00:31:38,059 --> 00:31:42,480
+Já vám pak ukážu ještě ty další datasety, který budeme používat,
+
+414
+00:31:42,579 --> 00:31:45,640
+a to byste viděli ty, nebo já vám je můžu ukázat teď,
+
+415
+00:31:46,500 --> 00:31:48,000
+abychom na to nezapomněli.
+
+416
+00:31:50,200 --> 00:31:57,819
+Takže tu je, vyhřeli se, jo, vyhřeli.
+
+417
+00:31:58,880 --> 00:32:02,779
+Tak tady vidíte dataset pro ty tooly, to znamená, že zase má ten sloupeček text
+
+418
+00:32:02,799 --> 00:32:06,559
+a tady pak bude vlastně to, co ho budeme učit.
+
+419
+00:32:06,880 --> 00:32:11,420
+A tady je autogen, neboli ta doménová znalost, něco novýho.
+
+420
+00:32:11,480 --> 00:32:15,000
+Zase to je dataset pole JSON objektů.
+
+421
+00:32:15,380 --> 00:32:20,059
+Každý ten JSON objekt má proportu text a v tom textu je to, co ho budeme učit.
+
+422
+00:32:20,059 --> 00:32:25,400
+V tom formátu, ve kterém ty Instruct modely, na kterých jsou zvyklí,
+
+423
+00:32:25,400 --> 00:32:27,639
+to znamená, že role a content vždycky.
+
+424
+00:32:28,079 --> 00:32:31,799
+Tady bude prostě jenom dvě zprávy.
+
+425
+00:32:31,819 --> 00:32:34,099
+Otázka uživatele, odpověď toho modelu.
+
+426
+00:32:34,099 --> 00:32:37,440
+To je to, co v tom případě autogenu budeme používat.
+
+427
+00:32:37,639 --> 00:32:42,880
+Tadyhle v tom případě bude zase otázka vlastně toho uživatele,
+
+428
+00:32:43,220 --> 00:32:44,660
+odpověď toho modelu.
+
+429
+00:32:44,779 --> 00:32:48,200
+U toho Joe Arogena tam je prostě celý podcast.
+
+430
+00:32:48,740 --> 00:32:53,079
+Tam je celá výměna vlastně, user assistant, user assistant, user assistant.
+
+431
+00:32:53,519 --> 00:32:56,279
+To je vlastně v rámci toho jednoho JSON objektu.
+
+432
+00:32:58,920 --> 00:33:01,539
+To je jenom formatování.
+
+433
+00:33:01,839 --> 00:33:03,220
+A tak k té přípravě dat.
+
+434
+00:33:04,200 --> 00:33:11,980
+Budeme se teda zaměřovat na 3 typy, nebo budeme připravovat dat pro 3 různý use case.
+
+435
+00:33:12,099 --> 00:33:23,139
+Formatovat mu odpověď, učit ho vlastně nějakou novou znalost, o vaší firmě, o pravidlech handspalky, nebo co budete v rámci vašeho use case potřebovat.
+
+436
+00:33:23,759 --> 00:33:26,220
+Nebo ho učit nějakou novou, novej skill.
+
+437
+00:33:26,220 --> 00:33:32,360
+To znamená, že třeba generovat SQL dotazy pro vaší konkrétní databázy
+
+438
+00:33:32,440 --> 00:33:39,319
+nebo bejt schopný rozumět vašemu API a jeho swagger filu.
+
+439
+00:33:39,519 --> 00:33:42,900
+Všechny tyhle ty use cases, které teď zmiňuju,
+
+440
+00:33:42,980 --> 00:33:48,299
+tak pravděpodobně už budou obsažený dost dobře i v tom base modelu.
+
+441
+00:33:49,339 --> 00:33:51,579
+jen kdybyste si vybrali nějaký open source model,
+
+442
+00:33:51,579 --> 00:33:54,380
+který by tuhletu specifický skill vlastně neměl,
+
+443
+00:33:54,380 --> 00:33:55,860
+nebo neměl ho tak dobrý,
+
+444
+00:33:56,059 --> 00:33:57,839
+tak abyste byli schopni se to doučit,
+
+445
+00:33:57,900 --> 00:33:58,940
+jako je ten tool use.
+
+446
+00:34:00,339 --> 00:34:02,740
+Tak já jenom tady rychle přečtu otázky.
+
+447
+00:34:08,820 --> 00:34:10,239
+Pro zrovna Mistral.
+
+448
+00:34:10,659 --> 00:34:13,360
+Mistral jsem vybral z toho důvodu,
+
+449
+00:34:13,980 --> 00:34:18,679
+že je konkurent Lamy a je evropský.
+
+450
+00:34:18,760 --> 00:34:22,779
+Je z Francie, takže má dobrý výsledky věci,
+
+451
+00:34:23,300 --> 00:34:28,019
+a dobře se používá na ty edukační důvody.
+
+452
+00:34:28,599 --> 00:34:32,440
+Velmi jednoduše si to pak můžete svičnout na LAMu.
+
+453
+00:34:32,739 --> 00:34:39,980
+Já v těch předchozích kurzech jsem měl vlastně skripty pro ten fine tuning jak pro LAMu, tak pro Mistral.
+
+454
+00:34:40,420 --> 00:34:44,159
+Myslím, že jsem tam měl ještě jeden model.
+
+455
+00:34:46,000 --> 00:34:53,539
+Stejně jsme se pak k těm skriptům jako nedostali, protože nebyl čas, nebyl prostor vlastně všechny ty skripty projít,
+
+456
+00:34:53,579 --> 00:35:05,360
+oni byly víceméně dost stejný, akorát se měnilo. Byly tam nějaký drobný změny jako format třeba vach modelu místo float, tam bylo bfloat,
+
+457
+00:35:06,099 --> 00:35:08,900
+Takže nebyl čas projít vlastně tyhle ty drobný změny,
+
+458
+00:35:08,920 --> 00:35:11,340
+takže já zůstávám u toho Mistralu.
+
+459
+00:35:11,760 --> 00:35:14,019
+Ten se mi líbil nejvíc,
+
+460
+00:35:14,059 --> 00:35:17,059
+ale nebude pro vás těžký vlastně si to adaptovat
+
+461
+00:35:17,139 --> 00:35:18,279
+na jakýkoliv jiný model.
+
+462
+00:35:19,599 --> 00:35:22,639
+Jaké mají reálné využití modely bez Instructu?
+
+463
+00:35:23,199 --> 00:35:25,559
+Generování dat pro další trénování?
+
+464
+00:35:26,179 --> 00:35:28,199
+To je dobrá otázka.
+
+465
+00:35:28,539 --> 00:35:30,119
+Já popravdě nevím.
+
+466
+00:35:30,119 --> 00:35:34,360
+Já jsem v životě nepoužil ten Instruct model,
+
+467
+00:35:34,360 --> 00:35:36,279
+takže jako vždycky,
+
+468
+00:35:37,059 --> 00:35:40,779
+Tím, že jsem zvyklý od začátku si s tím chatovat,
+
+469
+00:35:41,179 --> 00:35:45,800
+tak vždycky pro mě bylo jednodušší i na pochopení
+
+470
+00:35:45,860 --> 00:35:49,019
+použít ten Instruct model, připravit si ty data
+
+471
+00:35:49,440 --> 00:35:51,599
+v tom konverzačním formátu.
+
+472
+00:35:52,420 --> 00:35:58,820
+Maximálně, že by to bylo jako dokončování textu, že bys tam udal třeba půlku smlouvy,
+
+473
+00:35:59,179 --> 00:36:03,380
+nějaký právnický smlouvy, a on by vlastně doplnil ten zbytek tý smlouvy.
+
+474
+00:36:04,059 --> 00:36:08,279
+Takovýhle jednodušší, asi, juzky, že by se nějaký našli.
+
+475
+00:36:09,279 --> 00:36:12,400
+Zaclání tam nějaký baner je možné oskrýt.
+
+476
+00:36:13,039 --> 00:36:20,380
+Tak to byl asi ten baner, který jsem teď vám vypnul, ne?
+
+477
+00:36:20,980 --> 00:36:22,820
+Už tam není edit, už tam není.
+
+478
+00:36:22,960 --> 00:36:27,300
+Tak to byl banner Zoomu, to jsem teda překvapenej, že ho vidíte i vy.
+
+479
+00:36:28,860 --> 00:36:31,220
+Tam byste je správně vidět neměli.
+
+480
+00:36:32,779 --> 00:36:34,099
+Tak každopádně už je pryč.
+
+481
+00:36:35,199 --> 00:36:42,039
+Takže, kde najdete data? Já jsem pro vás nějaký data připravil, abyste je nemuseli vytvářet všechny od začátku.
+
+482
+00:36:42,199 --> 00:36:47,039
+Takže tady je link do Google Drive, kde byste ty data měli stáhnout.
+
+483
+00:36:47,519 --> 00:36:49,099
+Já ty data mám stažený.
+
+484
+00:36:50,159 --> 00:36:52,820
+ukážu vám, co se s nima bude dělat.
+
+485
+00:36:53,119 --> 00:36:55,000
+Takže to si ukážeme.
+
+486
+00:36:56,179 --> 00:36:57,380
+Kdo je teda pro někoho,
+
+487
+00:36:57,460 --> 00:36:59,059
+kdo by neznal Joe Arogena, tak
+
+488
+00:36:59,519 --> 00:37:01,239
+má svůj vlastní podcast a
+
+489
+00:37:01,239 --> 00:37:03,300
+komentuje MMA. Posledním dobou
+
+490
+00:37:03,420 --> 00:37:04,739
+mi pěkně leze krkem, ale
+
+491
+00:37:04,920 --> 00:37:07,400
+vybral jsem ho,
+
+492
+00:37:07,400 --> 00:37:09,159
+protože je pro něj hodně dat.
+
+493
+00:37:09,960 --> 00:37:11,699
+Lexa Freemana se snažím
+
+494
+00:37:11,699 --> 00:37:14,079
+ignorovat a český podcast,
+
+495
+00:37:15,279 --> 00:37:16,079
+který jsem používat
+
+496
+00:37:16,239 --> 00:37:17,940
+nechtěl. Chtěl jsem použít někoho, kdo
+
+497
+00:37:18,480 --> 00:37:21,699
+kde ty data budou anglicky.
+
+498
+00:37:22,500 --> 00:37:25,279
+Tak Wikipedia je a cílem bude teda naučit
+
+499
+00:37:25,279 --> 00:37:27,739
+toho odpovídat ve stylu Joe Arogena
+
+500
+00:37:28,779 --> 00:37:31,220
+a jaký nástroje jsem k tomu používal
+
+501
+00:37:31,679 --> 00:37:35,699
+nebo použil, nebo o který byste měli vidět,
+
+502
+00:37:35,840 --> 00:37:37,440
+pokud něco takového budete dělat,
+
+503
+00:37:37,440 --> 00:37:41,380
+ať už pro jakýkoliv audio vlastně.
+
+504
+00:37:42,720 --> 00:37:45,099
+První je, jak stáhnout ty data z YouTube,
+
+505
+00:37:45,099 --> 00:37:48,400
+takže to jsem tady použil byclick downloader
+
+506
+00:37:50,739 --> 00:37:54,920
+Ani jsem ho neskenoval nějakým antivirem, jestli to je nějaký malware.
+
+507
+00:37:55,460 --> 00:37:59,239
+Avast mi taky ten zadarmo, on mi říkal, že je v pohodě.
+
+508
+00:37:59,639 --> 00:38:04,360
+5 dolarů, stáhnete to a pak vlastně cokoliv si tady odevřete na YouTube,
+
+509
+00:38:05,119 --> 00:38:12,739
+tak klik do Unloader, tak on by vám měl tady ukázat,
+
+510
+00:38:13,039 --> 00:38:16,179
+když tady něco takhle kliknu, tak by mi měl tady ukázat,
+
+511
+00:38:16,260 --> 00:38:18,519
+on mi to ukázal tady na druhém monitoru.
+
+512
+00:38:19,380 --> 00:38:23,059
+ale ukázal mi tady, že to můžu prostě hned stáhnout,
+
+513
+00:38:23,179 --> 00:38:26,800
+takže tady byste buď dali URL a stáhli.
+
+514
+00:38:27,460 --> 00:38:30,119
+Asi není úplně co o tom vyprávět.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

@@ -1,0 +1,1071 @@
+Transcript:
+
+=================
+1113
+01:08:25,960 --> 01:08:28,739
+Jo, co se, já už to vidím, co se.
+
+1114
+01:08:28,779 --> 01:08:30,939
+No, takže to je jako stejně jako v Hungarii
+
+1115
+01:08:31,100 --> 01:08:34,880
+nebo v Bulgarii asi, nebo Slovensko 0,01.
+
+1116
+01:08:35,440 --> 01:08:37,180
+Takže asi umíte představit,
+
+1117
+01:08:37,180 --> 01:08:43,479
+že prostě ten model primárně bude mluvit správně anglicky.
+
+1118
+01:08:43,659 --> 01:08:46,279
+Nebo minimálně ty data.
+
+1119
+01:08:46,279 --> 01:08:49,000
+Jako musí se tam dít nějaká magie zatím,
+
+1120
+01:08:49,359 --> 01:08:51,779
+teď se nejšim, jak to tam může být usposobený.
+
+1121
+01:08:52,680 --> 01:08:59,300
+Protože v případě, že by ty data vlastně nebyly v češtině do toho modelu nasazený,
+
+1122
+01:08:59,579 --> 01:09:04,180
+tak on by správně vůbec neměl být schopnej na tu otázku odpovědět.
+
+1123
+01:09:05,920 --> 01:09:07,440
+Takže teď přemýšlím.
+
+1124
+01:09:09,920 --> 01:09:12,539
+No a já se do příště se nad tím zamyslím trochu víc.
+
+1125
+01:09:12,579 --> 01:09:17,039
+Kud on bude schopný vnitřně přeložit, tak české slovo bude vědět, že je česky,
+
+1126
+01:09:17,920 --> 01:09:19,720
+ale bude pro něho významově podobné.
+
+1127
+01:09:19,720 --> 01:09:22,279
+Takže si to vlastně vnitřně by mohl přeložit do té angličtiny.
+
+1128
+01:09:22,800 --> 01:09:30,559
+No ale ten model vrátí čísla zase jenom. A ty čísla budou reprezentovaný v tokenizoru na tokeny.
+
+1129
+01:09:30,600 --> 01:09:35,440
+To znamená, že ty tokeny jsou pak jenom poskládaný k sobě jako slova.
+
+1130
+01:09:35,739 --> 01:09:43,239
+A ty tokeny, který to vygeneruje, by měly být... no...
+
+1131
+01:09:43,760 --> 01:09:48,800
+Ty by měly být v angličtině. Protože... no...
+
+1132
+01:09:49,319 --> 01:09:54,319
+Rovná Lama mi většinu textu generovala česky, ale občas se tam zatoulalo anglické slovo.
+
+1133
+01:09:55,640 --> 01:10:01,819
+Já se na těm příště se schválím a tím zamyslím trochu víc, dám tomu trochu víc myšlenky,
+
+1134
+01:10:02,239 --> 01:10:09,559
+aby jsem vám to mohl osvětlit dřív, protože teď já si myslím, že on to vygeneruje vždycky v těch tokenech,
+
+1135
+01:10:09,559 --> 01:10:15,159
+ve kterých byl trénovanej, to znamená z 90% angliština, ale když teda po něm budu chtít češtinu,
+
+1136
+01:10:15,159 --> 01:10:19,760
+tak on by měl vygenerovat ty tokeny pro češtinu, kterých bude hrozně málo.
+
+1137
+01:10:20,720 --> 01:10:27,319
+To znamená, že on by neměl být schopný odpovědět česky na otázky z dat, kterýmu byly daný anglicky.
+
+1138
+01:10:27,319 --> 01:10:31,619
+To já si teda, tohle si ještě přečtu, to mě samotnýho zajímá.
+
+1139
+01:10:32,100 --> 01:10:38,220
+Či GPT-5 slov, slov má 4, ta odpověď, kde písal, že 12 slov, ale obsahovala i ty další slova,
+
+1140
+01:10:38,920 --> 01:10:44,920
+jestli jich počítal, to je otázka, Google AI Studio to trefil,
+
+1141
+01:10:46,140 --> 01:10:50,220
+AI Studio to trefil, tak to je API, to jsem překvapenej,
+
+1142
+01:10:50,720 --> 01:10:53,420
+My stavíme takového echo.
+
+1143
+01:10:53,659 --> 01:10:59,800
+Vystavíte Jindr nějaký, to je zajímavý, tak to si poslechnu taky klidně.
+
+1144
+01:10:59,800 --> 01:11:04,199
+A to lokální nasazení bylo z lekce 1 nějaké examply.
+
+1145
+01:11:04,859 --> 01:11:10,579
+Byly tam jenom odkazy na to, jak se to můžete nainstalovat.
+
+1146
+01:11:10,579 --> 01:11:15,000
+Já to teda jenom jako řeknu ještě jednou.
+
+1147
+01:11:15,880 --> 01:11:17,920
+Tady, kde si nainstalujete tu Olamu,
+
+1148
+01:11:18,239 --> 01:11:26,940
+Jinak list modelů máte vždycky tady a když si tamto kliknete, tak tady byste měli mít jak ji stáhnout.
+
+1149
+01:11:26,940 --> 01:11:33,680
+Oni vždycky udávají olama run, tím pádem vypustíte ten model, ale pokud zavoláte olama pull,
+
+1150
+01:11:34,140 --> 01:11:37,020
+jméno toho modelu, tak on ho jenom stáhne.
+
+1151
+01:11:37,539 --> 01:11:43,119
+V tu chvíli by se vám měl nabídnout v tom Open Web UI,
+
+1152
+01:11:45,300 --> 01:11:46,920
+Teď nevím, co se tady dělo.
+
+1153
+01:11:47,059 --> 01:11:49,000
+Mně to nefungovalo na klik.
+
+1154
+01:11:49,000 --> 01:11:50,720
+A u toho Open Web UI,
+
+1155
+01:11:51,260 --> 01:11:53,720
+když si odezveme ten GitHub tady,
+
+1156
+01:11:53,720 --> 01:11:54,920
+tak tady je
+
+1157
+01:11:56,039 --> 01:11:57,940
+komand, který vypustíte,
+
+1158
+01:11:58,020 --> 01:11:59,899
+abyste si pustili v dokuru
+
+1159
+01:12:00,319 --> 01:12:02,199
+Je to hned tenhle ten první
+
+1160
+01:12:02,399 --> 01:12:04,819
+if all I'm on your computer, use this command.
+
+1161
+01:12:05,159 --> 01:12:06,619
+Tak tenhle ten command vy jenom
+
+1162
+01:12:06,619 --> 01:12:08,800
+skopírujete, dáte ho do terminálu,
+
+1163
+01:12:09,059 --> 01:12:10,680
+pokud máte nainstalovaný docker,
+
+1164
+01:12:10,779 --> 01:12:12,140
+tak on se stáhne ten docker
+
+1165
+01:12:12,260 --> 01:12:14,600
+container pro ten open web UI
+
+1166
+01:12:15,039 --> 01:12:16,479
+a pustí se vám to na portu
+
+1167
+01:12:16,539 --> 01:12:18,579
+3000, vy si pak odevřete jenom ten
+
+1168
+01:12:18,579 --> 01:12:19,579
+port 3000
+
+1169
+01:12:20,960 --> 01:12:23,100
+a mělo by vám to naběhnout.
+
+1170
+01:12:23,100 --> 01:12:24,960
+Budete si muset vytvořit uživatele,
+
+1171
+01:12:25,640 --> 01:12:27,279
+jméno, heslo pro admina,
+
+1172
+01:12:27,279 --> 01:12:29,260
+ale to je tak celý, pak už tady uvidíte
+
+1173
+01:12:29,920 --> 01:12:33,000
+ty modely, které jste sestáhli v tý olavně.
+
+1174
+01:12:33,420 --> 01:12:35,539
+Tak to je jenom repeat.
+
+1175
+01:12:38,920 --> 01:12:40,119
+Del, jasně.
+
+1176
+01:12:40,279 --> 01:12:44,739
+Která vrstva by mohla být odpovědná za ochranu proti přetěžování ze strany klienta?
+
+1177
+01:12:45,960 --> 01:12:46,840
+Ne.
+
+1178
+01:12:46,840 --> 01:12:50,640
+To je vaše aplikační API nebo to AI API maximálně.
+
+1179
+01:12:50,979 --> 01:12:52,920
+Tam může teda nějakej trock link,
+
+1180
+01:12:53,699 --> 01:12:56,279
+aby vám nedělali dost útoky na to atd.
+
+1181
+01:12:57,039 --> 01:12:59,920
+Není to score tak, že si přiloží do anglištiny,
+
+1182
+01:12:59,940 --> 01:13:02,880
+zpracuje a potom vygeneruje špatný překlad.
+
+1183
+01:13:03,239 --> 01:13:05,000
+No ale takhle ten model
+
+1184
+01:13:05,260 --> 01:13:07,279
+jako by surově nefunguje, takže
+
+1185
+01:13:07,279 --> 01:13:08,920
+jestli něco takového tam je, že
+
+1186
+01:13:09,059 --> 01:13:12,260
+on se to vygenuje v anglištině a pak to přeloží do češtiny,
+
+1187
+01:13:12,460 --> 01:13:13,319
+tak to už je
+
+1188
+01:13:13,399 --> 01:13:15,159
+funkcionita toho AI API
+
+1189
+01:13:15,399 --> 01:13:17,500
+a já si teďko
+
+1190
+01:13:17,600 --> 01:13:19,779
+nemyslím, že by to
+
+1191
+01:13:19,960 --> 01:13:21,779
+takhle fungovalo by default,
+
+1192
+01:13:23,500 --> 01:13:25,000
+ale podívám se na to příště,
+
+1193
+01:13:25,000 --> 01:13:25,779
+ať to tady
+
+1194
+01:13:26,039 --> 01:13:28,539
+přemýšlím zbytečně.
+
+1195
+01:13:29,000 --> 01:13:30,359
+To znamená, že
+
+1196
+01:13:30,440 --> 01:13:32,840
+impossible questions jsme si řekli
+
+1197
+01:13:32,940 --> 01:13:35,020
+a potom nějaký reasoning questions,
+
+1198
+01:13:35,079 --> 01:13:36,699
+to znamená, že se testujete,
+
+1199
+01:13:36,979 --> 01:13:39,140
+jak on umí prostě přemejšlet
+
+1200
+01:13:39,680 --> 01:13:41,039
+typicky věci,
+
+1201
+01:13:41,340 --> 01:13:42,960
+jestliže dám
+
+1202
+01:13:43,699 --> 01:13:45,180
+uschnout na slunce
+
+1203
+01:13:45,279 --> 01:13:46,440
+pět triček,
+
+1204
+01:13:47,220 --> 01:13:48,840
+trvá čtyři hodiny, než se
+
+1205
+01:13:48,940 --> 01:13:50,220
+usuší jedno tričko,
+
+1206
+01:13:50,500 --> 01:13:52,720
+jak dlouho bude trvat usušit
+
+1207
+01:13:52,880 --> 01:13:54,119
+dvacet triček.
+
+1208
+01:13:54,479 --> 01:13:58,140
+Jo, sorry. 5 ryček na sluníčko,
+
+1209
+01:13:58,180 --> 01:13:59,899
+5 ryček trvá 4 hodiny,
+
+1210
+01:14:00,059 --> 01:14:00,979
+jak dlouho bude trvat?
+
+1211
+01:14:01,000 --> 01:14:02,300
+20 ryček.
+
+1212
+01:14:02,819 --> 01:14:04,800
+A teď se na to zeptáte
+
+1213
+01:14:05,239 --> 01:14:06,659
+a on vám dá
+
+1214
+01:14:07,079 --> 01:14:07,779
+odpověď.
+
+1215
+01:14:07,840 --> 01:14:10,180
+Takže je tady sada takovejhle,
+
+1216
+01:14:13,119 --> 01:14:14,340
+jo, tohle se mi docela líbilo.
+
+1217
+01:14:15,079 --> 01:14:16,840
+Máte dvě lana,
+
+1218
+01:14:17,059 --> 01:14:18,659
+každý trvá
+
+1219
+01:14:18,739 --> 01:14:21,000
+60 minut než schoří.
+
+1220
+01:14:22,659 --> 01:14:24,300
+Jak dlouho,
+
+1221
+01:14:24,940 --> 01:14:26,359
+jak ji můžu změřit?
+
+1222
+01:14:26,359 --> 01:14:27,319
+45 minut.
+
+1223
+01:14:28,180 --> 01:14:30,920
+To se mi docela líbilo. A pak se mi ještě líbilo
+
+1224
+01:14:31,079 --> 01:14:32,300
+tohleto.
+
+1225
+01:14:33,119 --> 01:14:34,859
+Mám tři vypínače
+
+1226
+01:14:34,859 --> 01:14:36,940
+venku v místnosti a
+
+1227
+01:14:36,960 --> 01:14:39,039
+vevnitř jsou tři žárovky.
+
+1228
+01:14:40,260 --> 01:14:41,800
+Jak můžu
+
+1229
+01:14:42,239 --> 01:14:43,899
+vypnout a zapnout
+
+1230
+01:14:44,039 --> 01:14:46,279
+ty vypínače
+
+1231
+01:14:46,760 --> 01:14:47,899
+a vstoupit...
+
+1232
+01:14:48,359 --> 01:14:50,359
+Můžu je zapnout a vypnout vypínače
+
+1233
+01:14:50,940 --> 01:14:52,479
+a vstoupit do místnosti
+
+1234
+01:14:52,520 --> 01:14:53,640
+pouze jednou.
+
+1235
+01:14:54,800 --> 01:14:57,399
+Jak zjistím, který
+
+1236
+01:14:58,539 --> 01:15:00,340
+ten vypínač patří
+
+1237
+01:15:00,440 --> 01:15:01,600
+k který žárovce.
+
+1238
+01:15:02,720 --> 01:15:04,819
+To jsem jako takové
+
+1239
+01:15:05,119 --> 01:15:06,579
+mentální cvičení jenom,
+
+1240
+01:15:06,720 --> 01:15:08,460
+tak mně se to docela líbilo.
+
+1241
+01:15:10,119 --> 01:15:11,640
+A testujou se tím přesně
+
+1242
+01:15:11,699 --> 01:15:13,559
+reasoning prostě toho
+
+1243
+01:15:13,819 --> 01:15:15,800
+modelu, takže to si pak můžete
+
+1244
+01:15:15,899 --> 01:15:18,180
+vyzkoušet, já to tady nebudu
+
+1245
+01:15:18,479 --> 01:15:20,279
+projíždět,
+
+1246
+01:15:20,460 --> 01:15:22,100
+schválně si to můžete pak
+
+1247
+01:15:22,340 --> 01:15:24,180
+přečíst. Takže reasoning nějaký
+
+1248
+01:15:24,359 --> 01:15:26,940
+otázky, potom si můžete testovat
+
+1249
+01:15:27,359 --> 01:15:28,640
+nebo říkat mu,
+
+1250
+01:15:29,020 --> 01:15:32,800
+otázky ohledně nějakého reálního,
+
+1251
+01:15:33,460 --> 01:15:34,699
+nějaký reální osoby,
+
+1252
+01:15:34,699 --> 01:15:36,260
+to znamená, že třeba já jsem si tady vybral
+
+1253
+01:15:36,340 --> 01:15:37,180
+Joe'a Rogana.
+
+1254
+01:15:39,140 --> 01:15:41,500
+My si ukážeme tadyhle v tom případě,
+
+1255
+01:15:41,559 --> 01:15:43,140
+jak nastavit system message,
+
+1256
+01:15:43,140 --> 01:15:44,699
+to znamená, to je něco, co
+
+1257
+01:15:45,399 --> 01:15:45,979
+vy
+
+1258
+01:15:47,479 --> 01:15:49,079
+tak jakoby stěží nastavíte
+
+1259
+01:15:49,079 --> 01:15:51,059
+v těch produktech jako takovejch,
+
+1260
+01:15:51,059 --> 01:15:51,979
+většinou se to jmenuje něco jako
+
+1261
+01:15:51,979 --> 01:15:54,100
+custom instruction.
+
+1262
+01:15:54,779 --> 01:16:01,340
+To znamená, že já tady mám settings a tady bych někde dal personalizace, tady custom instruction.
+
+1263
+01:16:01,340 --> 01:16:08,579
+Tady já mu můžu vlastně dávat něco jako role nebo vysvětlovat mu, co od něho chci, jak chce, aby se choval,
+
+1264
+01:16:08,880 --> 01:16:11,140
+jaký má být jako vlastnosti.
+
+1265
+01:16:11,619 --> 01:16:14,680
+To samé pak je tady u toho cloudu.
+
+1266
+01:16:15,079 --> 01:16:19,119
+Já teď si nejsem jistý, jestli u toho free plánu já to tady mám.
+
+1267
+01:16:19,859 --> 01:16:24,199
+Personal preference pro cloud.
+
+1268
+01:16:25,000 --> 01:16:26,920
+Ale u toho,
+
+1269
+01:16:28,100 --> 01:16:30,359
+u těch API
+
+1270
+01:16:30,359 --> 01:16:32,039
+vy už tady přímo máte
+
+1271
+01:16:32,059 --> 01:16:34,340
+system message, do který vy mu můžete
+
+1272
+01:16:34,460 --> 01:16:36,619
+říct vlastně, jak se má
+
+1273
+01:16:36,699 --> 01:16:38,460
+chovat. Stejně u toho Anthropiku,
+
+1274
+01:16:38,460 --> 01:16:40,000
+tady máte zase system prompt.
+
+1275
+01:16:41,000 --> 01:16:43,079
+My si ukážeme, nebo máte
+
+1276
+01:16:43,199 --> 01:16:44,300
+tři typy
+
+1277
+01:16:46,059 --> 01:16:49,380
+Zůstaneme u třech typů pro zjednodušení, pro začátek.
+
+1278
+01:16:49,600 --> 01:16:55,819
+Máte tři typy messageí, které běhají mezi váma a tím API,
+
+1279
+01:16:55,960 --> 01:16:57,159
+nebo tím modelem.
+
+1280
+01:16:57,420 --> 01:17:02,840
+První je system message, druhá je user message,
+
+1281
+01:17:03,340 --> 01:17:05,619
+A třetí je Assistant Message.
+
+1282
+01:17:05,619 --> 01:17:09,340
+To znamená, že pro teď si pamatujte, že máte tři typy messageí.
+
+1283
+01:17:09,359 --> 01:17:14,979
+System prompt je ta vlastně nejdůležitější a jde tam jenom jednou do té komunikace
+
+1284
+01:17:15,239 --> 01:17:19,239
+a tím mu říkáte, jak se s váma má chovat.
+
+1285
+01:17:19,239 --> 01:17:20,659
+Taková je jeho role vlastně.
+
+1286
+01:17:21,199 --> 01:17:23,720
+A potom máte User Message a Assistant Message.
+
+1287
+01:17:23,720 --> 01:17:26,659
+Teď nově, zase abych se to zkomplikovalo celé,
+
+1288
+01:17:26,739 --> 01:17:31,859
+tak OpenAI přemenovalo Assistant Message na Developer Message, prostě
+
+1289
+01:17:32,760 --> 01:17:35,479
+Berte to tak, že vždycky máte ty tři role.
+
+1290
+01:17:35,579 --> 01:17:38,539
+Systém, uživatelská zpráva
+
+1291
+01:17:38,899 --> 01:17:41,779
+a odpověď od toho modelu neboli assistant.
+
+1292
+01:17:42,220 --> 01:17:43,440
+Takže když já mu tady řeknu,
+
+1293
+01:17:43,479 --> 01:17:46,180
+aby se mnou mluvil tímhle tím způsobem,
+
+1294
+01:17:46,680 --> 01:17:50,079
+tell me a joke, pošlu mu to tam
+
+1295
+01:17:50,220 --> 01:17:53,600
+a on se mnou začne mluvit stylem Joe Arogena,
+
+1296
+01:17:53,859 --> 01:17:56,520
+protože byl, nebo v rámci jeho dat,
+
+1297
+01:17:56,720 --> 01:18:01,440
+byl sadadat, kde vlastně byl
+
+1298
+01:18:02,300 --> 01:18:04,420
+poučili na Joe Arogenovi
+
+1299
+01:18:04,659 --> 01:18:06,380
+podcastama nebo
+
+1300
+01:18:06,520 --> 01:18:08,100
+stand-upech a tak dále.
+
+1301
+01:18:08,899 --> 01:18:10,539
+Tak, teďkon ale je zajímavý,
+
+1302
+01:18:11,659 --> 01:18:12,260
+že
+
+1303
+01:18:13,340 --> 01:18:15,159
+to je styl Joe Arogena,
+
+1304
+01:18:16,399 --> 01:18:18,140
+ale druhá věc je
+
+1305
+01:18:18,199 --> 01:18:19,899
+znalost o tom Joe Arogenovi.
+
+1306
+01:18:20,559 --> 01:18:23,779
+To znamená, že jedna věc je, když mu nafeedujete
+
+1307
+01:18:23,920 --> 01:18:27,000
+vlastně ty jeho podcasty a druhá věc je,
+
+1308
+01:18:27,119 --> 01:18:29,600
+jestli on si zapamatuje, co v těch podcastech je
+
+1309
+01:18:29,640 --> 01:18:33,359
+anebo si jenom vlastně naučí, jaký typy slov
+
+1310
+01:18:33,500 --> 01:18:37,380
+ten Joe Errogen používá, ale už se nenaučí jejich,
+
+1311
+01:18:37,380 --> 01:18:39,579
+nebo nezapamatuje si jejich význam.
+
+1312
+01:18:39,579 --> 01:18:42,979
+To znamená, že tady je třeba, jestli má děti.
+
+1313
+01:18:43,079 --> 01:18:46,500
+Takže z tohohle toho můžete tak nějak usoudit,
+
+1314
+01:18:46,500 --> 01:18:47,399
+že...
+
+1315
+01:18:49,059 --> 01:18:53,359
+On vlastně ví jak mluvit ve stylu Joha Rogena.
+
+1316
+01:18:53,800 --> 01:18:59,559
+Já teď to tady auto-clear, u-clear, nová.
+
+1317
+01:19:00,340 --> 01:19:01,940
+Tell me a story.
+
+1318
+01:19:02,659 --> 01:19:06,079
+On by se mnou měl mluvit zase jako typem Joha Rogena.
+
+1319
+01:19:07,300 --> 01:19:08,199
+Šup šup.
+
+1320
+01:19:09,960 --> 01:19:13,479
+GPT-4.1, to jsem nemusel, mohl jsem ten starší.
+
+1321
+01:19:15,579 --> 01:19:17,739
+Ten by měl být rychlejší.
+
+1322
+01:19:21,680 --> 01:19:23,760
+Tak ano, to je 4O.
+
+1323
+01:19:24,420 --> 01:19:25,720
+Tell me a story.
+
+1324
+01:19:28,940 --> 01:20:06,520
+Blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabl Víte, že se mi tady třeba přegenerovala ta odpověď, neudržuje se to žádnou historii a taky nemá děti.
+
+1325
+01:20:08,079 --> 01:20:20,880
+Takže co my se ještě dozvíme v rámci toho kurzu je, že je lehčí ten model naučit způsob, jak jim má odpovídat, než ho naučit ty aktuální informace.
+
+1326
+01:20:22,579 --> 01:20:29,100
+Tak, potom jsou tady nějaký skilly, takže napiš mi snakea, je tady coding, implement snake,
+
+1327
+01:20:29,100 --> 01:20:33,380
+takže to asi všichni prostě víte, že to on umí.
+
+1328
+01:20:33,819 --> 01:20:39,059
+You are AI assistant, tady to se vyklíruju.
+
+1329
+01:20:41,180 --> 01:20:46,699
+Já tady mám, no přes Pygame, přesně to tady mám, tak já to tady nebudu teď kopírovat,
+
+1330
+01:20:46,720 --> 01:20:50,819
+ale tady je ten snake vlastně nakopírovaný, takže sem byste si nakopírovali jenom to,
+
+1331
+01:20:50,819 --> 01:20:53,800
+co vám vyplivne za kód a já když to tady pustím...
+
+1332
+01:20:54,220 --> 01:20:59,819
+tak prostě tady mám Hada, můžu si tady hrát.
+
+1333
+01:21:00,760 --> 01:21:04,260
+Já bych měl Hada rád ve škole hrát, hlavně při hodině,
+
+1334
+01:21:05,039 --> 01:21:06,739
+protože bych to tady mohl hrát furt.
+
+1335
+01:21:07,840 --> 01:21:08,940
+Takže HAD je jeden.
+
+1336
+01:21:09,020 --> 01:21:12,180
+Co je další věc, kterou byste si měli uvědomit
+
+1337
+01:21:12,180 --> 01:21:16,300
+a která by vám měla pomoct pochopit tu sílu vlastně
+
+1338
+01:21:17,359 --> 01:21:20,559
+generativní AI nebo těch velkých jazykových modelů, je to,
+
+1339
+01:21:20,899 --> 01:21:29,100
+že vy víte, jak painful je, když máte komunikovat s nějakým API,
+
+1340
+01:21:29,520 --> 01:21:32,260
+tak vlastně napsat si toho klienta na toho API.
+
+1341
+01:21:32,279 --> 01:21:35,300
+Teď vlastně v rámci té firmy, když se software engineer,
+
+1342
+01:21:35,380 --> 01:21:37,940
+někdo píše API, někdo píše webovou aplikaci,
+
+1343
+01:21:38,340 --> 01:21:42,180
+někdo udělá změnu v tom API, vy musíte udělat změnu v té aplikaci.
+
+1344
+01:21:42,760 --> 01:21:42,840
+Tak.
+
+1345
+01:21:42,520 --> 01:21:50,399
+Jsou tady způsoby jako je Swagger CodeGen, který vám ty změny usnadňuje, nebo je tady gRPC,
+
+1346
+01:21:50,399 --> 01:21:57,220
+kdy vy definujete ten interface na straně toho API a vlastně vygenerujete rovnou k tomu klienta,
+
+1347
+01:21:57,279 --> 01:22:04,100
+takže ta druhá strana jenom si zupdateuje verzi toho klienta a teď si pofixuje ty změny v tom kódu.
+
+1348
+01:22:04,539 --> 01:22:13,940
+Tohle to jde o trochu dál, to znamená, že vy můžete, pokud máte nějaký swagger file, tak si ten swagger file jako tady tenhle ten,
+
+1349
+01:22:14,760 --> 01:22:20,920
+teď se mi přemýšlím, kde se mi to odevře, jo, takže se mi to odevřelo,
+
+1350
+01:22:21,340 --> 01:22:28,899
+takže tady máte swagger file, což tady přesto si můžete testovat to API, to asi všichni nebo většina z vás zná.
+
+1351
+01:22:30,760 --> 01:22:35,239
+jaký je dopad toho, nebo jak zniklo tadyto UI,
+
+1352
+01:22:35,279 --> 01:22:39,399
+nebo jak on ho vygeneroval, je to, že je tady dostupný JSON file,
+
+1353
+01:22:39,399 --> 01:22:43,100
+který to APIčko popisuje, který říká, jaké tam jsou endpointy,
+
+1354
+01:22:43,159 --> 01:22:45,579
+jak vypadají requesty, jak vypadají response.
+
+1355
+01:22:46,079 --> 01:22:52,640
+A tohleto vy jste schopný nafeadovat vlastně do toho velkého zyklého modelu.
+
+1356
+01:22:52,720 --> 01:22:57,079
+To znamená, že ten model vám je schopný vrátit ten request
+
+1357
+01:22:58,100 --> 01:23:01,760
+Jenom na základě toho, že vy se zeptáte přirozeným jazykem.
+
+1358
+01:23:02,020 --> 01:23:05,859
+Takže tady je taková ukázka pro tenhle Swagger file.
+
+1359
+01:23:06,059 --> 01:23:10,559
+Mi dej request, který vloží novou objednávku na zvíře
+
+1360
+01:23:10,579 --> 01:23:11,940
+nebo na nějakého mazlíčka.
+
+1361
+01:23:12,440 --> 01:23:16,520
+Takže zase to takhle vemu celý, skopíruju to.
+
+1362
+01:23:17,420 --> 01:23:24,460
+Teď si ukážeme první způsob, nebo první hlavní způsob,
+
+1363
+01:23:24,460 --> 01:23:30,000
+jak se vkládají věci do kontextu, neboli jak se vlastně dělá rak.
+
+1364
+01:23:30,960 --> 01:23:34,239
+A to je tak, že vy máte otázku od uživatele
+
+1365
+01:23:36,220 --> 01:23:45,380
+a teď mu nějakým způsobem oddělíte ten kontext.
+
+1366
+01:23:45,760 --> 01:23:47,899
+Já to tady dělám třema rovnásema.
+
+1367
+01:23:47,940 --> 01:23:49,659
+Tady mu vložíte ten swagger file,
+
+1368
+01:23:49,940 --> 01:23:51,960
+ukončíte to zase třema rovnásema
+
+1369
+01:23:52,579 --> 01:23:53,819
+a zeptáte se o na to.
+
+1370
+01:23:53,819 --> 01:23:55,800
+A on v tu chvíli už bude pochopit,
+
+1371
+01:23:56,300 --> 01:23:58,880
+že vlastně tohle, co je v těch třech rovnásech,
+
+1372
+01:23:58,880 --> 01:24:00,579
+je nějakým způsobem kontext.
+
+1373
+01:24:00,680 --> 01:24:03,140
+Teď tady ten oddělovač je čistě na vás.
+
+1374
+01:24:03,440 --> 01:24:05,079
+Já to říkám, používám ty rovnáse,
+
+1375
+01:24:05,079 --> 01:24:07,739
+protože není to v žádném HTML,
+
+1376
+01:24:07,739 --> 01:24:09,600
+nejsou tři rovnáse za sebou.
+
+1377
+01:24:09,940 --> 01:24:11,899
+Pokud byste tam, můžete tam dát i tak,
+
+1378
+01:24:11,899 --> 01:24:13,699
+nebo můžete mu napsat jenom kontext,
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

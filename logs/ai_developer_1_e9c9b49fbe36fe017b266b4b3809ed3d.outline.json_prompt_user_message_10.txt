@@ -1,0 +1,1047 @@
+Transcript:
+
+=================
+2308
+02:27:19,899 --> 02:27:25,899
+ta nejefektivnější verze fine tuningu, a to je LoRa,
+
+2309
+02:27:26,600 --> 02:27:27,459
+neboli Low Rank Adaptation.
+
+2310
+02:27:28,100 --> 02:27:31,840
+Je to způsob, tady vidíte, jak funguje full fine tuning,
+
+2311
+02:27:31,840 --> 02:27:35,719
+kdy vy vlastně ten gradient posíláte, nebo tu backpropagaci
+
+2312
+02:27:35,840 --> 02:27:38,340
+posíláte všema vrstvama těch neuronů.
+
+2313
+02:27:38,520 --> 02:27:42,380
+Takže všechny ty vrstvy těch neuronů updatejou ty svoje váhy.
+
+2314
+02:27:42,659 --> 02:27:46,899
+Naproti tomu, co uděláme my, my uděláme chytřejší věc,
+
+2315
+02:27:47,079 --> 02:27:51,459
+a to je... Jo, děkuji.
+
+2316
+02:27:52,340 --> 02:27:55,520
+jo, ty otázky k tomu se ještě dostanou.
+
+2317
+02:27:55,520 --> 02:27:58,799
+My uděláme to, že vezmeme tu existující neuronovou síť,
+
+2318
+02:27:59,139 --> 02:28:02,719
+připlácneme k němu takzvaný adaptér,
+
+2319
+02:28:02,780 --> 02:28:06,380
+čili v každé vrstve mu přidáme pár neuronů
+
+2320
+02:28:07,059 --> 02:28:11,239
+a dotrénujeme neboli fajntunujeme jenom tyhle ty existující
+
+2321
+02:28:11,340 --> 02:28:15,880
+nově přidaný vlastně neurony, což nám umožní dělat dvě věci.
+
+2322
+02:28:16,600 --> 02:28:20,360
+Jedna věc je, že my trénujeme podstatně menší neuronovou síť
+
+2323
+02:28:20,959 --> 02:28:26,200
+ale zachováváme tu schopnost té původní neuronové sítě,
+
+2324
+02:28:26,200 --> 02:28:28,940
+čili nestrácíme žádnou schopnost řeči
+
+2325
+02:28:29,020 --> 02:28:33,260
+nebo souvislé generování textu, jako v tomto případě.
+
+2326
+02:28:33,260 --> 02:28:37,700
+Tady, když mu dáme Joe Arogena a přepis jeho podcastu,
+
+2327
+02:28:37,700 --> 02:28:42,059
+tak ztratíme vlastně postatnou část schopnosti generovat větu
+
+2328
+02:28:42,059 --> 02:28:43,119
+nebo něco takového.
+
+2329
+02:28:43,319 --> 02:28:45,760
+Tadyhle u toho mu jenom přidáme další vlastnost.
+
+2330
+02:28:46,500 --> 02:28:53,200
+Ale zároveň jsme schopni dělat něco, co OpenAI využívá velmi často,
+
+2331
+02:28:53,280 --> 02:28:59,159
+i když se to neuvědomujete, a to jsou ty vaše GPTs,
+
+2332
+02:28:59,360 --> 02:29:01,100
+který vám vlastně dávají.
+
+2333
+02:29:01,119 --> 02:29:06,739
+Když si můžete vytvořit vlastního GPT, verzi toho GPT,
+
+2334
+02:29:06,940 --> 02:29:09,440
+kdy mu dáváte nějakou tu system message a tak dále.
+
+2335
+02:29:09,619 --> 02:29:15,619
+To je jenom to, že oni vytvoří a natrénují případně jenom tadyhle ten adaptér,
+
+2336
+02:29:16,119 --> 02:29:19,680
+A vy pak vlastně, když přepínáte mezi něma, tak oni jenom přehazujou,
+
+2337
+02:29:19,680 --> 02:29:22,479
+vlastně připlácávají na to jiný adaptér.
+
+2338
+02:29:22,479 --> 02:29:27,500
+Není to tak, že jiný GPT je nově přitrénovanej GPT model.
+
+2339
+02:29:27,500 --> 02:29:28,540
+Tak to není.
+
+2340
+02:29:29,399 --> 02:29:29,860
+Tak.
+
+2341
+02:29:30,139 --> 02:29:34,979
+Ve výsledku to pak vypadá tak, že ten transformer a ta architektura,
+
+2342
+02:29:35,040 --> 02:29:38,059
+který tady vidíte, ten regulér transform blok,
+
+2343
+02:29:38,360 --> 02:29:40,940
+tak do toho je právě přidanej tadyhle ten adaptér,
+
+2344
+02:29:41,280 --> 02:29:42,659
+a vy vlastně do toho...
+
+2345
+02:29:43,079 --> 02:29:44,600
+dotrénujete jenom
+
+2346
+02:29:44,719 --> 02:29:46,920
+tu malou část, ten blok
+
+2347
+02:29:47,139 --> 02:29:48,100
+toho adaptéru.
+
+2348
+02:29:48,299 --> 02:29:50,739
+My se o tom ještě budeme bavit víc do detailu,
+
+2349
+02:29:50,739 --> 02:29:52,600
+když budeme vytvářet
+
+2350
+02:29:53,119 --> 02:29:55,260
+vlastní fine-tunovanou
+
+2351
+02:29:55,319 --> 02:29:56,579
+verzi Lamy
+
+2352
+02:29:56,959 --> 02:29:58,260
+nebo Mistralu
+
+2353
+02:29:58,959 --> 02:29:59,979
+v lekci, kdy budeme
+
+2354
+02:30:00,000 --> 02:30:02,180
+dělat ten fine tuning pomocí
+
+2355
+02:30:02,239 --> 02:30:04,120
+Hugging Face, takže tam se na to ještě
+
+2356
+02:30:04,200 --> 02:30:05,840
+podíváme víc do detailů.
+
+2357
+02:30:06,120 --> 02:30:08,360
+Takže tímhletím bych skončil tuhletu prezentaci
+
+2358
+02:30:08,360 --> 02:30:10,219
+a už bych se vrátil jenom na poslední a pak se
+
+2359
+02:30:10,340 --> 02:30:12,760
+vrhnem na detaily. Ta poslední už bude
+
+2360
+02:30:12,979 --> 02:30:13,600
+rychlá.
+
+2361
+02:30:15,000 --> 02:30:17,360
+To už jenom o generativní umělé inteligenci.
+
+2362
+02:30:17,360 --> 02:30:18,459
+To znamená, že když jsme se bavili
+
+2363
+02:30:18,459 --> 02:30:20,860
+o té teoretické části,
+
+2364
+02:30:20,940 --> 02:30:22,260
+bavili jsme se o typech
+
+2365
+02:30:22,420 --> 02:30:24,719
+euronových sítí, skončili jsme vlastně
+
+2366
+02:30:25,280 --> 02:30:27,159
+u transformeru. Řekli jsme se,
+
+2367
+02:30:27,159 --> 02:30:28,959
+že transformer stojí za velkýma
+
+2368
+02:30:29,000 --> 02:30:31,459
+jazykovýma modelama, tak ještě řekneme,
+
+2369
+02:30:31,459 --> 02:30:33,059
+že existuje generativní umělá
+
+2370
+02:30:33,059 --> 02:30:34,520
+inteligence, která vlastně
+
+2371
+02:30:35,559 --> 02:30:36,780
+generuje něco novýho.
+
+2372
+02:30:36,899 --> 02:30:38,399
+Něco prostě generuje.
+
+2373
+02:30:38,540 --> 02:30:41,379
+To znamená, že máte algoritmy na trading,
+
+2374
+02:30:41,459 --> 02:30:43,260
+které vlastně nic negenerují.
+
+2375
+02:30:43,360 --> 02:30:44,920
+Dělají předpověď.
+
+2376
+02:30:44,959 --> 02:30:47,319
+Ale když generujete, tak generujete obrázky,
+
+2377
+02:30:47,620 --> 02:30:49,299
+text, videa,
+
+2378
+02:30:49,459 --> 02:30:50,819
+něco, co tady nebylo,
+
+2379
+02:30:50,959 --> 02:30:53,420
+tak vlastně jako vytváříte
+
+2380
+02:30:53,680 --> 02:30:54,540
+kód.
+
+2381
+02:30:54,920 --> 02:30:56,600
+Tadyhle vlastně jenom
+
+2382
+02:30:56,700 --> 02:30:59,360
+predikujete ty další
+
+2383
+02:30:59,440 --> 02:31:01,219
+věci, nebo identifikujete
+
+2384
+02:31:01,319 --> 02:31:03,299
+paterny v nějakých existujících datech.
+
+2385
+02:31:03,879 --> 02:31:09,260
+Jak generativní AI do toho zapadá nebo jak vznikla,
+
+2386
+02:31:09,639 --> 02:31:13,579
+tak v roce 2014 byly GAN networks,
+
+2387
+02:31:13,579 --> 02:31:17,379
+generative adversarial network, generování obrázků, videí, zvuku.
+
+2388
+02:31:17,600 --> 02:31:18,840
+Už se to nepoužívá.
+
+2389
+02:31:19,260 --> 02:31:21,819
+V 2017 přišel Attention is all you need,
+
+2390
+02:31:21,840 --> 02:31:23,819
+transformere a generování textu.
+
+2391
+02:31:24,139 --> 02:31:29,020
+A v 2021 přišel DDIFusion modely, neboli Midjourney a další.
+
+2392
+02:31:29,780 --> 02:31:37,319
+jenom co to znamená Dalí, tak je to Wall-E ten film a Salvatore Dalí, tak mě to jenom přišlo zajímavý,
+
+2393
+02:31:37,659 --> 02:31:45,739
+že bych v životě neřekl, že Dalí vzniknul jako spojení Dalího a Wall-Eho toho filmu animovanýho, zajímavý.
+
+2394
+02:31:46,239 --> 02:31:52,479
+Takže vidíte, že to je i poměrně nová věc, mělo by se říct, že od toho 2017 to tak nějak jako začalo,
+
+2395
+02:31:52,479 --> 02:31:54,959
+takže není to ani zase tak starý generativní AI.
+
+2396
+02:31:55,420 --> 02:31:59,479
+Má to nějaký modality, text nebo kód, obrázek, video, hudba.
+
+2397
+02:32:00,239 --> 02:32:02,299
+To jsou teďkon ty modality.
+
+2398
+02:32:03,260 --> 02:32:06,020
+Zahrnují se do toho velký jazykový modely,
+
+2399
+02:32:06,200 --> 02:32:09,639
+což modality pro ně jsou především text,
+
+2400
+02:32:09,940 --> 02:32:15,600
+teď nově už i obrázky a sora a tak dále.
+
+2401
+02:32:16,500 --> 02:32:18,520
+Neznám architekturu sory, ale řekl bych,
+
+2402
+02:32:18,520 --> 02:32:20,260
+že to je taky zložení na transformerech,
+
+2403
+02:32:20,299 --> 02:32:21,579
+to znamená, že už to je i video.
+
+2404
+02:32:22,360 --> 02:32:27,139
+A rozdělujeme na uzavřený a otevřený.
+
+2405
+02:32:27,139 --> 02:32:37,299
+To znamená, že GPT, Mistral, API, Gemini, Cloud, to jsou uzavřený, tam neznáme ty jejich váhy, neznáme zdrojový kód k ním.
+
+2406
+02:32:37,680 --> 02:32:45,340
+A open source jsou LAMA, Mistral, ten model, ne Mistral API, Mixtral a Grok.
+
+2407
+02:32:45,979 --> 02:33:02,959
+I když grok je jako v uvozovkách, protože to co jsem slyšel, tak grok je jen na torrentu, nejsou k němu všechny váhy, nebo jsou k němu váhy, není k němu architektura, je to takový jako na půl, jenom aby oni mohli říct, že to je open source, ale přitom to není open source, stejně jako deep seek.
+
+2408
+02:33:04,280 --> 02:33:07,540
+Tak a teď jsem chtěl jenom ukázat OpenAI a Olamu,
+
+2409
+02:33:07,860 --> 02:33:09,899
+ale myslím si, že to nechám na příště,
+
+2410
+02:33:09,920 --> 02:33:12,420
+aby jsme se nepřehltili.
+
+2411
+02:33:12,420 --> 02:33:16,620
+Já jsem vám chtěl jenom ukázat tu Olamu v kontextu,
+
+2412
+02:33:16,620 --> 02:33:20,840
+že vy si můžete pustit lokálně váš vlastní model,
+
+2413
+02:33:20,840 --> 02:33:21,979
+který si stáhnete.
+
+2414
+02:33:22,420 --> 02:33:24,680
+Já tady mám třeba tu Olamu 333
+
+2415
+02:33:24,739 --> 02:33:27,620
+a můžu mu prostě říct, hey, tell me a joke.
+
+2416
+02:33:28,719 --> 02:33:35,079
+Je to vlastně zdarma, já používám jenom vlastní GPU,
+
+2417
+02:33:35,260 --> 02:33:40,399
+kterou on používá, informace, kterou já se ho ptám, nebo kterou on generuje,
+
+2418
+02:33:40,760 --> 02:33:42,340
+vlastně nikam nejde.
+
+2419
+02:33:42,780 --> 02:33:49,639
+On není naloudovaný v RAMce, takže teď vidíte, že mi tady spajkuje RAMka, za chvíli to začne generovat nějaký text.
+
+2420
+02:33:50,420 --> 02:33:56,700
+Tak jenom, že si s ním můžete začít povídat dneska, nebo si ukážeme teda příští hodinu na začátku,
+
+2421
+02:33:57,120 --> 02:34:01,840
+budete mít způsob, jak se bavit s těma velkýma jazykovýma modelama,
+
+2422
+02:34:01,860 --> 02:34:04,440
+aniž by někdo věděl, o čem se s nima bavíte.
+
+2423
+02:34:05,280 --> 02:34:07,899
+Můžete začít hledat modely,
+
+2424
+02:34:08,299 --> 02:34:12,040
+to si taky ukážeme potom v open source světě,
+
+2425
+02:34:12,760 --> 02:34:17,020
+Zase pro ty z vás, který by to zajímalo, když jste tady o půl hodiny díl,
+
+2426
+02:34:17,079 --> 02:34:22,100
+tak na HuggingFace najdete veškeré open source modely na jakékoliv užití,
+
+2427
+02:34:22,139 --> 02:34:23,979
+které budete kdy potřebovat.
+
+2428
+02:34:24,120 --> 02:34:28,079
+Takže všechny open source modely budeme hledat právě tady.
+
+2429
+02:34:28,079 --> 02:34:32,799
+Je to náš centrum vesmíru pro jakýkoliv open source model.
+
+2430
+02:34:33,360 --> 02:34:35,760
+Tady najdete třeba tu LAMu,
+
+2431
+02:34:36,159 --> 02:34:42,559
+který já tady používám, stahuju to vlastně do OLAMy.
+
+2432
+02:34:43,680 --> 02:34:45,459
+Takže zase tady je OLAMA.
+
+2433
+02:34:45,620 --> 02:34:48,739
+V té prezentaci to je vyznačené pro ty z vás,
+
+2434
+02:34:48,739 --> 02:34:51,860
+kteří by to chtěli udělat.
+
+2435
+02:34:51,860 --> 02:34:54,340
+Když už o tom takhle mluvím, než se to tady pustí,
+
+2436
+02:34:54,819 --> 02:34:57,059
+tak tady je link na instalaci,
+
+2437
+02:34:57,059 --> 02:35:00,799
+kde si nainstalujete normálně aplikaci na kompa,
+
+2438
+02:35:01,940 --> 02:35:03,280
+pak si ji pustíte.
+
+2439
+02:35:05,100 --> 02:35:12,600
+přes příkaz, tady máte modely, které si tam do toho můžete stáhnout, včetně deep-seeku.
+
+2440
+02:35:12,620 --> 02:35:17,959
+Vidíte, tady mi spajkuje teďkon GPU, takže tady mi už začala generovat...
+
+2441
+02:35:24,600 --> 02:35:26,680
+nevím, kam jsem na to hodil...
+
+2442
+02:35:38,799 --> 02:35:46,840
+Tak to nevadí, já to udělám jinak.
+
+2443
+02:35:47,719 --> 02:35:53,219
+Tady si můžete vybrat modely, které si do toho stáhnete, takže když si tady na to kliknete, tak pak tady uvidíte
+
+2444
+02:35:53,899 --> 02:35:59,979
+příkaz, který vlastně potom v terminálu doma je pustit a on si stáhne celý ten deep seek.
+
+2445
+02:35:59,979 --> 02:36:03,739
+Zase některý jsou fakt velký, 404 GB, tak bacha na to.
+
+2446
+02:36:04,520 --> 02:36:11,159
+A v tom případě pak můžete pokračovat na instalaci OpenWebUI, to je to, co jsem vám tady ukazoval.
+
+2447
+02:36:11,360 --> 02:36:14,899
+Ten bych nepouštěl, já taky ne. Proto ho tady nikde nemám.
+
+2448
+02:36:19,299 --> 02:36:22,420
+Teďka mi zmizel ten... Jo, tady.
+
+2449
+02:36:23,639 --> 02:36:27,860
+No tak tady vidíte, že mi vygeneroval nějakej vtip.
+
+2450
+02:36:27,860 --> 02:36:32,799
+Takže já ho tady taky nemám, používám hlavně Mistral, to je evropský, francouzský.
+
+2451
+02:36:32,879 --> 02:36:36,780
+Anebo Lamu, to je Meti, nebo od Google tady je Gema.
+
+2452
+02:36:38,000 --> 02:36:41,040
+A s těma si tak nějak občas popojídám.
+
+2453
+02:36:43,920 --> 02:36:48,100
+Takže si to můžete stáhnout, open-air si ukážeme příště.
+
+2454
+02:36:48,100 --> 02:36:55,059
+Myslím si, že pro dnešní den je to všechno.
+
+2455
+02:36:55,079 --> 02:36:57,680
+Já teď projdu s váma ty otázky.
+
+2456
+02:37:07,200 --> 02:37:09,299
+Já jdem sem, ať je vidíme.
+
+2457
+02:37:10,540 --> 02:37:15,059
+Využíváte při práci iOn and X na interpretací?
+
+2458
+02:37:15,180 --> 02:37:19,120
+Ne, nepoužívám zatím nic z toho.
+
+2459
+02:37:19,219 --> 02:37:24,180
+Já se pohybuji především na úrovni aplikací.
+
+2460
+02:37:27,860 --> 02:37:29,659
+Tím myslím AI aplikací.
+
+2461
+02:37:31,379 --> 02:37:34,040
+Umím si přizpůsobit ty velký jazykový modely,
+
+2462
+02:37:34,100 --> 02:37:35,500
+naučit je to, co potřebuju,
+
+2463
+02:37:35,979 --> 02:37:40,180
+ale vlastně jsem nikdy neměl potřebu přetvářet
+
+2464
+02:37:40,860 --> 02:37:46,819
+nebo navrhovat vlastní neuronové sítě
+
+2465
+02:37:46,840 --> 02:37:49,219
+ve smyslu velkých jazykových modelů.
+
+2466
+02:37:49,379 --> 02:37:54,040
+Měl jsem třeba neuronovou sítě
+
+2467
+02:37:54,139 --> 02:37:56,379
+na predikci paměti,
+
+2468
+02:37:56,379 --> 02:37:59,020
+spotřeby paměti pro nějaký software.
+
+2469
+02:37:59,020 --> 02:38:02,420
+Nebo takovýhle typy neuronových sítí.
+
+2470
+02:38:02,680 --> 02:38:05,159
+Ale nikdy nic, co by potřebovalo
+
+2471
+02:38:05,159 --> 02:38:07,459
+nějaký víc advanced,
+
+2472
+02:38:07,899 --> 02:38:09,540
+jako...
+
+2473
+02:38:10,559 --> 02:38:21,340
+Tunění. Je to třeba Ray, knihovna, která vám pomůže s tuněním hyperparametru. Taky jsem vym voní, nepoužíval jsem.
+
+2474
+02:38:21,799 --> 02:38:32,799
+Je tady Deep, ne Deep Seek, ale Deep Learn, něco takového, zase knihovna od Microsoftu, i taky pomáhá s učením, taky jsem nepotřeboval. Vym voních, nepotřeboval.
+
+2475
+02:38:33,299 --> 02:38:41,379
+Tak, mohu poprostu to upload lekcí dopředu, rád bych se podíval na pokročilé techniky v době, kdy mám ještě trochu času na to se podívat. Určitě.
+
+2476
+02:38:43,200 --> 02:38:51,299
+Určitě. Můžu vám tam dát příští hodinu tak v pátek, což je zejtra.
+
+2477
+02:38:51,500 --> 02:38:52,819
+Zejtra. Sobota.
+
+2478
+02:38:53,860 --> 02:38:57,159
+Funguje ti ten skript nebo bys to do produkce nedal?
+
+2479
+02:38:57,399 --> 02:39:01,100
+To je skript, který skript?
+
+2480
+02:39:01,620 --> 02:39:01,620
+Skript.
+
+2481
+02:39:03,100 --> 02:39:16,840
+Po optimalizování hyperparametru a po shlídnutí výsledků z validační fáze bych klidně ty modely dal do produkce.
+
+2482
+02:39:17,059 --> 02:39:25,620
+Říkám, ten model, který já jsem vytvořil na Memory Prediction, tak ten je v produkci.
+
+2483
+02:39:28,840 --> 02:39:31,299
+schvalujou nebo neschvalujou se podle něho
+
+2484
+02:39:31,379 --> 02:39:33,040
+půr requesty. Takže
+
+2485
+02:39:33,180 --> 02:39:36,139
+klidně se to jako používá.
+
+2486
+02:39:37,379 --> 02:39:38,760
+Tak pro RNN
+
+2487
+02:39:38,760 --> 02:39:40,959
+je potřeba zachovat časovou posloupnost,
+
+2488
+02:39:41,040 --> 02:39:42,420
+aby to mělo požadovaný výsledek.
+
+2489
+02:39:42,420 --> 02:39:44,420
+Je to tak, ano. Tam je velmi důležitá
+
+2490
+02:39:44,520 --> 02:39:47,500
+ta časová posloupnost. Třeba u akcí,
+
+2491
+02:39:47,600 --> 02:39:49,100
+jak byly jejich vývoj
+
+2492
+02:39:49,260 --> 02:39:50,940
+v čase, přesně tak. Tam je to prostě
+
+2493
+02:39:50,979 --> 02:39:52,659
+jakoby aktuální cena
+
+2494
+02:39:53,479 --> 02:39:54,700
+aktuální cena minus jedna,
+
+2495
+02:39:54,979 --> 02:39:57,040
+aktuální cena minus dva, aktuální cena minus tři.
+
+2496
+02:39:57,200 --> 02:39:59,139
+Tam je to pořadí důležitý.
+
+2497
+02:39:59,139 --> 02:39:59,299
+Je to tak.
+
+2498
+02:40:01,540 --> 02:40:03,739
+přemýšlím, ano, ano,
+
+2499
+02:40:04,479 --> 02:40:05,899
+časový řady, ano,
+
+2500
+02:40:06,280 --> 02:40:09,000
+muzika, ano, ano.
+
+2501
+02:40:09,719 --> 02:40:11,299
+Abych dokázal rozpoznat
+
+2502
+02:40:11,299 --> 02:40:13,479
+státní poznávací značky, jaký je to
+
+2503
+02:40:13,600 --> 02:40:15,700
+vlastně typ projektu? Je to CNN síť?
+
+2504
+02:40:15,840 --> 02:40:17,959
+Je to CNN neuronová
+
+2505
+02:40:18,120 --> 02:40:19,819
+síť? Nebo,
+
+2506
+02:40:20,520 --> 02:40:25,399
+no, nemyslím si, že je to tak těžký,
+
+2507
+02:40:25,559 --> 02:40:26,200
+teda, popravdě.
+
+2508
+02:40:27,420 --> 02:40:29,159
+Pokud si někdo s těm hodělá poznám těžím,
+
+2509
+02:40:29,159 --> 02:40:31,340
+napíšete to sem, tak, jo.
+
+2510
+02:40:32,319 --> 02:40:36,000
+Jan Lekun, Demis Hasabis, Jeffrey Hinton, Andrej Karpaty.
+
+2511
+02:40:36,399 --> 02:40:42,000
+Já vám ještě ukážu další tady kluky český.
+
+2512
+02:40:42,180 --> 02:40:46,719
+Jednak bych vám chtěl ukázat Aleše Holečka z Microsoftu.
+
+2513
+02:40:46,719 --> 02:40:51,620
+Ten teda není, není to teda moc o AI,
+
+2514
+02:40:51,860 --> 02:40:56,579
+ale nedávno byl tady u nás v Praze i o něm psal Forbes.
+
+2515
+02:40:57,940 --> 02:41:01,879
+Pro mě bylo hrozně příjemné vidět vlastně Čecha
+
+2516
+02:41:02,620 --> 02:41:04,559
+s tou naší českou náturou,
+
+2517
+02:41:04,860 --> 02:41:07,299
+která je tak vysoko vlastně v Microsoftu
+
+2518
+02:41:07,299 --> 02:41:08,760
+a čekali byste, že to bude
+
+2519
+02:41:08,819 --> 02:41:10,659
+prostě strojená přednáška
+
+2520
+02:41:11,239 --> 02:41:13,700
+a byl to normální prostě kluk,
+
+2521
+02:41:13,780 --> 02:41:15,200
+se kterým byste šli na pivo,
+
+2522
+02:41:15,280 --> 02:41:16,540
+který občas řekl sprostou,
+
+2523
+02:41:16,739 --> 02:41:19,079
+prostě se vyjádřil sprostě
+
+2524
+02:41:19,079 --> 02:41:19,559
+a
+
+2525
+02:41:20,620 --> 02:41:23,079
+mluvil napřímo, nedělal
+
+2526
+02:41:23,139 --> 02:41:24,860
+z ničeho vědu, spíš
+
+2527
+02:41:24,860 --> 02:41:25,559
+jako
+
+2528
+02:41:26,700 --> 02:41:28,780
+bagatelizoval ty věci, stejně tak,
+
+2529
+02:41:28,879 --> 02:41:31,040
+jako se to dělám, snažím dělat já,
+
+2530
+02:41:31,120 --> 02:41:33,139
+snažím se to dělat lidským přístupem,
+
+2531
+02:41:33,540 --> 02:41:35,000
+nedělat z těch věcí vědu,
+
+2532
+02:41:35,059 --> 02:41:37,020
+naopak je spíš vysvětlovat,
+
+2533
+02:41:37,020 --> 02:41:38,260
+co nejednodušejc,
+
+2534
+02:41:38,719 --> 02:41:39,680
+stejně tak, jako
+
+2535
+02:41:40,680 --> 02:41:42,360
+to vlastně dělal on. Takže bylo příjemné
+
+2536
+02:41:42,360 --> 02:41:43,459
+vidět
+
+2537
+02:41:44,219 --> 02:41:51,680
+Jeho tak vysoko v tom Microsoftu, on je snad satě a minus jedna nebo minus dva, prostě hodně vysoko.
+
+2538
+02:41:52,340 --> 02:42:01,040
+Člověk, co bere miliony dolarů měsíčně a choval se úplně jako jakýkoliv jiný Čech.
+
+2539
+02:42:04,620 --> 02:42:10,559
+Potom jsem vám chtěl ukázat Filipa Dvořáka, to je z Filuta AI.
+
+2540
+02:42:11,639 --> 02:42:15,260
+Tam jsem měl taky tu čest se s ním potkat.
+
+2541
+02:42:16,239 --> 02:42:22,639
+Hrozně chytrý člověk, studoval ve Francii na kompozitních AI.
+
+2542
+02:42:23,200 --> 02:42:29,920
+Teď založil vlastní startup Filuta AI, snaží se to dělat hlavně přes Ameriku.
+
+2543
+02:42:30,479 --> 02:42:32,319
+nabral si tam i lidi,
+
+2544
+02:42:32,319 --> 02:42:34,659
+bývalí ex-Microsoftáky,
+
+2545
+02:42:34,760 --> 02:42:36,500
+s pár s nima jsem se bavil.
+
+2546
+02:42:37,040 --> 02:42:38,979
+Myslím si, že stojí za toho sledovat
+
+2547
+02:42:38,979 --> 02:42:39,979
+opravdu
+
+2548
+02:42:40,139 --> 02:42:42,239
+chytrý člověk. Když se
+
+2549
+02:42:42,260 --> 02:42:44,840
+s ním budete bavit o něčem,
+
+2550
+02:42:46,319 --> 02:42:46,700
+tak je to
+
+2551
+02:42:46,780 --> 02:42:48,319
+z něj cejtit, že to je prostě
+
+2552
+02:42:48,459 --> 02:42:50,079
+chytrý člověk, velmi
+
+2553
+02:42:50,280 --> 02:42:51,280
+inteligentní, takže
+
+2554
+02:42:51,979 --> 02:42:54,639
+toho bych se taky možná snažil
+
+2555
+02:42:54,659 --> 02:42:56,659
+nějak sledovat nebo číst o něm něco,
+
+2556
+02:42:56,659 --> 02:42:59,139
+občas o něm něco někde napíšou.
+
+2557
+02:42:59,819 --> 02:43:02,819
+Co je must have, tak je Tomáš.
+
+2558
+02:43:03,540 --> 02:43:07,440
+Pokud jste mě neslyšeli, tak ho začněte hned sledovat.
+
+2559
+02:43:09,159 --> 02:43:11,860
+Zase měl jsem tu čest párkrát se s ním prostě sejít,
+
+2560
+02:43:11,920 --> 02:43:15,520
+ať už na kafe, nebo na pivo, nebo na nějakým mítinku
+
+2561
+02:43:15,819 --> 02:43:18,020
+s dalšíma lidmi z Microsoftu.
+
+2562
+02:43:19,559 --> 02:43:21,600
+A toho byste rozhodně měli sledovat.
+
+2563
+02:43:21,600 --> 02:43:23,620
+Ten teď má ten Bottle Cup AI.
+
+2564
+02:43:25,059 --> 02:43:27,440
+Bude šel s ČV u té, byl tady na cirku.
+
+2565
+02:43:27,840 --> 02:43:33,299
+Celý ten jeho příběh vám odvyprávěj jakýkoliv YouTube video si pustíte,
+
+2566
+02:43:33,399 --> 02:43:37,500
+tak on to tam říká podevřeně, takže toho určitě sledujte.
+
+2567
+02:43:38,100 --> 02:43:44,020
+Mám pocit, že ten udělá, že bude správně reprezentovat Českou republiku
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

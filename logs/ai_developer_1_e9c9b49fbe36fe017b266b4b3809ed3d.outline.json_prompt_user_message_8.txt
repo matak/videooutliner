@@ -1,0 +1,1015 @@
+Transcript:
+
+=================
+1803
+01:55:45,819 --> 01:55:47,859
+Ale to, co se mu dal v tom validačním datasetu,
+
+1804
+01:55:47,859 --> 01:55:50,420
+je pro něj jako kdyby viděl poprvý každou epochu.
+
+1805
+01:55:50,739 --> 01:55:53,319
+Takže já tím vlastně simuluju to,
+
+1806
+01:55:53,699 --> 01:55:56,380
+jestli on na těch datech, který neviděl v životě,
+
+1807
+01:55:56,739 --> 01:55:59,319
+tak jestli se pořád zlepšuje v té predikci nebo ne.
+
+1808
+01:55:59,720 --> 01:56:01,760
+A tady vidíte, že zafungovala to Patience,
+
+1809
+01:56:01,760 --> 01:56:04,460
+to znamená, že tady vlastně pětkrát v řadě
+
+1810
+01:56:05,199 --> 01:56:13,359
+On nějak neklesnul, jeden, dva, tři, čtyři, tak ta pátá asi neklesnul,
+
+1811
+01:56:13,380 --> 01:56:19,100
+takže tím se mi to zastavilo v té epoše 769 a nepokračovalo to dál.
+
+1812
+01:56:19,199 --> 01:56:23,300
+GPU mi tady kleslo, to je zase pro mě signál, že to běželo opravdu na tom GPU
+
+1813
+01:56:23,500 --> 01:56:26,940
+a ne nic jinýho, nikdo mi tady netěžil bitcoiny v nějakém brousru.
+
+1814
+01:56:27,659 --> 01:56:30,300
+A tady pak jsou ty obrázky, který to vygenerovalo.
+
+1815
+01:56:30,359 --> 01:56:32,039
+Tak já jenom projdu ty obrázky.
+
+1816
+01:56:33,859 --> 01:56:40,039
+Máme tady pár minut.
+
+1817
+01:56:40,500 --> 01:56:45,659
+Tak, tady vidíte, že se mi pořád snižovala jak ta tréninklost, tak ta validační lost.
+
+1818
+01:56:45,659 --> 01:56:48,220
+To znamená, že pořád se to učilo.
+
+1819
+01:56:48,220 --> 01:56:51,920
+Tady už méně, méně, méně, méně, méně, ale pořád se to zmenšovalo.
+
+1820
+01:56:52,440 --> 01:56:54,680
+Tady máme nějaký rozdíl mezi...
+
+1821
+01:56:54,899 --> 01:56:57,479
+Tady máme predikce versus aktuální hodnoty.
+
+1822
+01:56:57,479 --> 01:57:02,119
+To znamená, že se pohybujeme pořád na těch akcích.
+
+1823
+01:57:02,119 --> 01:57:04,440
+To znamená, že šlo to nahoru nebo to šlo dolů.
+
+1824
+01:57:04,600 --> 01:57:08,800
+Aby tadyhle se v tom nevyznám, takže jsem tady ještě udělal jeden obrázek,
+
+1825
+01:57:08,800 --> 01:57:14,340
+který mi vlastně ukazuje rozdíl mezi tou predikovanou hodnotou a tou aktuální hodnotou.
+
+1826
+01:57:14,340 --> 01:57:21,800
+Takže tady vidíte, že minus 0,2, minus 0,5, tady to predikoval přesně správně, správně, správně,
+
+1827
+01:57:21,800 --> 01:57:25,699
+tady byla nějaká malá odchylka, tady byla nějaká větší odchylka,
+
+1828
+01:57:25,699 --> 01:57:30,399
+takže na 250 prediction countech vlastně udělal pár jenom chyb,
+
+1829
+01:57:31,140 --> 01:57:33,220
+A ještě, abyste viděli,
+
+1830
+01:57:33,239 --> 01:57:35,539
+jak si to máte interpretovat,
+
+1831
+01:57:35,720 --> 01:57:37,619
+tu predikci versus difference,
+
+1832
+01:57:38,000 --> 01:57:39,059
+tak tady jsem vám dal takový
+
+1833
+01:57:39,059 --> 01:57:40,840
+example, který vám vlastně říká,
+
+1834
+01:57:40,840 --> 01:57:42,819
+že predikovaná hodnota byla třeba
+
+1835
+01:57:43,199 --> 01:57:45,399
+na 40%, že to půjde nahoru,
+
+1836
+01:57:46,059 --> 01:57:53,699
+aktuálně vlastně nebo reálně to šlo nahoru, takže ten rozdíl je, protože ten výpočet je predicated minus actual,
+
+1837
+01:57:53,779 --> 01:57:57,039
+tak ten pre-difference je minus 0,6.
+
+1838
+01:57:57,260 --> 01:58:04,440
+Tady on řekl, že na 90% to půjde nahoru, šlo to nahoru, takže ten predicated byl 0,0 minus 0,1.
+
+1839
+01:58:04,600 --> 01:58:07,760
+Čím blíž 0, tím blíž vlastně on se trefil.
+
+1840
+01:58:08,380 --> 01:58:12,800
+Tady on řekl, že na 70% to půjde nahoru, nešlo to nahoru, šlo to dolů,
+
+1841
+01:58:12,840 --> 01:58:15,180
+takže ten rozdíl je 0,7.
+
+1842
+01:58:15,260 --> 01:58:19,739
+Tady zase na 10% to půjde nahoru, nešlo to nahoru, šlo to dolů,
+
+1843
+01:58:20,039 --> 01:58:22,460
+takže ten rozdíl je 0,1.
+
+1844
+01:58:24,000 --> 01:58:26,979
+Pak si tady můžeme pustit ten multi,
+
+1845
+01:58:27,760 --> 01:58:35,680
+což je jediný rozdíl, který to má, je architektura té neuronové sítě.
+
+1846
+01:58:36,260 --> 01:58:40,020
+kterou vidíme tady. Vidíte, že tady má mnohem víc neuronů,
+
+1847
+01:58:40,199 --> 01:58:50,819
+takže mu stačilo prostě jenom 14 epoch na to, aby dosáhnul nějakého vhodného učení.
+
+1848
+01:58:50,819 --> 01:58:54,699
+Takže vidíte, že tady už se dostal na nějaké hodnoty 0,05,
+
+1849
+01:58:55,039 --> 01:59:01,579
+než to v té předchozí, než se dostal na 0,05, tak mu to trvalo tady nějakých prostě nevím,
+
+1850
+01:59:02,680 --> 01:59:04,500
+200-300 epoch,
+
+1851
+01:59:04,539 --> 01:59:05,600
+něco takového.
+
+1852
+01:59:05,880 --> 01:59:07,960
+Tady už je na 0,05 po 12
+
+1853
+01:59:08,420 --> 01:59:09,859
+epochách.
+
+1854
+01:59:10,559 --> 01:59:12,680
+Takže zase tady je pak nějaká predikce
+
+1855
+01:59:12,940 --> 01:59:14,479
+rozdílu,
+
+1856
+01:59:14,559 --> 01:59:16,119
+takže tady vidíte na těch 250,
+
+1857
+01:59:16,319 --> 01:59:18,760
+taky udělal pár chyb, ale bylo to velmi rychlý.
+
+1858
+01:59:19,779 --> 01:59:20,800
+To je jenom ten
+
+1859
+01:59:21,520 --> 01:59:22,380
+perceptron.
+
+1860
+01:59:23,100 --> 01:59:25,979
+To znamená, že teď bychom se měli podívat na typy
+
+1861
+01:59:27,659 --> 01:59:29,079
+neuronovejch sítí,
+
+1862
+01:59:29,340 --> 01:59:29,779
+který
+
+1863
+01:59:31,319 --> 01:59:33,699
+Budeme. Já ty otázky už nechám na konec hodiny,
+
+1864
+01:59:33,779 --> 01:59:36,819
+protože máme málo času, máme asi pět minut
+
+1865
+01:59:36,899 --> 01:59:39,940
+a já bych to opravdu rád ještě prošel.
+
+1866
+01:59:40,859 --> 01:59:45,119
+Doufám, že máte ještě o něco víc času po hodině.
+
+1867
+01:59:45,880 --> 01:59:47,579
+Já bych to rád dokončil.
+
+1868
+01:59:47,760 --> 01:59:50,460
+Když tak se podívejte na záznam, pokud potřebujete odejít.
+
+1869
+01:59:50,640 --> 01:59:52,039
+Já budu pokračovat dál.
+
+1870
+01:59:52,840 --> 01:59:56,619
+To znamená, že máme tady typy neuronových sítí.
+
+1871
+01:59:57,000 --> 01:59:59,640
+My jsme si ukázali jenom...
+
+1872
+02:00:00,000 --> 02:00:05,680
+vlastně dopřednou neuronovou síť, neboli feedforward neuronová síť.
+
+1873
+02:00:06,039 --> 02:00:10,340
+Potom máme konvoluční neuronovou síť, CNN a rekurentní RNM.
+
+1874
+02:00:10,739 --> 02:00:13,340
+Všechny tyhle používají supervised learning,
+
+1875
+02:00:13,380 --> 02:00:15,199
+to znamená, že v těch datech, který mu dáváme,
+
+1876
+02:00:15,199 --> 02:00:19,399
+mu dáváme i ty výstupy, který od něj očekáváme,
+
+1877
+02:00:19,399 --> 02:00:20,420
+že on se naučí.
+
+1878
+02:00:20,779 --> 02:00:28,039
+Existují ale i metody učení unsupervised learning, kdy mu nedáváme v těch datech žádné výstupní hodnoty.
+
+1879
+02:00:28,039 --> 02:00:34,119
+Je to typicky jako když mu dávám data z internetu a doufám, že on se naučí mluvit.
+
+1880
+02:00:34,159 --> 02:00:40,640
+Souvislosti mezi slovama, to jsou to, co udělali velký jazykový modely.
+
+1881
+02:00:41,140 --> 02:00:43,640
+Tak to je unsupervised learning.
+
+1882
+02:00:44,439 --> 02:00:47,939
+K tomu zase sloužejí jiný typy neuronových sítí.
+
+1883
+02:00:48,079 --> 02:00:49,739
+My si ukážeme jenom autoencoder
+
+1884
+02:00:50,180 --> 02:00:52,880
+a potom je vlastně ta nejvíc advanced
+
+1885
+02:00:53,140 --> 02:00:54,859
+aktuálně neuronová sítě,
+
+1886
+02:00:54,899 --> 02:00:57,359
+o které byste měli určitě vědět
+
+1887
+02:00:57,699 --> 02:01:01,500
+a na které stojí veškerý GPT, Gemini,
+
+1888
+02:01:02,840 --> 02:01:07,279
+LAMA, Mistral, DeepSeek,
+
+1889
+02:01:07,979 --> 02:01:10,039
+všechny tyhle neuronové sítě
+
+1890
+02:01:10,119 --> 02:01:11,140
+nebo velký a řeklí modely
+
+1891
+02:01:11,159 --> 02:01:12,680
+a to jsou transformeři.
+
+1892
+02:01:13,380 --> 02:01:19,199
+Ty používají self-supervised learning proto, aby se samoučili bez dohledu,
+
+1893
+02:01:19,600 --> 02:01:21,880
+třeba souvislosti textu.
+
+1894
+02:01:22,279 --> 02:01:28,239
+Potom unsupervised pre-training, takže nějaké dotrénování bez dohledu.
+
+1895
+02:01:28,520 --> 02:01:33,380
+A potom doladění neboli fine-tuning, který je supervised.
+
+1896
+02:01:34,760 --> 02:01:39,340
+Budeme si o tom mluvit dál, jenom abyste věděli ty typy,
+
+1897
+02:01:39,720 --> 02:01:46,520
+My si ukážeme FNN, CNN, RNN, AutoEncoder, všechno jenom zběžně už.
+
+1898
+02:01:47,359 --> 02:01:49,760
+Ukážeme si Transformera zběžně.
+
+1899
+02:01:49,920 --> 02:01:56,239
+Máte ty zdrojové kódy k dispozici v rámci toho REPa,
+
+1900
+02:01:56,279 --> 02:02:03,579
+to znamená, že CNN tady máte, příkladem je tomu tzv. MNIST dataset.
+
+1901
+02:02:04,699 --> 02:02:09,100
+Já vám tady ukážu, co to znamená MNIST dataset.
+
+1902
+02:02:10,039 --> 02:02:16,020
+Bude učit tenhle kód, učí tu neuronovou síť,
+
+1903
+02:02:16,399 --> 02:02:24,920
+Nebo já nejdřív řeknu, o čem ty neuronomické sítě jsou, než vám budu vykládat o tom, čem tím příklad je.
+
+1904
+02:02:25,159 --> 02:02:31,899
+To znamená, že FNM jsme si řekli docela dobře, to je ten perceptron, buď jednovrstvej nebo vícevrstvej,
+
+1905
+02:02:32,000 --> 02:02:38,020
+slouží to na tabulkový data většinou. To je přesně ten příklad s těma studentama, kterými jsme si ukazovali.
+
+1906
+02:02:38,520 --> 02:02:41,399
+Tady jsou ty stejné obrázky, který už jste viděli.
+
+1907
+02:02:41,699 --> 02:02:43,899
+Teď jsou rekurentní neuronové sítě.
+
+1908
+02:02:43,899 --> 02:02:48,979
+To bylo něco novýho, s čím přišli po feedforward neuronových sítích.
+
+1909
+02:02:48,979 --> 02:02:52,220
+A to je vlastně to, že mu dali další prvek,
+
+1910
+02:02:52,220 --> 02:02:56,680
+neboli dali tady ten loop, tohle je normální feedforward neuron net.
+
+1911
+02:02:56,859 --> 02:03:01,939
+A oni jenom řekli, a ty si teď budeš pamatovat ty tvoje předchozí kroky,
+
+1912
+02:03:02,659 --> 02:03:06,340
+z těch předchozích dat a tím mu dali paměť.
+
+1913
+02:03:06,359 --> 02:03:09,520
+Čili zavádí paměť do neuronové sítě.
+
+1914
+02:03:09,520 --> 02:03:11,560
+To je rekurentní neuronová sítě.
+
+1915
+02:03:11,779 --> 02:03:15,600
+A slouží to hlavně na sekvencích dat a časových řadách.
+
+1916
+02:03:15,659 --> 02:03:17,319
+Ideální pro akcie.
+
+1917
+02:03:18,039 --> 02:03:19,300
+Nebo na hudbu.
+
+1918
+02:03:19,899 --> 02:03:22,199
+Prostě něco, nebo na text taky.
+
+1919
+02:03:23,159 --> 02:03:25,279
+něco, co by mělo mít pamět,
+
+1920
+02:03:25,420 --> 02:03:26,680
+co by se mělo pamatovat,
+
+1921
+02:03:26,680 --> 02:03:27,960
+třeba ty ceny akcí
+
+1922
+02:03:28,420 --> 02:03:29,640
+týden zpátky.
+
+1923
+02:03:29,779 --> 02:03:31,760
+Nejenom vlastně ten předchozí den,
+
+1924
+02:03:31,819 --> 02:03:33,500
+ale třeba týden zpátky.
+
+1925
+02:03:34,119 --> 02:03:36,859
+A tím, že má tu paměť,
+
+1926
+02:03:37,000 --> 02:03:38,859
+tak on je schopný dosáhnout
+
+1927
+02:03:40,060 --> 02:03:41,119
+lepšího výsledku.
+
+1928
+02:03:41,439 --> 02:03:44,600
+Tady máte link na Stanford kurs.
+
+1929
+02:03:45,300 --> 02:03:46,560
+To se opravdu učejí
+
+1930
+02:03:46,560 --> 02:03:49,460
+na Stanfordu studenti z tohohle toho kurzu,
+
+1931
+02:03:49,460 --> 02:03:51,159
+takže využijte to.
+
+1932
+02:03:51,159 --> 02:03:52,720
+Je to opravdu popis kursu.
+
+1933
+02:03:54,060 --> 02:03:59,399
+předmětu prostě o neuronových sítích, tohle je zrovna CS230,
+
+1934
+02:03:59,600 --> 02:04:03,180
+kdybyste platili ty těžké peníze na Stanfordu a zapsali se
+
+1935
+02:04:04,239 --> 02:04:07,859
+na tuhle tu hodinu nebo na tenhle ten kurs,
+
+1936
+02:04:07,880 --> 02:04:11,300
+to je vlastně předmět, tak byste tady prostě těžili
+
+1937
+02:04:11,439 --> 02:04:15,680
+z této materiálu. Takže tady můžete vidět vlastně do detailu,
+
+1938
+02:04:15,680 --> 02:04:20,420
+jak to funguje. Máte tady i tu GRU a LSTM,
+
+1939
+02:04:20,340 --> 02:04:23,020
+rekurentní neuronové sítě,
+
+1940
+02:04:23,020 --> 02:04:24,539
+teď nevím, kam mě to odkázalo,
+
+1941
+02:04:26,380 --> 02:04:27,779
+GRU LSTM,
+
+1942
+02:04:30,260 --> 02:04:32,619
+nevím, jak to nazvete, jo tady, GRU LSTM,
+
+1943
+02:04:32,939 --> 02:04:34,939
+Gate Recurrent Unit, GRU,
+
+1944
+02:04:35,039 --> 02:04:36,840
+a Long Short Term Memorand Unit.
+
+1945
+02:04:36,960 --> 02:04:38,899
+Tak to jsou zase v čem se lišej,
+
+1946
+02:04:39,760 --> 02:04:41,579
+na to se můžete podívat do detailu.
+
+1947
+02:04:41,920 --> 02:04:43,680
+My si řekneme, že se to používá
+
+1948
+02:04:43,760 --> 02:04:44,880
+na jazykový překlady,
+
+1949
+02:04:44,880 --> 02:04:46,260
+na rozpoznávání řeči,
+
+1950
+02:04:46,399 --> 02:04:48,100
+na analýzy sentimentů,
+
+1951
+02:04:48,100 --> 02:04:49,380
+na predikci časovej řad,
+
+1952
+02:04:49,460 --> 02:04:50,600
+zase ty akcie,
+
+1953
+02:04:51,760 --> 02:04:53,439
+a hudební kompozice.
+
+1954
+02:04:54,439 --> 02:05:01,460
+Architektura je vlastně taková, že při každém novém datu
+
+1955
+02:05:01,600 --> 02:05:05,260
+on si pamatuje, jaká byla jeho hodnota vygenerovaná
+
+1956
+02:05:05,560 --> 02:05:07,319
+v tom předchozím běhu.
+
+1957
+02:05:07,579 --> 02:05:12,659
+A teď jednoduché rekurentní sítě si můžou pamatovat
+
+1958
+02:05:12,720 --> 02:05:14,859
+třeba 10 hodnot zpátky.
+
+1959
+02:05:15,260 --> 02:05:18,960
+Ty gr úlo se tomu až stovky tisíce hodnot zpátky.
+
+1960
+02:05:19,460 --> 02:05:21,319
+Takže tomu dává tu paměť.
+
+1961
+02:05:22,039 --> 02:05:32,180
+která mu zase je schopná, nebo vám je schopná doručit mnohem lepší výsledky, třeba ohledně těch akcí.
+
+1962
+02:05:32,180 --> 02:05:38,680
+My když tady se podíváme do toho příkladu, který já tady mám na RNN, tak tady je vlastně
+
+1963
+02:05:39,260 --> 02:05:49,039
+Kde to mám data, já jsem tady dal akcie Tesly, CSV, takže tady vlastně už je to rozdělený tak trochu modulárně,
+
+1964
+02:05:49,039 --> 02:05:53,699
+na víc souborů, nicméně nebojte se toho, je to jako kdyby to bylo v tom jednom souboru,
+
+1965
+02:05:53,699 --> 02:05:56,039
+akorát je to rozházaný do více souborů.
+
+1966
+02:05:56,300 --> 02:06:00,119
+Takže tady já si naloaduju Panda, dataset, prostě Tesly,
+
+1967
+02:06:00,439 --> 02:06:06,020
+tady mám ty Open, High, Low, Close, dávám mu ještě Volume, Average a Bar Count.
+
+1968
+02:06:06,060 --> 02:06:11,600
+Normalizuju tady ty data, dělám s tím různý věci, podívejte se na to.
+
+1969
+02:06:11,600 --> 02:06:22,020
+Tady mám zase ty hyperparametry, learning rate, počet epoch, počet neuronů ve skryté vrstvě, počet vstupů, počet výstupů atd.
+
+1970
+02:06:22,340 --> 02:06:29,460
+Tady myslím, že zrovna je to ohledně predikce té ceny jako takové spojité veličiny, ne jestli to půjde nahoru dolů.
+
+1971
+02:06:29,760 --> 02:06:33,819
+Teď se zase definuje lost funkce, zase se zde definuje ten optimizer
+
+1972
+02:06:34,079 --> 02:06:35,619
+a tady pouštím training.
+
+1973
+02:06:35,619 --> 02:06:39,039
+Mám to v metodě, která je nadefinovaná tady, train test.
+
+1974
+02:06:39,000 --> 02:06:42,079
+tu train test vy už znáte, to je prostě zase stejný
+
+1975
+02:06:42,319 --> 02:06:45,159
+for cyklus, forward pass, backward pass
+
+1976
+02:06:45,460 --> 02:06:48,840
+vidíte, že ty základy toho, co jsme si ukázali
+
+1977
+02:06:48,859 --> 02:06:53,100
+u té FNN sítě, platí i u těch dalších sítí
+
+1978
+02:06:53,199 --> 02:06:55,359
+proto je hrozně důležité, abyste pochopili
+
+1979
+02:06:56,000 --> 02:06:57,720
+tu feed forward neural net
+
+1980
+02:06:57,739 --> 02:07:01,539
+protože ty rekurentní sítě, ty metody
+
+1981
+02:07:02,539 --> 02:07:03,579
+jsou nemlich to samé
+
+1982
+02:07:03,960 --> 02:07:06,439
+evaluační fáze je zase nemlých to samý.
+
+1983
+02:07:06,439 --> 02:07:09,479
+Máte tady jenom ten forward pass, nemáte tam ten backward pass.
+
+1984
+02:07:09,739 --> 02:07:12,420
+A tady máte prostě jenom puštění těch epoch
+
+1985
+02:07:12,460 --> 02:07:15,399
+zase v rámci jednoho for each cyklu.
+
+1986
+02:07:15,479 --> 02:07:17,460
+Jenom jsem to zaobalil do metody.
+
+1987
+02:07:17,619 --> 02:07:19,239
+Prostě nic jiného jsem s tím neudělal.
+
+1988
+02:07:19,340 --> 02:07:21,979
+A vrátil jsem si to jako objekt z té metody.
+
+1989
+02:07:22,319 --> 02:07:24,399
+Takže pak ten main vypadá jednodušeji,
+
+1990
+02:07:24,399 --> 02:07:26,939
+protože tady tato trénovací a evaluační fáze
+
+1991
+02:07:26,939 --> 02:07:28,840
+je vlastně zavolání jenom jedné funkce.
+
+1992
+02:07:29,140 --> 02:07:30,819
+A pak tady mám zase ten testing.
+
+1993
+02:07:31,619 --> 02:07:35,880
+Rozdíl, jaký tady je, je ten,
+
+1994
+02:07:36,399 --> 02:07:39,300
+že tady nepoužívám generování těch obrázků,
+
+1995
+02:07:39,380 --> 02:07:42,300
+ale namísto toho, jako tady někdo zmiňoval ten
+
+1996
+02:07:42,920 --> 02:07:46,479
+1DBAI, což si myslím, já jsem to neviděl,
+
+1997
+02:07:46,640 --> 02:07:50,920
+ale myslím si, že to je něco, co vám pomáhá porozumět tomu,
+
+1998
+02:07:50,920 --> 02:07:55,859
+jak se to trénuje, jak dobře, jaká je velikost stráty
+
+1999
+02:07:55,859 --> 02:07:57,579
+v každém tom stavu.
+
+2000
+02:07:57,619 --> 02:08:00,359
+Tak tadyhle si ukážu, nebo já to vám dopustím,
+
+2001
+02:08:01,680 --> 02:08:04,340
+Já to mám vlastně puštěný tady dokonce.
+
+2002
+02:08:04,920 --> 02:08:07,319
+Takže když vy si pustíte zase podle toho Readme
+
+2003
+02:08:07,340 --> 02:08:09,239
+tadyhle tu generování,
+
+2004
+02:08:09,260 --> 02:08:11,279
+tak tady je nová sekce Tensor Board.
+
+2005
+02:08:12,119 --> 02:08:15,899
+což je vlastně takovej hezký nástroj
+
+2006
+02:08:16,020 --> 02:08:19,899
+nebo webová aplikace, která vám pomůže porozumět,
+
+2007
+02:08:20,180 --> 02:08:23,000
+jak to testování vlastně funguje.
+
+2008
+02:08:23,260 --> 02:08:25,720
+Jaká je akurasy, jaká je lost funkce,
+
+2009
+02:08:25,920 --> 02:08:28,060
+jaký tam byly vygenerovaný obrázky.
+
+2010
+02:08:28,300 --> 02:08:30,779
+Je to takováhle webová aplikace.
+
+2011
+02:08:31,300 --> 02:08:34,460
+A vy si ji pustíte, je to teda o toho TensorFlow,
+
+2012
+02:08:34,460 --> 02:08:36,520
+ale dá se to použít i na PyTorch,
+
+2013
+02:08:36,520 --> 02:08:38,819
+či jedno, který framework to používá.
+
+2014
+02:08:39,119 --> 02:08:45,399
+A to je to, co já používám tadyhle pro ty další projekty jako je CNN a RNN.
+
+2015
+02:08:45,440 --> 02:08:48,300
+A pustíte to tak, že pustíte tadyhle ten příkaz.
+
+2016
+02:08:49,720 --> 02:08:51,100
+Pardon.
+
+2017
+02:08:52,440 --> 02:08:57,440
+Po tom, co vlastně pustíte ten main,
+
+2018
+02:08:57,699 --> 02:09:01,359
+tak pokud jste pořád v tom virtuálním environmentu,
+
+2019
+02:09:01,899 --> 02:09:04,119
+což mě je tady znečený tímhletím zeleným venv,
+
+2020
+02:09:04,699 --> 02:09:07,779
+tak tenhle knihovna vám bude.
+
+2021
+02:09:07,779 --> 02:09:12,319
+A co ona jenom udělá je, že nalouduje z toho adresáře runs.
+
+2022
+02:09:13,039 --> 02:09:18,279
+Tady jsou všechny runy, kolikrát opustíte, pokaždé to vygeneruje novou složku.
+
+2023
+02:09:18,940 --> 02:09:21,760
+A on nalouduje jenom obsah té složky.
+
+2024
+02:09:22,659 --> 02:09:24,979
+A ve výsledku uvidíte něco takovéhleho,
+
+2025
+02:09:28,819 --> 02:09:33,779
+což je ta webová aplikace, kde vy krásně vidíte, jednak si můžete filtrovat jednotlivě ty běhy,
+
+2026
+02:09:33,779 --> 02:09:37,399
+takže se tady můžete povypínat nebo jenom ten poslední si zobrazit.
+
+2027
+02:09:37,720 --> 02:09:41,460
+A tady pak vidíte jednak tu lost funkci, jak klesala,
+
+2028
+02:09:42,180 --> 02:09:45,779
+při trénování, při evaluaci, při testu.
+
+2029
+02:09:47,140 --> 02:09:51,640
+Potom vidíte RMS,
+
+2030
+02:09:52,380 --> 02:09:55,920
+jo, mean square error a tohle je recurrent.
+
+2031
+02:09:56,979 --> 02:10:00,380
+Tady pak vidíte test, takže v rámci testovací fáze,
+
+2032
+02:10:00,520 --> 02:10:02,659
+trénovací fáze a validační fáze.
+
+2033
+02:10:03,000 --> 02:10:07,619
+Vidíte jednak lost funkci, jak klesala,
+
+2034
+02:10:08,460 --> 02:10:18,880
+Tady vidíte v té testovací fázi, jak moc odlišný byly ty data, které to predikovalo a které byly reální.
+
+2035
+02:10:19,579 --> 02:10:22,220
+Já jsem to neoptimalizoval nějak.
+
+2036
+02:10:22,300 --> 02:10:27,199
+To znamená, že tady to je jen pro účely toho, aby vám to fungovalo, abyste to mohli pustit.
+
+2037
+02:10:28,000 --> 02:10:32,059
+Pokud se pohrájete s těma hyperparametrama, dosáhnete určitě lepších výsledků.
+
+2038
+02:10:33,479 --> 02:10:40,559
+Jenom jsem vám tímhle tím chtěl ukázat ten tensorboard, abyste viděli, že u té CNN a RNN neuvidíte ty obrázky,
+
+2039
+02:10:40,720 --> 02:10:48,559
+ale můžete si pustit vlastně a dělat si observability vlastně toho těch výsledků přes ten tensorboard.
+
+2040
+02:10:50,199 --> 02:10:54,779
+Tak, já ještě dokončím, to byla rekurentní, teď kolem konvoluční neuranová sít.
+
+2041
+02:10:54,920 --> 02:10:57,859
+To znamená, že úplně nejjednodušší byla ta feedforward.
+
+2042
+02:10:58,500 --> 02:11:02,680
+Paměť jsme tomu přidali, nebo nějakou dodatečnou chytrost
+
+2043
+02:11:02,739 --> 02:11:06,479
+jsme tomu přidali tím, že jsme s toho udělali rekurentní neuronovou síť.
+
+2044
+02:11:07,340 --> 02:11:11,020
+A konvoluční neuronová síť slouží na vidění
+
+2045
+02:11:11,359 --> 02:11:13,859
+a zpracovávání videí, obrázků.
+
+2046
+02:11:14,140 --> 02:11:19,059
+Tesla třeba byla taková slavná, nebo pro mě celkem slavná,
+
+2047
+02:11:19,420 --> 02:11:24,559
+výměna názoru mezi Elonem Muskem a Janem Lacunem.
+
+2048
+02:11:26,680 --> 02:11:28,960
+To je jeden z lidí, který
+
+2049
+02:11:30,460 --> 02:11:32,779
+Jan Lekun, který bych
+
+2050
+02:11:32,859 --> 02:11:34,559
+chtěl, abyste si zapamatovali
+
+2051
+02:11:34,559 --> 02:11:36,440
+nebo abyste ho třeba začali sledovat
+
+2052
+02:11:36,440 --> 02:11:39,039
+nebo poslouchat. Je to jeden
+
+2053
+02:11:39,159 --> 02:11:41,319
+z těch hlavních godfádrů
+
+2054
+02:11:41,319 --> 02:11:42,899
+vlastně AI vůbec.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

@@ -1,0 +1,539 @@
+Transcript:
+
+=================
+2973
+03:00:57,139 --> 03:00:59,020
+Jo, phi 3.
+
+2974
+03:00:59,680 --> 03:01:01,340
+Ten by měl být větší.
+
+2975
+03:01:01,639 --> 03:01:03,079
+Pokud se to dobře pamatuju.
+
+2976
+03:01:04,319 --> 03:01:05,559
+Phi 3.
+
+2977
+03:01:08,139 --> 03:01:10,940
+A teď tadyhle to bylo jaký?
+
+2978
+03:01:10,940 --> 03:01:12,260
+FI 3
+
+2979
+03:01:15,719 --> 03:01:17,819
+3 mini 4K
+
+2980
+03:01:19,719 --> 03:01:21,639
+3,5 mini Instruct.
+
+2981
+03:01:21,639 --> 03:01:23,219
+Tak to jsem teda zvědovej.
+
+2982
+03:01:23,639 --> 03:01:25,139
+To je fakt mini teda.
+
+2983
+03:01:25,319 --> 03:01:26,559
+Dobře.
+
+2984
+03:01:29,079 --> 03:01:29,920
+FI 3
+
+2985
+03:01:31,079 --> 03:01:34,680
+Nechci teda mini, ale tak mi dají tady ten Vision.
+
+2986
+03:01:34,680 --> 03:01:35,899
+To by měl být...
+
+2987
+03:01:35,959 --> 03:01:37,360
+To je taky takhle malé, jo?
+
+2988
+03:01:37,479 --> 03:01:38,540
+Teda já jsem teda...
+
+2989
+03:01:39,459 --> 03:01:43,219
+Tak dobře, tak štyrka, Lama štyrka je obrovská, ale ne.
+
+2990
+03:01:43,219 --> 03:01:45,760
+17 bilionů parametrů.
+
+2991
+03:01:47,059 --> 03:01:50,440
+Já jsem si s ní ještě nehrál, takže nevím, jaký je.
+
+2992
+03:01:51,840 --> 03:01:53,719
+No, tyjo, to nebudu stahovat.
+
+2993
+03:01:56,719 --> 03:01:58,979
+To nebudu stahovat, tak Q3,
+
+2994
+03:01:59,079 --> 03:02:01,700
+Q3, ježíš,
+
+2995
+03:02:01,719 --> 03:02:05,239
+ježíš, 235, Q3,
+
+2996
+03:02:06,260 --> 03:02:08,459
+30 bilionů parametrů,
+
+2997
+03:02:08,459 --> 03:02:13,860
+kolik to má? Tyjo, jaký se mi to nechce stahovat?
+
+2998
+03:02:13,940 --> 03:02:15,500
+Tak, tak,
+
+2999
+03:02:18,579 --> 03:02:25,040
+Když se podívám, LAMA 3.2 Vision by měla být větší, ne?
+
+3000
+03:02:25,059 --> 03:02:29,040
+3.2... hele, tady je Vision, 3.2 je 11 bilionů.
+
+3001
+03:02:29,040 --> 03:02:32,620
+Disallowed access to this model in the area...
+
+3002
+03:02:36,620 --> 03:02:42,540
+To by bylo malý, co?
+
+3003
+03:02:44,200 --> 03:02:47,139
+No hele, bylo to nějakých 16, tak stusíme tedle.
+
+3004
+03:02:50,860 --> 03:02:53,159
+8 bilionů parametrů. No ono záleží, kolik to má,
+
+3005
+03:02:53,200 --> 03:02:58,200
+jakoby bilionů parametrů spíš záleží, kolik to má... hele, tady je 3.
+
+3006
+03:02:59,579 --> 03:03:03,940
+Dobře, tak já vypadu za ten kernel, nebo kde jsem to měl?
+
+3007
+03:03:04,059 --> 03:03:05,760
+16 bitů.
+
+3008
+03:03:06,100 --> 03:03:09,799
+Hele já zkusím tohle a uvidíme, jak to bude vypadat.
+
+3009
+03:03:09,879 --> 03:03:14,520
+Tímhle tím BFloat16, já jsem řekl, že to bude 16-bitový, takže já to zakomentuju.
+
+3010
+03:03:16,120 --> 03:03:17,840
+Tadyhle si to pustím.
+
+3011
+03:03:20,159 --> 03:03:22,059
+On by ho měl stáhnout.
+
+3012
+03:03:23,020 --> 03:03:24,440
+Vím, že mám rychlý internet.
+
+3013
+03:03:31,280 --> 03:03:38,040
+Tady tímhletím ho jenom zalogujeme, to úplně nepotřebuji, to vám ukazují architekturu.
+
+3014
+03:03:38,059 --> 03:03:47,979
+Tadyhle tím způsobem se tadyhle ten kód mi ho vlastně dá do paměti a začne generovat nějakou odpověď.
+
+3015
+03:03:49,840 --> 03:03:57,079
+Tady mi teda nabíhá rámka, ale grafická karta nic.
+
+3016
+03:03:58,840 --> 03:04:10,459
+Tak hotovo. Já teda jenom tady pustím architektura, naloudovat a tadyhle ho pustím, co se mi nelíbí.
+
+3017
+03:04:15,579 --> 03:04:18,620
+Dva devices. Co to kecáš?
+
+3018
+03:04:19,739 --> 03:04:22,040
+Jo, tak já musím dát auto asi.
+
+3019
+03:04:23,180 --> 03:04:25,360
+Dobře, neloaduju Hroshub.
+
+3020
+03:04:31,860 --> 03:04:33,299
+Kuda je dostupná, ne?
+
+3021
+03:04:33,340 --> 03:04:35,639
+Jenom tak, jak mě to napadlo teda.
+
+3022
+03:04:37,180 --> 03:04:39,260
+Já to mám tady.
+
+3023
+03:04:41,120 --> 03:04:42,139
+Špuk.
+
+3024
+03:04:45,100 --> 03:04:46,200
+No tak.
+
+3025
+03:04:46,659 --> 03:04:47,979
+Tady vyvádíš.
+
+3026
+03:05:02,719 --> 03:05:04,579
+Tak tadyhle se se hledá.
+
+3027
+03:05:07,819 --> 03:05:09,219
+Tak, tady přidám kód.
+
+3028
+03:05:09,280 --> 03:05:11,479
+Tím chci jenom uvěřit, že tady tu kudu mám.
+
+3029
+03:05:11,500 --> 03:05:12,719
+No, mám to tady.
+
+3030
+03:05:13,979 --> 03:05:17,899
+Takže to je v pořádku. Tadyhle to jsem teda naloudoval.
+
+3031
+03:05:17,899 --> 03:05:21,079
+Já si myslím, že by to mělo být naloudovaný už do té kudy.
+
+3032
+03:05:22,020 --> 03:05:26,719
+A tadyhle to pustím znova a už to negeneruje, co se děje.
+
+3033
+03:05:33,280 --> 03:05:35,739
+Dobře.
+
+3034
+03:05:37,540 --> 03:05:38,399
+Tohle.
+
+3035
+03:05:38,620 --> 03:05:39,719
+Bude to samý.
+
+3036
+03:05:42,719 --> 03:05:45,280
+Kuda 0, no.
+
+3037
+03:05:45,340 --> 03:05:46,739
+Tady mi chybí něco.
+
+3038
+03:05:49,360 --> 03:05:52,340
+No teď se mi tady jedí 16 GB.
+
+3039
+03:05:52,760 --> 03:05:53,799
+A shared.
+
+3040
+03:05:54,020 --> 03:05:56,799
+Tak to vypadá, že to jde na obě, no.
+
+3041
+03:05:58,440 --> 03:06:01,719
+že se použije všechna dedikovaná paměť u toho GPU
+
+3042
+03:06:04,239 --> 03:06:06,360
+a pak se začne používat ta shareovaná.
+
+3043
+03:06:06,399 --> 03:06:10,200
+Teď mě teda zajímá jenom tak, co je Shared GPU.
+
+3044
+03:06:13,620 --> 03:06:28,879
+What is the difference between dedicated GPU and shared GPU?
+
+3045
+03:06:34,760 --> 03:06:39,020
+Integrated GPUs in shared memory, licensed performance memory, hardware design.
+
+3046
+03:06:41,680 --> 03:06:46,440
+Separate hardware components, GPU, AMD, Radeon, HESIS, ODS, VIDEORAM.
+
+3047
+03:06:46,680 --> 03:06:51,799
+To víme. High performance, to víme. Víme, víme.
+
+3048
+03:06:51,799 --> 03:06:52,319
+Víme.
+
+3049
+03:06:52,319 --> 03:06:57,120
+Shared GPU, Integrated GPU, iGPU, part of the CPU.
+
+3050
+03:06:59,440 --> 03:07:04,040
+No ale tady teda nevidím, že by mi teda ta grafická karta teda
+
+3051
+03:07:05,219 --> 03:07:07,100
+jako něco dělala.
+
+3052
+03:07:13,340 --> 03:07:16,659
+Ani nevidím, že to Shared GPU by se nějak měnilo.
+
+3053
+03:07:17,680 --> 03:07:19,879
+System RAM, jojojo, tak jo.
+
+3054
+03:07:22,579 --> 03:07:23,979
+Takže to je RAMka teda.
+
+3055
+03:07:26,040 --> 03:07:28,200
+Vokolek mi to vyrostlo?
+
+3056
+03:07:28,340 --> 03:07:30,180
+Šert 12 giga.
+
+3057
+03:07:31,219 --> 03:07:34,719
+No tak tady by mi teda rámka měla nějak vyrostu po 12 giga.
+
+3058
+03:07:39,319 --> 03:07:42,079
+Já zkusím dopříště najít schválně nějaký větší model,
+
+3059
+03:07:42,159 --> 03:07:43,340
+jestli se nám to tam,
+
+3060
+03:07:44,139 --> 03:07:45,719
+jestli nám to nějak přeteče.
+
+3061
+03:07:45,719 --> 03:07:47,159
+Nebo jestli se mi to tam vejde.
+
+3062
+03:07:47,819 --> 03:07:49,680
+Když to bude, kdybych použil tu kvantizaci,
+
+3063
+03:07:49,680 --> 03:07:51,739
+tak zmenším tu velikost, no.
+
+3064
+03:07:52,299 --> 03:07:53,180
+Dobře.
+
+3065
+03:07:54,020 --> 03:07:55,719
+Bla, bla, bla, virtuálně nám to sem odpověděl.
+
+3066
+03:07:55,780 --> 03:07:59,399
+Používal sem, vidím, APIčkové pouze online modely.
+
+3067
+03:07:59,540 --> 03:08:00,520
+Jo, jo.
+
+3068
+03:08:01,680 --> 03:08:04,260
+Větší modely zniží RAM, ale prakticky je to nepoužitelné.
+
+3069
+03:08:04,299 --> 03:08:06,420
+Používá se kvantizace, jak říká Lukáš.
+
+3070
+03:08:06,479 --> 03:08:09,120
+Standardně je to dvakrát velikost B modelu na VRAM.
+
+3071
+03:08:09,159 --> 03:08:13,360
+To znamená, bez kvantizace pro 70W máte nějakých 140 Gb RAM.
+
+3072
+03:08:14,379 --> 03:08:18,260
+Třeba pro inspiraci, tento má lehce nad 20.
+
+3073
+03:08:19,620 --> 03:08:21,840
+No, tak pojďme se podívat na něj.
+
+3074
+03:08:26,600 --> 03:08:30,760
+Tak to tam můžeme dát a uvidíme, co se stane.
+
+3075
+03:08:30,760 --> 03:08:34,340
+To by bylo poslední. Ale to furt běží.
+
+3076
+03:08:45,120 --> 03:08:47,319
+Jenom tak přemýšlím, proč to pořád běží.
+
+3077
+03:08:47,500 --> 03:08:49,399
+Ta otázka není zase tak těžká.
+
+3078
+03:08:51,200 --> 03:08:53,979
+Nalodovaný v paměti by to už měl mít.
+
+3079
+03:09:00,360 --> 03:09:02,219
+Tak přemýšlím, jestli to je ten...
+
+3080
+03:09:05,579 --> 03:09:08,219
+Jestli to pomaluje vlastně ta šert.
+
+3081
+03:09:10,360 --> 03:09:13,159
+Jako mě našich měl nějaké seznivý...
+
+3082
+03:09:13,159 --> 03:09:13,600
+...
+
+3083
+03:09:13,600 --> 03:09:13,979
+Jo jo, kuci, já bych to uzavřel.
+
+3084
+03:09:15,100 --> 03:09:15,879
+Samozřejmě můžete odejít, pokud potřebujete odejít.
+
+3085
+03:09:17,760 --> 03:09:25,940
+Tohle je spíš jenom taková diskuze.
+
+3086
+03:09:29,040 --> 03:09:32,979
+Tak jo, příště bychom zkusili nějaký větší model
+
+3087
+03:09:33,159 --> 03:09:36,799
+a ještě jednu věc vám dlužím.
+
+3088
+03:09:38,659 --> 03:09:42,819
+Tak jo, jestli teda není žádná jiná další otázka,
+
+3089
+03:09:44,780 --> 03:09:45,819
+tak bychom to ukončili.
+
+3090
+03:09:45,860 --> 03:09:49,459
+Děkuji za poslech a uvidíme se ve čtvrtek.
+
+3091
+03:09:50,200 --> 03:09:51,799
+Ve čtvrtek si projdeme...
+
+3092
+03:09:54,579 --> 03:09:58,200
+Za čtvrtek si projdeme připravování dat na fine tuning
+
+3093
+03:09:58,399 --> 03:10:01,500
+a pak následní hodiny budeme dělat fine tuning
+
+3094
+03:10:01,700 --> 03:10:04,899
+jak na OpenAI, tak právě na tom Hugging Faceu,
+
+3095
+03:10:04,959 --> 03:10:08,860
+abychom se naučili, jak tomu přidat buď nějaký schopnosti,
+
+3096
+03:10:08,860 --> 03:10:13,659
+který to neumí, anebo nějaký doménový znalosti,
+
+3097
+03:10:13,659 --> 03:10:16,059
+který tam vlastně chybí, jako je ten autoběn.
+
+3098
+03:10:17,440 --> 03:10:18,659
+Tak hezký večer.
+
+3099
+03:10:19,639 --> 03:10:20,059
+Děkujeme.
+
+3100
+03:10:20,059 --> 03:10:20,319
+Děkujeme.
+
+3101
+03:10:20,579 --> 03:10:20,899
+Děkujeme.
+
+3102
+03:10:20,899 --> 03:10:21,219
+Děkujeme.
+
+3103
+03:10:21,260 --> 03:10:22,600
+Děkujeme.
+
+3104
+03:10:22,600 --> 03:10:23,340
+Děkujeme.
+
+3105
+03:10:23,340 --> 03:10:25,079
+Děkujeme.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

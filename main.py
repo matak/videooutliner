@@ -13,6 +13,7 @@ load_dotenv()
 ROOT_DIR = Path(__file__).parent
 IMPORT_DIR = ROOT_DIR / "import"
 WEB_DIR = ROOT_DIR / "web"
+LOGS_DIR = ROOT_DIR / "logs"
 
 def main():
     parser = argparse.ArgumentParser(description="Generate lecture outline from video")
@@ -21,8 +22,10 @@ def main():
 
     try:
         generator = VideoOutlineGenerator(
+            root_dir=str(ROOT_DIR),
             import_dir=str(IMPORT_DIR),
-            web_dir=str(WEB_DIR)
+            web_dir=str(WEB_DIR),
+            logs_dir=str(LOGS_DIR)
         )
         
         if args.file:
