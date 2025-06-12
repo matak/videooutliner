@@ -18,7 +18,7 @@ class SRTUtils:
         return f"{hours:02d}:{minutes:02d}:{int(seconds):02d},{milliseconds:03d}"
     
     @staticmethod
-    def split_into_chunks(srt_content, max_tokens=100000):
+    def split_into_chunks(srt_content, max_tokens=30000):
         """Split SRT content into chunks of approximately max_tokens based on word boundaries"""
         # First split into subtitle entries to preserve timing information
         entries = re.split(r'\n\n+', srt_content.strip())

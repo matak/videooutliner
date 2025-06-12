@@ -30,7 +30,7 @@ class OutlineGenerator:
     def _process_chunk(self, chunk, chunk_index, outline_path):
         """Process a single chunk of SRT content"""
         json_path = self._get_chunk_json_path(outline_path, chunk_index)
-
+    
         # Check for cached response first
         try:
             cached_response = self._load_json(json_path)
@@ -39,9 +39,16 @@ class OutlineGenerator:
         except Exception as e:
             pass
 
+
         prompt = self._load_content(os.path.join(os.path.dirname(__file__), "prompts", "srt_chunk_prompt.txt"))
+        print(f"prompt content: {prompt}")
+
         prompt = prompt.format(chunk_index=chunk_index, chunk=chunk)
 
+        print(f"prompt: {prompt}")
+
+        raise Exception(f"Processing chunk {chunk_index} ... {json_path}")
+    
         headers = {
             "Authorization": f"Bearer {self.openrouter_api_key}",
             "Content-Type": "application/json"
@@ -97,37 +104,10 @@ class OutlineGenerator:
         except Exception as e:
             raise Exception(f"Error processing chunk {chunk_index}: {str(e)}")
 
-    def _combine_outlines(self, outlines):
+    def _combine_outlines(self, outline_path, outlines):
         """Combine multiple outlines into a single coherent outline"""
-        prompt = """Combine these partial outlines into a single coherent outline in JSON format.
-Rules:
-• Each level (main topics and any nested subsections) may contain **no more than 10 items**.
-• If more than 10 items belong at one level, create additional nested levels so every level stays ≤ 10 items.
-• For every node include:
-  - "title": brief heading  
-  - "start_time": "HH:MM:SS" of first mention
-  - "subsections": [] (array holding any children; empty if none)
-• Merge similar topics and maintain chronological order.
 
-Return ONLY valid JSON with this exact overall shape:
-
-[
-    {
-        "title": "Main Topic",
-        "start_time": "HH:MM:SS",
-        "subsections": [
-            {
-                "title": "Subtopic",
-                "start_time": "HH:MM:SS",
-                "subsections": []
-            }
-        ]
-    }
-]
-
-Partial Outlines:
-{outlines}
-"""
+        prompt = self._load_content(os.path.join(os.path.dirname(__file__), "prompts", "combine_outlines_prompt.txt"))
         prompt = prompt.format(outlines=json.dumps(outlines, indent=2))
 
         headers = {
@@ -140,26 +120,46 @@ Partial Outlines:
             "messages": [{"role": "user", "content": prompt}]
         }
 
-        response = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
-            headers=headers,
-            json=data
-        )
-
-        if response.status_code != 200:
-            raise Exception(f"OpenRouter API error: {response.text}")
+        # Log the request
+        self._log_api_interaction('request', {
+            'timestamp': datetime.datetime.now().isoformat(),
+            'headers': headers,
+            'data': data,
+            'prompt': prompt,
+        })        
 
         try:
+            response = requests.post(
+                "https://openrouter.ai/api/v1/chat/completions",
+                headers=headers,
+                json=data
+            )
+
+            # Log the response
+            self._log_api_interaction('response', {
+                'timestamp': datetime.datetime.now().isoformat(),
+                'status_code': response.status_code,
+                'headers': dict(response.headers),
+                'text': response.text,
+                'encoding': response.encoding,
+            })            
+
+            if response.status_code != 200:
+                raise Exception(f"OpenRouter API error: {response.text}")
+
             response_json = response.json()
             if not response_json.get("choices") or not response_json["choices"][0].get("message"):
                 raise Exception("Invalid response format from API")
             
             content = response_json["choices"][0]["message"]["content"].strip()
-            return json.loads(content)
-        except json.JSONDecodeError as e:
-            raise Exception(f"Failed to parse JSON response: {e}\nContent: {content}")
+            content_json = json.loads(content)
+
+            # Save the response
+            self._save_json(content_json, outline_path)
+
+            return content_json
         except Exception as e:
-            raise Exception(f"Error processing response: {str(e)}")
+            raise Exception(f"Error processing combining outlines {outline_path}: {str(e)}")
 
     def generate_outline(self, srt_content, outline_path):
         """Generate outline using OpenRouter API"""
@@ -173,7 +173,7 @@ Partial Outlines:
 
         # Split content into chunks
         chunks = SRTUtils.split_into_chunks(srt_content)
-        print(f"Split content into {len(chunks)} chunks ... ")
+        print(f"Content was split into {len(chunks)} chunks ... ")
 
         # Process each chunk
         chunk_outlines = []
@@ -184,9 +184,10 @@ Partial Outlines:
 
         # Combine all outlines
         print("Combining outlines...")
-        exit()
-
-        final_outline = self._combine_outlines(chunk_outlines)
+        if len(chunk_outlines) > 1:
+            final_outline = self._combine_outlines(outline_path, chunk_outlines)
+        else:
+            final_outline = chunk_outlines[0]
         
         # Save and return the final outline
         self._save_json(final_outline, outline_path)
