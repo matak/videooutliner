@@ -1,0 +1,1021 @@
+Analyze this portion of a lecture transcript and create a structured outline in JSON format. Return only the json format, nothing else. The json should contain only english language.
+Rules:
+• Each level (main topics and any nested subsections) may contain **no more than 10 items**.
+• If more than 10 items belong at one level, create additional nested levels so every level stays ≤ 10 items.
+• For every node include:
+  - "title": brief heading  
+  - "start_time": "HH:MM:SS" of first mention
+  - "subsections": [] (array holding any children; empty if none)
+• This is chunk 8 from total 12 of the transcript.
+
+Return ONLY valid JSON with this exact overall shape:
+
+[
+    {
+        "title": "Main Topic",
+        "start_time": "HH:MM:SS",
+        "subsections": [
+            {
+                "title": "Subtopic",
+                "start_time": "HH:MM:SS",
+                "subsections": []
+            }
+        ]
+    }
+]
+
+Transcript:
+
+=================
+1806
+01:57:52,100 --> 01:57:56,180
+tak tady pak je teda ten Context Length, neboli ten WCAP size,
+
+1807
+01:57:56,859 --> 01:57:59,380
+memory footprint v bytech
+
+1808
+01:57:59,479 --> 01:58:01,539
+a tady je to převedený na gigabajty.
+
+1809
+01:58:01,539 --> 01:58:03,180
+Takže tady je to 27
+
+1810
+01:58:03,640 --> 01:58:05,239
+gigabajtů, což vlastně
+
+1811
+01:58:05,279 --> 01:58:06,979
+nereflektuje úplně velikost
+
+1812
+01:58:07,059 --> 01:58:09,279
+těch save tensorů,
+
+1813
+01:58:09,279 --> 01:58:11,920
+který jsou tady. A důkazem
+
+1814
+01:58:12,000 --> 01:58:13,819
+by mohlo být, že já tady
+
+1815
+01:58:13,979 --> 01:58:15,399
+mám vlastně
+
+1816
+01:58:16,600 --> 01:58:18,479
+teď zase se pojďme
+
+1817
+01:58:19,600 --> 01:58:21,479
+já doufám, že tady už
+
+1818
+01:58:21,579 --> 01:58:23,359
+mám ten kardinal vybraný
+
+1819
+01:58:23,479 --> 01:58:25,579
+teď si to nevím, ne nemám
+
+1820
+01:58:26,340 --> 01:58:29,140
+To nevadí, já si tady jeden vyberu.
+
+1821
+01:58:30,699 --> 01:58:33,300
+Doufám, že to je v pohodě.
+
+1822
+01:58:34,100 --> 01:58:36,300
+Currently selected, můžem.
+
+1823
+01:58:38,380 --> 01:58:44,199
+Ježí to? Dobrý, tak já to asi vypnu.
+
+1824
+01:58:46,039 --> 01:58:48,619
+A pustím tady novej teda v tomhletom.
+
+1825
+01:58:51,760 --> 01:58:54,020
+Já jsem to pouštěl, ale
+
+1826
+01:58:54,039 --> 01:58:57,739
+vypadá to, že jsem asi zavřel to okno a ono se mi to vyplo.
+
+1827
+01:58:58,680 --> 01:59:02,720
+A na ten předtím se mi nechce připojit, nebo
+
+1828
+01:59:03,319 --> 01:59:06,119
+trvalo to nějak dlouho, tak to radši pustím znova.
+
+1829
+01:59:07,199 --> 01:59:10,420
+Připojím si na tenhle řádnej.
+
+1830
+01:59:10,420 --> 01:59:14,479
+A důkazem by mohlo být, že
+
+1831
+01:59:15,399 --> 01:59:19,559
+já tady ten model vlastně pustím v těch 32 bytech.
+
+1832
+01:59:23,000 --> 01:59:24,699
+Tak už se mi instalujou ty balíčky.
+
+1833
+01:59:24,819 --> 01:59:27,340
+Já jsem ho tady pustil před hodinou.
+
+1834
+01:59:28,359 --> 01:59:30,220
+A je to teda ten Instruct.
+
+1835
+01:59:30,319 --> 01:59:31,979
+Takže teď mě zajímají dvě věci.
+
+1836
+01:59:32,159 --> 01:59:34,319
+Zajímá mě, protože já mám...
+
+1837
+01:59:34,340 --> 01:59:35,899
+Jo, tak v paměti už se mi to...
+
+1838
+01:59:35,979 --> 01:59:37,300
+Protože jsem zavřel ten ubyt...
+
+1839
+01:59:37,680 --> 01:59:46,699
+Protože jsem zauřel ten Jupyter server, tak on si vyleasoval, on mi uvolnil ty věci z té paměti, což je dobrý.
+
+1840
+01:59:48,399 --> 01:59:53,420
+Proč mě to tak zaráží, vám vysvětlím asi na konci hodiny, ale to je to, co jsem chtěl.
+
+1841
+01:59:53,520 --> 01:59:55,840
+Takže dobrý. Ta první otázka je odpovězená.
+
+1842
+01:59:55,840 --> 01:59:59,000
+Nainstaloval jsem si knihovny.
+
+1843
+02:00:00,159 --> 02:00:05,220
+Jakou mám teda grafickou kartu, to je jenom, když to budeme pouštět na Rampodu,
+
+1844
+02:00:05,220 --> 02:00:08,399
+což bych vám chtěl právě ukázat za chvíli,
+
+1845
+02:00:08,779 --> 02:00:11,260
+tak abyste viděli, že to opravdu tam ta grafická karta je.
+
+1846
+02:00:11,659 --> 02:00:17,800
+zase si udělám Hugging Phase a tadyhle použiju to, co jsem použil předtím,
+
+1847
+02:00:17,800 --> 02:00:21,119
+auto model for casual lm, dám mu tam model name
+
+1848
+02:00:21,619 --> 02:00:26,859
+a tady jenom vyspecifikuju, že to bude ten 32 bit a že to chci naloudovat dokud.
+
+1849
+02:00:27,640 --> 02:00:30,520
+A teď si tady ještě vytvořím instanci toho tokenizera.
+
+1850
+02:00:30,619 --> 02:00:47,760
+Tady ty zakomentovaný věci ignorujte, jsou tady schválně, až si vysvětlíme fine tuning, abyste se do tohohle skriptu třeba mohli vrátit a jenom si je odkomentovali, nemuseli si je vlastně kopírovat z toho fine tuningu, ale pro teď je ignorujte.
+
+1851
+02:00:47,979 --> 02:00:53,359
+To znamená, že jenom jsem si vytvořil instanci modelu a instanci tokenizu, to je celý, co vlastně udělám.
+
+1852
+02:00:54,079 --> 02:00:58,840
+Tím, že používám ty auto klásy, tak se mi vlastně vyberou ty správný.
+
+1853
+02:00:59,180 --> 02:01:02,680
+Teď teda tím pádem, že já jsem tady zvolil Instruct
+
+1854
+02:01:03,439 --> 02:01:07,539
+a teď možná i tím, že jsem v jiném Jupyter serveru,
+
+1855
+02:01:07,640 --> 02:01:10,399
+tak vám si zase bude muset stáhnout ten model,
+
+1856
+02:01:10,460 --> 02:01:12,720
+což by nemělo teda doufám trvat tak dlouho.
+
+1857
+02:01:14,399 --> 02:01:21,859
+Tady si zalogujeme nějaký základní informace, které zase já považuji za důležité,
+
+1858
+02:01:21,859 --> 02:01:27,579
+nebo v rámci toho, co jsme si vysvětlili, to jsou ty důležité informace,
+
+1859
+02:01:27,659 --> 02:01:31,140
+je jich tam daleko víc, jak z modelu, tak z toho tokenizoru.
+
+1860
+02:01:32,260 --> 02:01:37,960
+Jednak je to tip teda té base klásy, abyste zjistili, jaká konkrétní implementace
+
+1861
+02:01:38,220 --> 02:01:40,420
+zatím stojí, dobrý, takže tohle to dopadlo.
+
+1862
+02:01:41,039 --> 02:01:42,699
+Takže to vypadá, že to má v tom cache
+
+1863
+02:01:42,800 --> 02:01:45,220
+Hugging Face už naloudovaný,
+
+1864
+02:01:45,239 --> 02:01:46,920
+takže se to nelouduje pro ten další
+
+1865
+02:01:47,060 --> 02:01:49,479
+Jupyter notebook znova, což je super.
+
+1866
+02:01:50,159 --> 02:01:51,619
+Takže, jaké je to
+
+1867
+02:01:51,739 --> 02:01:53,520
+typ tý klásy, pak tady máte
+
+1868
+02:01:53,600 --> 02:01:56,619
+tu architekturu vykomentovanou,
+
+1869
+02:01:56,640 --> 02:01:57,199
+pak tady máte ten
+
+1870
+02:01:57,199 --> 02:01:59,300
+config, jak vypadá, a teďkonci
+
+1871
+02:02:00,699 --> 02:02:02,000
+zase ty základní informace,
+
+1872
+02:02:02,000 --> 02:02:02,819
+to znamená ten
+
+1873
+02:02:03,100 --> 02:02:05,180
+vocabulary size, neboli ten
+
+1874
+02:02:05,880 --> 02:02:09,899
+context-length a potom ty dva embeddingy,
+
+1875
+02:02:09,899 --> 02:02:12,460
+které jdou dovnitř a které jde ven.
+
+1876
+02:02:12,539 --> 02:02:15,560
+Takže tady zase, když já si to takhle zaskroluji k tomu,
+
+1877
+02:02:16,020 --> 02:02:18,159
+tady je ten config, který jsme si ukazovali
+
+1878
+02:02:18,199 --> 02:02:21,840
+pro ten ne-instruct model, ale tady to je stejný.
+
+1879
+02:02:22,159 --> 02:02:24,420
+Tady mám teda řečení, že to je ten 32-bit
+
+1880
+02:02:24,420 --> 02:02:27,439
+a tady pak vidím ty embeddingy, ty input1,
+
+1881
+02:02:27,500 --> 02:02:31,279
+takže zase context-length na ty vektory,
+
+1882
+02:02:31,279 --> 02:02:34,680
+zase vektory na ten context-length.
+
+1883
+02:02:34,899 --> 02:02:37,960
+A pak tady mám nějaký základní informace o tom tokenizoru.
+
+1884
+02:02:37,979 --> 02:02:41,279
+Takže zase, jaká je to konkrétně implementace toho tokenizoru,
+
+1885
+02:02:41,560 --> 02:02:44,220
+speciální tokeny, které se k tomu používají,
+
+1886
+02:02:44,220 --> 02:02:46,079
+počet všech tokenů,
+
+1887
+02:02:46,380 --> 02:02:49,220
+protože tady zase vidím, že to prostě je stejný,
+
+1888
+02:02:49,460 --> 02:02:52,399
+a z jaký strany se mi ty data vlastně paddingujou.
+
+1889
+02:02:52,500 --> 02:02:56,060
+To zase bude důležité pro ten fine tuning.
+
+1890
+02:02:56,060 --> 02:02:58,140
+A teď se začnu ten model testovat.
+
+1891
+02:02:58,699 --> 02:03:02,300
+Mám tady dva přístupy, kterým to můžu testovat.
+
+1892
+02:03:02,300 --> 02:03:07,739
+Buď via pipeline, to je objekt, který oni poskytují z Transformeru,
+
+1893
+02:03:07,880 --> 02:03:12,399
+kde jenom řeknete, že chcete generovat text, jaký je ten bazový model,
+
+1894
+02:03:12,899 --> 02:03:17,159
+přidáte mu instanci toho modelu, přidáte mu instanci toho tokenizera,
+
+1895
+02:03:17,380 --> 02:03:22,560
+řekne, kolik maximálně tokenů chcete vygenerovat a takhle se ho zeptáte.
+
+1896
+02:03:22,880 --> 02:03:25,979
+Tohle není způsob, který já preferuju.
+
+1897
+02:03:25,979 --> 02:03:27,600
+Já preferuju spíš takový
+
+1898
+02:03:27,619 --> 02:03:29,079
+trošku víc
+
+1899
+02:03:29,079 --> 02:03:30,960
+low-level přístup,
+
+1900
+02:03:30,960 --> 02:03:32,500
+ne přes tu pipeline.
+
+1901
+02:03:32,720 --> 02:03:34,600
+Zase pro mě mi to pomáhá
+
+1902
+02:03:34,640 --> 02:03:36,640
+víc chápat,
+
+1903
+02:03:36,640 --> 02:03:38,140
+neumrává mi to větší smysl,
+
+1904
+02:03:38,140 --> 02:03:39,260
+jak to funguje.
+
+1905
+02:03:39,479 --> 02:03:41,579
+Takže my se to tady ukážeme přes
+
+1906
+02:03:41,619 --> 02:03:42,840
+říkám tomu, nebo
+
+1907
+02:03:42,880 --> 02:03:46,560
+je to tady ta sekce nazvaná model a tokenizer,
+
+1908
+02:03:46,560 --> 02:03:49,420
+to znamená, že já mám tady ty správy toho chatu,
+
+1909
+02:03:49,659 --> 02:03:51,979
+to je to, co já znám, to je to, co já preferuju,
+
+1910
+02:03:52,039 --> 02:03:55,340
+tady vlastně ty objekty nebo tu celou historii toho chatu,
+
+1911
+02:03:55,720 --> 02:03:57,899
+vidíte, že tady přes tu pipeline to není,
+
+1912
+02:03:57,939 --> 02:04:01,380
+tady je to vlastně jako string, což prostě mě nevyhovuje,
+
+1913
+02:04:02,100 --> 02:04:04,079
+já mám radši zase tu konverzaci,
+
+1914
+02:04:04,079 --> 02:04:06,380
+teď tu konverzaci si převedu tím tokenizerem,
+
+1915
+02:04:06,380 --> 02:04:08,319
+protože už vím, jak to všechno funguje,
+
+1916
+02:04:08,520 --> 02:04:12,159
+tak si to umím převést prostě na ty tokeny,
+
+1917
+02:04:12,520 --> 02:04:18,779
+A pak jenom ten model zavolám, na tom modelu zavolám generate a dám mu ty tokeny.
+
+1918
+02:04:19,300 --> 02:04:22,739
+A řeknu mu jenom kolik toho chci vygenerovat, těch tokenů zase hodněji.
+
+1919
+02:04:23,180 --> 02:04:29,100
+A protože vím zase jak se to z toho tokenizru převede zpátky, nebo z těch tokenů dostanu zase zpátky ten text,
+
+1920
+02:04:29,399 --> 02:04:36,420
+tak to zase použiju tu znovost. Takže z toho tokenizru dám decode, dám mu ty tokeny a tady mám ten výstupní text.
+
+1921
+02:04:37,359 --> 02:04:40,260
+Já to tady schválně pustím, nechám to tady chvilku běžet.
+
+1922
+02:04:42,180 --> 02:04:48,939
+Můj předpoklad je ten, že tady budeme čekat 4-5 minut a vlastně z toho nedostanu ten výsledek.
+
+1923
+02:04:48,939 --> 02:04:55,520
+Takže to ve mně evokuje, vidíte, že CUDA mi prostě funguje na 100%, když jsem to pustil.
+
+1924
+02:04:55,960 --> 02:05:02,579
+Dedicated memory je celá použitá, tady i GPU memory je najednou prostě 28 GB,
+
+1925
+02:05:02,579 --> 02:05:05,479
+takže prostě je to celý plný, bych řekl.
+
+1926
+02:05:06,239 --> 02:05:08,800
+Rámka se mi tak nějak jako teda drží.
+
+1927
+02:05:10,199 --> 02:05:17,340
+Takže uvidíme, jak to z toho dopadne, ale řekl bych, že z toho nic nedostanu.
+
+1928
+02:05:18,140 --> 02:05:23,760
+A teď si ukážeme, jak vlastně vy jste schopný, zase by to korelovalo s tím, co jsme viděli,
+
+1929
+02:05:23,800 --> 02:05:30,199
+protože ta model size je teda 30 GB, já mám teda nějakých 15, to znamená,
+
+1930
+02:05:30,300 --> 02:05:36,479
+že asi z toho nakonec ten výsledek dostanu, tím, že mám hodně rámky a mám tady i tu
+
+1931
+02:05:37,000 --> 02:05:41,539
+Tudle tu GPU, nevím, proč se k tomu ještě nepoužije, ale dobře.
+
+1932
+02:05:41,939 --> 02:05:46,199
+Mám tady pořád nějaké GPU místo, kam si to odložit má.
+
+1933
+02:05:46,239 --> 02:05:50,260
+Prostě mám SSD disk, který je rychlej, mám hodně rámky,
+
+1934
+02:05:50,500 --> 02:05:53,119
+takže asi by jsem nakonec tu odpověď dostal.
+
+1935
+02:05:53,119 --> 02:05:55,319
+Nicméně tohle není pro mě použitelné.
+
+1936
+02:05:55,720 --> 02:06:00,260
+Já nebudu čekat na každou odpověď u toho modelu i 10 minut
+
+1937
+02:06:00,399 --> 02:06:02,079
+a ještě u toho zavařím svůj počítač.
+
+1938
+02:06:02,659 --> 02:06:09,279
+To znamená, že si ukážeme teďko nějak docílit toho, aby by to fungovalo.
+
+1939
+02:06:09,680 --> 02:06:13,380
+A na tom si ještě ukážeme tadyhle ten zbytek toho skriptu,
+
+1940
+02:06:13,420 --> 02:06:18,060
+který já teďko přeskočím, protože je stejný i pro ty další varianty.
+
+1941
+02:06:18,180 --> 02:06:21,539
+Teď si to ukážu na ty čtyrbitový.
+
+1942
+02:06:22,220 --> 02:06:26,079
+Takže nechám to běžet, uvidíme, jestli se něco stane do té doby,
+
+1943
+02:06:26,079 --> 02:06:29,300
+než já tady dovysvětlím ty věci, kdybych zapomněl.
+
+1944
+02:06:30,039 --> 02:06:31,439
+Asi nezapomněl, tak dobrý.
+
+1945
+02:06:32,420 --> 02:06:34,000
+Takže 16-bitová.
+
+1946
+02:06:34,119 --> 02:06:35,939
+To je úplně ten začátek, je stejný.
+
+1947
+02:06:36,439 --> 02:06:39,319
+Jediné, co vy tady nadefinujete jinak,
+
+1948
+02:06:39,340 --> 02:06:43,300
+je tadyhle ten vlastně typ, datovej typ.
+
+1949
+02:06:43,300 --> 02:06:45,600
+To znamená, že pro mě to tady bylo 32,
+
+1950
+02:06:45,739 --> 02:06:47,760
+teď je to najednou 16.
+
+1951
+02:06:47,760 --> 02:06:50,560
+Teď v závislosti na tom, jakou grafickou kartu používáte,
+
+1952
+02:06:50,579 --> 02:06:52,100
+tak je tady bfloat a float
+
+1953
+02:06:52,100 --> 02:06:55,420
+a pak je tady ještě jeden datovej typ,
+
+1954
+02:06:55,659 --> 02:06:56,380
+který se teď nevybavuje.
+
+1955
+02:06:56,380 --> 02:07:04,560
+No, no, no.
+
+1956
+02:07:05,859 --> 02:07:11,180
+P-float nebo něco takového, teď se v tom teda nebudu úplně obrat.
+
+1957
+02:07:11,180 --> 02:07:14,359
+Je to v závislosti na grafickou kartu, kterou zrovna máte,
+
+1958
+02:07:14,359 --> 02:07:17,640
+jestli to je ta nová verze nebo ta starší verze.
+
+1959
+02:07:18,020 --> 02:07:22,340
+Zase dogooglil byste nebo jednoduše to prostě puste a ono vám toho hodí chybu,
+
+1960
+02:07:22,340 --> 02:07:25,439
+že tenhle dotovej typ nepodporuje, takže to vyměníte akorát.
+
+1961
+02:07:26,199 --> 02:07:31,920
+Tak, to znamená, že tohle je jak z toho 32-bitového uděláte 16-bitový.
+
+1962
+02:07:32,359 --> 02:07:36,520
+Já jsem to tady pouštěl na tom 32-bytovém.
+
+1963
+02:07:39,539 --> 02:07:42,479
+Já jsem pouštěl to tady.
+
+1964
+02:07:42,479 --> 02:07:43,720
+Mám takový jdem.
+
+1965
+02:07:43,720 --> 02:07:47,180
+Tady chybí teda ten čas, což mě mrzí.
+
+1966
+02:07:47,180 --> 02:07:48,659
+Já myslel, že to tady zůstalo.
+
+1967
+02:07:49,720 --> 02:07:52,500
+Ale bylo to taky něco jako 4 minuty prostě
+
+1968
+02:07:52,579 --> 02:07:54,239
+a pořád se nic jako nedělo.
+
+1969
+02:07:54,619 --> 02:07:56,880
+Pořád jsem z toho vlastně nedostal tu odpověď.
+
+1970
+02:07:57,699 --> 02:08:00,159
+Takže jsem to zase utnul.
+
+1971
+02:08:01,880 --> 02:08:05,640
+A tady si ukážeme, jak udělat tu kvantizaci.
+
+1972
+02:08:06,000 --> 02:08:10,539
+To znamená, že tady je navíc knihovna Bits and Bytes, se to jmenuje,
+
+1973
+02:08:10,840 --> 02:08:13,920
+a tam mi to s tou kvantizací výrazně pomůže.
+
+1974
+02:08:14,579 --> 02:08:19,159
+Takže zase je to v rámci kooperace Bits and Bytes
+
+1975
+02:08:19,159 --> 02:08:21,739
+a Transformerů a Hugging Faceů,
+
+1976
+02:08:22,039 --> 02:08:27,560
+A to, co mi tady přibylo, je ten bits and bytes config, neboli ten config tý kvantizace.
+
+1977
+02:08:27,979 --> 02:08:32,119
+A teď já tady říkám, že to chci naloudovat ve 4 bitech.
+
+1978
+02:08:32,199 --> 02:08:38,699
+Je tady ještě tuším in 8 bit, takže můžete to dát vlastně v 8 bitech.
+
+1979
+02:08:39,140 --> 02:08:45,180
+Já to tady zkouším ve 4 bitech, což je to nejmenší, co teď aktuálně je.
+
+1980
+02:08:46,659 --> 02:08:48,420
+Já teď to tady chci ověřit.
+
+1981
+02:08:49,800 --> 02:08:54,239
+Quantization in one bit.
+
+1982
+02:08:54,239 --> 02:09:02,659
+Je tady aktivita od Microsoftu, aby se dělaly jednobitový váhy,
+
+1983
+02:09:03,380 --> 02:09:05,579
+což je prostě úplně crazy.
+
+1984
+02:09:07,739 --> 02:09:15,800
+hodně by to usnadnilo, nebo načetli byste ty velký modely vlastně zpoměrně na malé zařízení,
+
+1985
+02:09:15,800 --> 02:09:22,399
+zase ta přesnost by hodně klesla, takže moc jsem zatím se s tím jednobytovým nehrál,
+
+1986
+02:09:22,440 --> 02:09:30,920
+protože jedna of a large, tak tady něco na Hugging Face o tom píšou, takže si můžete již tak o tom přečít víc.
+
+1987
+02:09:31,739 --> 02:09:37,500
+Já si myslím, že ty čtyrbitový jsou zatím v pohodě.
+
+1988
+02:09:37,500 --> 02:09:42,699
+Dvoubitový by to možná sneslo na malé zařízení, jednobitový mi přijde hrozně málo.
+
+1989
+02:09:43,880 --> 02:09:50,180
+Takže jak to štribitového dosáhnout? Takže jestli vytvoříte ten bits and bytes config, zase to pochází z toho transformera,
+
+1990
+02:09:50,239 --> 02:09:56,359
+řeknete, že to jste ve štribitech a tohle jsou tři nutné věci, které musíte k tomu nadefinovat.
+
+1991
+02:09:56,479 --> 02:10:04,640
+To znamená, že používáme double kvantizaci, tadyhle je datovej typ tý kvantizace a tadyhle je compute datovej typ.
+
+1992
+02:10:05,319 --> 02:10:16,279
+Tadyhle to necháte na ten 16-bitový a přibyl nám tady jeden novej parametr, což je ten kvantizační config, což je ten bits and bytes config.
+
+1993
+02:10:19,220 --> 02:10:20,880
+Někdo se chtěl něco zeptat?
+
+1994
+02:10:21,059 --> 02:10:23,100
+Já jsem se chtěl, Lukáš, že
+
+1995
+02:10:23,100 --> 02:10:25,039
+ty 4 bity, je to
+
+1996
+02:10:25,159 --> 02:10:26,880
+přirozená kvantizace, alebo
+
+1997
+02:10:26,880 --> 02:10:28,979
+jeden byte je v podstatě adresovatelná jednotka,
+
+1998
+02:10:28,979 --> 02:10:31,180
+že potom není tam už potom s hardwarem
+
+1999
+02:10:31,180 --> 02:10:33,159
+nějaký problém, že to už není také
+
+2000
+02:10:33,220 --> 02:10:35,500
+optimálné, tě matice, když se počítají?
+
+2001
+02:10:36,420 --> 02:10:37,559
+Teď se ptáte na
+
+2002
+02:10:37,720 --> 02:10:38,920
+jednobyt nebo na štyrbit?
+
+2003
+02:10:39,279 --> 02:10:41,399
+No aj, aj, protože aj štyrbit
+
+2004
+02:10:41,399 --> 02:10:43,579
+je vlastně už rozdělený byte na polovicu.
+
+2005
+02:10:46,520 --> 02:10:47,659
+Budete překvapený,
+
+2006
+02:10:47,819 --> 02:10:49,159
+jak dobrý výsledky z toho
+
+2007
+02:10:49,159 --> 02:10:50,239
+budete dostávat teda?
+
+2008
+02:10:50,659 --> 02:11:04,239
+Nebo já jsem aspoň byl. Já jsem uvažoval podobně, nebo jsem se říkal, že když to vlastně stáhnu z 32 bitů na 4 bit, tak to prostě musí nějakým způsobem ovlivnit ty výstupy.
+
+2009
+02:11:04,779 --> 02:11:11,260
+A je rychlost teda toho celého, že představujeme si, že 8 bit to bude jakože pridodzené do té karty.
+
+2010
+02:11:12,920 --> 02:11:15,279
+8 bitů, jako můžete.
+
+2011
+02:11:15,520 --> 02:11:16,579
+Já jsem chtěl vyzkoušet
+
+2012
+02:11:16,720 --> 02:11:18,359
+tu nejextrémnější variantu,
+
+2013
+02:11:18,380 --> 02:11:21,100
+co vlastně to dovolalo.
+
+2014
+02:11:21,140 --> 02:11:22,460
+To znamená, že ten 4 bit
+
+2015
+02:11:22,819 --> 02:11:27,579
+asi 8-bit by byl takový rozumnej kompromis,
+
+2016
+02:11:27,739 --> 02:11:34,819
+ale říkám, jako za mě mezi 8-bitem a 4-bitem nebyl pro mě žádný rozdíl ve výstupu,
+
+2017
+02:11:34,819 --> 02:11:40,539
+takže zase ten 4-bit uleví tomu počítači víc, takže jenom tak bych to chápal.
+
+2018
+02:11:40,579 --> 02:11:50,399
+Já myslím, že kolega se ptal z pohledu, že 4-bity se špatně indexují ve chvíli, kdy se na ně chce odvolávat.
+
+2019
+02:11:51,140 --> 02:11:54,300
+Ale to myslím, že asi nehraje teďka moc roli.
+
+2020
+02:11:54,579 --> 02:11:58,319
+Ne, nebo tohle já neptal jsem se sám sebe na takovouhle otázku,
+
+2021
+02:11:58,319 --> 02:12:00,680
+takže nikdy jsem to neproskoumával.
+
+2022
+02:12:01,720 --> 02:12:07,039
+To byl asi low level, že to ta kuda potom má usporědene.
+
+2023
+02:12:07,100 --> 02:12:10,199
+No tam je tolik, veštev pak už přesně jak říkáte,
+
+2024
+02:12:10,440 --> 02:12:13,059
+jak grafická karta reprezentuje ty datový typy,
+
+2025
+02:12:13,180 --> 02:12:15,659
+jak ta kuda prostě s těmi maticama pracuje
+
+2026
+02:12:16,020 --> 02:12:20,960
+a jak zase ta knihovna provádí tu reprezentaci.
+
+2027
+02:12:21,079 --> 02:12:24,300
+A teď máte různé i knihovny na kvantizaci, takže...
+
+2028
+02:12:24,859 --> 02:12:27,079
+nepouštěl jsem se do tohle
+
+2029
+02:12:27,500 --> 02:12:29,520
+výzkumu. Možná, jestli si
+
+2030
+02:12:29,539 --> 02:12:31,460
+něco o tom přeštete, nebo
+
+2031
+02:12:31,460 --> 02:12:32,659
+budete mít na to
+
+2032
+02:12:33,440 --> 02:12:36,739
+nějakou zkušenost
+
+2033
+02:12:36,899 --> 02:12:38,359
+s tím, tak klidně se o ní můžeme
+
+2034
+02:12:38,460 --> 02:12:40,579
+podělit na té poslední hodině.
+
+2035
+02:12:40,859 --> 02:12:42,399
+Já jsem do toho radši
+
+2036
+02:12:42,500 --> 02:12:43,159
+nešťoural teda.
+
+2037
+02:12:45,659 --> 02:12:50,779
+Tak to znamená, že to je ta kvantizace a to je vlastně celý rozdíl.
+
+2038
+02:12:50,779 --> 02:12:58,279
+Tady pak mám už jenom ten log a tady pak mám už vlastně to volání toho modelu, takže via tu pipeline.
+
+2039
+02:12:58,559 --> 02:13:04,559
+Zase je to tady pro evidenci, protože je to vlastně popsané i v dokumentaci u toho Hugging Face.
+
+2040
+02:13:05,680 --> 02:13:11,359
+Já mám radši ten surovější způsob, kde mám kontrolu, nebo vidím to, co se děje,
+
+2041
+02:13:11,380 --> 02:13:15,960
+takže zase aplikuju to Chotemplatu, vygeneruju si z toho modelu ty tokeny
+
+2042
+02:13:16,159 --> 02:13:19,020
+a teď zase decoduju ty tokeny zpátky.
+
+2043
+02:13:19,020 --> 02:13:22,559
+A teď vidíte, že tady to je 8 minut, pořád se nic neděje,
+
+2044
+02:13:22,640 --> 02:13:25,760
+takže mě už to nebaví na to čekat, takže to tady stopnu.
+
+2045
+02:13:26,059 --> 02:13:32,440
+A teď si zkusíme schválně tady připojit se na ten Jupyter server.
+
+2046
+02:13:33,300 --> 02:13:36,960
+Teď se mi tady ulevel komp přestal tady fénovat.
+
+2047
+02:13:37,059 --> 02:13:40,500
+Mistral 32 bit, já chci tenhle.
+
+2048
+02:13:41,520 --> 02:13:43,359
+Nainstalluji knihovny.
+
+2049
+02:13:44,899 --> 02:13:50,020
+To by mělo být rychlý a pak to zavoláme a teď to můžeme spolu porovnat.
+
+2050
+02:13:51,279 --> 02:13:54,180
+A teď zase já se teda podívám tadyhle do toho.
+
+2051
+02:13:54,279 --> 02:13:57,260
+Tady mi teda CUDA klesla, protože už to nic nepočítá.
+
+2052
+02:13:57,260 --> 02:13:59,760
+GPU memory mám pořád prostě plnou.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

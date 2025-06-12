@@ -1,0 +1,1057 @@
+Analyze this portion of a lecture transcript and create a structured outline in JSON format. Return only the json format, nothing else. The json should contain only english language.
+Rules:
+• Each level (main topics and any nested subsections) may contain **no more than 10 items**.
+• If more than 10 items belong at one level, create additional nested levels so every level stays ≤ 10 items.
+• For every node include:
+  - "title": brief heading  
+  - "start_time": "HH:MM:SS" of first mention
+  - "subsections": [] (array holding any children; empty if none)
+• This is chunk 4 from total 12 of the transcript.
+
+Return ONLY valid JSON with this exact overall shape:
+
+[
+    {
+        "title": "Main Topic",
+        "start_time": "HH:MM:SS",
+        "subsections": [
+            {
+                "title": "Subtopic",
+                "start_time": "HH:MM:SS",
+                "subsections": []
+            }
+        ]
+    }
+]
+
+Transcript:
+
+=================
+791
+00:50:50,559 --> 00:50:52,519
+že to je pak, co vám tady ten Length ukazuje.
+
+792
+00:50:52,579 --> 00:50:59,199
+Kdyby to byl String, tak vám to ukazuje počet charakterů, počet vlastně písmen,
+
+793
+00:50:59,319 --> 00:51:01,460
+nejenom písmen, ale charakter
+
+794
+00:51:01,880 --> 00:51:03,940
+v tom stringovém řetězci.
+
+795
+00:51:04,059 --> 00:51:05,940
+V tomhle případě by mi to mělo
+
+796
+00:51:06,119 --> 00:51:07,859
+ukazovat počet těch výměn
+
+797
+00:51:07,859 --> 00:51:09,659
+v jednoduchém tom podcastu.
+
+798
+00:51:10,539 --> 00:51:12,760
+Tak, to je jenom jak se to pušne,
+
+799
+00:51:12,940 --> 00:51:14,840
+takže to bychom měli hotové.
+
+800
+00:51:14,840 --> 00:51:16,380
+Takhle úplně jednoduchý to je.
+
+801
+00:51:17,579 --> 00:51:19,800
+A teď se podíváme na ty další
+
+802
+00:51:19,859 --> 00:51:21,739
+způsoby, na ty další
+
+803
+00:51:22,119 --> 00:51:23,400
+data. To znamená,
+
+804
+00:51:23,400 --> 00:51:25,239
+že tady mám ty
+
+805
+00:51:25,559 --> 00:51:27,220
+tůly, když to naformátuju,
+
+806
+00:51:27,220 --> 00:51:28,220
+tak je to zase
+
+807
+00:51:29,119 --> 00:51:37,880
+vlastně text a tady je zase pole objektu, takže tadyhle vysvětlím zase ten tools.script.
+
+808
+00:51:38,779 --> 00:51:44,659
+Je to úplně stejný způsob noudování, úplně stejně tady printím vlastně tu dýlku.
+
+809
+00:51:45,000 --> 00:51:52,859
+Co by tady mělo být rozdílné, teď já to tady mám asi připravené, jo.
+
+810
+00:51:53,180 --> 00:51:58,099
+je to, že tu dýlku vidíte, všechno má dva dýlku.
+
+811
+00:51:58,099 --> 00:52:03,699
+Vychází to z toho principu, že je to konverzace, to je input a output.
+
+812
+00:52:04,140 --> 00:52:07,119
+To znamená, že input a output, proto dva.
+
+813
+00:52:08,059 --> 00:52:11,460
+A tím, že to je format objekt neboli list,
+
+814
+00:52:11,800 --> 00:52:18,380
+tak on bere potaz, ten count nebo ten length mi vrací počet konverzace.
+
+815
+00:52:18,720 --> 00:52:25,199
+To je ale rozdíl, zase tady pak mám na konci ten push zakomentovaný, takže to je úplně stejný všechno.
+
+816
+00:52:25,260 --> 00:52:32,659
+Co je rozdílné, je tadyhle ten tools new a to si ukážeme tady na těch datech, já to tady naformátuju.
+
+817
+00:52:32,659 --> 00:52:41,980
+Vidíte, že najednou text je opravdu jako string a je tady další sloupeček, který jsme předtím neměli a to je tools.
+
+818
+00:52:42,599 --> 00:52:47,180
+Doufám, že si pamatujete, jaký je rozdíl mezi tím Tools a Tools New.
+
+819
+00:52:47,400 --> 00:52:52,420
+Ten Tools vlastně je datovej format pro modely,
+
+820
+00:52:52,460 --> 00:52:57,920
+který nemají v tokenizoru připravený tokeny na Tooly
+
+821
+00:52:58,859 --> 00:53:03,359
+a vlastně nepodporujou takovýto volání, kde já mu dávám messages,
+
+822
+00:53:03,359 --> 00:53:09,420
+jako pole zpráv, já to tady odevřu, a Tools New.
+
+823
+00:53:15,199 --> 00:53:18,400
+tak tenhle ten formát, kde vy vlastně voláte to,
+
+824
+00:53:18,400 --> 00:53:22,619
+v tomhletom případě API teda, ale předáváte mu pole zpráv
+
+825
+00:53:23,099 --> 00:53:27,840
+a on umí, podporuje si vybírání těch toolů
+
+826
+00:53:27,840 --> 00:53:32,140
+v tomhletom formátu, vlastně v tom poli, v tom popisu,
+
+827
+00:53:32,140 --> 00:53:35,559
+takže tam mu to dáváte tímhletím způsobem.
+
+828
+00:53:35,859 --> 00:53:39,640
+Tenhleten způsob reflektuje vlastně ten tools new,
+
+829
+00:53:40,359 --> 00:53:44,519
+kdy vlastně vy máte ten text, co jsou ty messagee,
+
+830
+00:53:44,739 --> 00:53:46,340
+a potom ty tooly.
+
+831
+00:53:46,500 --> 00:53:48,859
+Všechno je to teda ve formátu stringu.
+
+832
+00:53:49,140 --> 00:53:51,720
+Na konci, když to používáme,
+
+833
+00:53:51,819 --> 00:53:53,059
+tak se tam volá eval,
+
+834
+00:53:53,279 --> 00:53:56,300
+aby jsem to z toho stringu převedl zase na ty objekty.
+
+835
+00:53:56,819 --> 00:54:02,420
+Tím ale chci ukázat, že ten dataset podporuje oba dva ty formáty.
+
+836
+00:54:02,420 --> 00:54:05,980
+Můžete používat jak ten objektový, který bych preferoval já,
+
+837
+00:54:05,980 --> 00:54:10,079
+tak na tomhle vám ukazuju, že i ten stringový funguje.
+
+838
+00:54:10,640 --> 00:54:12,340
+Jenom se pak musí myslet na to,
+
+839
+00:54:12,699 --> 00:54:18,019
+že když se finetunuje ten model, tak se musí zavolat před tím, než se tam pošlou ty data,
+
+840
+00:54:18,019 --> 00:54:20,220
+nebo když to budete posílat do tokenizoru,
+
+841
+00:54:20,739 --> 00:54:23,920
+tak byste to měli použít eval,
+
+842
+00:54:24,019 --> 00:54:26,059
+protože jedině pak z toho dostanete
+
+843
+00:54:26,380 --> 00:54:30,680
+vlastně to pole s těmi objektami vevnitř.
+
+844
+00:54:31,500 --> 00:54:37,900
+A ten tools způsob je pro ty modely, které nepodporují ty tooly,
+
+845
+00:54:38,000 --> 00:54:40,019
+tak jak jsem to ukázal u OpenAI.
+
+846
+00:54:40,380 --> 00:54:46,460
+Byl to třeba příklad Mistralu verze 2 nebo Lamy,
+
+847
+00:54:46,460 --> 00:54:51,420
+kterou jsme si ukazovali, ta tam taky nemá žádný v tokenizoru ty tooly.
+
+848
+00:54:51,699 --> 00:54:57,279
+Takže tam byste takovýhle model, kdybyste chtěli přidat tu vlastnost toho toolu a nechtěli byste se
+
+849
+00:54:58,819 --> 00:55:03,079
+zatěžovat tím, že musíte do tokenizoru přidat ty tokeny,
+
+850
+00:55:03,079 --> 00:55:05,760
+kterými budou reprezentovat vlastně ty tooly
+
+851
+00:55:05,760 --> 00:55:08,239
+a nechtěli byste jít až takhle.
+
+852
+00:55:08,279 --> 00:55:12,940
+Vlastně tímhletím způsobem to je podle mě ten správnej způsob,
+
+853
+00:55:12,940 --> 00:55:15,760
+teda obohatit ten tokenizer, říct mu,
+
+854
+00:55:15,800 --> 00:55:18,539
+tohle to jsou prostě tokeny, které jsou zodpovědné
+
+855
+00:55:18,539 --> 00:55:22,559
+za vybírání těch toolů a připravit to do tohodle formátu.
+
+856
+00:55:22,980 --> 00:55:26,039
+Tak pokud byste nechtěli jít tímhletím způsobem,
+
+857
+00:55:26,059 --> 00:55:28,819
+tak je možný natrénovat ten model,
+
+858
+00:55:29,199 --> 00:55:33,359
+jakýkoliv model, i když v tom tokenizoru nemá ty tokeny pro tooli
+
+859
+00:55:33,539 --> 00:55:34,880
+tímhletím způsobem.
+
+860
+00:55:34,940 --> 00:55:38,239
+Kdy zase, když to tady roztáhnu,
+
+861
+00:55:38,559 --> 00:55:44,300
+tak vlastně ta user zpráva obsahuje ty tooly vlastně
+
+862
+00:55:44,300 --> 00:55:49,000
+jako v tom stringu, v té zprávě toho, co posíláte jako uživatel
+
+863
+00:55:50,400 --> 00:55:51,559
+do toho modelu.
+
+864
+00:55:51,900 --> 00:55:58,480
+kdežto v tom Tools New tam to má speciální místo, tam mu to dáváte do speciálních tokenů,
+
+865
+00:55:58,760 --> 00:56:00,599
+takhle v tom případě ne.
+
+866
+00:56:00,619 --> 00:56:10,140
+Nicméně, možná byste se divili i, kolik já jsem viděl produktů, který vlastně ani nepoužívali ten Tool Use.
+
+867
+00:56:10,599 --> 00:56:15,039
+A stejně jsou funkční, stejně vlastně se používají,
+
+868
+00:56:15,579 --> 00:56:17,279
+A vzhledem k tomu, že ty
+
+869
+00:56:17,279 --> 00:56:19,180
+uživatelé vlastně nerozumějí tomu,
+
+870
+00:56:19,199 --> 00:56:21,199
+jak to funguje zatím, pro ně to
+
+871
+00:56:21,220 --> 00:56:23,039
+vlastně nemá žádný rozdíl.
+
+872
+00:56:23,239 --> 00:56:25,059
+A pokud vy nejste někdo, kdo byste
+
+873
+00:56:25,220 --> 00:56:27,059
+do tomuhle tomu právě rozumíte, jako
+
+874
+00:56:27,059 --> 00:56:29,159
+vy se teď stáváte tím odborníkem,
+
+875
+00:56:29,599 --> 00:56:29,960
+tak
+
+876
+00:56:31,420 --> 00:56:34,539
+Většina těch lidí vlastně ani nepozná, jestli se to používá
+
+877
+00:56:34,539 --> 00:56:38,159
+tadyhle ten vlastně řekl bych stupidní format,
+
+878
+00:56:38,199 --> 00:56:41,480
+kdy mu to dáváte vlastně v té zprávě,
+
+879
+00:56:41,739 --> 00:56:44,659
+nebo jestli používáte ten toolius.
+
+880
+00:56:44,880 --> 00:56:46,920
+Oboje má svoje výhody, nevýhody.
+
+881
+00:56:47,099 --> 00:56:49,720
+Argument pro tohle ten způsob je to,
+
+882
+00:56:50,239 --> 00:56:54,300
+že vlastně nehledě na to, jaký model používáte,
+
+883
+00:56:54,659 --> 00:57:03,800
+nehledě na to, jaký format těch funkcí nebo toolů ten model byl natrénovanej s,
+
+884
+00:57:04,380 --> 00:57:08,140
+tak tohle to vám vlastně by mělo vždycky nějakým způsobem fungovat.
+
+885
+00:57:08,140 --> 00:57:10,819
+Ono vždycky nějak porozumí tomu, co po něm chcete.
+
+886
+00:57:11,400 --> 00:57:14,800
+Na druhou stranu ty výsledky můžou být, kdybyste to benchmarkovali,
+
+887
+00:57:14,800 --> 00:57:20,380
+tak pravděpodobně dosáhnete lepšího benchmarku výsledku s tímhletím způsobem.
+
+888
+00:57:21,400 --> 00:57:28,779
+Tak to jenom, aby jsem vám ukázal i u toho datasetu, že tam nemusíte používat vždycky jenom
+
+889
+00:57:29,199 --> 00:57:35,819
+vlastně ten objektový přístup, ale můžete použít i ten stringový přístup.
+
+890
+00:57:36,819 --> 00:57:43,319
+Tak a teďka on autogen, tam si myslím, že nás nic nového nečeká, tam je jenom naludování.
+
+891
+00:57:43,559 --> 00:57:46,039
+A ještě já to tady mám myslím i odevřený.
+
+892
+00:57:47,840 --> 00:57:51,019
+A autogen má jaký formát?
+
+893
+00:57:51,159 --> 00:57:53,300
+Já to tady mám také na formát.
+
+894
+00:57:56,239 --> 00:57:59,099
+To je teda taky objekt.
+
+895
+00:57:59,260 --> 00:58:01,640
+Jak vidíte, tak je to pole objektů,
+
+896
+00:58:01,760 --> 00:58:03,960
+není to ta textová reprezentace.
+
+897
+00:58:04,159 --> 00:58:08,039
+Takže tady by jsem čekal, že nám to vyplivne taky.
+
+898
+00:58:08,079 --> 00:58:13,079
+Vlastně délku 2, což tady je vidět.
+
+899
+00:58:13,079 --> 00:58:14,840
+Length 2,2.
+
+900
+00:58:15,960 --> 00:58:20,980
+Takže to je stejný jako u toho Tools způsobu.
+
+901
+00:58:21,640 --> 00:58:25,119
+Tak tím pádem, když to tam vlastně pušnete, tak máte najednou
+
+902
+00:58:25,800 --> 00:58:30,039
+tak máte najednou všechny data sety napušovaný
+
+903
+00:58:30,340 --> 00:58:33,119
+a můžeme začít s něma pracovat.
+
+904
+00:58:44,340 --> 00:58:47,500
+Tak zase já je mám tady takhle napušovaný,
+
+905
+00:58:47,840 --> 00:58:49,539
+vy byste pravděpodobně měli taky.
+
+906
+00:58:49,819 --> 00:58:53,739
+Tak teď se vrhneme na tu důležitější část a to je tokenizer,
+
+907
+00:58:53,819 --> 00:58:56,640
+k tomu si teda něco řekneme, jak takovýhle ty data
+
+908
+00:58:56,840 --> 00:58:59,400
+vlastně se převedou na...
+
+909
+00:59:01,420 --> 00:59:06,340
+na ty tokeny, kterým rozumí ten model. To je to, s čím on pracuje.
+
+910
+00:59:06,760 --> 00:59:10,640
+Takže my už jsme, díky tomu, že už jsme si tím procházeli
+
+911
+00:59:11,380 --> 00:59:15,940
+jednou nebo dvakrát už jsem to ukazoval, tak by to nemělo zabrat tolik času.
+
+912
+00:59:16,940 --> 00:59:22,099
+Nicméně tady jsem vám vyházel takových 8 modelů, který
+
+913
+00:59:22,480 --> 00:59:27,859
+tady vám vyprodukujou tyhle CSV soubory, kde máte celý ten tokenizer
+
+914
+00:59:28,680 --> 00:59:32,220
+vlastně jako v textový reprezentaci,
+
+915
+00:59:32,260 --> 00:59:34,460
+abyste se na něj mohli podívat.
+
+916
+00:59:35,079 --> 00:59:37,039
+GPT2 je třeba tady,
+
+917
+00:59:37,199 --> 00:59:39,599
+zase je to CSVčko, má to dva sloupečky,
+
+918
+00:59:40,079 --> 00:59:42,920
+je to vždycky ten token a IDčko toho tokenu,
+
+919
+00:59:42,920 --> 00:59:45,340
+tohle se nenechte zmást, to jsou jenom čísla,
+
+920
+00:59:45,340 --> 00:59:49,140
+já když tady zaskroluji, tak už tady je to teda obrovský,
+
+921
+00:59:49,140 --> 00:59:52,680
+takže tak už tady vidíte, že ty tokeny
+
+922
+00:59:52,680 --> 00:59:56,260
+už jsou celiství slova nebo části slov,
+
+923
+00:59:56,539 --> 01:00:00,019
+Tady Onika, tak tam se asi umíte představit Monika.
+
+924
+01:00:00,000 --> 01:00:01,699
+a tak dále.
+
+925
+01:00:02,260 --> 01:00:04,719
+Takže to jsou ty tokeny.
+
+926
+01:00:04,719 --> 01:00:06,599
+Ještě jednou připomenu, že je tady
+
+927
+01:00:06,900 --> 01:00:08,559
+ta stránka, pokud byste chtěli
+
+928
+01:00:08,639 --> 01:00:10,760
+ty tokeny, nebo jak se to rozděluje
+
+929
+01:00:10,940 --> 01:00:12,400
+do tokenizru,
+
+930
+01:00:13,599 --> 01:00:14,960
+ty token
+
+931
+01:00:15,159 --> 01:00:17,380
+online, pokud byste
+
+932
+01:00:17,460 --> 01:00:19,940
+to chtěli vidět, tak je tady hezká stránka,
+
+933
+01:00:20,659 --> 01:00:21,760
+vlastně kam vložíte
+
+934
+01:00:23,179 --> 01:00:24,039
+text, jakýkoliv text,
+
+935
+01:00:24,039 --> 01:00:26,059
+tam vám ukáže, jak se to, do jakých
+
+936
+01:00:26,119 --> 01:00:27,440
+tokenů se by se to...
+
+937
+01:00:28,139 --> 01:00:33,460
+V případě OpenAI, která používá tokenizer jménem TickToken,
+
+938
+01:00:33,719 --> 01:00:36,699
+tak jak by se to vlastně rozdělilo do jakých tokenů,
+
+939
+01:00:36,719 --> 01:00:40,599
+tak abyste chápali, co to ten token vlastně znamená.
+
+940
+01:00:40,639 --> 01:00:43,820
+Takže kdybyste hledali v tokenizoru tenhle ten token,
+
+941
+01:00:43,820 --> 01:00:45,840
+tak byste ho tam vlastně měli najít.
+
+942
+01:00:46,000 --> 01:00:50,139
+Já to teďka jenom zkusím tady na Hulu Vata zjistit.
+
+943
+01:00:51,760 --> 01:00:56,639
+Tak tady jsem našel jeden, je to teda bez té mezery, takže to úplně neodpovídá tomu TickToken,
+
+944
+01:00:56,639 --> 01:01:02,860
+tokenizoru pro novější modely, ale vidíte, to slovo jsem tady našel.
+
+945
+01:01:03,880 --> 01:01:13,940
+No tak token, token, vidíte, že tady ten token je vícekrát jednou s malým T, jednou s velkým T, tokens,
+
+946
+01:01:13,940 --> 01:01:17,500
+takže ty slova by se tam najít měly.
+
+947
+01:01:17,960 --> 01:01:27,780
+A tomu teda odpovídá pak tato ID, z čehož vlastně vy složíte tokens ID.
+
+948
+01:01:27,780 --> 01:01:30,840
+To znamená, že tyto tokeny se pak přeložejí,
+
+949
+01:01:31,119 --> 01:01:35,199
+tohle jsou ty čísla, které my si ukazujeme v té prezentaci,
+
+950
+01:01:36,019 --> 01:01:40,059
+To znamená, že první jde ten formát správnej,
+
+951
+01:01:40,139 --> 01:01:45,300
+tenhle ten, ten je pak překonvertovaný na tokeny tímhletím způsobem.
+
+952
+01:01:45,440 --> 01:01:48,139
+Já tady teda vkládám jako obyčejný text,
+
+953
+01:01:48,139 --> 01:01:54,860
+ale kdybych tady vložil nějakej ten text v tom formátu třeba pro Mistral,
+
+954
+01:01:55,199 --> 01:01:59,599
+tak by tohleto úplně nefungovalo, protože ten nemá stejný tokeny, jako má Mistral,
+
+955
+01:01:59,599 --> 01:02:01,699
+takže teď ti to upostíme, tuhle myšlenku.
+
+956
+01:02:01,900 --> 01:02:05,599
+A Lukáši, jak jsi se dostal k těm tokenizerům?
+
+957
+01:02:06,960 --> 01:02:07,639
+Ještě jednou.
+
+958
+01:02:07,920 --> 01:02:09,599
+Jak jsi se dostal k těm tokenizerům?
+
+959
+01:02:09,599 --> 01:02:12,219
+Ty jsou volně dostupný prostě online pro všechny ty modely?
+
+960
+01:02:12,820 --> 01:02:14,360
+Jo, jo, jo, dobrá otázka.
+
+961
+01:02:14,480 --> 01:02:16,800
+Pojďme se podívat teda na ten kód,
+
+962
+01:02:17,699 --> 01:02:19,119
+jak jsem se k ním dostal.
+
+963
+01:02:19,260 --> 01:02:20,260
+Já tady zase vemu...
+
+964
+01:02:20,760 --> 01:02:25,340
+Ještě jenom s důrazním, podívejte se schválně pak na ty tokenizery,
+
+965
+01:02:25,360 --> 01:02:28,639
+nebo rozdíl v těch tokenizerech pro ten Instruct a verzi,
+
+966
+01:02:28,659 --> 01:02:33,420
+a ne Instruct verzi, já myslím, že my jsme se na ní i spolu koukali,
+
+967
+01:02:33,920 --> 01:02:38,159
+takže jsem byl překvapenej, že tam vlastně, jo, to je ono.
+
+968
+01:02:38,579 --> 01:02:45,719
+Tady vidíte ty tokeny pro ty tooly, to se mně to nedává úplně smysl,
+
+969
+01:02:45,719 --> 01:02:48,239
+protože ta ne Instruct verze...
+
+970
+01:02:49,039 --> 01:03:03,320
+Má tokeny speciální pro tooly, nejsem si vědomý, že bych tuto verzi Mistralu mohl volat s těma toolama přidanejma, ale tak teda budíš, tak jenom, abyste se na to podívali.
+
+971
+01:03:03,559 --> 01:03:06,039
+Tak a kde jsem je vzal? To je dobrá otázka.
+
+972
+01:03:06,380 --> 01:03:15,739
+Tím začneme si povídat o těch auto-classách, neboli jakým způsobem jsem dostal ten specifický tokenizer pro ten daný model.
+
+973
+01:03:16,079 --> 01:03:26,179
+To znamená, že používám tu už novou knihovnu Transformers, to je další knihovna, kterou vy budete u toho Hlingfaceu používat, ta je velmi, velmi, velmi důležitá knihovna.
+
+974
+01:03:26,719 --> 01:03:29,980
+Vlastně budete používat dva, dvě jenom knihovny,
+
+975
+01:03:30,119 --> 01:03:31,659
+data sece je jedna z nich, to jsou ty data
+
+976
+01:03:31,699 --> 01:03:34,519
+a Transformers vám poskytne cokoliv jiného.
+
+977
+01:03:34,679 --> 01:03:39,480
+A tady je první klása, která se jmenuje Auto Tokenizer.
+
+978
+01:03:40,639 --> 01:03:45,780
+Ta vlastně udělá to, že vám vrátí pro ten daný model
+
+979
+01:03:46,000 --> 01:03:47,760
+nebo pro ten string toho modelu,
+
+980
+01:03:47,880 --> 01:03:49,960
+vám vrátí ten správnej tokenizer.
+
+981
+01:03:50,039 --> 01:03:55,039
+Takže pojďme si zase pustit tady ten kód.
+
+982
+01:03:58,280 --> 01:04:02,119
+vysync, vyrun,
+
+983
+01:04:02,579 --> 01:04:05,940
+dva mistral, teda tam dám, a já bych tam dal ještě
+
+984
+01:04:06,059 --> 01:04:10,960
+instruct, zase budeme preferovat
+
+985
+01:04:11,860 --> 01:04:15,300
+in, jo to je 3 teda,
+
+986
+01:04:15,300 --> 01:04:22,639
+tak já tady zavřu tyhlety,
+
+987
+01:04:25,480 --> 01:04:28,139
+tak a teď si ukážeme, co to tady teda na mě
+
+988
+01:04:28,559 --> 01:04:32,220
+všechno vypadlo z toho.
+
+989
+01:04:34,739 --> 01:04:36,960
+Tak ten token,
+
+990
+01:04:37,099 --> 01:04:39,159
+lntoken, fast, tak super.
+
+991
+01:04:39,679 --> 01:04:43,139
+To znamená, že vy byste buď mohli použít
+
+992
+01:04:45,460 --> 01:04:48,460
+tu konkrétní implementaci toho tokenizera,
+
+993
+01:04:48,500 --> 01:04:49,779
+pokud byste to viděli.
+
+994
+01:04:50,019 --> 01:04:52,880
+Já vám asi nebudu poručovat jít touhletou cestou,
+
+995
+01:04:53,300 --> 01:04:54,699
+nedává mi to moc smysl
+
+996
+01:04:54,699 --> 01:04:57,300
+i z toho důvodu se vytvořily tyhle autoklásy.
+
+997
+01:04:57,739 --> 01:04:59,360
+Takže vy mu vlastně řeknete,
+
+998
+01:04:59,559 --> 01:05:02,539
+automaticky mi vyber ten správnej tokenizer,
+
+999
+01:05:03,019 --> 01:05:05,779
+vyber mi to z předtrénovanýho modelu
+
+1000
+01:05:06,119 --> 01:05:08,179
+a tohle je jméno toho modelu,
+
+1001
+01:05:08,519 --> 01:05:10,880
+pro které já potřebuju ten tokenizer.
+
+1002
+01:05:10,880 --> 01:05:12,960
+Takže ten tokenizer je model specific.
+
+1003
+01:05:13,599 --> 01:05:15,840
+Každý model má svůj vlastní tokenizer.
+
+1004
+01:05:15,960 --> 01:05:18,500
+Předtím, než začnou vůbec vyrábit ten model,
+
+1005
+01:05:18,519 --> 01:05:19,619
+ten velkej jazykový model,
+
+1006
+01:05:19,699 --> 01:05:23,079
+tak si natrénu takovou menší neuronovou síť,
+
+1007
+01:05:23,440 --> 01:05:27,779
+která mi ve výsledku bude ten tokenizer vlastně reprezentovat.
+
+1008
+01:05:28,039 --> 01:05:29,079
+Ale to je prvé potom,
+
+1009
+01:05:29,079 --> 01:05:30,940
+začnou trénovat ten velkej jazykový model.
+
+1010
+01:05:31,539 --> 01:05:35,320
+Takže z toho důvodu se tady používá tato klása AutoTokenizer.
+
+1011
+01:05:35,619 --> 01:05:38,840
+Jakmile začneme používat model, co si ukážeme za chvíli,
+
+1012
+01:05:38,840 --> 01:05:43,440
+tak tam bude zase auto model, takže jenom abyste hint
+
+1013
+01:05:44,679 --> 01:05:46,760
+za pár minut se o tom budeme bavit.
+
+1014
+01:05:47,360 --> 01:05:51,320
+A teď si vyprintíme ten tokenizer, ten objekt, který se mi vrátil,
+
+1015
+01:05:51,460 --> 01:05:57,940
+tak tady vidíte, že to je, tady pak vidíte ten objekt, jakoby objekt,
+
+1016
+01:05:59,860 --> 01:06:03,440
+objekt, ten objekt, který vlastně vám vrátil
+
+1017
+01:06:03,440 --> 01:06:06,260
+ten from pre-trained model,
+
+1018
+01:06:06,619 --> 01:06:09,119
+ta statická metoda na tom autotokenizeru.
+
+1019
+01:06:09,420 --> 01:06:12,880
+Takže tady je ta konkrétní implementace toho tokenizeru,
+
+1020
+01:06:13,039 --> 01:06:15,679
+vidíte tady, pro jaký model to je,
+
+1021
+01:06:15,880 --> 01:06:18,519
+jak velká je vocab size,
+
+1022
+01:06:18,739 --> 01:06:21,000
+nebo jak velký je kontext window,
+
+1023
+01:06:21,400 --> 01:06:24,500
+vidíte tady model max length,
+
+1024
+01:06:25,260 --> 01:06:27,039
+to teda je nějaký divný číslo,
+
+1025
+01:06:27,480 --> 01:06:29,920
+Isfast ani nevím.
+
+1026
+01:06:30,079 --> 01:06:35,800
+Padding size je i jakým způsobem on doplňuje tokeny
+
+1027
+01:06:35,840 --> 01:06:38,179
+v případě, že potřebuje vytvořit tu matici.
+
+1028
+01:06:38,179 --> 01:06:40,279
+To je, když jsme se bavili o těch datech,
+
+1029
+01:06:40,320 --> 01:06:44,279
+které mají různě dlouhé řádky, ty podcasty,
+
+1030
+01:06:44,699 --> 01:06:48,420
+tak jsem říkal, že je tam buď to úplně primitivní způsob,
+
+1031
+01:06:48,500 --> 01:06:50,320
+kdy to vlastně useknete všechno,
+
+1032
+01:06:50,900 --> 01:06:58,000
+Nebo se tam používá další způsob, kdy vyvejete ten nejdelší a jakýkoliv odkaz ty krače v tom doplníte,
+
+1033
+01:06:58,139 --> 01:07:02,119
+takzvaný padding token, to znamená takový vyplňovací token.
+
+1034
+01:07:03,139 --> 01:07:10,039
+A teď máte možnost ho vyplnit doprava, což je asi taková přirozený způsob, který byste preferovali.
+
+1035
+01:07:10,039 --> 01:07:15,840
+Všechno začíná od začátku a jakmile to skončí a teď máte ten nejdelší, tak ho doplníte zprava.
+
+1036
+01:07:17,420 --> 01:07:21,579
+Sami uvidíte, že přirozenější pro ty modely je, když to doplňujete zleva.
+
+1037
+01:07:22,119 --> 01:07:23,920
+Neptejte se mě, proč, sám nevím.
+
+1038
+01:07:24,639 --> 01:07:27,760
+To znamená, že oni to vlastně zarovnají všechny ty podkásty doprava
+
+1039
+01:07:27,880 --> 01:07:30,519
+a teď ten nejdelší začíná od nuly
+
+1040
+01:07:30,659 --> 01:07:35,059
+a teď ty další začínají někde od indexu 100, 120 nebo 500.
+
+1041
+01:07:36,460 --> 01:07:39,480
+Takže vy to doplňujete tím vyplňovacím tokenem zleva.
+
+1042
+01:07:39,480 --> 01:07:41,500
+To je to, co vám tady říká to padding.
+
+1043
+01:07:41,800 --> 01:07:44,119
+size. V případě, že to
+
+1044
+01:07:44,519 --> 01:07:46,239
+truncateujete, v případě, že mu řeknete
+
+1045
+01:07:46,400 --> 01:07:48,179
+hele, nedoplňuj to, ale spíš to
+
+1046
+01:07:48,260 --> 01:07:50,119
+truncateujte, což je ten druhý způsob,
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

@@ -1,0 +1,1073 @@
+Analyze this portion of a lecture transcript and create a structured outline in JSON format. Return only the json format, nothing else. The json should contain only english language.
+Rules:
+• Each level (main topics and any nested subsections) may contain **no more than 10 items**.
+• If more than 10 items belong at one level, create additional nested levels so every level stays ≤ 10 items.
+• For every node include:
+  - "title": brief heading  
+  - "start_time": "HH:MM:SS" of first mention
+  - "subsections": [] (array holding any children; empty if none)
+• This is chunk 5 from total 12 of the transcript.
+
+Return ONLY valid JSON with this exact overall shape:
+
+[
+    {
+        "title": "Main Topic",
+        "start_time": "HH:MM:SS",
+        "subsections": [
+            {
+                "title": "Subtopic",
+                "start_time": "HH:MM:SS",
+                "subsections": []
+            }
+        ]
+    }
+]
+
+Transcript:
+
+=================
+1047
+01:07:50,199 --> 01:07:51,159
+to znamená, že vy
+
+1048
+01:07:51,579 --> 01:07:55,760
+to oříznete k tomu nejkračšímu podcastu,
+
+1049
+01:07:55,760 --> 01:07:58,539
+tak to Truncation Site je to pravá.
+
+1050
+01:07:58,779 --> 01:08:01,940
+A pak tady vidíte všechny ty tokeny, které v tom tokenizeru vlastně jsou.
+
+1051
+01:08:01,940 --> 01:08:03,980
+Tohle to jsou takový speciální tokeny.
+
+1052
+01:08:04,800 --> 01:08:08,300
+BOSS token je Beginning of String token,
+
+1053
+01:08:08,320 --> 01:08:10,239
+to znamená čím začíná vlastně ten string.
+
+1054
+01:08:10,619 --> 01:08:12,860
+ELSE token je End of String token,
+
+1055
+01:08:13,139 --> 01:08:16,500
+to znamená, že to je podobné jako to malopárovací taggy,
+
+1056
+01:08:17,560 --> 01:08:25,079
+Unknown token se používá v případě, že mu tam dáte nějaký znak, který on v životě neviděl,
+
+1057
+01:08:25,840 --> 01:08:30,239
+tak on si tam místo toho znaku vyplní vlastně unknown token.
+
+1058
+01:08:32,319 --> 01:08:38,300
+Tak a pak tady máte celý ten, tu tokenovací sadu vlastně máte tady vlastně vydanou.
+
+1059
+01:08:38,359 --> 01:08:41,239
+Všimněte si, že tady je hodně takových jako prázdných tokenů,
+
+1060
+01:08:42,279 --> 01:08:45,460
+nevím z jakého důvodu je tady tolik, prostě jestli počítají,
+
+1061
+01:08:45,760 --> 01:08:48,359
+že uživatelé budou potřebovat tolik nových tokenů,
+
+1062
+01:08:49,220 --> 01:08:57,859
+Netuším. A pak tady je GetVocab, to je vlastně context length,
+
+1063
+01:08:57,920 --> 01:09:03,279
+to znamená, že tady je výjite ten vocabulary, neboli počet tokenů,
+
+1064
+01:09:03,300 --> 01:09:08,779
+kolik jich vlastně tam je. Vidíte, že tady jich je 32 767
+
+1065
+01:09:08,940 --> 01:09:13,819
+a to je pro vás i vlastně context length.
+
+1066
+01:09:14,760 --> 01:09:16,739
+Jenom, aby jsme se to připodobnili teda.
+
+1067
+01:09:17,840 --> 01:09:23,079
+tak když tady dám Mistral verze 03,
+
+1068
+01:09:24,500 --> 01:09:31,140
+a tady 03 Instruct,
+
+1069
+01:09:31,300 --> 01:09:35,739
+tak bych tady měl najít, že Extended Vocabulary,
+
+1070
+01:09:35,739 --> 01:09:38,579
+to je to, co my vidíme vlastně v tom tokenizeru taky,
+
+1071
+01:09:38,579 --> 01:09:42,420
+ale mělo by to tady být i napsaný jako
+
+1072
+01:09:44,260 --> 01:09:47,380
+context window, context length,
+
+1073
+01:09:47,699 --> 01:09:52,119
+není to tady? Dobře.
+
+1074
+01:09:52,800 --> 01:10:02,039
+Ještě zkusím Mistral verze 03 Context Length, ano, to dohledám.
+
+1075
+01:10:04,520 --> 01:10:12,020
+4096, to je ale tokenů, to se mi nedá teda.
+
+1076
+01:10:13,920 --> 01:10:21,840
+32 tisíc, Context Vemistral model, tak to je zase nějaká jiná verze.
+
+1077
+01:10:23,520 --> 01:10:29,619
+Tady je 128 000, context-length 32 000, no to je to správný,
+
+1078
+01:10:29,619 --> 01:10:37,020
+ale teď bych tohle čekal teda potvrzený od nějakého oficiálního zdroje.
+
+1079
+01:10:38,420 --> 01:10:42,859
+Mr. Sub a Mr. Medium, ale to jsou APIčka.
+
+1080
+01:10:44,739 --> 01:10:50,940
+8b, tohle je taky nějaký jiný. Dobře, budete mi muset teď věřit.
+
+1081
+01:10:52,159 --> 01:10:58,100
+A v tomhle kontextu ten context-length znamená, kolik se, kolik můžu jakoby použít
+
+1082
+01:10:58,600 --> 01:11:01,119
+tokenů na jeden call?
+
+1083
+01:11:01,600 --> 01:11:02,440
+Na jeden, ano.
+
+1084
+01:11:02,600 --> 01:11:04,279
+Na jeden input vlastně.
+
+1085
+01:11:04,300 --> 01:11:06,979
+Kolik mu vy můžete dát tisíc tokenů
+
+1086
+01:11:07,000 --> 01:11:09,760
+v jednom requestu jako input.
+
+1087
+01:11:10,559 --> 01:11:11,500
+Když se tady pojáme
+
+1088
+01:11:11,680 --> 01:11:13,579
+na OpenAI modely,
+
+1089
+01:11:13,579 --> 01:11:14,940
+tak tady to mají trošku
+
+1090
+01:11:14,940 --> 01:11:16,479
+ještě rozpracovaný víc.
+
+1091
+01:11:16,559 --> 01:11:18,340
+Tady teda vidíte to Mistral 7b,
+
+1092
+01:11:18,460 --> 01:11:20,039
+to je to, co používáme my
+
+1093
+01:11:20,300 --> 01:11:22,359
+a to má teda ten maximální počet tokenů
+
+1094
+01:11:22,359 --> 01:11:23,659
+neboli context window
+
+1095
+01:11:23,880 --> 01:11:25,420
+nebo context length.
+
+1096
+01:11:25,720 --> 01:11:28,359
+tak to má 32 tisíc tokenů.
+
+1097
+01:11:28,720 --> 01:11:29,940
+Když se tady budeme bavit
+
+1098
+01:11:30,000 --> 01:11:32,039
+o OpenAI modelech,
+
+1099
+01:11:32,059 --> 01:11:34,000
+tak tady vidíte, že ten 4.1.
+
+1100
+01:11:34,000 --> 01:11:36,359
+má už milion tokenů
+
+1101
+01:11:36,359 --> 01:11:38,140
+context window, takže mu můžete
+
+1102
+01:11:38,239 --> 01:11:40,059
+dát vlastně milion
+
+1103
+01:11:40,159 --> 01:11:42,000
+tokenů, proto tam
+
+1104
+01:11:42,119 --> 01:11:44,420
+můžete toho narvat prostě ohromnou spoustu.
+
+1105
+01:11:44,720 --> 01:11:58,380
+Teď vy chápete už, co to vlastně ten token je, takže vy vidíte, že to je takové jako půlslovo nebo slovo, to znamená milion slov nebo 750 tisíc, když to nějak zprůměrujeme, 750 tisíc slov.
+
+1106
+01:11:58,640 --> 01:12:04,239
+A teď on je schopný vyprodukovat maximálně 32 tisíc output tokenů.
+
+1107
+01:12:04,319 --> 01:12:07,359
+To znamená, že na ten váš request, který bude obsahovat milion,
+
+1108
+01:12:07,359 --> 01:12:09,239
+mám vyprodukovat ten 32 tisíc.
+
+1109
+01:12:09,279 --> 01:12:12,559
+A teď si představte, když mu vlastně vložíte v tom jednom requestu ten milion
+
+1110
+01:12:12,960 --> 01:12:16,100
+a teď budete chtít si držet něco jako chat history,
+
+1111
+01:12:16,319 --> 01:12:18,920
+no tak tam už toho moc nejárovete.
+
+1112
+01:12:19,039 --> 01:12:24,140
+Takže tam budete muset řešit ty věci, jako že budete zcukávat tu historii.
+
+1113
+01:12:24,720 --> 01:12:34,319
+No ale já trošku nechápu, proč to číslo těch milion tokenů, to je to samý číslo jako kolik oni tam použili na trénování těch...
+
+1114
+01:12:34,659 --> 01:12:42,140
+Ano, ano, ano, a to je i kolik oni mají tokenů vlastně v tom tokenizoru. To chápete správně.
+
+1115
+01:12:42,460 --> 01:12:49,380
+My si ukážeme hnedhle, jak se dostaneme k modernům, tak si ukážeme vlastně, jak se ty tokeny převedou na co.
+
+1116
+01:12:49,600 --> 01:12:52,180
+a co vlastně on pod tím chápe,
+
+1117
+01:12:52,319 --> 01:12:53,699
+nebo co ten model s čím
+
+1118
+01:12:54,180 --> 01:12:56,559
+pracuje. Ale chápete to
+
+1119
+01:12:56,699 --> 01:12:58,380
+správně. Počet těch tokenů
+
+1120
+01:12:58,399 --> 01:13:00,520
+je v tokenizoru a to se rovná
+
+1121
+01:13:00,659 --> 01:13:02,579
+vlastně context window.
+
+1122
+01:13:03,800 --> 01:13:05,199
+A já jsem měl za to,
+
+1123
+01:13:05,440 --> 01:13:07,000
+že ten tokenizer
+
+1124
+01:13:07,220 --> 01:13:08,220
+je taková mapa
+
+1125
+01:13:08,680 --> 01:13:10,300
+mezi tokenem,
+
+1126
+01:13:10,699 --> 01:13:13,180
+nějakým tím slovem
+
+1127
+01:13:13,760 --> 01:13:15,020
+a tím jeho ID,
+
+1128
+01:13:15,180 --> 01:13:16,960
+na který se to následně převede,
+
+1129
+01:13:17,279 --> 01:13:19,199
+ale taky moc nerozumím tomu,
+
+1130
+01:13:19,199 --> 01:13:19,899
+jak...
+
+1131
+01:13:20,159 --> 01:13:26,319
+Jak je možný, že tyhle dvě hodnoty jsou jako stejný?
+
+1132
+01:13:27,140 --> 01:13:29,079
+Ukážu vám to hned, jak se stane k těm modelům,
+
+1133
+01:13:29,079 --> 01:13:31,800
+tak tam uvidíte tu architekturu a tam to bude napsané.
+
+1134
+01:13:31,859 --> 01:13:34,119
+Tam uvidíte ty čísla.
+
+1135
+01:13:35,000 --> 01:13:45,440
+To, proč se ty čísla rovnají, znamená to, že to je množství informací,
+
+1136
+01:13:45,559 --> 01:13:50,319
+které oni jsou schopní do toho jednou natlačit.
+
+1137
+01:13:52,000 --> 01:13:55,819
+Nejsem úplně schopný říct, proč tyhle dvě čísla musí být stejný,
+
+1138
+01:13:56,039 --> 01:13:57,319
+ale vždycky jsou.
+
+1139
+01:13:58,300 --> 01:14:07,239
+To je hodně zvláštní, protože to by znamenalo, že vlastně můžeme použít jenom v tomhle případě 32 tisíc unikátních slov.
+
+1140
+01:14:08,140 --> 01:14:08,619
+Ano.
+
+1141
+01:14:08,859 --> 01:14:15,640
+Proč ty slova by se tam nemohly opakovat, když tento kenizer je podporuje, protože on je změní stejně do jednoho z těch čísel.
+
+1142
+01:14:15,680 --> 01:14:19,899
+Ale není to náhodou počet vstupních parametrů té neuronové sítě toho modelu?
+
+1143
+01:14:19,899 --> 01:14:24,460
+No, teď počet parametrů tadyhle v tom případě je 7 bilionů.
+
+1144
+01:14:25,100 --> 01:14:28,699
+A to je parametru nebo celkem těch neuronů?
+
+1145
+01:14:29,720 --> 01:14:32,859
+To je vstupní parametry, jo?
+
+1146
+01:14:33,159 --> 01:14:36,960
+No jako context length, počet tokenů je 32 000.
+
+1147
+01:14:37,000 --> 01:14:39,640
+To vám říká právě ten Bokeh Boolery.
+
+1148
+01:14:39,979 --> 01:14:45,680
+A tohleto číslo je teda počet parametrů,
+
+1149
+01:14:46,920 --> 01:14:48,300
+který má ta neuronová síť.
+
+1150
+01:14:48,440 --> 01:14:51,720
+Já jestli ještě mohu, když jsem se díval na nastavení
+
+1151
+01:14:51,779 --> 01:14:55,880
+právě toho context length, neboli myslím, že mi to spadalo pod NUMCTX,
+
+1152
+01:14:56,239 --> 01:15:01,260
+tak mi to tvrdilo, že to je součet vstupních i výstupních tokenů.
+
+1153
+01:15:03,659 --> 01:15:07,460
+Ty čísla jsou stejné v případě třeba Open Source modelu,
+
+1154
+01:15:07,500 --> 01:15:09,520
+to znamená, že výstupní tokeny jsou stejné.
+
+1155
+01:15:09,600 --> 01:15:10,899
+To se zase ukážeme...
+
+1156
+01:15:10,899 --> 01:15:12,279
+Tak to ukážeme, počkej.
+
+1157
+01:15:13,760 --> 01:15:15,119
+Ukážeme si to tady.
+
+1158
+01:15:19,680 --> 01:15:24,180
+Tak tady se nám to rovná, ale v případě OpenAI se nám to nerovná.
+
+1159
+01:15:25,300 --> 01:15:30,380
+To znamená, že OpenAI tam dělají s tím nějakou jinou věc.
+
+1160
+01:15:30,380 --> 01:15:30,960
+Tak tady.
+
+1161
+01:15:32,140 --> 01:15:34,319
+Tady je architektura toho modelu,
+
+1162
+01:15:34,640 --> 01:15:36,979
+který vám to vlastně vyplivne,
+
+1163
+01:15:37,119 --> 01:15:38,779
+my si k tomu zase taky dostaneme.
+
+1164
+01:15:39,220 --> 01:15:40,979
+Ale tady máte vlastně embedding,
+
+1165
+01:15:41,079 --> 01:15:43,020
+který vám udělá z těch tokenů,
+
+1166
+01:15:43,059 --> 01:15:44,920
+neboli z toho context length,
+
+1167
+01:15:44,920 --> 01:15:46,220
+který mu dáváte dovnitř,
+
+1168
+01:15:46,619 --> 01:15:47,960
+tak vám z toho udělá
+
+1169
+01:15:48,460 --> 01:15:49,720
+1170
+
+1171
+01:15:51,079 --> 01:15:52,520
+dimensionální vektor
+
+1172
+01:15:58,380 --> 01:16:00,420
+a ten pak jde
+
+1173
+01:16:00,420 --> 01:16:01,699
+vlastně do toho modelu,
+
+1174
+01:16:01,699 --> 01:16:03,640
+do té neuronové sítě.
+
+1175
+01:16:03,720 --> 01:16:05,440
+To znamená, že ty tokeny jsou
+
+1176
+01:16:06,699 --> 01:16:09,859
+Vlastně to je ten vocabulary size, to je stejný,
+
+1177
+01:16:09,859 --> 01:16:15,260
+a to se vám převede na 4096-dimenzionální vektor,
+
+1178
+01:16:15,300 --> 01:16:23,380
+který pak zase kooperuje s počtem vlastně těch neuronů v těch vrstvách dál.
+
+1179
+01:16:23,979 --> 01:16:29,239
+A tady vidíte pak LMH, je vlastně ten output embedding,
+
+1180
+01:16:29,260 --> 01:16:32,659
+o kterém se na tom mám vlastně v prezentaci, to bych mohl povázat,
+
+1181
+01:16:33,340 --> 01:16:38,600
+kde vlastně výstupem toho je ten 4096. dimenziální vektor,
+
+1182
+01:16:38,739 --> 01:16:45,659
+který se pak zase převede na maximálně těch 32 768 tokenů.
+
+1183
+01:16:48,979 --> 01:16:51,640
+Nevím, jak udělali teda v OpenAI,
+
+1184
+01:16:51,760 --> 01:16:54,899
+že tam je vlastně rozdílnej ten výstup.
+
+1185
+01:16:54,979 --> 01:16:57,340
+Já bych spíš řekl, že oni to limitujou,
+
+1186
+01:16:58,059 --> 01:17:00,479
+k tomu, že ten výstup je o tolik menší,
+
+1187
+01:17:00,619 --> 01:17:03,559
+takže by nedávalo smysl, aby to zase vygenerovalo
+
+1188
+01:17:04,579 --> 01:17:05,920
+jako maximálně milion tokenů.
+
+1189
+01:17:07,020 --> 01:17:09,059
+tokenů. Takže to spíš
+
+1190
+01:17:09,159 --> 01:17:11,779
+jako limitujou na té svý straně na 32 tisíc.
+
+1191
+01:17:13,739 --> 01:17:14,640
+Ale dávají vám
+
+1192
+01:17:14,819 --> 01:17:16,619
+prostor vlastně do toho
+
+1193
+01:17:16,619 --> 01:17:18,779
+kontextu, když jsme si říkali o prompt
+
+1194
+01:17:18,819 --> 01:17:21,059
+engineeringu, dát vlastně
+
+1195
+01:17:21,159 --> 01:17:22,800
+velký množství dát, protože to je to, co ty
+
+1196
+01:17:22,859 --> 01:17:24,920
+uživatelé většinou chtějí narvat tam prostě nějaký
+
+1197
+01:17:24,920 --> 01:17:26,640
+dokument a začít se o tom
+
+1198
+01:17:27,619 --> 01:17:30,420
+bavit. Tak já se vrátím
+
+1199
+01:17:30,479 --> 01:17:31,859
+jenom k tomu tokenizoru.
+
+1200
+01:17:34,399 --> 01:17:35,539
+Tak, teď to tady vytáhnu.
+
+1201
+01:17:40,520 --> 01:17:52,460
+Terminál a tady je někde ten tokenizermistrotexample, tady.
+
+1202
+01:17:52,579 --> 01:17:54,800
+Tak a teď, co je tady důležité?
+
+1203
+01:17:54,819 --> 01:17:59,000
+To znamená, že tady máme ty tokeny, které jdou dovnitř.
+
+1204
+01:17:59,300 --> 01:18:01,500
+To je ta vocabulary size teda.
+
+1205
+01:18:03,100 --> 01:18:06,079
+Tadyhle my si z toho uděláme panda dataframe.
+
+1206
+01:18:06,800 --> 01:18:10,239
+A začneme se s tím trošku bavit.
+
+1207
+01:18:10,319 --> 01:18:12,420
+Jednak to tady uložím do CSV.
+
+1208
+01:18:13,979 --> 01:18:19,220
+A teď si z toho původního tokenizoru začnu vytahovat nějaké informace.
+
+1209
+01:18:19,300 --> 01:18:23,359
+První informace, kterou já považuji za důležitou,
+
+1210
+01:18:23,359 --> 01:18:32,140
+je, abych pochopil, na jakém základě se mi stane z tohohle textu tenhle text.
+
+1211
+01:18:33,079 --> 01:18:41,539
+A teď, kde je to napsané, co se převádí na co a proč vlastně tenhle format, kdo to vlastně říká.
+
+1212
+01:18:42,399 --> 01:18:49,520
+Tak na tom tokenizerově je proprta, která se jmenuje chat template, je to zase Jinja template,
+
+1213
+01:18:49,859 --> 01:18:54,520
+takže já jsem to tady takhle vzal z toho textu a vykopíroval jsem vám to sem do tohohle toho,
+
+1214
+01:18:55,140 --> 01:18:56,460
+takže tohle by mělo být stejný.
+
+1215
+01:18:56,920 --> 01:18:59,940
+A teď na této Jinja template,
+
+1216
+01:19:00,059 --> 01:19:01,579
+nebo to je to templatovací jazyk,
+
+1217
+01:19:01,720 --> 01:19:03,220
+tak tam vám vlastně řekne,
+
+1218
+01:19:03,239 --> 01:19:05,539
+že když do toho přijde a teď role system,
+
+1219
+01:19:05,699 --> 01:19:08,420
+tak se z toho veme z té message content.
+
+1220
+01:19:08,520 --> 01:19:10,640
+A teď vlastně pokud rozumíte tomu,
+
+1221
+01:19:10,640 --> 01:19:11,840
+jak Jinja templaty fungují,
+
+1222
+01:19:11,840 --> 01:19:13,640
+tak vlastně díky této templatě
+
+1223
+01:19:15,300 --> 01:19:19,539
+Vy jste schopný zjistit, jak se z toho stane ten text,
+
+1224
+01:19:19,600 --> 01:19:22,659
+který pak jde do toho modelu,
+
+1225
+01:19:22,680 --> 01:19:26,440
+nebo ze kterého pak se následně stanou ty tokeny.
+
+1226
+01:19:26,840 --> 01:19:30,239
+To je ten dvojitej převod.
+
+1227
+01:19:30,380 --> 01:19:33,279
+To se vám neděje v případě, že máte ten obyčejný model,
+
+1228
+01:19:33,539 --> 01:19:36,940
+tam jde ten text rovnou na ty tokeny,
+
+1229
+01:19:37,039 --> 01:19:40,260
+protože to už je ten jeden velkej dlouhej string.
+
+1230
+01:19:40,279 --> 01:19:42,100
+V tomto případě jsou to objekty,
+
+1231
+01:19:42,380 --> 01:19:45,699
+takže ty objekty se převádějí na tu stringovou reprezentaci.
+
+1232
+01:19:46,559 --> 01:19:49,600
+Tak to koreluje s tím, co jsem říkal,
+
+1233
+01:19:50,119 --> 01:19:52,659
+že existují modely, které nemají ty tokeny,
+
+1234
+01:19:53,539 --> 01:20:04,359
+nemají tu podporu vlastně těch toolů, takže tohle, ta templata, to je jeden z těch důvodů, proč třeba tam ta podpora není.
+
+1235
+01:20:05,260 --> 01:20:17,239
+Může být, to jsem říkal ten příklad, který mně se stal teda, že v tokenizoru ty tokeny byly, takže vlastně ten model byl natrénovanej s nějakým určitým, nebo věděl
+
+1236
+01:20:18,079 --> 01:20:22,819
+co tyhle ty konkrétní párový tagy jako pro tituly znamenají,
+
+1237
+01:20:22,819 --> 01:20:25,800
+ale třeba chybila ta podpora tadyhle v té template.
+
+1238
+01:20:25,800 --> 01:20:30,920
+Takže co vlastně stačilo jenom je, bylo obohatit tadyhle tu templateu,
+
+1239
+01:20:30,920 --> 01:20:33,640
+tak aby on vlastně to převedl do toho konečního stringu
+
+1240
+01:20:33,640 --> 01:20:35,899
+a v tom případě už ten model vlastně mi podporoval
+
+1241
+01:20:36,279 --> 01:20:43,859
+Byla to situace, kdy Mistral podporoval tool use na jejich API za placené peníze,
+
+1242
+01:20:44,140 --> 01:20:47,840
+ale neumožňoval tool use pro ty open source modely,
+
+1243
+01:20:47,840 --> 01:20:52,800
+které byly stahovatelné nebo ke stažení na Hugging Face.
+
+1244
+01:20:52,800 --> 01:20:55,420
+Teď už se ta situace změnila.
+
+1245
+01:20:57,000 --> 01:20:58,819
+Tak a teď co tam máme dál?
+
+1246
+01:20:59,239 --> 01:21:01,159
+Mistral tady...
+
+1247
+01:21:02,079 --> 01:21:06,079
+A teď jsou tady vypsané ty důležité tokeny.
+
+1248
+01:21:06,119 --> 01:21:09,279
+Pro nás bude důležitý ten beginning of string, end of string,
+
+1249
+01:21:09,279 --> 01:21:12,000
+a ten padding token a unknown token.
+
+1250
+01:21:12,199 --> 01:21:14,119
+To budou takové hlavní tokeny,
+
+1251
+01:21:14,140 --> 01:21:18,079
+takže ty jsou tady pak vypsané za tou templatou.
+
+1252
+01:21:18,079 --> 01:21:20,859
+Takže tady vidíte jich ID a hodnotu.
+
+1253
+01:21:22,180 --> 01:21:24,600
+padding token není specifikovaný,
+
+1254
+01:21:24,600 --> 01:21:26,600
+vidíte, že takhle to je problém, když budeme
+
+1255
+01:21:26,600 --> 01:21:28,460
+dělat fine tuning, tak my si budeme
+
+1256
+01:21:28,460 --> 01:21:30,399
+muset specifikovat, tak ten padding token
+
+1257
+01:21:30,440 --> 01:21:32,600
+bude vypadat. A no token je
+
+1258
+01:21:32,600 --> 01:21:34,579
+specifikovaný a pak je tady
+
+1259
+01:21:34,739 --> 01:21:36,559
+jenom pole všech speciálních
+
+1260
+01:21:36,559 --> 01:21:39,020
+tokenů prostě a přidaných speciálních
+
+1261
+01:21:39,020 --> 01:21:40,579
+tokenů úplně
+
+1262
+01:21:40,239 --> 01:21:42,500
+úplně není zajímavý,
+
+1263
+01:21:42,500 --> 01:21:43,600
+jenom to schrnuje to, co
+
+1264
+01:21:43,960 --> 01:21:45,659
+tady je v jednotlivých proprietách.
+
+1265
+01:21:45,960 --> 01:21:48,380
+Tady máte, z jaké strany se vlastně přidávají
+
+1266
+01:21:48,380 --> 01:21:50,199
+ty padding tokeny a tady pak
+
+1267
+01:21:50,399 --> 01:21:51,960
+vidíte, když já jsem přidal
+
+1268
+01:21:54,180 --> 01:21:54,840
+na, a teď
+
+1269
+01:21:54,840 --> 01:21:56,380
+kde je ta zpráva,
+
+1270
+01:21:56,739 --> 01:21:58,600
+mám tady tu zprávu někde,
+
+1271
+01:21:58,960 --> 01:21:59,440
+jo tady.
+
+1272
+01:22:00,720 --> 01:22:07,119
+Když jsem přidal tento chat, tady jsem si vytvořil ten chat, tady mám tu zprávu otoživatele,
+
+1273
+01:22:07,119 --> 01:22:13,180
+tady simuluji, že ten velký jazykový model mi vrátil, použijí tento tool,
+
+1274
+01:22:13,180 --> 01:22:18,859
+tady simuluji, že jsem já ten tool použil, co mi to vrátilo, tady simuluji,
+
+1275
+01:22:19,579 --> 01:22:22,279
+model mi pak teda vrátil tu odpověď
+
+1276
+01:22:22,279 --> 01:22:24,199
+a teď tady ještě simuluji, že ten uživatel
+
+1277
+01:22:24,260 --> 01:22:26,159
+se mi nakonec ještě jakoby zeptal,
+
+1278
+01:22:26,579 --> 01:22:28,420
+co San Francisco.
+
+1279
+01:22:28,579 --> 01:22:30,260
+Takže jenom ta konverzace o tom,
+
+1280
+01:22:30,380 --> 01:22:31,739
+jaký je počasí v Paříži,
+
+1281
+01:22:31,940 --> 01:22:33,760
+tady zjistím, že je 22 stupňů,
+
+1282
+01:22:33,840 --> 01:22:35,539
+tady mu teda u tomu uživatelu vrátím,
+
+1283
+01:22:35,880 --> 01:22:37,920
+že v Paříži ve Francii je 22 stupňů
+
+1284
+01:22:38,260 --> 01:22:39,800
+a teď on se mě ještě zeptá,
+
+1285
+01:22:39,800 --> 01:22:42,479
+jak to vypadá ve San Francisco.
+
+1286
+01:22:42,600 --> 01:22:44,260
+A teď tohle ten formát
+
+1287
+01:22:45,380 --> 01:22:51,359
+který zase my tady máme. To je úplně ten samej příklad, vidíte, že to je úplně ten samej text.
+
+1288
+01:22:51,779 --> 01:22:57,199
+Tak já mu teda ještě dávám tu sadu toolů, to už je asi všem jasný.
+
+1289
+01:22:57,720 --> 01:23:04,020
+Teď jak jsem z toho dostal tenhle format, tak to je tady metoda na tom tokenizu ApplyChatTemplate,
+
+1290
+01:23:04,199 --> 01:23:11,359
+to je vlastně ta chat template a to je tak, jak se vlastně co se stane, z těch objektů se stane ten string.
+
+1291
+01:23:11,059 --> 01:23:17,539
+Tady mu dávám ten chat a teď zase vidíte, že tady musí být ta podpora vlastně v tom tokenizoru pro ty tooly.
+
+1292
+01:23:17,819 --> 01:23:21,220
+Jinak to prostě nebude fungovat, protože tady je proprta tools.
+
+1293
+01:23:21,460 --> 01:23:28,539
+Když ta templata vlastně nemá ty tooly v sobě, tak on s těma toolama nic neudělá, to znamená, že bude ignorovat úplně
+
+1294
+01:23:28,619 --> 01:23:35,739
+ty správy o těch toolech a ten výsledný string nebude ty tooly obsahovat.
+
+1295
+01:23:35,739 --> 01:23:42,239
+I když v tom tokenizářu budou ty tokeny, tak pokud to není v té templétě, tak z toho to nedostanete.
+
+1296
+01:23:42,720 --> 01:23:50,000
+Takže tady pak vidíte, jak ten vypadá správně na formatování, včetně těch tool callů, včetně těch tool rezultů.
+
+1297
+01:23:50,000 --> 01:23:52,239
+Vidíte, tady má to speciální místo.
+
+1298
+01:23:53,000 --> 01:23:56,840
+tak ještě bych mohl zkusit možná tam přidat system message,
+
+1299
+01:23:56,840 --> 01:23:58,159
+která mě napadá teď,
+
+1300
+01:23:59,239 --> 01:24:04,840
+abysme viděli, co se stane s tou system messageí.
+
+1301
+01:24:09,059 --> 01:24:13,119
+Do rHalfaSystem třeba, to je úplně jedno.
+
+1302
+01:24:14,640 --> 01:24:16,559
+Tak pustím to znovu.
+
+1303
+01:24:18,399 --> 01:24:22,539
+Tak a to on to vložil sem.
+
+1304
+01:24:22,539 --> 01:24:24,100
+Tady za tu instrukci.
+
+1305
+01:24:24,319 --> 01:24:29,059
+Tohle je způsob, jakým on vlastně formatuje system message.
+
+1306
+01:24:30,819 --> 01:24:35,720
+Tak a teď ještě tadyhle jsou další data.
+
+1307
+01:24:36,659 --> 01:24:41,399
+Chtěl bych zeptat jenom na něco, abych nevěděl, co do toho dělám.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

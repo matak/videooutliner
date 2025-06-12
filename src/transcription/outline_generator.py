@@ -3,6 +3,7 @@ import requests
 from pathlib import Path
 import os
 import datetime
+import traceback
 from src.utils.srt_utils import SRTUtils
 
 class OutlineGenerator:
@@ -27,9 +28,10 @@ class OutlineGenerator:
         """Get the cache path for a specific chunk"""
         return f"{outline_path}.chunk_{chunk_index}.json"
 
-    def _process_chunk(self, chunk, chunk_index, outline_path):
+    def _process_chunk(self, chunk, chunk_index, chunk_total, outline_path):
         """Process a single chunk of SRT content"""
         json_path = self._get_chunk_json_path(outline_path, chunk_index)
+        print(f"Processing chunk {chunk_index} ... {json_path}")
     
         # Check for cached response first
         try:
@@ -37,17 +39,20 @@ class OutlineGenerator:
             print(f"Using cached response for chunk ... {json_path}")
             return cached_response
         except Exception as e:
+            print(f"Error loading cached response for chunk {chunk_index} ... {json_path}: {str(e)}")
             pass
 
+        #raise Exception(f"Processing not cached chunk {chunk_index} ... {json_path}")
 
         prompt = self._load_content(os.path.join(os.path.dirname(__file__), "prompts", "srt_chunk_prompt.txt"))
-        print(f"prompt content: {prompt}")
+        #print(f"prompt content: {prompt}")
 
-        prompt = prompt.format(chunk_index=chunk_index, chunk=chunk)
+        # Replace the placeholders directly since the template uses simple {chunk_index} and {chunk}
+        prompt = prompt.replace("{chunk_index}", str(chunk_index)).replace("{chunk_total}", str(chunk_total)).replace("{chunk}", chunk)
+        #print(f"prompt: {prompt}")
+        self._save_content(prompt, os.path.join(self.logs_dir, f"prompt_{chunk_index}.txt"))
 
-        print(f"prompt: {prompt}")
-
-        raise Exception(f"Processing chunk {chunk_index} ... {json_path}")
+        #raise Exception(f"Processing chunk {chunk_index} ... {json_path}")
     
         headers = {
             "Authorization": f"Bearer {self.openrouter_api_key}",
@@ -55,7 +60,9 @@ class OutlineGenerator:
         }
 
         data = {
-            "model": "openai/o3",
+            #"model": "openai/o3", - openai cant be used through openrouter, only with its own api key
+            #"model": "anthropic/claude-3-sonnet", - very bad performance for tokens above 5000
+            "model": "openai/o4-mini-high",
             "messages": [{"role": "user", "content": prompt}]
         }
 
@@ -70,10 +77,37 @@ class OutlineGenerator:
         })
 
         try:
+            # Check if cached response exists in logs
+            """
+            log_path = f"/mnt/x/srv/git.romanmatena.cz/24gatel.eu/videooutliner/logs/api/response_last.json"
+            if os.path.exists(log_path):
+                try:
+                    with open(log_path, 'r', encoding='utf-8') as f:
+                        log_data = json.load(f)
+                        if 'text' in log_data:
+                            response_text = log_data['text'].strip()
+                            response_json = json.loads(response_text)
+                            print(f"response_json: {response_json}")
+                            if response_json.get("choices") and response_json["choices"][0].get("message"):
+                                content = response_json["choices"][0]["message"]["content"].strip()
+                                print(f"logged content: {content}")
+                                content_json = json.loads(content)
+                                # Save the response
+                                self._save_json(content_json, json_path)
+                                return content_json
+                except Exception as e:
+                    print(f"Error reading cached log file: {str(e)}")
+                    # Continue with API call if log reading fails
+                    raise
+            """
+
+            #exit()
+                
             response = requests.post(
                 "https://openrouter.ai/api/v1/chat/completions",
                 headers=headers,
-                json=data
+                json=data,
+                timeout=1800
             )
 
             # Log the response
@@ -90,11 +124,13 @@ class OutlineGenerator:
             if response.status_code != 200:
                 raise Exception(f"OpenRouter API error: {response.text}")
 
-            response_json = response.json()
+            response_text = response.text.strip()
+            response_json = json.loads(response_text)
             if not response_json.get("choices") or not response_json["choices"][0].get("message"):
                 raise Exception("Invalid response format from API")
             
             content = response_json["choices"][0]["message"]["content"].strip()
+            print(f"content: {content}")
             content_json = json.loads(content)
 
             # Save the response
@@ -102,13 +138,21 @@ class OutlineGenerator:
 
             return content_json
         except Exception as e:
-            raise Exception(f"Error processing chunk {chunk_index}: {str(e)}")
+            print("Full traceback:")
+            traceback.print_exc()
+            raise
 
     def _combine_outlines(self, outline_path, outlines):
         """Combine multiple outlines into a single coherent outline"""
 
+        print(f"Combining outlines ... {outline_path}")
+        print(f"outlines: {outlines}")
+
         prompt = self._load_content(os.path.join(os.path.dirname(__file__), "prompts", "combine_outlines_prompt.txt"))
-        prompt = prompt.format(outlines=json.dumps(outlines, indent=2))
+
+        # Replace the placeholders directly since the template uses simple {outlines}
+        prompt = prompt.replace("{outlines}", str(json.dumps(outlines, indent=2)))
+        self._save_content(prompt, os.path.join(self.logs_dir, f"prompt_combined.txt"))
 
         headers = {
             "Authorization": f"Bearer {self.openrouter_api_key}",
@@ -116,7 +160,9 @@ class OutlineGenerator:
         }
 
         data = {
-            "model": "openai/o3",
+            #"model": "openai/o3", - openai cant be used through openrouter, only with its own api key
+            #"model": "anthropic/claude-3-sonnet", - very bad performance for tokens above 5000
+            "model": "openai/o4-mini-high",
             "messages": [{"role": "user", "content": prompt}]
         }
 
@@ -132,7 +178,8 @@ class OutlineGenerator:
             response = requests.post(
                 "https://openrouter.ai/api/v1/chat/completions",
                 headers=headers,
-                json=data
+                json=data,
+                timeout=1800
             )
 
             # Log the response
@@ -172,14 +219,14 @@ class OutlineGenerator:
             pass
 
         # Split content into chunks
-        chunks = SRTUtils.split_into_chunks(srt_content)
+        chunks = SRTUtils.smart_chunk_by_paragraphs(srt_content, 10000)
         print(f"Content was split into {len(chunks)} chunks ... ")
 
         # Process each chunk
         chunk_outlines = []
         for i, chunk in enumerate(chunks, 1):
             print(f"Processing chunk {i}/{len(chunks)}")
-            chunk_outline = self._process_chunk(chunk, i, outline_path)
+            chunk_outline = self._process_chunk(chunk, i, len(chunks), outline_path)
             chunk_outlines.append(chunk_outline)
 
         # Combine all outlines
@@ -208,15 +255,15 @@ class OutlineGenerator:
         """Load json from a file"""
         content = self._load_content(path)
         try:
-            response_data = json.load(content)
+            response_data = json.loads(content)
             return response_data
         except (json.JSONDecodeError, IOError) as e:
             raise Exception(f"Error loading json from {path}: {e}")
 
-    def _save_json(self, json, path):
+    def _save_json(self, data, path):
         """Save json to a file"""
         try:
-            content = json.dumps(json, ensure_ascii=False, indent=2)
+            content = json.dumps(data, ensure_ascii=False, indent=2)
             self._save_content(content, path)
         except Exception as e:
             raise Exception(f"Error dumping json to {path}: {e}")

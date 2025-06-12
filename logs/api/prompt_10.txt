@@ -1,0 +1,921 @@
+Analyze this portion of a lecture transcript and create a structured outline in JSON format. Return only the json format, nothing else. The json should contain only english language.
+Rules:
+• Each level (main topics and any nested subsections) may contain **no more than 10 items**.
+• If more than 10 items belong at one level, create additional nested levels so every level stays ≤ 10 items.
+• For every node include:
+  - "title": brief heading  
+  - "start_time": "HH:MM:SS" of first mention
+  - "subsections": [] (array holding any children; empty if none)
+• This is chunk 10 from total 12 of the transcript.
+
+Return ONLY valid JSON with this exact overall shape:
+
+[
+    {
+        "title": "Main Topic",
+        "start_time": "HH:MM:SS",
+        "subsections": [
+            {
+                "title": "Subtopic",
+                "start_time": "HH:MM:SS",
+                "subsections": []
+            }
+        ]
+    }
+]
+
+Transcript:
+
+=================
+2300
+02:28:16,440 --> 02:28:19,659
+...procházet ty odpovědi, tak se o tom můžeme pobavit ještě trochu.
+
+2301
+02:28:19,680 --> 02:28:22,760
+Já bych už vám to rád uzavřel, aby lidi...
+
+2302
+02:28:23,579 --> 02:28:26,100
+mohli kdyžtak odejít, pokud potřebujou.
+
+2303
+02:28:26,100 --> 02:28:32,040
+To znamená, že tady pak máte vlastně ty provajdery, který vám ty APIčka poskytujou,
+
+2304
+02:28:32,139 --> 02:28:37,139
+nebo ty modely jsou nasazený, inference je to nasazení, to už jsme si vysvětlili,
+
+2305
+02:28:37,380 --> 02:28:42,360
+takže jakmile ten model je vlastně nasazenej někde, tak provádíte takzvanou inference.
+
+2306
+02:28:42,659 --> 02:28:46,000
+To znamená, že tohle jsou ty provideri toho nasazení.
+
+2307
+02:28:46,000 --> 02:28:48,600
+A teď tady už vidíte, jsou na jednou tři,
+
+2308
+02:28:48,659 --> 02:28:52,139
+takže to roste prostě. Dřív to byly jenom Hugging Face sám o sobě,
+
+2309
+02:28:52,139 --> 02:28:56,840
+poskytoval nějakým způsobem pro ty důležitý modely tohleto nasazení,
+
+2310
+02:28:56,840 --> 02:28:59,020
+takže teď už to funguje líp.
+
+2311
+02:28:59,119 --> 02:29:01,020
+A zase, kdybyste si na to klikli,
+
+2312
+02:29:01,840 --> 02:29:05,139
+A myslím si, že i tady někde je viewcode snippet.
+
+2313
+02:29:05,139 --> 02:29:06,500
+Jo, to je ono.
+
+2314
+02:29:06,780 --> 02:29:10,219
+Takže kdybyste nechtěli se podívat do mého kódu,
+
+2315
+02:29:10,459 --> 02:29:15,079
+nebo mi nechtěli věřit, jak to používám já tam vlastně v tom,
+
+2316
+02:29:15,079 --> 02:29:18,440
+tak tady tímhle tím způsobem byste si zjistili sami, jak to zavolat.
+
+2317
+02:29:18,700 --> 02:29:21,280
+A teď zase v Pythonu, buď přes ten Hugging Face Hub,
+
+2318
+02:29:21,360 --> 02:29:23,680
+a inference client, nebo přes obyčejný
+
+2319
+02:29:23,860 --> 02:29:25,760
+request, jako jsme si to
+
+2320
+02:29:25,860 --> 02:29:28,219
+ukazovali u toho OpenAI,
+
+2321
+02:29:28,280 --> 02:29:29,739
+anebo přes OpenAI
+
+2322
+02:29:29,979 --> 02:29:31,680
+knihovnu. Vidíte, že se snaží
+
+2323
+02:29:31,799 --> 02:29:33,100
+být všichni vlastně jako
+
+2324
+02:29:33,360 --> 02:29:35,979
+OpenAI API compatible,
+
+2325
+02:29:36,100 --> 02:29:38,020
+takže abyste to mohli volat přes ty samý
+
+2326
+02:29:38,299 --> 02:29:39,119
+klienty.
+
+2327
+02:29:39,239 --> 02:29:45,979
+Výjimka je zase Anthropic, ale Ollama se snaží být OpenAI compatible, HuggingFace se snaží být OpenAI compatible.
+
+2328
+02:29:46,200 --> 02:29:54,219
+Zase do nějaké určité míry. Takže když si budete volat jenom ty message a budete tam posílat jenom ty texty, v pohodě asi.
+
+2329
+02:29:54,260 --> 02:30:00,020
+Jakmile budete chtít najednou používat tooly nebo prostě další věci jako obrázky, zase už tam nebudete.
+
+2330
+02:30:00,000 --> 02:30:02,479
+najdete nějaký prostě rozdíly.
+
+2331
+02:30:02,479 --> 02:30:06,680
+Takže tohle to jsou zase jak se k tomu dostanete bez mýho kódu,
+
+2332
+02:30:06,680 --> 02:30:09,260
+zase tady JavaScript anebo curl.
+
+2333
+02:30:09,479 --> 02:30:13,479
+A teď teda vám jenom ukážu, kde to najdete v tom mým kódu,
+
+2334
+02:30:13,520 --> 02:30:16,579
+to znamená, že zase v tom Hugging Face, tady máte ty model z API
+
+2335
+02:30:16,840 --> 02:30:20,459
+a máte tady jak ten hub, inference client,
+
+2336
+02:30:20,579 --> 02:30:24,340
+teď si nejsem jistý, jestli to úplně kooperuje s tím, co je tady.
+
+2337
+02:30:25,459 --> 02:30:28,840
+Pady ten Hacking Faceup, Inference Client, ano, kooperuje.
+
+2338
+02:30:28,840 --> 02:30:31,120
+Takže to je vlastně ten jeden způsob.
+
+2339
+02:30:31,280 --> 02:30:34,280
+Pak je ten HTTP způsob.
+
+2340
+02:30:34,459 --> 02:30:35,940
+To se tady pak vidíte ty
+
+2341
+02:30:37,479 --> 02:30:39,819
+URL endpointy,
+
+2342
+02:30:39,819 --> 02:30:42,180
+anebo pak zase přes tu OpenAI knihovnu.
+
+2343
+02:30:42,500 --> 02:30:44,200
+Takže to je jenom, abych uzavřel
+
+2344
+02:30:44,520 --> 02:30:46,020
+ty způsoby, jakým se s tím
+
+2345
+02:30:46,100 --> 02:30:48,280
+můžete bavit. Co já vám dávám
+
+2346
+02:30:48,520 --> 02:30:50,360
+navíc, oproti tomu
+
+2347
+02:30:50,360 --> 02:30:51,940
+té ukázce, která je tady,
+
+2348
+02:30:52,219 --> 02:30:53,760
+je, že vám tady ukazuju, jak
+
+2349
+02:30:53,940 --> 02:30:56,260
+udělat i ten multimodální způsob,
+
+2350
+02:30:56,979 --> 02:31:12,459
+Takže abyste si mohli to zavolat s obrázkem, třeba pro tu LAMU 3.2 Vision Instruct, která tam je nasazená, abyste si ji nemuseli stahovat k sobě, nebo si mohli zavolat nějaký jiný Vision model prostě tímhletím definovaným způsobem.
+
+2351
+02:31:12,959 --> 02:31:18,959
+Ukazuju vám tady, jak si udržovat tu chat history, to už ale to není pro nás žádný, koukám, že tady mám překlep.
+
+2352
+02:31:19,479 --> 02:31:21,520
+To pro nás není žádná novinka,
+
+2353
+02:31:21,520 --> 02:31:23,040
+to je jenom, že si pamatuju prostě
+
+2354
+02:31:23,040 --> 02:31:25,680
+v té paměti, v tom poli, ty zprávy,
+
+2355
+02:31:25,680 --> 02:31:27,540
+takže úplně easy peasy.
+
+2356
+02:31:27,840 --> 02:31:29,319
+A pak je tady ty tooly.
+
+2357
+02:31:29,540 --> 02:31:30,760
+To je něco, co asi
+
+2358
+02:31:31,440 --> 02:31:33,639
+by se vám hodilo a co není tam zmíněné.
+
+2359
+02:31:33,639 --> 02:31:34,500
+Takže tady
+
+2360
+02:31:34,520 --> 02:31:40,620
+přes OpenAI knihovnu, tady se nadefinuje ten endpoint, zase byste museli vědět ten správný endpoint,
+
+2361
+02:31:40,860 --> 02:31:46,159
+který oni vám vlastně jakoby neřeknou, tadyhle v tom příkladu, pokud se nepletu,
+
+2362
+02:31:46,219 --> 02:31:51,020
+ale zase pokud byste dostatečně hluboko tady koukali do dokumentace,
+
+2363
+02:31:51,079 --> 02:32:03,700
+tak byste tam z toho to někde našli. Já myslím, že zrovna tady ty toolkoly jsem musel ještě hledat v nějakém swagger file pro to konkrétní Hugging Face API, takže to nebylo úplně tak easy jako s dokumentace.
+
+2364
+02:32:04,159 --> 02:32:11,780
+A tady máte teda ty tooly, tady pak máte jak to provolat přes toho OpenAI klienta, tady mu vlastně předáte ty tooly.
+
+2365
+02:32:11,780 --> 02:32:21,819
+A ještě tam byla nějaká změna u toho Hugging Face API s tím ToolChoice, ale když budete používat auto, tak se vám to asi úplně jedno.
+
+2366
+02:32:24,620 --> 02:32:30,399
+Tak, to si myslím, že by bylo všechno, co jsem vám dneska chtěl říct. Budu rád, když si z toho odnesete.
+
+2367
+02:32:31,100 --> 02:32:37,440
+práci s datasetem, práci s tokenizerem a práci s tím modelem,
+
+2368
+02:32:38,680 --> 02:32:45,840
+abyste chápali, jak ta architektura, kdy najdete tu architekturu, kdy najdete ten config.
+
+2369
+02:32:45,840 --> 02:32:50,899
+Jo a ještě jsem vám chtěl říct poslední věc, ale to můžu klidně nechat na příště.
+
+2370
+02:32:51,520 --> 02:32:55,000
+Byl to tady ten popis těch konfiguračních souborů,
+
+2371
+02:32:55,000 --> 02:32:59,059
+jako Params, Tokenizer, JSON, ale asi vám to i dojde.
+
+2372
+02:32:59,260 --> 02:33:01,659
+Jenom abyste se nebáli vlastně se do nich vlíst,
+
+2373
+02:33:01,680 --> 02:33:05,860
+protože to není nic, čemu byste neměli rozumět,
+
+2374
+02:33:05,760 --> 02:33:08,520
+najdete v tom nějaký důležitý informace
+
+2375
+02:33:08,559 --> 02:33:10,360
+nicméně ten model.config
+
+2376
+02:33:10,420 --> 02:33:11,600
+co já jsem tam logoval
+
+2377
+02:33:11,959 --> 02:33:13,860
+tak ten vlastně ten stejný JSON final
+
+2378
+02:33:14,000 --> 02:33:15,819
+najdete taky, když tam byl
+
+2379
+02:33:15,899 --> 02:33:18,000
+tokenizer config, tak ten vlastně
+
+2380
+02:33:18,159 --> 02:33:20,219
+najdete tady, takže
+
+2381
+02:33:20,219 --> 02:33:21,879
+zase, nebo tady, pardon
+
+2382
+02:33:22,020 --> 02:33:24,379
+tady, takže zatím zase žádnou
+
+2383
+02:33:24,379 --> 02:33:26,219
+magii nehledejte, ale
+
+2384
+02:33:26,239 --> 02:33:27,819
+můžeme se o tom popojívat zejtra
+
+2385
+02:33:28,120 --> 02:33:29,540
+v úterý
+
+2386
+02:33:31,340 --> 02:33:38,340
+Tak než přejdou na otázky tady v chatu, nějaká otázka tady k tomu, co jsem teďka říkal,
+
+2387
+02:33:38,340 --> 02:33:40,940
+pokud není zmíněná v chatu, teda nedostanu se k ní.
+
+2388
+02:33:41,780 --> 02:33:48,360
+Povědomu na otázku, co se týče těch tokenů, si vygenerujeme, tak to budeme používat v příštích lekcích, že?
+
+2389
+02:33:49,120 --> 02:33:53,819
+Ano, ano, ano. V tom fine-tuningu to přesně budeme používat, ano.
+
+2390
+02:33:56,020 --> 02:34:02,399
+Tak, blbl, nemáš zvuk, ano k trénování, blblbl, dobře, tak jdeme na to.
+
+2391
+02:34:02,479 --> 02:34:07,399
+Možná jsem to přepočule, z jakého důvodu se snažíme dostat svůj dataset na Gingface?
+
+2392
+02:34:07,940 --> 02:34:18,659
+Je to z toho důvodu, abychom ho nedrželi lokálně, jenom z toho důvodu, abychom ho měli někde a mohli sdílet třeba s nějakými ostatními členy týmu, stejně jako to platí v případě zdrojových kódů.
+
+2393
+02:34:18,840 --> 02:34:33,360
+To je především ten důvod. Pokud chcete mít ten dataset někde ve vlastní struktuře, na vašem storidži, firmě, ať už nebo lokálně, tak vám to k ničemu nebrání.
+
+2394
+02:34:33,440 --> 02:34:39,600
+Tady je výhoda toho, že vám to poskytuje Hugging Face, tu dataset knihovnu, kde s tím můžete jednoduše pracovat.
+
+2395
+02:34:40,420 --> 02:34:44,879
+Pochopil jsem správně, že ten model zná pouze 32 tisíc slov o equal tokenu,
+
+2396
+02:34:44,879 --> 02:34:48,280
+je tvořen jen slovník o poštu, ano, to jste pochopil správně,
+
+2397
+02:34:48,739 --> 02:34:53,520
+ale jsou to slova i znaky, takže jejich kombinace stvoří cokoliv.
+
+2398
+02:34:53,520 --> 02:34:57,579
+Ano, nejsou to jenom slova, jsou to čísla, čínský znaky,
+
+2399
+02:34:57,579 --> 02:35:07,000
+stejně tak, jak jsme si to tady ukazovali v CSVčku.
+
+2400
+02:35:07,860 --> 02:35:17,100
+Tady myslím, že jsou někde no tyhle čínský nebo japonský znaky, unicode charaktery, jo, takže je tam prostě všechno.
+
+2401
+02:35:18,819 --> 02:35:21,500
+Tak, blablablablablabla.
+
+2402
+02:35:21,719 --> 02:35:31,760
+Jakože jednotlivá písme jsou taky tokeny? Ne, nebo někdy jo, ano, protože máte a d v angličtině, že jo, takže to on taky chápe,
+
+2403
+02:35:31,760 --> 02:35:36,639
+akorát on si to většinou překládá jako, žež teď tady koukám, tohle je zajímavý.
+
+2404
+02:35:37,319 --> 02:35:39,680
+To je nějaká...
+
+2405
+02:35:39,840 --> 02:35:41,360
+Ten smiley je zajímavý.
+
+2406
+02:35:42,020 --> 02:35:45,059
+Smiley je unicode, tomu bych ještě rozuměl,
+
+2407
+02:35:45,159 --> 02:35:46,959
+ale tohle je přehozený přece.
+
+2408
+02:35:46,959 --> 02:35:50,059
+Tady je tohle ID a tohle je znak.
+
+2409
+02:35:51,139 --> 02:35:53,100
+A má to být znak a ID?
+
+2410
+02:35:53,540 --> 02:35:54,959
+Na tím je to taky tak.
+
+2411
+02:35:56,020 --> 02:35:57,239
+Na dovolených dácích.
+
+2412
+02:35:57,239 --> 02:35:58,959
+No, tam dále je to taky stejně takhle.
+
+2413
+02:35:59,780 --> 02:36:07,879
+Teď mě zajímá, jestli to je pro charaktery, které jsou zleva do prava nebo zprava do leva.
+
+2414
+02:36:08,459 --> 02:36:17,600
+To je vtipné, já jsem jednou byl v perplexitě, já jsem tam ten deep research a právě mi to omlem vrátilo dva takové češtinské znaky.
+
+2415
+02:36:17,600 --> 02:36:23,399
+To bylo taky docela zajímavé, jako má je čeština čeština a najednou dva takové češtinské znaky v té odpovědi.
+
+2416
+02:36:23,899 --> 02:36:26,379
+Chyba Matrixu, no.
+
+2417
+02:36:26,520 --> 02:36:28,440
+To je zajímavé.
+
+2418
+02:36:29,680 --> 02:36:43,600
+Jak bylo v Matrixu? No celkově, jak jsem říkal, že prostě, jestli si pamatuje, tak jsem říkal, že dřív byly ty data trénovaný v nějaký omezený sadě. Já myslím, že to i ten Andrej Karpaty tam vypráví v nějakém tom videu, v nějakém jiném.
+
+2419
+02:36:44,299 --> 02:36:51,340
+A teď tam byl člověk z redditu, který tam měl hodně příspěvků a ty jeho příspěvky tam byly hodně zahrnutý v té trénovací datový sadě,
+
+2420
+02:36:51,340 --> 02:36:58,879
+takže on si vlastně, ten tokenizer si udělal jeho nickname v tom redditu jako token, dal tomu prostě tu velkou důležitost,
+
+2421
+02:36:58,899 --> 02:37:05,840
+protože to je jako ohromná důležitost, že to mu dá token separátní. A pak když jste napsali nějak třikrát to jeho jméno,
+
+2422
+02:37:06,340 --> 02:37:10,000
+tak on se dostal úplně do nějaký pravděpodobnostní odchylky
+
+2423
+02:37:10,000 --> 02:37:12,680
+a začal to prostě úplně sypat nesmysly.
+
+2424
+02:37:12,840 --> 02:37:14,940
+Tak to jsou takové zajímavé věci.
+
+2425
+02:37:14,940 --> 02:37:18,079
+Je to zase jenom, když už to teď chápete,
+
+2426
+02:37:18,319 --> 02:37:21,000
+tak je to zase jenom statistika pravděpodobnosti.
+
+2427
+02:37:21,040 --> 02:37:24,260
+Takže není to, že ten model by se zbláznil,
+
+2428
+02:37:24,260 --> 02:37:26,360
+nebo že by prostě se stal insane.
+
+2429
+02:37:26,620 --> 02:37:29,799
+Nebo jak ten zaměstnanec Google říkal,
+
+2430
+02:37:30,659 --> 02:37:33,360
+že to je sane, jako že to má...
+
+2431
+02:37:34,079 --> 02:37:46,620
+Jak se tomu říká syn, že to je vědomí, že to má vědomí, ale je to prostě jenom nějaká pravděpodobnostní odchylka a všechno to jsou prostě jenom pravděpodobnosti.
+
+2432
+02:37:47,440 --> 02:37:56,420
+No mně naopak přijde, že čím více se o tom učíme nebo rozvídáme, tak jako že to není vůbec chytrý, ale že to jsme takový blbí.
+
+2433
+02:37:56,420 --> 02:38:06,420
+Ano, ano a je to tak a chápete to správně, a když se budete bavit s člověkem, jako je Tomáš Mikulov, tak vám bude prostě říkat to samý, prostě ta hysterie tady o tom, že to zničí svět a
+
+2434
+02:38:06,479 --> 02:38:13,760
+a jako tak do určitý míry jsou tam věci, které jim prostě ty lidi jako nerozuměj zatím nebo nedoskryli.
+
+2435
+02:38:13,760 --> 02:38:19,219
+Není to debug kódu, kde si to můžete prostě zastavit a kouknout se, co to v danou chvíli dělá.
+
+2436
+02:38:19,239 --> 02:38:25,479
+Je to prostě komplexnější věc, ale to neznamená, že se nevyvinou ty tooly k tomu, aby se to jako debagovalo dál.
+
+2437
+02:38:25,879 --> 02:39:13,440
+A a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a Je to ta pravděpodobnost a statistika, jsou tam ty backpropagační algoritmy, které jsou velmi dobře popsané, nejsou rozhodně triviální, to rozhodně nikdo netvrdí, ale pořád tam není žádná magie, je to prostě sadat čísel, pravděpodobnosti, statistik a zase to generuje jenom poslední náhodný slovo.
+
+2438
+02:39:14,079 --> 02:39:19,819
+No ale zase, když se podíváš třeba, jak tady dneska Rebellius dal do chatroomu ten link,
+
+2439
+02:39:19,860 --> 02:39:24,639
+jak úplné AI tam dělalo v těch klastrech a testovalo to s tím různým modelem
+
+2440
+02:39:25,120 --> 02:39:30,079
+a jak mu dali na výběr dvě možnosti, že ho nahradí nějakou jinou AI
+
+2441
+02:39:30,260 --> 02:39:35,100
+a buď to může přijmout, anebo začne vydírat toho uživatela.
+
+2442
+02:39:35,299 --> 02:39:39,479
+Ale že přesně uděláš takový test, který je fakt úplně dementní,
+
+2443
+02:39:39,620 --> 02:39:42,520
+dáš mu takovou velkou důležitou věc.
+
+2444
+02:39:42,540 --> 02:39:43,680
+Ale zase je to dobrý marketing
+
+2445
+02:39:43,739 --> 02:39:46,079
+a najednou se začne o tobě všude psát,
+
+2446
+02:39:46,079 --> 02:39:48,000
+jak ta tvoje AI už je terminátor,
+
+2447
+02:39:48,219 --> 02:39:49,579
+ale ty lidi, co tomu nerozumějí,
+
+2448
+02:39:49,579 --> 02:39:51,239
+tak tomu prostě nerozumějí,
+
+2449
+02:39:51,399 --> 02:39:52,659
+ale začnou to brát vážně
+
+2450
+02:39:52,659 --> 02:39:54,920
+a pak tady máme dementní konverzace,
+
+2451
+02:39:55,100 --> 02:39:58,379
+že se lidi bojí, že to AI prostě převezme svět,
+
+2452
+02:39:58,440 --> 02:40:02,319
+když jde naopak, jako za mě by AI byl asi nejlepší politik,
+
+2453
+02:40:02,319 --> 02:40:05,159
+protože by mu šlo jenom o objektivitu,
+
+2454
+02:40:05,159 --> 02:40:07,000
+o ty data a o ty fakta,
+
+2455
+02:40:07,020 --> 02:40:08,959
+a vůbec by se nenechala máte moc sama.
+
+2456
+02:40:09,079 --> 02:40:10,559
+A tohle, kdyby ty lidi pochopili,
+
+2457
+02:40:10,799 --> 02:40:13,340
+tak tady vybudujeme mnohem lepší svět za chvilku,
+
+2458
+02:40:13,340 --> 02:40:16,579
+než se tady hádáte o takových blbostech.
+
+2459
+02:40:16,959 --> 02:40:18,260
+Souhlasím s tím.
+
+2460
+02:40:18,819 --> 02:40:25,280
+Tady si myslím, že mnohem větší strach z té komunity,
+
+2461
+02:40:25,280 --> 02:40:28,739
+která tomu rozumí, nebo aspoň do toho trošku vidí,
+
+2462
+02:40:29,139 --> 02:40:31,780
+tak je ten, že chápou,
+
+2463
+02:40:31,959 --> 02:40:33,180
+že právě jak si řekl,
+
+2464
+02:40:33,979 --> 02:40:37,280
+že vlastně bude následovat jenom to,
+
+2465
+02:40:37,399 --> 02:40:39,040
+co vlastně tu objektivitu,
+
+2466
+02:40:39,319 --> 02:40:41,260
+to, co ho naučíš, tak ty to
+
+2467
+02:40:41,319 --> 02:40:43,260
+automaticky vnímáš, že ho budeš učit
+
+2468
+02:40:43,340 --> 02:40:44,059
+dobrý věci.
+
+2469
+02:40:44,399 --> 02:40:51,219
+Takže ta optimalizační funkce bude inklinovat k tomu dobru.
+
+2470
+02:40:52,180 --> 02:40:58,520
+Ale samozřejmě tady je ten strach z těch národů,
+
+2471
+02:40:58,620 --> 02:41:02,280
+se kterými my pravděpodobně jsme ve válce už teď.
+
+2472
+02:41:02,399 --> 02:41:05,579
+Takže tady je strach toho,
+
+2473
+02:41:07,100 --> 02:41:09,920
+Oni to zneužijou v ten neprospěch.
+
+2474
+02:41:09,920 --> 02:41:12,520
+A sám asi, pokud sleduješ geopolitiku trochu,
+
+2475
+02:41:12,520 --> 02:41:16,760
+tak vidíš, jaký problémy jsou schopný působit,
+
+2476
+02:41:16,860 --> 02:41:20,079
+jak přezřávají kabely, jak prostě zapalujou tady lesy
+
+2477
+02:41:20,219 --> 02:41:21,340
+a různý továrny.
+
+2478
+02:41:21,520 --> 02:41:26,280
+A teď si představ, že by prostě jeho optimalizační funkce,
+
+2479
+02:41:26,319 --> 02:41:28,879
+nějaký takovýhle AI, a ještě by to strčeli do robota,
+
+2480
+02:41:29,000 --> 02:41:31,159
+tak jeho by bylo prostě jenom zabít co nejvíc lidí.
+
+2481
+02:41:31,159 --> 02:41:33,659
+To je podle mě ten strach,
+
+2482
+02:41:34,139 --> 02:41:41,840
+který proto i ta Amerika na to teďkon tlačí a všichni ty v Silicon Valley a v tom tech startupu do toho tlačejí.
+
+2483
+02:41:41,959 --> 02:41:45,940
+Je tam samozřejmě ten incentiv toho vydělat ty peníze,
+
+2484
+02:41:45,940 --> 02:41:55,200
+ale myslím si, že část toho tlačení je i od té vlády a od toho prostě NSA a tak dále,
+
+2485
+02:41:55,399 --> 02:42:00,280
+protože oni si moc dobře uvědomují, že jestliže tuhle ten rejs prohrajou,
+
+2486
+02:42:00,579 --> 02:42:03,139
+tak prostě, tak je to v pytli.
+
+2487
+02:42:03,139 --> 02:42:06,459
+Tak se z toho bude těžce sbírat, protože si neumím představit,
+
+2488
+02:42:06,780 --> 02:42:13,440
+jak se bude lidsky bojovat proti někomu, kdo pošle prostě velký letadlo, který vysází
+
+2489
+02:42:13,620 --> 02:42:18,340
+100 000 dronů prostě v nějaký určitý části světa, Evropy třeba,
+
+2490
+02:42:18,659 --> 02:42:26,620
+a ty, ty drony samozřejmě budou mít jeden účel a to prostě jenom zabít co nejvíc lidí a pokud tohle bude optimizační funkce nebo ta
+
+2491
+02:42:26,819 --> 02:42:28,600
+cílová funkce, no tak
+
+2492
+02:42:28,600 --> 02:42:31,239
+nevím, jak tohle budeme řešit.
+
+2493
+02:42:32,139 --> 02:42:33,079
+Takže to se to tady
+
+2494
+02:42:33,379 --> 02:42:35,020
+učíme, abychom vždycky byli v okrog
+
+2495
+02:42:35,020 --> 02:42:37,000
+na pře, já tam musím být.
+
+2496
+02:42:37,000 --> 02:42:39,459
+A já se to budete se tomu smát,
+
+2497
+02:42:39,459 --> 02:42:40,979
+ale i tak trochu to byl
+
+2498
+02:42:41,520 --> 02:42:42,540
+můj cíl, abych
+
+2499
+02:42:42,799 --> 02:42:44,520
+šířil to vědomí o tom
+
+2500
+02:42:44,520 --> 02:42:47,459
+a pro kohokoliv, kdo bude chtít poslouchat
+
+2501
+02:42:47,459 --> 02:42:48,920
+a ty lidi si z toho
+
+2502
+02:42:48,920 --> 02:42:51,079
+něco odnesli a vlastně
+
+2503
+02:42:51,340 --> 02:42:55,579
+vyvolalo to v nich nějaký určitý zájem o tuhletu problematiku
+
+2504
+02:42:55,920 --> 02:42:58,299
+a byli schopní vlastně přispět k tomu řešení,
+
+2505
+02:42:58,360 --> 02:43:02,200
+protože věřím, že spousta z vás je velmi inteligentní
+
+2506
+02:43:02,379 --> 02:43:05,479
+a můžeme čekat v nějakou kontribuci
+
+2507
+02:43:05,579 --> 02:43:07,840
+nebo minimálně se budete bavit s dalšíma lidma,
+
+2508
+02:43:08,239 --> 02:43:11,219
+budete jim to vysvětlovat a nakonec,
+
+2509
+02:43:11,299 --> 02:43:15,159
+když také dáme ruku k ruce, tak si něco může podařit.
+
+2510
+02:43:16,819 --> 02:43:18,799
+Jo, s kterým souhlasím, to je pěkné, díky, díky.
+
+2511
+02:43:19,540 --> 02:43:25,760
+Tak já ještě přejdu tady do toho dalšího.
+
+2512
+02:43:28,700 --> 02:43:31,920
+Takže jedno, dva písma jsou taky tokeny, proč to znamená?
+
+2513
+02:43:31,920 --> 02:43:35,819
+Tak já možná tady takhle, abych nekoukal na toto.
+
+2514
+02:43:37,799 --> 02:43:45,139
+Tak tohle jsme si řekli, tak jsme řekli, tak jsme si řekli, platform, ano to je Karol, co tam dál.
+
+2515
+02:43:45,280 --> 02:43:47,440
+Zatěl se věnujeme práci s textovými daty.
+
+2516
+02:43:47,600 --> 02:43:49,639
+Ukažeme si, jak upravit nějakou transformaci,
+
+2517
+02:43:49,920 --> 02:43:53,559
+ging face například pro time series data, určené na predikce.
+
+2518
+02:43:53,920 --> 02:43:57,260
+bude to rovnaký proces, jako si ukazujeme.
+
+2519
+02:43:57,260 --> 02:44:03,819
+Já jsem transformera zatím nikdy nepoužil na časové řady.
+
+2520
+02:44:04,299 --> 02:44:09,180
+Viděl jsem spíš nějaké projekty.
+
+2521
+02:44:10,840 --> 02:44:17,719
+Transformers, Time Series, Ristox.
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

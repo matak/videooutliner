@@ -1,5 +1,7 @@
 import os
 import re
+import tiktoken
+from typing import List
 
 class SRTUtils:
     @staticmethod
@@ -18,8 +20,101 @@ class SRTUtils:
         return f"{hours:02d}:{minutes:02d}:{int(seconds):02d},{milliseconds:03d}"
     
     @staticmethod
-    def split_into_chunks(srt_content, max_tokens=30000):
-        """Split SRT content into chunks of approximately max_tokens based on word boundaries"""
+    def get_tokenizer(model: str = "gpt-4"):
+        """Get the appropriate tokenizer for the specified model"""
+        try:
+            return tiktoken.encoding_for_model(model)
+        except KeyError:
+            # Fallback to cl100k_base encoding if model not found
+            return tiktoken.get_encoding("cl100k_base")
+
+    @staticmethod
+    def split_to_token_chunks(text: str, max_tokens: int = 5000, model: str = "gpt-4") -> List[str]:
+        """
+        Split text into chunks based purely on token count.
+        
+        Args:
+            text: Input text to split
+            max_tokens: Maximum tokens per chunk (default: 5000)
+            model: Model name for tokenizer (default: "gpt-4")
+            
+        Returns:
+            List of text chunks, each containing no more than max_tokens
+        """
+        tokenizer = SRTUtils.get_tokenizer(model)
+        tokens = tokenizer.encode(text)
+        chunks = []
+        
+        for i in range(0, len(tokens), max_tokens):
+            chunk_tokens = tokens[i:i + max_tokens]
+            chunk_text = tokenizer.decode(chunk_tokens)
+            chunks.append(chunk_text)
+            
+        return chunks
+
+    @staticmethod
+    def smart_chunk_by_paragraphs(text: str, max_tokens: int = 5000, model: str = "gpt-4") -> List[str]:
+        """
+        Split text into chunks by paragraphs while respecting token limits.
+        
+        Args:
+            text: Input text to split
+            max_tokens: Maximum tokens per chunk (default: 5000)
+            model: Model name for tokenizer (default: "gpt-4")
+            
+        Returns:
+            List of text chunks, each containing no more than max_tokens
+        """
+        tokenizer = SRTUtils.get_tokenizer(model)
+        
+        # Split text into paragraphs (handling different line ending styles)
+        paragraphs = re.split(r'\n\s*\n', text)
+        chunks = []
+        current_chunk = []
+        current_tokens = 0
+        
+        for paragraph in paragraphs:
+            paragraph = paragraph.strip()
+            if not paragraph:
+                continue
+                
+            paragraph_tokens = len(tokenizer.encode(paragraph))
+            
+            # If paragraph itself exceeds max_tokens, split it using naive chunking
+            if paragraph_tokens > max_tokens:
+                # Add any accumulated content as a chunk
+                if current_chunk:
+                    chunks.append('\n\n'.join(current_chunk))
+                    current_chunk = []
+                    current_tokens = 0
+                
+                # Split the large paragraph
+                sub_chunks = SRTUtils.split_to_token_chunks(paragraph, max_tokens, model)
+                chunks.extend(sub_chunks)
+                continue
+            
+            # If adding this paragraph would exceed the limit, start a new chunk
+            if current_tokens + paragraph_tokens > max_tokens and current_chunk:
+                chunks.append('\n\n'.join(current_chunk))
+                current_chunk = []
+                current_tokens = 0
+            
+            current_chunk.append(paragraph)
+            current_tokens += paragraph_tokens
+        
+        # Add any remaining content as the final chunk
+        if current_chunk:
+            chunks.append('\n\n'.join(current_chunk))
+        
+        return chunks
+
+    @staticmethod
+    def split_into_chunks(srt_content, max_tokens=1000):
+        """
+        Split SRT content into chunks of approximately max_tokens based on word boundaries.
+        This is a legacy method that uses word-based counting. For token-based splitting,
+        use split_to_token_chunks() or smart_chunk_by_paragraphs() instead.
+        """
         # First split into subtitle entries to preserve timing information
         entries = re.split(r'\n\n+', srt_content.strip())
         
@@ -37,7 +132,6 @@ class SRTUtils:
             text_content = ' '.join(lines[2:])
             
             # Count tokens (rough estimate: 1 token ≈ 1 word)
-            # Split by whitespace and count words
             words = text_content.split()
             entry_tokens = len(words)
             

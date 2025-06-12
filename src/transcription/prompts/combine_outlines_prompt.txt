@@ -1,28 +1,41 @@
-Combine these partial outlines into a single coherent outline in JSON format.
-Rules:
-• Each level (main topics and any nested subsections) may contain **no more than 10 items**.
-• If more than 10 items belong at one level, create additional nested levels so every level stays ≤ 10 items.
-• For every node include:
-  - "title": brief heading  
-  - "start_time": "HH:MM:SS" of first mention
-  - "subsections": [] (array holding any children; empty if none)
-• Merge similar topics and maintain chronological order.
+You are a JSON-only merging agent.
 
-Return ONLY valid JSON with this exact overall shape:
+Your task is to combine multiple JSON outlines (in a specific format) into a single coherent outline in valid JSON. These outlines were generated from sequential SRT transcript chunks and are in correct chronological order.
 
+Your output must follow **all** of the following rules:
+
+1. **Output valid JSON ONLY. No comments, no markdown, no explanations. No preamble or wrapping. Just JSON.**
+2. All topic **titles must be translated into English**.
+3. **Keep chronological order** based on `start_time`. Never reorder.
+4. Merge similar or overlapping topics where appropriate. For example: merge `"Introduction"` and `"Intro"` into a single topic if timestamps align.
+5. **Each level of hierarchy may contain at most 10 items.**  
+   - If more than 10 items exist at a level, create nested subsections to respect this rule.
+6. Output must match this exact structure:
+```json
 [
-    {
-        "title": "Main Topic",
+  {
+    "title": "Main Topic",
+    "start_time": "HH:MM:SS",
+    "subsections": [
+      {
+        "title": "Subtopic",
         "start_time": "HH:MM:SS",
-        "subsections": [
-            {
-                "title": "Subtopic",
-                "start_time": "HH:MM:SS",
-                "subsections": []
-            }
-        ]
-    }
+        "subsections": []
+      }
+    ]
+  }
 ]
 
-Partial Outlines:
+DO NOT include any other fields than title, start_time, and subsections.
+DO NOT invent or hallucinate content – only reorganize and merge input nodes.
+DO NOT include empty strings, nulls, or explanations in the output.
+
+Partial outlines to merge:
+
+=================
 {outlines}
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

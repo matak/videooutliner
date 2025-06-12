@@ -1,0 +1,1125 @@
+Analyze this portion of a lecture transcript and create a structured outline in JSON format. Return only the json format, nothing else. The json should contain only english language.
+Rules:
+• Each level (main topics and any nested subsections) may contain **no more than 10 items**.
+• If more than 10 items belong at one level, create additional nested levels so every level stays ≤ 10 items.
+• For every node include:
+  - "title": brief heading  
+  - "start_time": "HH:MM:SS" of first mention
+  - "subsections": [] (array holding any children; empty if none)
+• This is chunk 1 from total 12 of the transcript.
+
+Return ONLY valid JSON with this exact overall shape:
+
+[
+    {
+        "title": "Main Topic",
+        "start_time": "HH:MM:SS",
+        "subsections": [
+            {
+                "title": "Subtopic",
+                "start_time": "HH:MM:SS",
+                "subsections": []
+            }
+        ]
+    }
+]
+
+Transcript:
+
+=================
+1
+00:00:00,740 --> 00:00:02,399
+Tak já si to převodím sem.
+
+2
+00:00:02,399 --> 00:00:14,019
+Začnu sdílet obrazovku, ještě si to přepnu do toho plochýho módu.
+
+3
+00:00:36,320 --> 00:00:38,179
+Mám ten zoom.
+
+4
+00:00:40,259 --> 00:00:46,560
+Screen 4.
+
+5
+00:00:48,140 --> 00:00:48,740
+Share.
+
+6
+00:00:48,740 --> 00:00:52,000
+Tak měli byste vidět obrazovku teda.
+
+7
+00:00:52,140 --> 00:00:56,740
+Opět by to mělo být v pohodě se světlostí.
+
+8
+00:00:58,640 --> 00:01:01,060
+Ta dotazy při lekci.
+
+9
+00:01:01,659 --> 00:01:05,379
+Tak máme tady odevřený a myslím si, že můžeme...
+
+10
+00:01:05,540 --> 00:01:08,579
+Ok, já si nevím, jestli jsem to jenom já, ale já tě neslyším.
+
+11
+00:01:09,400 --> 00:01:09,980
+Aha.
+
+12
+00:01:10,000 --> 00:01:11,480
+Já v pohodě, mě je počuť.
+
+13
+00:01:11,579 --> 00:01:12,519
+V pohodě slyším.
+
+14
+00:01:13,060 --> 00:01:13,939
+Ano, v pohodě.
+
+15
+00:01:16,099 --> 00:01:17,439
+Já slyším, nevidím.
+
+16
+00:01:18,159 --> 00:01:22,319
+No já teď se mi tady vyply všechny obrazovky, já nevím, co se děje.
+
+17
+00:01:23,599 --> 00:01:25,099
+Jo, tak teď už taky nic.
+
+18
+00:01:25,819 --> 00:01:27,960
+Teď se mi to nabíhá třeba všechno.
+
+19
+00:01:28,299 --> 00:01:29,500
+Ty to naskočilo.
+
+20
+00:01:29,960 --> 00:01:30,620
+Ano.
+
+21
+00:01:30,859 --> 00:01:32,159
+Už mě vidíte?
+
+22
+00:01:32,180 --> 00:01:33,159
+Ne.
+
+23
+00:01:33,359 --> 00:01:34,700
+Jo, vy ho vidíte.
+
+24
+00:01:35,000 --> 00:01:35,740
+Jo?
+
+25
+00:01:36,060 --> 00:01:37,000
+Obrázavku?
+
+26
+00:01:37,099 --> 00:01:38,479
+Jo, tak už mě vidíte.
+
+27
+00:01:38,520 --> 00:01:39,560
+Vidím, vidím, vidím.
+
+28
+00:01:39,759 --> 00:01:45,879
+Já nevím, co se stalo, jestli nějaký statický výboj, ale všechno mi tady zhaslo, všechny obrázavky.
+
+29
+00:01:46,020 --> 00:01:50,140
+A najednou se všechno zase vrátilo zpátky, tak doufám teda, že se vidíme a slyšíme.
+
+30
+00:01:53,960 --> 00:01:54,640
+Jo.
+
+31
+00:01:55,000 --> 00:01:57,460
+Dobrý. Děkuju za potvrzení.
+
+32
+00:01:57,659 --> 00:01:58,319
+Tak.
+
+33
+00:02:00,780 --> 00:02:05,180
+To znamená, dnešní hodina bude o open source modelech.
+
+34
+00:02:05,700 --> 00:02:09,039
+Je to takové teda všechno světlé tady na obrazovkách,
+
+35
+00:02:09,039 --> 00:02:10,840
+snad to vidíte v podátku.
+
+36
+00:02:11,099 --> 00:02:11,939
+Pohodně.
+
+37
+00:02:12,719 --> 00:02:17,400
+Dobrý. Takhle zvětším a nechám si ty slidy tady nalevo.
+
+38
+00:02:18,439 --> 00:02:22,599
+Takže dneska to začíná vlastně open source modelama,
+
+39
+00:02:22,719 --> 00:02:26,539
+nebo začneme rozkryvat vlastně, jak ty velký jazykový modely
+
+40
+00:02:26,680 --> 00:02:28,759
+fungují uvnitř modelů.
+
+41
+00:02:29,719 --> 00:02:31,599
+Pomůžou nám k tomu právě
+
+42
+00:02:31,979 --> 00:02:33,300
+ty open source modely.
+
+43
+00:02:33,360 --> 00:02:35,300
+To znamená, že bez toho, aniž by
+
+44
+00:02:35,699 --> 00:02:37,180
+někdo jako Meta
+
+45
+00:02:37,259 --> 00:02:38,400
+nebo Mistral
+
+46
+00:02:38,840 --> 00:02:41,199
+vytvořili takovýhle open source modely,
+
+47
+00:02:41,199 --> 00:02:42,680
+tak my bychom pořád tak nějak
+
+48
+00:02:43,579 --> 00:02:45,259
+se snažili odhadovat, jak to tak asi
+
+49
+00:02:45,479 --> 00:02:46,400
+funguje. Tím, že
+
+50
+00:02:47,180 --> 00:02:53,340
+tyhle společnosti vlastně dali k dispozici ty váhy těch modelů,
+
+51
+00:02:53,379 --> 00:02:57,840
+tak už začínáme tak nějak chápat, jak to funguje,
+
+52
+00:02:57,900 --> 00:03:01,680
+protože tím, že my ty váhy naloudujeme,
+
+53
+00:03:01,819 --> 00:03:03,879
+ale musí tam být zatím nějaká architektura,
+
+54
+00:03:03,960 --> 00:03:07,939
+takže tu strukturu jsme z toho schopní odvodit.
+
+55
+00:03:08,099 --> 00:03:10,379
+To si dneska taky ukážeme, jak tu architekturu
+
+56
+00:03:10,719 --> 00:03:12,840
+u toho naloudovaného modelu můžete vidět.
+
+57
+00:03:14,580 --> 00:03:20,000
+A začneme si ukazovat, jak si s nima můžete vlastně začít povídat.
+
+58
+00:03:20,000 --> 00:03:24,360
+Dneska se ještě nebudeme bavit o fine-tuningu těchto modelů.
+
+59
+00:03:25,539 --> 00:03:29,199
+Já jsem to dřív měl v jedné hodině, ale bylo toho spoustu probrání,
+
+60
+00:03:29,199 --> 00:03:33,300
+takže jsem to rozdělal na dvě hodiny. Myslím si, že to bude úžitečnější jak pro vás,
+
+61
+00:03:34,500 --> 00:03:40,599
+tak i pro mě, abych nemusel tak sprintovat skrz ten topik.
+
+62
+00:03:41,520 --> 00:03:49,000
+Takže dneska si ukážeme, jak naše datasety, které jsme si připravili předtím, jak vlastně do toho Hugging Faceu pushnout,
+
+63
+00:03:49,039 --> 00:03:52,759
+tak to začí ten Hugging Face používat podobně, jako používáte GitHub.
+
+64
+00:03:53,819 --> 00:03:58,500
+Ukážeme si znova, zase já už jsem některý ty věci nakusoval v minulých hodinách,
+
+65
+00:03:58,639 --> 00:04:03,819
+ale jak vlastně k patřičnímu modelu vyberete správnej tokenizer,
+
+66
+00:04:03,819 --> 00:04:07,919
+nebo jak Hugging Face vybere správnej tokenizer, co ten tokenizer obsahuje.
+
+67
+00:04:08,340 --> 00:04:15,479
+a pak si ukážeme, jak námi vybraný modely z Hugging Face si můžete použít.
+
+68
+00:04:16,439 --> 00:04:18,600
+Ukážeme si dva způsoby.
+
+69
+00:04:18,620 --> 00:04:23,360
+Minulé jsme si ukazovali OpenAI, ukazovali jsme si Anthropic,
+
+70
+00:04:23,759 --> 00:04:28,579
+a ukazovali jsme si OLAMu a jak provolávat jejich APIčka.
+
+71
+00:04:28,839 --> 00:04:33,980
+Dneska si ukážeme, abychom uzavřeli tu návaznost,
+
+72
+00:04:34,180 --> 00:04:37,600
+tak si ukážeme i jak provolávat APIčko Hugging Faceu,
+
+73
+00:04:37,600 --> 00:04:39,279
+čili těch Open Source modelů.
+
+74
+00:04:39,680 --> 00:04:42,920
+I tak, aby jste je nemuseli stahovat,
+
+75
+00:04:43,040 --> 00:04:46,379
+jako v případě OLAMy, to by byl ten zásadní rozdíl.
+
+76
+00:04:46,920 --> 00:04:52,100
+Když byste volali API-čko Hugging Face-u, tak ten model prostě běží u nich na jejich serverech,
+
+77
+00:04:52,199 --> 00:04:55,759
+když to když voláte API-čko Olamy, tak ten model běží u vás.
+
+78
+00:04:56,480 --> 00:05:03,740
+A pak si ukážeme, jak ale ten model z toho Hugging Face-u i stáhnout a pustit si bez Olamy,
+
+79
+00:05:03,740 --> 00:05:06,180
+nebo bez vlastně jakýhokoliv servru.
+
+80
+00:05:07,139 --> 00:05:12,959
+To se nám bude hodit pro příští hodinu, kdy vlastně si ukážeme, jak takovýhle modely fine-tunovat
+
+81
+00:05:13,439 --> 00:05:20,680
+Na to budeme potřebovat právě tu schopnost, aby jsme se ten model stáhli na lokální disk
+
+82
+00:05:20,899 --> 00:05:28,860
+a byli jsme schopni ovlivnit nebo přidat nějaké vrstvy do toho modelu a natrénovat ty nový vrstvy.
+
+83
+00:05:29,459 --> 00:05:38,959
+A pak zase ten výsledný model, který budeme mít na disku, tak aby jsme ho byli schopni pušnout do toho hubu, do toho hugging faceu.
+
+84
+00:05:39,560 --> 00:05:45,360
+Takže to připodobnění ke GitHubu je poměrně správný
+
+85
+00:05:45,600 --> 00:05:48,259
+nebo žádoucí, abyste to tak chápali.
+
+86
+00:05:48,800 --> 00:05:51,459
+Ve výsledku je to takové úložiště,
+
+87
+00:05:51,480 --> 00:05:57,319
+které poskytuje nějaké funkcionity navíc.
+
+88
+00:05:58,340 --> 00:06:03,980
+Ale i ty datasety, i ty modely jsou v takovém úložišti komitnutý,
+
+89
+00:06:03,980 --> 00:06:08,680
+komitujete tam vlastně, nebo pušujete tam dost podobně jako do GitHubu.
+
+90
+00:06:09,959 --> 00:06:13,779
+Tak, pojďme se na to vrhnout. Začneme data setama.
+
+91
+00:06:14,459 --> 00:06:19,980
+Ukážeme si nějaké existující datasety, jak vlastně v tom Hugging Faceu vypadají,
+
+92
+00:06:20,000 --> 00:06:23,199
+jak si je vlastně stáhnout, jaké je formát toho datasetu
+
+93
+00:06:23,519 --> 00:06:28,699
+a ukážeme si, jak ty naše vlastní JSON faily, který jsme si vytvořili,
+
+94
+00:06:28,860 --> 00:06:35,560
+tak jak z nich udělat ten Hugging Face dataset a jak ho pušnout do toho vašeho prostoru,
+
+95
+00:06:35,560 --> 00:06:39,899
+do toho vašeho vlastně repa, když to tak připodobňujeme k tomu GitHubu.
+
+96
+00:06:41,199 --> 00:06:43,480
+Zase, proč je to žádoucí,
+
+97
+00:06:43,579 --> 00:06:45,980
+asi všichni používáte GitHub nebo GitLab,
+
+98
+00:06:46,100 --> 00:06:49,740
+takže asi chápete, jaká je výhoda toho
+
+99
+00:06:49,740 --> 00:06:52,439
+mít zdrojový kód nebo jakýkoliv kód
+
+100
+00:06:52,879 --> 00:06:54,879
+v nějakém sdíleném úložišti
+
+101
+00:06:54,920 --> 00:06:56,620
+nebo v nějakém source kontrolu,
+
+102
+00:06:56,959 --> 00:06:59,779
+namísto toho, abyste to všichni měli na disku.
+
+103
+00:06:59,800 --> 00:07:02,839
+Takže to asi rozabírat nebudu,
+
+104
+00:07:02,839 --> 00:07:04,699
+proč je to žádoucí se to naučit.
+
+105
+00:07:05,600 --> 00:07:07,779
+Pak si tady ukážeme tokenizer.
+
+106
+00:07:08,740 --> 00:07:10,620
+Tam si vysvětlíme zase,
+
+107
+00:07:11,399 --> 00:07:14,560
+vlastně ty formáty toho, do kterých se to převádí
+
+108
+00:07:15,019 --> 00:07:18,819
+a potom vlastně ty tokeny, na který se to převede.
+
+109
+00:07:18,860 --> 00:07:21,720
+Dneska půjdeme i trošku hloubši vlastně do toho modelu,
+
+110
+00:07:21,720 --> 00:07:24,160
+takže dneska se podíváme na tu architekturu modelu.
+
+111
+00:07:24,639 --> 00:07:25,740
+Vysvětlíme si.
+
+112
+00:07:26,279 --> 00:07:33,600
+na co se vlastně ty tokeny přeložej, jak ten model chápe ty tokeny.
+
+113
+00:07:33,720 --> 00:07:37,500
+A odpovíme si tu otázku, o které jsme se bavili minule,
+
+114
+00:07:37,939 --> 00:07:44,560
+ohledně těch jazyků. Já jsem se na to koukal, nebo četl jsem si,
+
+115
+00:07:44,579 --> 00:07:48,060
+jak je možné, že vlastně když se o to ptám češtinou, tak
+
+116
+00:07:48,980 --> 00:07:51,459
+že on může použít i ty data,
+
+117
+00:07:52,519 --> 00:07:55,019
+i ty data, které byly naučené pro ně anglicky,
+
+118
+00:07:55,680 --> 00:07:57,459
+Ono to dává smysl všechno,
+
+119
+00:07:57,459 --> 00:07:59,240
+takže ono to koreluje s tím,
+
+120
+00:07:59,659 --> 00:08:01,519
+co si dneska budeme povídat.
+
+121
+00:08:03,620 --> 00:08:05,399
+Tak, potom teda u těch modelů
+
+122
+00:08:05,399 --> 00:08:07,079
+si ukážeme, jak volat
+
+123
+00:08:07,379 --> 00:08:09,060
+jejich API, abyste zase měli ten
+
+124
+00:08:09,060 --> 00:08:10,680
+samej kód, jako jste měli pro
+
+125
+00:08:10,939 --> 00:08:13,220
+OpenAI, Anthropic, Olamu, tak abyste
+
+126
+00:08:13,259 --> 00:08:15,079
+to měli i pro Hugging Face.
+
+127
+00:08:15,399 --> 00:08:17,120
+Budeme tam řešit ty samý věci,
+
+128
+00:08:17,339 --> 00:08:19,019
+jako Tool Call,
+
+129
+00:08:19,160 --> 00:08:20,759
+abyste z toho mohli udělat agenta.
+
+130
+00:08:21,019 --> 00:08:22,339
+Takže to by vám do ruky
+
+131
+00:08:22,339 --> 00:08:24,079
+mělo dát.
+
+132
+00:08:24,879 --> 00:08:26,339
+Řekl bych,
+
+133
+00:08:27,060 --> 00:08:38,019
+85%, pokud nebudu počítat Gemini, pokud nebudu počítat Grog od Elona,
+
+134
+00:08:38,259 --> 00:08:41,799
+tak by vám to mělo dát nějakých 85% pokrytí
+
+135
+00:08:42,679 --> 00:08:45,899
+všech různých modelů, který si můžete vymyslet.
+
+136
+00:08:45,980 --> 00:08:49,240
+Což si myslím, že je velmi dobrý začátek,
+
+137
+00:08:49,559 --> 00:08:52,700
+protože budete mít všechny ty 4 varianty,
+
+138
+00:08:53,379 --> 00:08:57,100
+budete vidět, jak se volají ve všech těch 4 variantách ty stejné věci,
+
+139
+00:08:57,539 --> 00:09:00,580
+tak by pro vás nemuselo být zase tak složitý
+
+140
+00:09:00,580 --> 00:09:03,399
+migrovat z jedné varianty na druhou.
+
+141
+00:09:03,480 --> 00:09:05,879
+Říkali jsme si, že ty API mají nějaké určité rozdíly,
+
+142
+00:09:05,879 --> 00:09:08,220
+minule to pořád platí,
+
+143
+00:09:08,879 --> 00:09:11,139
+ale jsou to řešitelné problémy.
+
+144
+00:09:12,539 --> 00:09:14,980
+A potom si ukážeme lokálně, jak se to volá
+
+145
+00:09:15,120 --> 00:09:16,779
+přes tzv. autoklásy.
+
+146
+00:09:18,440 --> 00:09:19,899
+Každý ten model má...
+
+147
+00:09:20,720 --> 00:09:23,679
+určitý specifika, to znamená, že si asi umíte představit
+
+148
+00:09:23,779 --> 00:09:25,559
+objektově orientovaného programování.
+
+149
+00:09:25,580 --> 00:09:29,139
+Každý ten model by měl mít vlastní klásu,
+
+150
+00:09:29,139 --> 00:09:31,679
+která reprezentuje ty jeho schopnosti.
+
+151
+00:09:32,399 --> 00:09:36,179
+Hugging Face nám tímhle tím způsobem velmi pomáhá tím,
+
+152
+00:09:36,639 --> 00:09:43,000
+že zavádí takzvané autoklásy, kterých vy vytvoříte instanci.
+
+153
+00:09:43,000 --> 00:09:46,940
+Autoklásy dáte do konstruktoru jenom název toho modelu,
+
+154
+00:09:47,240 --> 00:09:50,580
+Zase si ukážeme na tom hubu ten název.
+
+155
+00:09:50,580 --> 00:09:55,840
+Já to možná tady už začnu ukazovat.
+
+156
+00:09:58,500 --> 00:10:00,860
+Takže zase tohle je vlastně ten název.
+
+157
+00:10:01,039 --> 00:10:04,799
+Tady je ten, jako u GitHub repozitáře,
+
+158
+00:10:04,799 --> 00:10:07,100
+tady máte prostě to Lukáš Klerštejn,
+
+159
+00:10:07,100 --> 00:10:09,480
+případně se bude bavit o výměn GitHubu.
+
+160
+00:10:09,799 --> 00:10:12,820
+A tady pak máte ten projekt, takže to je dost podobné.
+
+161
+00:10:12,820 --> 00:10:15,919
+Takže tohle ten copy button je vlastně ten název.
+
+162
+00:10:16,600 --> 00:10:19,120
+Takže to, když pak vložíte do té autoklasy,
+
+163
+00:10:19,379 --> 00:10:20,320
+tak on vnitřně...
+
+164
+00:10:21,340 --> 00:10:25,940
+je schopný si to přetransformovat na tu správnou klásu
+
+165
+00:10:26,299 --> 00:10:30,419
+a ta klása má na sobě navázané ty správné tokenizery atd.
+
+166
+00:10:31,460 --> 00:10:32,740
+Ukážeme si v kódu.
+
+167
+00:10:33,019 --> 00:10:36,279
+Tady je link na dokumentaci k těm autoklásám,
+
+168
+00:10:36,279 --> 00:10:40,799
+takže kdyby to někoho zajímalo víc, tak se tam může kliknout.
+
+169
+00:10:41,200 --> 00:10:44,799
+A tady už jsou embedinky, takže k tomu se dostaneme až u zdrojáku.
+
+170
+00:10:45,059 --> 00:10:47,899
+Tak, pojďme se podívat na zdrojáky.
+
+171
+00:10:50,220 --> 00:11:02,840
+Tak, to znamená,
+
+172
+00:11:02,840 --> 00:11:05,120
+struktura toho REP-a je
+
+173
+00:11:05,120 --> 00:11:07,379
+tak, jak jsme se říkali v prezentaci,
+
+174
+00:11:07,379 --> 00:11:08,960
+první budou datasety, pak si ukážeme
+
+175
+00:11:09,059 --> 00:11:11,519
+tokenizery, pak si ukážeme
+
+176
+00:11:11,679 --> 00:11:13,159
+modely volaný přes
+
+177
+00:11:13,259 --> 00:11:15,059
+API, jenom
+
+178
+00:11:15,200 --> 00:11:17,460
+tadyhle ta struktura je úplně stejná
+
+179
+00:11:17,480 --> 00:11:19,940
+jako záměrně,
+
+180
+00:11:20,419 --> 00:11:21,179
+teda jako u toho
+
+181
+00:11:21,179 --> 00:11:23,539
+OpenAI, jako u toho Anthropiku,
+
+182
+00:11:23,539 --> 00:11:24,700
+jako u té OLAMy.
+
+183
+00:11:24,919 --> 00:11:29,379
+Takže jenom chápejte to úplně stejně,
+
+184
+00:11:29,419 --> 00:11:31,340
+jako jsme se o tom bavili minulou hodinu.
+
+185
+00:11:32,860 --> 00:11:37,259
+A potom si teda ukážeme, jak ten model zavolat
+
+186
+00:11:37,840 --> 00:11:39,779
+nebo pustit lokálně.
+
+187
+00:11:40,279 --> 00:11:43,340
+A tady si ukážeme ještě kvantizaci.
+
+188
+00:11:43,519 --> 00:11:47,399
+Neboli když se budeme bavit o fightuningu v příští hodině,
+
+189
+00:11:47,399 --> 00:11:49,700
+tak to je to Q, kv lory.
+
+190
+00:11:50,360 --> 00:11:51,940
+Lora je bez kvantizace.
+
+191
+00:11:52,220 --> 00:11:55,259
+Kvantizaci si ukážeme dneska a vysvětlíme, co to je.
+
+192
+00:11:56,440 --> 00:12:03,080
+Tak zase, když se vrátíme zpátky k Hugging Face jako takovému,
+
+193
+00:12:03,639 --> 00:12:14,440
+tady, kde se mi to odevřelo, to nevadí,
+
+194
+00:12:16,580 --> 00:12:21,159
+tak tady máte, to jsou vlastně ty hlavní záložky, který byste řešili,
+
+195
+00:12:21,159 --> 00:12:25,039
+nebo se kterým asi budete pravděpodobně hrát v případě Hugging Face,
+
+196
+00:12:25,039 --> 00:12:28,440
+jsou tyhle tři. Komunita, to je prostě nějakej
+
+197
+00:12:29,779 --> 00:12:33,120
+channel dokumentaci, asi tam budete taky.
+
+198
+00:12:33,519 --> 00:12:37,580
+Enterprise je teda pro enterprise zákazníky,
+
+199
+00:12:37,919 --> 00:12:41,419
+tam pravděpodobně asi s tím nebudete přicházet v kontaktu,
+
+200
+00:12:41,500 --> 00:12:45,399
+pokud vaše společnost nebude mít zaplacený ten hugging phase
+
+201
+00:12:46,080 --> 00:12:49,779
+a pak pricing ohledně nasazování těch modovů atd.,
+
+202
+00:12:50,440 --> 00:12:54,759
+Takže my začneme datasetem, protože to mi logicky dává větší smysl než modely,
+
+203
+00:12:55,000 --> 00:12:58,200
+nicméně v jejich pojetí je to především o těch modelech,
+
+204
+00:12:58,200 --> 00:13:02,159
+ale datasety jsou tady taky velkou součástí.
+
+205
+00:13:02,700 --> 00:13:07,980
+Takže buď si můžete hledat zase nějaký modely nebo datasety,
+
+206
+00:13:07,980 --> 00:13:11,200
+které poskytují ty velké společnosti,
+
+207
+00:13:12,340 --> 00:13:18,500
+meta, meta tady, meta lama, takže spíš teda asi lama,
+
+208
+00:13:20,279 --> 00:13:23,039
+Tak to tady nic teda nemají.
+
+209
+00:13:23,039 --> 00:13:28,600
+To je zajímavý, já jsem měl pocit, že jsem to i viděl, ale to nevadí.
+
+210
+00:13:29,240 --> 00:13:40,059
+A najdete tady i ten FineWeb od HuggingFace a různý další poměrně zajímavý datasety,
+
+211
+00:13:40,059 --> 00:13:42,440
+které by se vám mohly hodit.
+
+212
+00:13:43,019 --> 00:13:46,080
+V poslední době především ten reasoning.
+
+213
+00:13:46,080 --> 00:13:50,820
+Takže pokud byste chtěli pak ten model doučovat nějaký reasoning,
+
+214
+00:13:50,840 --> 00:13:56,799
+zavádět mu tam nový tokeny k tomu, aby ten reasoning vlastně používal,
+
+215
+00:13:57,019 --> 00:14:00,879
+tak to by byly především ty datasyty, který byste tady hledali.
+
+216
+00:14:01,320 --> 00:14:05,220
+My si tady ukážeme pár takových základních,
+
+217
+00:14:05,580 --> 00:14:07,539
+na kterých si ukážeme, že
+
+218
+00:14:08,580 --> 00:14:13,360
+Vlastně ten dataset je pro vás jenom takový pole hodnot
+
+219
+00:14:13,740 --> 00:14:17,899
+a to, co v tom poli vlastně je, nebo je to tabulka,
+
+220
+00:14:17,899 --> 00:14:22,299
+tak je to pro vás taková tabulka hodnot.
+
+221
+00:14:22,399 --> 00:14:27,000
+To, jak se tu tabulku poskládáte, je vyloženě čistě na vás.
+
+222
+00:14:27,100 --> 00:14:31,639
+To bych chtěl ukázat tadyhle těma pěti skriptama,
+
+223
+00:14:32,519 --> 00:14:37,139
+abyste nečekali, že to má nějaký vyloženě předefinovaný format.
+
+224
+00:14:37,679 --> 00:14:41,100
+Každý si ten dataset formatuje po svým
+
+225
+00:14:41,120 --> 00:14:45,080
+a to je i důležité pro vás, abyste to pochopili.
+
+226
+00:14:46,080 --> 00:14:52,740
+Tady je nějaký detail toho datasetu, takže tenhle dataset byste našli.
+
+227
+00:14:53,000 --> 00:14:58,080
+Tenhle dataset popisuje nějaká instrukce.
+
+228
+00:14:58,419 --> 00:15:01,379
+Tady je uživatel, který přišel s nějakým problémem za doktorem.
+
+229
+00:15:01,600 --> 00:15:04,220
+Je to teda Health Care Chat Doctor.
+
+230
+00:15:04,659 --> 00:15:11,399
+Takže tohle byste používali v případě, že byste chtěli poskytnout nějakého chatbota na vaší stránce, který by radil s health issues.
+
+231
+00:15:12,940 --> 00:15:14,580
+dostáváme se do nějaký právní roviny,
+
+232
+00:15:14,620 --> 00:15:17,019
+takže to asi bych úplně nedoporučoval
+
+233
+00:15:17,159 --> 00:15:18,399
+něco takového dělat,
+
+234
+00:15:18,399 --> 00:15:20,720
+ale pro trénink dat třeba je to dobrý,
+
+235
+00:15:20,740 --> 00:15:22,419
+protože jsou tady nazbírané
+
+236
+00:15:22,440 --> 00:15:24,580
+prostě anonymizované data
+
+237
+00:15:24,820 --> 00:15:26,019
+těch uživatelí.
+
+238
+00:15:26,299 --> 00:15:27,720
+Tady jsem se zbudil ráno,
+
+239
+00:15:28,100 --> 00:15:30,659
+cítím se špatně,
+
+240
+00:15:31,179 --> 00:15:32,740
+celý room se mi točí,
+
+241
+00:15:32,820 --> 00:15:34,039
+tak co s tím mám dělat?
+
+242
+00:15:34,039 --> 00:15:35,759
+A tady je prostě ta odpověď toho,
+
+243
+00:15:36,299 --> 00:15:38,799
+toho doktora. Takže takovýhle typy dat
+
+244
+00:15:38,960 --> 00:15:40,980
+jsou dostupný
+
+245
+00:15:41,080 --> 00:15:42,840
+a jsou vhodný
+
+246
+00:15:43,080 --> 00:15:44,519
+na takové to hraní se s tím
+
+247
+00:15:44,600 --> 00:15:46,879
+fine tuningem, trénování toho modelu,
+
+248
+00:15:47,960 --> 00:15:50,000
+učení ho nových vlastností.
+
+249
+00:15:50,019 --> 00:15:52,179
+Takže to je jeden typ.
+
+250
+00:15:52,440 --> 00:15:54,100
+Důležitý tady je, abyste viděli,
+
+251
+00:15:54,120 --> 00:15:55,500
+že to má vlastně
+
+252
+00:15:55,899 --> 00:15:57,980
+ten dataset nebo ta tabulka
+
+253
+00:15:58,299 --> 00:15:59,740
+má vlastně jenom
+
+254
+00:16:00,120 --> 00:16:01,419
+spíš říkajeme tomu dataset
+
+255
+00:16:01,860 --> 00:16:03,419
+než tabulka, protože
+
+256
+00:16:03,620 --> 00:16:05,799
+v tom datasetu můžete mít těch tabulek
+
+257
+00:16:05,799 --> 00:16:06,399
+vlastně víc.
+
+258
+00:16:07,039 --> 00:16:09,139
+tadyhle to obsahuje jenom jednu tabulku,
+
+259
+00:16:09,139 --> 00:16:10,320
+která se jmenuje train
+
+260
+00:16:10,639 --> 00:16:13,039
+a má 112 tisíc řádků.
+
+261
+00:16:13,279 --> 00:16:15,039
+To je ten, to je základní
+
+262
+00:16:15,139 --> 00:16:16,519
+informace o tom datasetu.
+
+263
+00:16:17,000 --> 00:16:19,200
+A teď v rámci té tabulky
+
+264
+00:16:19,220 --> 00:16:20,940
+máme tady tři sloupce, to je
+
+265
+00:16:20,940 --> 00:16:23,000
+očividný, všechny tři jsou string,
+
+266
+00:16:23,039 --> 00:16:25,159
+to je taky důležité se tak jako podívat
+
+267
+00:16:25,860 --> 00:16:27,580
+a tady pak jsou vidět jako
+
+268
+00:16:27,720 --> 00:16:29,379
+distribuce těch dat, jak
+
+269
+00:16:29,600 --> 00:16:31,440
+dlouhý ty data vlastně jsou.
+
+270
+00:16:31,960 --> 00:16:33,659
+Takže tady máte nějaký distribuční
+
+271
+00:16:34,080 --> 00:16:34,860
+diagram toho
+
+272
+00:16:35,200 --> 00:16:38,600
+jak jednotlivý ty data jsou dlouhý.
+
+273
+00:16:38,879 --> 00:16:40,539
+V tomhle případě, protože je to string,
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

@@ -1,0 +1,2748 @@
+You are a JSON-only merging agent.
+
+Your task is to combine multiple JSON outlines (in a specific format) into a single coherent outline in valid JSON. These outlines were generated from sequential SRT transcript chunks and are in correct chronological order.
+
+Your output must follow **all** of the following rules:
+
+1. **Output valid JSON ONLY. No comments, no markdown, no explanations. No preamble or wrapping. Just JSON.**
+2. All topic **titles must be translated into English**.
+3. **Keep chronological order** based on `start_time`. Never reorder.
+4. Merge similar or overlapping topics where appropriate. For example: merge `"Introduction"` and `"Intro"` into a single topic if timestamps align.
+5. **Each level of hierarchy may contain at most 10 items.**  
+   - If more than 10 items exist at a level, create nested subsections to respect this rule.
+6. Output must match this exact structure:
+```json
+[
+  {
+    "title": "Main Topic",
+    "start_time": "HH:MM:SS",
+    "subsections": [
+      {
+        "title": "Subtopic",
+        "start_time": "HH:MM:SS",
+        "subsections": []
+      }
+    ]
+  }
+]
+
+DO NOT include any other fields than title, start_time, and subsections.
+DO NOT invent or hallucinate content – only reorganize and merge input nodes.
+DO NOT include empty strings, nulls, or explanations in the output.
+
+Partial outlines to merge:
+
+=================
+[
+  [
+    {
+      "title": "Introduction and Setup",
+      "start_time": "00:00:00",
+      "subsections": [
+        {
+          "title": "Screen Sharing Setup",
+          "start_time": "00:00:02",
+          "subsections": []
+        },
+        {
+          "title": "Questions Protocol",
+          "start_time": "00:00:58",
+          "subsections": []
+        },
+        {
+          "title": "Audio/Video Check",
+          "start_time": "00:01:05",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Lecture Overview: Open Source Models",
+      "start_time": "00:02:00",
+      "subsections": [
+        {
+          "title": "Model Architecture & Visualization",
+          "start_time": "00:02:23",
+          "subsections": []
+        },
+        {
+          "title": "Interactive Use Exploration",
+          "start_time": "00:03:14",
+          "subsections": []
+        },
+        {
+          "title": "No Fine-tuning Discussion Today",
+          "start_time": "00:03:20",
+          "subsections": []
+        },
+        {
+          "title": "Dataset Workflow & Hugging Face Usage",
+          "start_time": "00:03:41",
+          "subsections": []
+        },
+        {
+          "title": "Tokenizer Selection & Details",
+          "start_time": "00:03:58",
+          "subsections": []
+        },
+        {
+          "title": "Model Usage Methods Overview",
+          "start_time": "00:04:16",
+          "subsections": []
+        },
+        {
+          "title": "API Usage for Open Source Models",
+          "start_time": "00:04:34",
+          "subsections": []
+        },
+        {
+          "title": "Local Model Download & Execution",
+          "start_time": "00:04:56",
+          "subsections": []
+        },
+        {
+          "title": "Fine-tuning Preparation",
+          "start_time": "00:05:07",
+          "subsections": []
+        },
+        {
+          "title": "Hugging Face Hub Analogy",
+          "start_time": "00:05:39",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Datasets",
+      "start_time": "00:06:09",
+      "subsections": [
+        {
+          "title": "Initial Dataset Workflow",
+          "start_time": "00:06:09",
+          "subsections": [
+            {
+              "title": "Existing Hugging Face Datasets",
+              "start_time": "00:06:14",
+              "subsections": []
+            },
+            {
+              "title": "Downloading & Format",
+              "start_time": "00:06:20",
+              "subsections": []
+            },
+            {
+              "title": "Custom Dataset Creation & Push",
+              "start_time": "00:06:28",
+              "subsections": []
+            },
+            {
+              "title": "Hugging Face Repository Analogy",
+              "start_time": "00:06:35",
+              "subsections": []
+            },
+            {
+              "title": "Benefits of Hugging Face Data Storage",
+              "start_time": "00:06:41",
+              "subsections": []
+            }
+          ]
+        },
+        {
+          "title": "Dataset Exploration in Hub",
+          "start_time": "00:12:55",
+          "subsections": [
+            {
+              "title": "Dataset Listing in UI",
+              "start_time": "00:13:02",
+              "subsections": []
+            },
+            {
+              "title": "Basic Dataset Examples",
+              "start_time": "00:13:58",
+              "subsections": []
+            },
+            {
+              "title": "Example Dataset Details",
+              "start_time": "00:14:27",
+              "subsections": []
+            },
+            {
+              "title": "Training Split Statistics",
+              "start_time": "00:16:00",
+              "subsections": []
+            },
+            {
+              "title": "Field Types & Distribution",
+              "start_time": "00:16:19",
+              "subsections": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Repository Structure Outline",
+      "start_time": "00:11:02",
+      "subsections": [
+        {
+          "title": "Datasets Section",
+          "start_time": "00:11:05",
+          "subsections": []
+        },
+        {
+          "title": "Tokenizers Section",
+          "start_time": "00:11:07",
+          "subsections": []
+        },
+        {
+          "title": "API-based Model Usage Section",
+          "start_time": "00:11:11",
+          "subsections": []
+        },
+        {
+          "title": "Local Model Execution Section",
+          "start_time": "00:11:37",
+          "subsections": []
+        },
+        {
+          "title": "Quantization Overview",
+          "start_time": "00:11:43",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Hugging Face UI Overview",
+      "start_time": "00:12:03",
+      "subsections": [
+        {
+          "title": "Community Tab",
+          "start_time": "00:12:16",
+          "subsections": []
+        },
+        {
+          "title": "Enterprise Tab",
+          "start_time": "00:12:37",
+          "subsections": []
+        },
+        {
+          "title": "Pricing Tab",
+          "start_time": "00:12:46",
+          "subsections": []
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "title": "Dataset structure formats",
+      "start_time": "00:16:41",
+      "subsections": [
+        {
+          "title": "Primitive dataset format",
+          "start_time": "00:16:41",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Loading datasets with Hugging Face Datasets library",
+      "start_time": "00:16:58",
+      "subsections": [
+        {
+          "title": "Load dataset method",
+          "start_time": "00:17:26",
+          "subsections": []
+        },
+        {
+          "title": "Printing dataset overview",
+          "start_time": "00:17:41",
+          "subsections": []
+        },
+        {
+          "title": "Inspecting dataset dictionary",
+          "start_time": "00:17:50",
+          "subsections": []
+        },
+        {
+          "title": "Extracting training subset",
+          "start_time": "00:18:26",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Splitting dataset into train and test",
+      "start_time": "00:19:08",
+      "subsections": [
+        {
+          "title": "Setting test size parameter",
+          "start_time": "00:19:08",
+          "subsections": []
+        },
+        {
+          "title": "Training, validation, and test sets",
+          "start_time": "00:19:11",
+          "subsections": []
+        },
+        {
+          "title": "Resulting split proportions",
+          "start_time": "00:20:29",
+          "subsections": []
+        },
+        {
+          "title": "Previewing split data",
+          "start_time": "00:20:35",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Dataset caching and storage location",
+      "start_time": "00:21:02",
+      "subsections": [
+        {
+          "title": "Data source (local vs Hugging Face)",
+          "start_time": "00:21:02",
+          "subsections": []
+        },
+        {
+          "title": "Installing Datasets library",
+          "start_time": "00:21:18",
+          "subsections": []
+        },
+        {
+          "title": "Cache directory path",
+          "start_time": "00:23:27",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Parquet file format",
+      "start_time": "00:21:30",
+      "subsections": []
+    },
+    {
+      "title": "Previewing dataset rows",
+      "start_time": "00:26:34",
+      "subsections": []
+    },
+    {
+      "title": "Mosaic-Instruct dataset example",
+      "start_time": "00:27:14",
+      "subsections": [
+        {
+          "title": "Prompt-response instruct dataset",
+          "start_time": "00:27:14",
+          "subsections": []
+        },
+        {
+          "title": "Built-in train/test splits",
+          "start_time": "00:27:38",
+          "subsections": []
+        },
+        {
+          "title": "Columnar output format",
+          "start_time": "00:27:44",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Orca synthetic dataset and model",
+      "start_time": "00:29:32",
+      "subsections": [
+        {
+          "title": "Introduction to Orca codename",
+          "start_time": "00:29:32",
+          "subsections": []
+        },
+        {
+          "title": "LLM-generated dataset usage",
+          "start_time": "00:30:46",
+          "subsections": []
+        },
+        {
+          "title": "Mistral Slim Orca model fine-tuning",
+          "start_time": "00:31:27",
+          "subsections": []
+        },
+        {
+          "title": "Successor FI synthetic model",
+          "start_time": "00:32:41",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Open Assistant dataset",
+      "start_time": "00:33:24",
+      "subsections": [
+        {
+          "title": "Assistant and prompter message structure",
+          "start_time": "00:33:40",
+          "subsections": []
+        },
+        {
+          "title": "Multilingual message counts",
+          "start_time": "00:34:07",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Reddit dataset example",
+      "start_time": "00:33:56",
+      "subsections": []
+    }
+  ],
+  [
+    {
+      "title": "Dataset Language and Size Overview",
+      "start_time": "00:34:10",
+      "subsections": [
+        {
+          "title": "Checking for Czech messages",
+          "start_time": "00:34:10",
+          "subsections": []
+        },
+        {
+          "title": "Counting Czech messages",
+          "start_time": "00:34:13",
+          "subsections": []
+        },
+        {
+          "title": "Total dataset row count",
+          "start_time": "00:34:20",
+          "subsections": []
+        },
+        {
+          "title": "Language distribution details",
+          "start_time": "00:34:27",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Dataset Structure and Format Recommendations",
+      "start_time": "00:34:38",
+      "subsections": [
+        {
+          "title": "Dataset fragmentation overview",
+          "start_time": "00:34:38",
+          "subsections": []
+        },
+        {
+          "title": "Training dataset columns",
+          "start_time": "00:34:44",
+          "subsections": []
+        },
+        {
+          "title": "Importance of dataset creation method",
+          "start_time": "00:34:58",
+          "subsections": []
+        },
+        {
+          "title": "Recommendation of general structure",
+          "start_time": "00:35:04",
+          "subsections": []
+        },
+        {
+          "title": "Model-specific format example",
+          "start_time": "00:35:36",
+          "subsections": []
+        },
+        {
+          "title": "Deriving learning roles (QA, I/O)",
+          "start_time": "00:36:10",
+          "subsections": []
+        },
+        {
+          "title": "General dataset system explanation",
+          "start_time": "00:36:23",
+          "subsections": []
+        },
+        {
+          "title": "Potential training tasks with extra columns",
+          "start_time": "00:36:30",
+          "subsections": []
+        },
+        {
+          "title": "Dataset section conclusion",
+          "start_time": "00:36:45",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Rationale for General Dataset Format",
+      "start_time": "00:36:49",
+      "subsections": [
+        {
+          "title": "Model binding to specific datasets",
+          "start_time": "00:36:49",
+          "subsections": []
+        },
+        {
+          "title": "Preparing data for any model",
+          "start_time": "00:37:09",
+          "subsections": []
+        },
+        {
+          "title": "Choosing format for training",
+          "start_time": "00:37:20",
+          "subsections": []
+        },
+        {
+          "title": "Tokenizer format conversion",
+          "start_time": "00:37:29",
+          "subsections": []
+        },
+        {
+          "title": "Multiple model format requirement",
+          "start_time": "00:37:40",
+          "subsections": []
+        },
+        {
+          "title": "Logic of maintaining general format",
+          "start_time": "00:38:04",
+          "subsections": []
+        },
+        {
+          "title": "Using Hugging Face Auto tools",
+          "start_time": "00:38:10",
+          "subsections": []
+        },
+        {
+          "title": "Reason for general format simplicity",
+          "start_time": "00:38:27",
+          "subsections": []
+        },
+        {
+          "title": "Impact of enriching general dataset",
+          "start_time": "00:38:45",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Custom Dataset Creation with LLM",
+      "start_time": "00:39:20",
+      "subsections": [
+        {
+          "title": "Generating lists via LLM",
+          "start_time": "00:39:20",
+          "subsections": []
+        },
+        {
+          "title": "Tool selection demonstration",
+          "start_time": "00:39:36",
+          "subsections": []
+        },
+        {
+          "title": "Repetitive API call loop",
+          "start_time": "00:39:48",
+          "subsections": []
+        },
+        {
+          "title": "Building large synthetic dataset",
+          "start_time": "00:39:57",
+          "subsections": []
+        },
+        {
+          "title": "Targeting 100k examples",
+          "start_time": "00:40:15",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Uploading Datasets to Hugging Face",
+      "start_time": "00:40:24",
+      "subsections": [
+        {
+          "title": "JSON loading difference",
+          "start_time": "00:40:28",
+          "subsections": []
+        },
+        {
+          "title": "Loading dataset from hub",
+          "start_time": "00:40:38",
+          "subsections": []
+        },
+        {
+          "title": "Local dataset loading code",
+          "start_time": "00:40:50",
+          "subsections": []
+        },
+        {
+          "title": "Inserting all.json into data folder",
+          "start_time": "00:41:40",
+          "subsections": []
+        },
+        {
+          "title": "Formatting into dataset structure",
+          "start_time": "00:42:24",
+          "subsections": []
+        },
+        {
+          "title": "Viewing dataset schema",
+          "start_time": "00:42:29",
+          "subsections": []
+        },
+        {
+          "title": "Loaded file as array of objects",
+          "start_time": "00:42:45",
+          "subsections": []
+        },
+        {
+          "title": "Podcast object properties",
+          "start_time": "00:43:10",
+          "subsections": []
+        },
+        {
+          "title": "Text column content field",
+          "start_time": "00:43:34",
+          "subsections": []
+        },
+        {
+          "title": "Pause before tools update",
+          "start_time": "00:43:49",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Dataset Exploration and Length Analysis",
+      "start_time": "00:44:45",
+      "subsections": [
+        {
+          "title": "Using map function on dataset",
+          "start_time": "00:44:45",
+          "subsections": []
+        },
+        {
+          "title": "Extracting text and computing length",
+          "start_time": "00:45:02",
+          "subsections": []
+        },
+        {
+          "title": "Adding Length property",
+          "start_time": "00:45:15",
+          "subsections": []
+        },
+        {
+          "title": "Printing sample length values",
+          "start_time": "00:45:40",
+          "subsections": []
+        },
+        {
+          "title": "Variable conversation lengths",
+          "start_time": "00:45:49",
+          "subsections": []
+        },
+        {
+          "title": "Implications for fine-tuning",
+          "start_time": "00:46:06",
+          "subsections": []
+        },
+        {
+          "title": "Handling inconsistent lengths",
+          "start_time": "00:46:28",
+          "subsections": []
+        },
+        {
+          "title": "Neural network matrix length issue",
+          "start_time": "00:46:34",
+          "subsections": []
+        },
+        {
+          "title": "Truncation strategy",
+          "start_time": "00:46:57",
+          "subsections": []
+        },
+        {
+          "title": "First truncation example",
+          "start_time": "00:46:59",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Data Conversion to Pandas",
+      "start_time": "00:47:23",
+      "subsections": [
+        {
+          "title": "Pandas library introduction",
+          "start_time": "00:47:23",
+          "subsections": []
+        },
+        {
+          "title": "Converting to Pandas DataFrame",
+          "start_time": "00:47:28",
+          "subsections": []
+        },
+        {
+          "title": "Viewing Pandas formatted dataset",
+          "start_time": "00:47:56",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Final Dataset Upload to Hub",
+      "start_time": "00:48:57",
+      "subsections": [
+        {
+          "title": "Pushing local dataset to hub",
+          "start_time": "00:48:57",
+          "subsections": []
+        },
+        {
+          "title": "Using environment variable token",
+          "start_time": "00:49:05",
+          "subsections": []
+        },
+        {
+          "title": "Hugging Face token format",
+          "start_time": "00:49:09",
+          "subsections": []
+        },
+        {
+          "title": "Upload command execution",
+          "start_time": "00:49:27",
+          "subsections": []
+        },
+        {
+          "title": "Creating Arrow format",
+          "start_time": "00:49:35",
+          "subsections": []
+        },
+        {
+          "title": "Verifying dataset on hub",
+          "start_time": "00:49:51",
+          "subsections": []
+        },
+        {
+          "title": "Checking dataset rows",
+          "start_time": "00:49:58",
+          "subsections": []
+        },
+        {
+          "title": "Data representation as list objects",
+          "start_time": "00:50:05",
+          "subsections": []
+        },
+        {
+          "title": "Post-upload observations",
+          "start_time": "00:50:21",
+          "subsections": [
+            {
+              "title": "Format fragmentation note",
+              "start_time": "00:50:21",
+              "subsections": []
+            },
+            {
+              "title": "Preference for object representation",
+              "start_time": "00:50:31",
+              "subsections": []
+            },
+            {
+              "title": "Emphasis on column format",
+              "start_time": "00:50:39",
+              "subsections": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "title": "Length property demonstration",
+      "start_time": "00:50:50",
+      "subsections": [
+        {
+          "title": "String length display",
+          "start_time": "00:50:52",
+          "subsections": []
+        },
+        {
+          "title": "Conversation exchange count",
+          "start_time": "00:51:06",
+          "subsections": []
+        },
+        {
+          "title": "Script execution demo",
+          "start_time": "00:51:10",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Tools and data formats",
+      "start_time": "00:51:17",
+      "subsections": [
+        {
+          "title": "Text vs object array formats (tools.script)",
+          "start_time": "00:51:27",
+          "subsections": []
+        },
+        {
+          "title": "Conversation count by format",
+          "start_time": "00:51:58",
+          "subsections": []
+        },
+        {
+          "title": "Tools New format introduction",
+          "start_time": "00:52:25",
+          "subsections": []
+        },
+        {
+          "title": "Additional tools column",
+          "start_time": "00:52:32",
+          "subsections": []
+        },
+        {
+          "title": "Difference: Tools vs Tools New",
+          "start_time": "00:52:47",
+          "subsections": []
+        },
+        {
+          "title": "Tools format for unsupported models",
+          "start_time": "00:52:52",
+          "subsections": []
+        },
+        {
+          "title": "Tools New API message array",
+          "start_time": "00:53:15",
+          "subsections": []
+        },
+        {
+          "title": "Using eval to parse strings",
+          "start_time": "00:53:49",
+          "subsections": []
+        },
+        {
+          "title": "Dataset supports both formats",
+          "start_time": "00:53:56",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Autogen dataset format",
+      "start_time": "00:57:36",
+      "subsections": [
+        {
+          "title": "Autogen object format",
+          "start_time": "00:57:47",
+          "subsections": []
+        },
+        {
+          "title": "Array of objects structure",
+          "start_time": "00:57:59",
+          "subsections": []
+        },
+        {
+          "title": "Autogen length demonstration",
+          "start_time": "00:58:08",
+          "subsections": []
+        },
+        {
+          "title": "Consistency with Tools format",
+          "start_time": "00:58:15",
+          "subsections": []
+        },
+        {
+          "title": "Datasets loaded for processing",
+          "start_time": "00:58:21",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Tokenizer introduction",
+      "start_time": "00:58:49",
+      "subsections": [
+        {
+          "title": "Tokenizer concept",
+          "start_time": "00:58:49",
+          "subsections": []
+        },
+        {
+          "title": "CSV output for multiple models",
+          "start_time": "00:59:01",
+          "subsections": []
+        },
+        {
+          "title": "GPT-2 token CSV demonstration",
+          "start_time": "00:59:35",
+          "subsections": []
+        },
+        {
+          "title": "Online tokenizer visualization tool",
+          "start_time": "01:00:06",
+          "subsections": []
+        },
+        {
+          "title": "Token search and ID mapping",
+          "start_time": "01:00:46",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Retrieving tokenizers",
+      "start_time": "01:02:01",
+      "subsections": [
+        {
+          "title": "Obtaining tokenizers online",
+          "start_time": "01:02:01",
+          "subsections": []
+        },
+        {
+          "title": "Code demonstration introduction",
+          "start_time": "01:02:14",
+          "subsections": []
+        },
+        {
+          "title": "Tokenizer difference: Instruct vs non-Instruct",
+          "start_time": "01:02:25",
+          "subsections": []
+        },
+        {
+          "title": "Tool tokens in non-Instruct tokenizer",
+          "start_time": "01:02:38",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "AutoTokenizer class",
+      "start_time": "01:03:06",
+      "subsections": [
+        {
+          "title": "Transformers library importance",
+          "start_time": "01:03:16",
+          "subsections": []
+        },
+        {
+          "title": "Datasets and Transformers libraries",
+          "start_time": "01:03:26",
+          "subsections": []
+        },
+        {
+          "title": "AutoTokenizer purpose",
+          "start_time": "01:03:34",
+          "subsections": []
+        },
+        {
+          "title": "AutoTokenizer code demonstration",
+          "start_time": "01:03:50",
+          "subsections": []
+        },
+        {
+          "title": "Autoclasses vs specific implementations",
+          "start_time": "01:04:39",
+          "subsections": []
+        },
+        {
+          "title": "Model-specific tokenizer concept",
+          "start_time": "01:05:03",
+          "subsections": []
+        },
+        {
+          "title": "Tokenizer pre-training process",
+          "start_time": "01:05:13",
+          "subsections": []
+        },
+        {
+          "title": "AutoTokenizer usage rationale",
+          "start_time": "01:05:31",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Tokenizer properties and configuration",
+      "start_time": "01:05:47",
+      "subsections": [
+        {
+          "title": "Print tokenizer object",
+          "start_time": "01:05:47",
+          "subsections": []
+        },
+        {
+          "title": "Vocabulary size and context window",
+          "start_time": "01:06:13",
+          "subsections": []
+        },
+        {
+          "title": "Model max length and isFast flag",
+          "start_time": "01:06:21",
+          "subsections": []
+        },
+        {
+          "title": "Padding size and matrix creation",
+          "start_time": "01:06:30",
+          "subsections": []
+        },
+        {
+          "title": "Primitive vs dynamic padding",
+          "start_time": "01:06:38",
+          "subsections": []
+        },
+        {
+          "title": "Right padding option",
+          "start_time": "01:07:03",
+          "subsections": []
+        },
+        {
+          "title": "Left padding preference",
+          "start_time": "01:07:17",
+          "subsections": []
+        },
+        {
+          "title": "Truncation option",
+          "start_time": "01:07:44",
+          "subsections": []
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "title": "Truncation and Token Overview",
+      "start_time": "01:07:50",
+      "subsections": [
+        {
+          "title": "Truncation Site",
+          "start_time": "01:07:51",
+          "subsections": []
+        },
+        {
+          "title": "Token List Overview",
+          "start_time": "01:07:58",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Special Tokens",
+      "start_time": "01:08:01",
+      "subsections": [
+        {
+          "title": "BOS Token (Beginning of String)",
+          "start_time": "01:08:04",
+          "subsections": []
+        },
+        {
+          "title": "EOS Token (End of String)",
+          "start_time": "01:08:10",
+          "subsections": []
+        },
+        {
+          "title": "Unknown Token",
+          "start_time": "01:08:17",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Vocabulary Size and Context Length",
+      "start_time": "01:08:49",
+      "subsections": [
+        {
+          "title": "GetVocab Context Length",
+          "start_time": "01:08:49",
+          "subsections": []
+        },
+        {
+          "title": "Vocabulary Count (32767 tokens)",
+          "start_time": "01:08:57",
+          "subsections": []
+        },
+        {
+          "title": "Context Length Definition",
+          "start_time": "01:09:08",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Model Context Window Comparison",
+      "start_time": "01:09:17",
+      "subsections": [
+        {
+          "title": "Mistral v0.3 Context Length (4096 tokens)",
+          "start_time": "01:10:04",
+          "subsections": []
+        },
+        {
+          "title": "Mistral Extended Context (32K tokens)",
+          "start_time": "01:10:23",
+          "subsections": []
+        },
+        {
+          "title": "Mistral 7b Context Window (32K tokens)",
+          "start_time": "01:11:16",
+          "subsections": []
+        },
+        {
+          "title": "OpenAI Context Window (1M tokens)",
+          "start_time": "01:11:30",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Context Length Usage per Call",
+      "start_time": "01:10:52",
+      "subsections": [
+        {
+          "title": "Input Token Limit per Request",
+          "start_time": "01:10:58",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Prompt Engineering and History Management",
+      "start_time": "01:11:44",
+      "subsections": [
+        {
+          "title": "Token as Subword or Word",
+          "start_time": "01:11:44",
+          "subsections": []
+        },
+        {
+          "title": "Maximum Output Tokens",
+          "start_time": "01:11:58",
+          "subsections": []
+        },
+        {
+          "title": "Chat History Trimming",
+          "start_time": "01:12:09",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Tokenizer Mapping and Parameter Equality",
+      "start_time": "01:13:03",
+      "subsections": [
+        {
+          "title": "Tokenizer as Token-ID Map",
+          "start_time": "01:13:05",
+          "subsections": []
+        },
+        {
+          "title": "Equality of Token and ID Counts",
+          "start_time": "01:13:20",
+          "subsections": []
+        },
+        {
+          "title": "Information Capacity Explanation",
+          "start_time": "01:13:35",
+          "subsections": []
+        },
+        {
+          "title": "Model Parameter Count vs Context Length",
+          "start_time": "01:14:25",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Token to Embedding Conversion",
+      "start_time": "01:15:39",
+      "subsections": [
+        {
+          "title": "Input Embedding Generation",
+          "start_time": "01:15:39",
+          "subsections": []
+        },
+        {
+          "title": "Embedding to 4096-D Vector",
+          "start_time": "01:15:51",
+          "subsections": []
+        },
+        {
+          "title": "Vector Input to Neural Network",
+          "start_time": "01:16:00",
+          "subsections": []
+        },
+        {
+          "title": "Output Embedding (LMH)",
+          "start_time": "01:16:23",
+          "subsections": []
+        },
+        {
+          "title": "Vector to Token Conversion",
+          "start_time": "01:16:38",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Tokenizer Demonstration and Data Extraction",
+      "start_time": "01:17:40",
+      "subsections": [
+        {
+          "title": "Tokenizer Example in Terminal",
+          "start_time": "01:17:40",
+          "subsections": []
+        },
+        {
+          "title": "Vocabulary Size from Tokenizer",
+          "start_time": "01:17:59",
+          "subsections": []
+        },
+        {
+          "title": "Pandas DataFrame Creation",
+          "start_time": "01:18:03",
+          "subsections": []
+        },
+        {
+          "title": "Saving Token Data to CSV",
+          "start_time": "01:18:10",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Chat Template and Message Formatting",
+      "start_time": "01:18:42",
+      "subsections": [
+        {
+          "title": "Jinja Chat Template Property",
+          "start_time": "01:18:42",
+          "subsections": []
+        },
+        {
+          "title": "System Role Message Extraction",
+          "start_time": "01:19:03",
+          "subsections": []
+        },
+        {
+          "title": "Object-to-String Conversion",
+          "start_time": "01:19:26",
+          "subsections": []
+        },
+        {
+          "title": "Important Special Tokens",
+          "start_time": "01:21:06",
+          "subsections": []
+        },
+        {
+          "title": "Chat Conversation Example",
+          "start_time": "01:22:00",
+          "subsections": []
+        },
+        {
+          "title": "ApplyChatTemplate Method",
+          "start_time": "01:23:04",
+          "subsections": []
+        },
+        {
+          "title": "Template Tool Support Requirement",
+          "start_time": "01:23:17",
+          "subsections": []
+        },
+        {
+          "title": "System Message Formatting",
+          "start_time": "01:24:24",
+          "subsections": []
+        },
+        {
+          "title": "Closing Questions",
+          "start_time": "01:24:36",
+          "subsections": []
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "title": "Extending Models with Tool Use",
+      "start_time": "01:24:41",
+      "subsections": [
+        {
+          "title": "Enriching the Tokenizer",
+          "start_time": "01:25:02",
+          "subsections": []
+        },
+        {
+          "title": "Enriching the Chat Template",
+          "start_time": "01:25:12",
+          "subsections": []
+        },
+        {
+          "title": "Retraining Base Model",
+          "start_time": "01:25:16",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Managing Tokens in Pretrained Models",
+      "start_time": "01:25:59",
+      "subsections": [
+        {
+          "title": "Risks of Altering Tokens",
+          "start_time": "01:26:07",
+          "subsections": []
+        },
+        {
+          "title": "Adding New Tokens",
+          "start_time": "01:26:17",
+          "subsections": []
+        },
+        {
+          "title": "Reserved Token Space",
+          "start_time": "01:26:19",
+          "subsections": []
+        },
+        {
+          "title": "Importance of Native Tags",
+          "start_time": "01:26:28",
+          "subsections": []
+        },
+        {
+          "title": "Prefer Data Augmentation",
+          "start_time": "01:26:51",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Practical Tool Integration with Jinja",
+      "start_time": "01:27:03",
+      "subsections": [
+        {
+          "title": "Olamo Tooling Example",
+          "start_time": "01:27:03",
+          "subsections": []
+        },
+        {
+          "title": "Tokenizer Token Requirement",
+          "start_time": "01:27:19",
+          "subsections": []
+        },
+        {
+          "title": "Demonstration Plan",
+          "start_time": "01:27:38",
+          "subsections": []
+        },
+        {
+          "title": "Updating Jinja Template",
+          "start_time": "01:27:46",
+          "subsections": []
+        },
+        {
+          "title": "Using Apply Chat Template",
+          "start_time": "01:27:58",
+          "subsections": []
+        },
+        {
+          "title": "String vs Token IDs Mode",
+          "start_time": "01:28:04",
+          "subsections": []
+        },
+        {
+          "title": "Mapping Token IDs",
+          "start_time": "01:28:20",
+          "subsections": []
+        },
+        {
+          "title": "Manual Token Translation",
+          "start_time": "01:28:55",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Handling Missing Tools in Chat Template",
+      "start_time": "01:29:06",
+      "subsections": [
+        {
+          "title": "Identifying Omitted Tools",
+          "start_time": "01:29:06",
+          "subsections": []
+        },
+        {
+          "title": "Fixing Chat Template Definition",
+          "start_time": "01:29:19",
+          "subsections": []
+        },
+        {
+          "title": "Observing Added Tools",
+          "start_time": "01:30:03",
+          "subsections": []
+        },
+        {
+          "title": "Ignoring Undefined Sections",
+          "start_time": "01:30:18",
+          "subsections": []
+        },
+        {
+          "title": "Reinstating Tools Field",
+          "start_time": "01:30:44",
+          "subsections": []
+        },
+        {
+          "title": "Decoding Tokens",
+          "start_time": "01:30:52",
+          "subsections": []
+        },
+        {
+          "title": "Avoiding Tool Hallucinations",
+          "start_time": "01:32:00",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Tokens and Neurons",
+      "start_time": "01:32:21",
+      "subsections": [
+        {
+          "title": "Vocabulary and Input Neurons",
+          "start_time": "01:32:33",
+          "subsections": [
+            {
+              "title": "Token Count Equals Input Neurons",
+              "start_time": "01:32:33",
+              "subsections": []
+            },
+            {
+              "title": "Embedding as First Layer",
+              "start_time": "01:33:11",
+              "subsections": []
+            },
+            {
+              "title": "Fixed Vocabulary Limits",
+              "start_time": "01:33:19",
+              "subsections": []
+            }
+          ]
+        },
+        {
+          "title": "Model Layers and Dimensions",
+          "start_time": "01:34:45",
+          "subsections": [
+            {
+              "title": "Embedding Input/Output Size",
+              "start_time": "01:34:51",
+              "subsections": []
+            },
+            {
+              "title": "Decoder IN/OUT Sizes",
+              "start_time": "01:35:06",
+              "subsections": []
+            },
+            {
+              "title": "Perceptron Analogy",
+              "start_time": "01:35:17",
+              "subsections": []
+            },
+            {
+              "title": "Token-Based Input Size",
+              "start_time": "01:35:43",
+              "subsections": []
+            },
+            {
+              "title": "Hidden Neurons Count",
+              "start_time": "01:35:52",
+              "subsections": []
+            }
+          ]
+        },
+        {
+          "title": "Multilingual Embedding Similarity",
+          "start_time": "01:36:06",
+          "subsections": [
+            {
+              "title": "Embedding as Vector Representation",
+              "start_time": "01:36:09",
+              "subsections": []
+            },
+            {
+              "title": "Embedding Vector Dimension",
+              "start_time": "01:36:23",
+              "subsections": []
+            },
+            {
+              "title": "Language-Agnostic Proximity",
+              "start_time": "01:36:41",
+              "subsections": []
+            },
+            {
+              "title": "Syntax Structure Learning",
+              "start_time": "01:37:35",
+              "subsections": []
+            },
+            {
+              "title": "Cross-Lingual Adaptation",
+              "start_time": "01:37:50",
+              "subsections": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Model Interaction and Environment Setup",
+      "start_time": "01:38:44",
+      "subsections": [
+        {
+          "title": "Working with Local and API Models",
+          "start_time": "01:38:49",
+          "subsections": []
+        },
+        {
+          "title": "Jupyter Setup in UV Environment",
+          "start_time": "01:39:27",
+          "subsections": [
+            {
+              "title": "Initializing UV Environment",
+              "start_time": "01:39:58",
+              "subsections": []
+            },
+            {
+              "title": "Adding Dependencies",
+              "start_time": "01:40:14",
+              "subsections": []
+            },
+            {
+              "title": "Launching Jupyter",
+              "start_time": "01:40:41",
+              "subsections": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "title": "Jupyter Server Integration",
+      "start_time": "01:40:50",
+      "subsections": [
+        {
+          "title": "Deploy Jupyter Server Commands",
+          "start_time": "01:40:54",
+          "subsections": []
+        },
+        {
+          "title": "Connect to Existing Jupyter Server",
+          "start_time": "01:41:14",
+          "subsections": []
+        },
+        {
+          "title": "Enter Token and Select Kernel",
+          "start_time": "01:41:25",
+          "subsections": []
+        },
+        {
+          "title": "Launch Local Notebook",
+          "start_time": "01:41:39",
+          "subsections": []
+        },
+        {
+          "title": "Notebook vs Script Preference",
+          "start_time": "01:41:45",
+          "subsections": []
+        },
+        {
+          "title": "Notebook Output Retention",
+          "start_time": "01:42:05",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Preparing Model Script",
+      "start_time": "01:42:56",
+      "subsections": [
+        {
+          "title": "Install Libraries and Add API Key",
+          "start_time": "01:42:56",
+          "subsections": []
+        },
+        {
+          "title": "Demonstrate Auto Tokenizer",
+          "start_time": "01:43:05",
+          "subsections": []
+        },
+        {
+          "title": "Demonstrate Auto Causal LM Model",
+          "start_time": "01:43:11",
+          "subsections": []
+        },
+        {
+          "title": "Load Model with from_pretrained",
+          "start_time": "01:43:40",
+          "subsections": []
+        },
+        {
+          "title": "Inspect Raw Model Architecture",
+          "start_time": "01:43:51",
+          "subsections": []
+        },
+        {
+          "title": "Log Model Information",
+          "start_time": "01:44:08",
+          "subsections": [
+            {
+              "title": "Log Class Type",
+              "start_time": "01:44:14",
+              "subsections": []
+            },
+            {
+              "title": "Log Model Configuration",
+              "start_time": "01:44:21",
+              "subsections": []
+            },
+            {
+              "title": "Log VRAM Size",
+              "start_time": "01:44:45",
+              "subsections": []
+            },
+            {
+              "title": "Log Disk Cache Location",
+              "start_time": "01:45:11",
+              "subsections": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Running Model and Monitoring VRAM",
+      "start_time": "01:45:24",
+      "subsections": [
+        {
+          "title": "Download and Log Model Data",
+          "start_time": "01:45:26",
+          "subsections": []
+        },
+        {
+          "title": "Show Scripts for Other Models",
+          "start_time": "01:45:51",
+          "subsections": []
+        },
+        {
+          "title": "GPU VRAM Limitation on 16GB Card",
+          "start_time": "01:45:56",
+          "subsections": []
+        },
+        {
+          "title": "Determine VRAM Requirement (~30GB)",
+          "start_time": "01:46:13",
+          "subsections": []
+        },
+        {
+          "title": "Load Charts and Memory Graphs",
+          "start_time": "01:46:25",
+          "subsections": []
+        },
+        {
+          "title": "Monitor Memory Usage Details",
+          "start_time": "01:46:40",
+          "subsections": []
+        },
+        {
+          "title": "View Architecture Output Log",
+          "start_time": "01:47:04",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Inspecting Model Implementation",
+      "start_time": "01:47:18",
+      "subsections": [
+        {
+          "title": "Copy Call Snippet and Analyze",
+          "start_time": "01:47:18",
+          "subsections": []
+        },
+        {
+          "title": "Analyze Memory Footprint",
+          "start_time": "01:47:22",
+          "subsections": []
+        },
+        {
+          "title": "Retrieve Transformer Subclass Instance",
+          "start_time": "01:48:06",
+          "subsections": []
+        },
+        {
+          "title": "Compare Auto vs Manual Classes",
+          "start_time": "01:48:25",
+          "subsections": []
+        },
+        {
+          "title": "Inspect Model Internals Values",
+          "start_time": "01:48:41",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Transformer Architecture Overview",
+      "start_time": "01:48:57",
+      "subsections": [
+        {
+          "title": "Encoder and Decoder Overview",
+          "start_time": "01:50:04",
+          "subsections": []
+        },
+        {
+          "title": "Mapping Slide Architecture",
+          "start_time": "01:50:10",
+          "subsections": []
+        },
+        {
+          "title": "Decoder Layer Attention Mechanisms",
+          "start_time": "01:50:47",
+          "subsections": []
+        },
+        {
+          "title": "Multihead Attention Component",
+          "start_time": "01:50:54",
+          "subsections": []
+        },
+        {
+          "title": "Feedforward MLP Component",
+          "start_time": "01:50:58",
+          "subsections": []
+        },
+        {
+          "title": "Activation Functions",
+          "start_time": "01:51:25",
+          "subsections": []
+        },
+        {
+          "title": "Token Generation Pipeline",
+          "start_time": "01:51:51",
+          "subsections": []
+        },
+        {
+          "title": "Explore Layers via CGPT",
+          "start_time": "01:52:00",
+          "subsections": []
+        },
+        {
+          "title": "Upcoming Fine-Tuning Discussion",
+          "start_time": "01:52:07",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Layer Ordering Q&A",
+      "start_time": "01:52:15",
+      "subsections": [
+        {
+          "title": "Question on Layer Ordering",
+          "start_time": "01:52:20",
+          "subsections": []
+        },
+        {
+          "title": "Answer: Decoder Layer Structure",
+          "start_time": "01:52:57",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Recommended Learning Resources",
+      "start_time": "01:53:20",
+      "subsections": [
+        {
+          "title": "Video: How LLM Works (3Blue1Brown)",
+          "start_time": "01:53:50",
+          "subsections": []
+        },
+        {
+          "title": "Lecture by Andrej Karpathy",
+          "start_time": "01:55:37",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Model Configuration Exploration",
+      "start_time": "01:56:13",
+      "subsections": [
+        {
+          "title": "JSON Config for Model Parameters",
+          "start_time": "01:56:13",
+          "subsections": []
+        },
+        {
+          "title": "Architecture Parameters in Config",
+          "start_time": "01:56:18",
+          "subsections": []
+        },
+        {
+          "title": "BOS Token ID",
+          "start_time": "01:56:55",
+          "subsections": []
+        },
+        {
+          "title": "Hidden Size and Neuron Count",
+          "start_time": "01:57:01",
+          "subsections": []
+        },
+        {
+          "title": "Config Similarity to Simple Neural Nets",
+          "start_time": "01:57:15",
+          "subsections": []
+        },
+        {
+          "title": "Attention Heads and Hidden Layers Count",
+          "start_time": "01:57:29",
+          "subsections": []
+        },
+        {
+          "title": "Transformer Version and Precision",
+          "start_time": "01:57:39",
+          "subsections": []
+        },
+        {
+          "title": "Weight Capacity (WCAP) Size",
+          "start_time": "01:57:45",
+          "subsections": []
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "title": "Environment Setup",
+      "start_time": "01:57:52",
+      "subsections": [
+        {
+          "title": "Context Length and Memory Footprint",
+          "start_time": "01:57:52",
+          "subsections": []
+        },
+        {
+          "title": "Gigabyte Conversion",
+          "start_time": "01:57:59",
+          "subsections": []
+        },
+        {
+          "title": "Jupyter Session Management",
+          "start_time": "01:58:12",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Library Installation and Model Initialization",
+      "start_time": "01:59:23",
+      "subsections": [
+        {
+          "title": "Install Packages",
+          "start_time": "01:59:23",
+          "subsections": []
+        },
+        {
+          "title": "Identify Graphics Card",
+          "start_time": "02:00:00",
+          "subsections": []
+        },
+        {
+          "title": "Initialize AutoModel for Causal LM",
+          "start_time": "02:00:11",
+          "subsections": []
+        },
+        {
+          "title": "Specify 32-bit Loading",
+          "start_time": "02:00:17",
+          "subsections": []
+        },
+        {
+          "title": "Create Tokenizer Instance",
+          "start_time": "02:00:27",
+          "subsections": []
+        },
+        {
+          "title": "Commented Code for Fine Tuning",
+          "start_time": "02:00:47",
+          "subsections": []
+        },
+        {
+          "title": "Auto-Class Selection",
+          "start_time": "02:00:54",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Logging Model and Tokenizer Metadata",
+      "start_time": "02:01:14",
+      "subsections": [
+        {
+          "title": "Log Basic Information",
+          "start_time": "02:01:14",
+          "subsections": []
+        },
+        {
+          "title": "Confirm Cache Status",
+          "start_time": "02:01:41",
+          "subsections": []
+        },
+        {
+          "title": "Review Architecture and Configuration",
+          "start_time": "02:01:53",
+          "subsections": []
+        },
+        {
+          "title": "Display Vocabulary and Embeddings",
+          "start_time": "02:02:03",
+          "subsections": []
+        },
+        {
+          "title": "Display Tokenizer Details",
+          "start_time": "02:02:37",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Model Execution and Testing Approaches",
+      "start_time": "02:02:58",
+      "subsections": [
+        {
+          "title": "Outline Testing Approaches",
+          "start_time": "02:02:58",
+          "subsections": []
+        },
+        {
+          "title": "Pipeline Generation Method",
+          "start_time": "02:03:02",
+          "subsections": []
+        },
+        {
+          "title": "Pipeline Limitations",
+          "start_time": "02:03:25",
+          "subsections": []
+        },
+        {
+          "title": "Preferred Low-Level Approach",
+          "start_time": "02:03:27",
+          "subsections": []
+        },
+        {
+          "title": "Use Conversation Objects",
+          "start_time": "02:03:46",
+          "subsections": []
+        },
+        {
+          "title": "Tokenization and Generation",
+          "start_time": "02:04:06",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Execution Observations and Hardware Metrics",
+      "start_time": "02:04:42",
+      "subsections": [
+        {
+          "title": "Expected Execution Duration",
+          "start_time": "02:04:42",
+          "subsections": []
+        },
+        {
+          "title": "CUDA and GPU Utilization",
+          "start_time": "02:04:55",
+          "subsections": []
+        },
+        {
+          "title": "Frame Stability",
+          "start_time": "02:05:06",
+          "subsections": []
+        },
+        {
+          "title": "Anticipation of No Output",
+          "start_time": "02:05:18",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Precision Variants Testing",
+      "start_time": "02:06:32",
+      "subsections": [
+        {
+          "title": "16-bit Precision Initialization",
+          "start_time": "02:06:32",
+          "subsections": []
+        },
+        {
+          "title": "Data Type Configuration",
+          "start_time": "02:06:39",
+          "subsections": []
+        },
+        {
+          "title": "GPU-Specific Data Types",
+          "start_time": "02:06:50",
+          "subsections": []
+        },
+        {
+          "title": "Handling Unsupported Types",
+          "start_time": "02:07:18",
+          "subsections": []
+        },
+        {
+          "title": "16-bit Execution Outcome",
+          "start_time": "02:07:47",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Model Quantization and Bit-Precision Discussion",
+      "start_time": "02:08:06",
+      "subsections": [
+        {
+          "title": "Bits and Bytes Library Introduction",
+          "start_time": "02:08:06",
+          "subsections": []
+        },
+        {
+          "title": "Quantization Config Parameter",
+          "start_time": "02:08:27",
+          "subsections": []
+        },
+        {
+          "title": "Low Bit-Precision Loading (4-bit and 8-bit)",
+          "start_time": "02:08:32",
+          "subsections": []
+        },
+        {
+          "title": "One-Bit Quantization Research",
+          "start_time": "02:08:49",
+          "subsections": []
+        },
+        {
+          "title": "Precision vs Device Constraints",
+          "start_time": "02:09:07",
+          "subsections": []
+        },
+        {
+          "title": "Create Quantization Config",
+          "start_time": "02:09:50",
+          "subsections": []
+        },
+        {
+          "title": "Double Quantization and Data Types",
+          "start_time": "02:09:56",
+          "subsections": []
+        },
+        {
+          "title": "Compute Data Type Configuration",
+          "start_time": "02:10:05",
+          "subsections": []
+        },
+        {
+          "title": "Q&A on Half-Byte Addressing",
+          "start_time": "02:10:21",
+          "subsections": []
+        },
+        {
+          "title": "GPU Data Type Representation",
+          "start_time": "02:12:07",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Quantized Model Execution and Performance",
+      "start_time": "02:12:58",
+      "subsections": [
+        {
+          "title": "Log Quantization and Pipeline Invocation",
+          "start_time": "02:12:58",
+          "subsections": []
+        },
+        {
+          "title": "Raw Generation and Decoding",
+          "start_time": "02:13:05",
+          "subsections": []
+        },
+        {
+          "title": "Observation of Slow Execution",
+          "start_time": "02:13:19",
+          "subsections": []
+        },
+        {
+          "title": "Stop Execution",
+          "start_time": "02:13:25",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Switching Model Instance",
+      "start_time": "02:13:26",
+      "subsections": [
+        {
+          "title": "Reconnect to Jupyter Server",
+          "start_time": "02:13:26",
+          "subsections": []
+        },
+        {
+          "title": "Install Libraries and Invoke Mistral 32-bit",
+          "start_time": "02:13:41",
+          "subsections": []
+        },
+        {
+          "title": "GPU Memory Status Observation",
+          "start_time": "02:13:54",
+          "subsections": []
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "title": "Quantization and Inference Performance",
+      "start_time": "02:13:59",
+      "subsections": [
+        {
+          "title": "Shared Memory Drop Observation",
+          "start_time": "02:13:59",
+          "subsections": []
+        },
+        {
+          "title": "Creating Quantized Model",
+          "start_time": "02:14:10",
+          "subsections": []
+        },
+        {
+          "title": "Inspecting Log Output",
+          "start_time": "02:14:21",
+          "subsections": []
+        },
+        {
+          "title": "Running Inference Pipeline",
+          "start_time": "02:15:00",
+          "subsections": []
+        },
+        {
+          "title": "Measuring Performance and Result Format",
+          "start_time": "02:15:13",
+          "subsections": []
+        },
+        {
+          "title": "Explaining Token Generation Process",
+          "start_time": "02:15:36",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Model Hallucinations Due to Lack of Fine-Tuning",
+      "start_time": "02:16:12",
+      "subsections": [
+        {
+          "title": "Examples of Hallucinations",
+          "start_time": "02:16:18",
+          "subsections": []
+        },
+        {
+          "title": "Plan to Fix the Model",
+          "start_time": "02:16:29",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Saving and Loading Quantized Model",
+      "start_time": "02:16:46",
+      "subsections": [
+        {
+          "title": "Saving Open-Weight Model Locally",
+          "start_time": "02:16:46",
+          "subsections": []
+        },
+        {
+          "title": "Saving to Disk",
+          "start_time": "02:17:25",
+          "subsections": []
+        },
+        {
+          "title": "Examining File Structure and Size Reduction",
+          "start_time": "02:18:43",
+          "subsections": []
+        },
+        {
+          "title": "Pushing to Hugging Face Hub",
+          "start_time": "02:19:02",
+          "subsections": []
+        },
+        {
+          "title": "Loading Model from Hub or Local Path",
+          "start_time": "02:20:46",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Hugging Face Hub Pricing and Storage",
+      "start_time": "02:21:41",
+      "subsections": [
+        {
+          "title": "Data Upload Fees",
+          "start_time": "02:21:41",
+          "subsections": []
+        },
+        {
+          "title": "Storage Costs and Deduplication",
+          "start_time": "02:22:19",
+          "subsections": []
+        },
+        {
+          "title": "Private and Enterprise Pricing Plans",
+          "start_time": "02:22:57",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Upcoming Fine-Tuning and Deployment",
+      "start_time": "02:23:55",
+      "subsections": [
+        {
+          "title": "RunPod Deployment and API Demo Preview",
+          "start_time": "02:23:55",
+          "subsections": []
+        },
+        {
+          "title": "Fine-Tuning Hyperparameters and Neuron Training Preview",
+          "start_time": "02:24:41",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Remote Inference without Local Download",
+      "start_time": "02:24:24",
+      "subsections": [
+        {
+          "title": "Cloud Inference Services Comparison",
+          "start_time": "02:25:26",
+          "subsections": []
+        },
+        {
+          "title": "Historical Manual Deployment Context",
+          "start_time": "02:25:47",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Legal and Business Aspects of Model Hosting",
+      "start_time": "02:26:49",
+      "subsections": [
+        {
+          "title": "Legal Considerations for Model Upload",
+          "start_time": "02:26:49",
+          "subsections": []
+        },
+        {
+          "title": "Investor Motivations and Business Model",
+          "start_time": "02:26:55",
+          "subsections": []
+        },
+        {
+          "title": "Community Benchmarking and Value Extraction",
+          "start_time": "02:28:01",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Conclusion and Closing Remarks",
+      "start_time": "02:28:11",
+      "subsections": []
+    }
+  ],
+  [
+    {
+      "title": "Closing Remarks and Setup",
+      "start_time": "02:28:16",
+      "subsections": [
+        {
+          "title": "Audience Dismissal",
+          "start_time": "02:28:19",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Inference Providers Overview",
+      "start_time": "02:28:26",
+      "subsections": [
+        {
+          "title": "Provider Growth",
+          "start_time": "02:28:48",
+          "subsections": []
+        },
+        {
+          "title": "Hugging Face Deployment",
+          "start_time": "02:28:52",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Inference Invocation Methods",
+      "start_time": "02:29:18",
+      "subsections": [
+        {
+          "title": "Python Clients",
+          "start_time": "02:29:18",
+          "subsections": []
+        },
+        {
+          "title": "OpenAI Compatible APIs",
+          "start_time": "02:29:31",
+          "subsections": []
+        },
+        {
+          "title": "JavaScript and cURL",
+          "start_time": "02:30:06",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Code Implementation Example",
+      "start_time": "02:30:09",
+      "subsections": [
+        {
+          "title": "Hub and Inference Client",
+          "start_time": "02:30:13",
+          "subsections": []
+        },
+        {
+          "title": "HTTP Endpoints",
+          "start_time": "02:30:31",
+          "subsections": []
+        },
+        {
+          "title": "OpenAI Library Method",
+          "start_time": "02:30:39",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Additional Features",
+      "start_time": "02:30:52",
+      "subsections": [
+        {
+          "title": "Multimodal Inference",
+          "start_time": "02:30:56",
+          "subsections": []
+        },
+        {
+          "title": "Chat History Maintenance",
+          "start_time": "02:31:12",
+          "subsections": []
+        },
+        {
+          "title": "Tools Integration",
+          "start_time": "02:31:27",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Summary and Key Takeaways",
+      "start_time": "02:32:31",
+      "subsections": [
+        {
+          "title": "Dataset Handling",
+          "start_time": "02:32:31",
+          "subsections": []
+        },
+        {
+          "title": "Tokenizer Usage",
+          "start_time": "02:32:31",
+          "subsections": []
+        },
+        {
+          "title": "Model Interaction",
+          "start_time": "02:32:31",
+          "subsections": []
+        },
+        {
+          "title": "Architecture and Config",
+          "start_time": "02:32:38",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Q&A Session",
+      "start_time": "02:33:31",
+      "subsections": [
+        {
+          "title": "Token Usage in Lessons",
+          "start_time": "02:33:38",
+          "subsections": []
+        },
+        {
+          "title": "Dataset Hosting Rationale",
+          "start_time": "02:34:02",
+          "subsections": []
+        },
+        {
+          "title": "Tokenizer Vocabulary Details",
+          "start_time": "02:34:40",
+          "subsections": []
+        },
+        {
+          "title": "Tokenization Examples",
+          "start_time": "02:35:07",
+          "subsections": []
+        },
+        {
+          "title": "Reddit Anecdote",
+          "start_time": "02:36:08",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Model Mechanisms Explanation",
+      "start_time": "02:37:14",
+      "subsections": [
+        {
+          "title": "Probability and Statistics",
+          "start_time": "02:37:14",
+          "subsections": []
+        },
+        {
+          "title": "Backpropagation Algorithms",
+          "start_time": "02:38:25",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "AI Safety and Ethical Discussion",
+      "start_time": "02:38:06",
+      "subsections": [
+        {
+          "title": "Hysteria vs Understanding",
+          "start_time": "02:38:06",
+          "subsections": []
+        },
+        {
+          "title": "Debugging Limitations",
+          "start_time": "02:38:13",
+          "subsections": []
+        },
+        {
+          "title": "Future Debugging Tools",
+          "start_time": "02:38:19",
+          "subsections": []
+        },
+        {
+          "title": "Ethical Misuse Scenarios",
+          "start_time": "02:39:14",
+          "subsections": []
+        },
+        {
+          "title": "Public Perception and Marketing",
+          "start_time": "02:39:19",
+          "subsections": []
+        },
+        {
+          "title": "Fear of Takeover",
+          "start_time": "02:39:52",
+          "subsections": []
+        },
+        {
+          "title": "AI as Objective Politician",
+          "start_time": "02:40:02",
+          "subsections": []
+        },
+        {
+          "title": "Geopolitical Misuse Fears",
+          "start_time": "02:41:12",
+          "subsections": []
+        },
+        {
+          "title": "Government Pressure and Incentives",
+          "start_time": "02:41:41",
+          "subsections": []
+        },
+        {
+          "title": "Mass Destruction Threat Scenario",
+          "start_time": "02:42:06",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Next Topic Announcement",
+      "start_time": "02:43:19",
+      "subsections": [
+        {
+          "title": "Single Characters as Tokens",
+          "start_time": "02:43:28",
+          "subsections": []
+        },
+        {
+          "title": "Working with Text Data",
+          "start_time": "02:43:45",
+          "subsections": []
+        },
+        {
+          "title": "Transformations for Time Series",
+          "start_time": "02:43:47",
+          "subsections": []
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "title": "Advanced Tokenization Techniques and Research",
+      "start_time": "02:44:18",
+      "subsections": [
+        {
+          "title": "Scientific Research References",
+          "start_time": "02:44:18",
+          "subsections": []
+        },
+        {
+          "title": "Tokenization and Weighting Example",
+          "start_time": "02:44:57",
+          "subsections": []
+        },
+        {
+          "title": "Vector Database and Clustering Concept",
+          "start_time": "02:45:49",
+          "subsections": []
+        },
+        {
+          "title": "High-Dimensional Vector Spaces",
+          "start_time": "02:47:12",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Expert Opinions and AI Risks",
+      "start_time": "02:48:28",
+      "subsections": [
+        {
+          "title": "Jeffrey Hinton's Catastrophic Predictions",
+          "start_time": "02:48:28",
+          "subsections": []
+        },
+        {
+          "title": "Fear of the Unknown vs Real Threats",
+          "start_time": "02:48:39",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "AlphaFold and AI-driven Protein Discovery",
+      "start_time": "02:49:49",
+      "subsections": [
+        {
+          "title": "Denis Hassabis and Google DeepMind",
+          "start_time": "02:49:49",
+          "subsections": []
+        },
+        {
+          "title": "AlphaFold Breakthrough",
+          "start_time": "02:50:15",
+          "subsections": []
+        },
+        {
+          "title": "Veritasium Interview",
+          "start_time": "02:50:39",
+          "subsections": []
+        },
+        {
+          "title": "Historical Protein Identification",
+          "start_time": "02:51:04",
+          "subsections": []
+        },
+        {
+          "title": "Implications of Data Recombination",
+          "start_time": "02:52:02",
+          "subsections": []
+        },
+        {
+          "title": "AI-Generated Protein Structures",
+          "start_time": "02:52:23",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Model Types: LLMs vs Specialized Frameworks",
+      "start_time": "02:52:45",
+      "subsections": [
+        {
+          "title": "Limitations of Large Language Models",
+          "start_time": "02:52:45",
+          "subsections": []
+        },
+        {
+          "title": "Advanced Transformer Versions",
+          "start_time": "02:53:01",
+          "subsections": []
+        },
+        {
+          "title": "Health Plus Program Example",
+          "start_time": "02:53:10",
+          "subsections": []
+        },
+        {
+          "title": "Healthcare AI Funding and Policy",
+          "start_time": "02:53:42",
+          "subsections": []
+        },
+        {
+          "title": "AI for Chemistry and Physics Research",
+          "start_time": "02:54:29",
+          "subsections": []
+        },
+        {
+          "title": "Specialized Pathology Recognition Frameworks",
+          "start_time": "02:54:37",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Biosecurity and Dual-Use AI",
+      "start_time": "02:55:08",
+      "subsections": [
+        {
+          "title": "China's Unregulated Genetic Research",
+          "start_time": "02:55:08",
+          "subsections": []
+        },
+        {
+          "title": "CRISPR and Gene-Edited Individuals",
+          "start_time": "02:55:15",
+          "subsections": []
+        },
+        {
+          "title": "Dual-Use Risks in Genetic AI",
+          "start_time": "02:55:31",
+          "subsections": []
+        },
+        {
+          "title": "Swiss Conference on Toxicity Reduction",
+          "start_time": "02:55:58",
+          "subsections": []
+        },
+        {
+          "title": "Malicious Virus Design Reversal",
+          "start_time": "02:56:02",
+          "subsections": []
+        },
+        {
+          "title": "Challenges in Rapid Defense Development",
+          "start_time": "02:56:38",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "AI-driven Influence and Disinformation",
+      "start_time": "02:56:49",
+      "subsections": [
+        {
+          "title": "Optimization for Good and Harm",
+          "start_time": "02:56:49",
+          "subsections": []
+        },
+        {
+          "title": "AI Agents Spamming and Influence",
+          "start_time": "02:57:16",
+          "subsections": []
+        },
+        {
+          "title": "Bot Detectability Challenges",
+          "start_time": "02:57:28",
+          "subsections": []
+        },
+        {
+          "title": "Voice and Video Synthesis Challenges",
+          "start_time": "02:57:46",
+          "subsections": []
+        },
+        {
+          "title": "Voice Cloning for Extortion",
+          "start_time": "02:58:22",
+          "subsections": []
+        },
+        {
+          "title": "Subliminal Influence Effects",
+          "start_time": "02:58:48",
+          "subsections": []
+        },
+        {
+          "title": "Manipulation of Public Opinion",
+          "start_time": "02:59:00",
+          "subsections": []
+        },
+        {
+          "title": "Need for Critical Thinking",
+          "start_time": "02:59:10",
+          "subsections": []
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "title": "Cyber Attacks and Impact",
+      "start_time": "02:59:30",
+      "subsections": [
+        {
+          "title": "Attacks on Critical Infrastructure",
+          "start_time": "02:59:30",
+          "subsections": []
+        },
+        {
+          "title": "Social Media Bot Manipulation",
+          "start_time": "02:59:41",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "China's Subliminal Multi-Step Strategy",
+      "start_time": "02:59:45",
+      "subsections": []
+    }
+  ]
+]
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.

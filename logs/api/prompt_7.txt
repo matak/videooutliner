@@ -1,0 +1,1005 @@
+Analyze this portion of a lecture transcript and create a structured outline in JSON format. Return only the json format, nothing else. The json should contain only english language.
+Rules:
+• Each level (main topics and any nested subsections) may contain **no more than 10 items**.
+• If more than 10 items belong at one level, create additional nested levels so every level stays ≤ 10 items.
+• For every node include:
+  - "title": brief heading  
+  - "start_time": "HH:MM:SS" of first mention
+  - "subsections": [] (array holding any children; empty if none)
+• This is chunk 7 from total 12 of the transcript.
+
+Return ONLY valid JSON with this exact overall shape:
+
+[
+    {
+        "title": "Main Topic",
+        "start_time": "HH:MM:SS",
+        "subsections": [
+            {
+                "title": "Subtopic",
+                "start_time": "HH:MM:SS",
+                "subsections": []
+            }
+        ]
+    }
+]
+
+Transcript:
+
+=================
+1563
+01:40:50,840 --> 01:40:53,039
+Já teda ještě udělám tohle pro jistotu.
+
+1564
+01:40:54,739 --> 01:41:00,920
+Tohle a pak už se to instaluje v rámci Jupitru, takže já to nepotřebuji definovat v tom UV.
+
+1565
+01:41:01,319 --> 01:41:13,899
+Tak jakmile postíte vlastně těma dvouma komandama ten Jupitr server přes to UV, tak dostanete, zase tady to je popsaný, ale kdybyste se nechtěli koukat na video nebo jste to zapomněli,
+
+1566
+01:41:14,340 --> 01:41:20,180
+tak tady vlastně jenom nakopírujete tu IP adresu, což je ten váš lokálost na nějakém portu,
+
+1567
+01:41:20,180 --> 01:41:25,819
+tady si vyberete ten kernel, dáte tady Existing Jupyter Server, který vám tady lokálně běží,
+
+1568
+01:41:25,819 --> 01:41:30,800
+vložíte to tam, důležitý, nezapomeňte dát ten token, to je jakoby heslo do toho Jupyter serveru,
+
+1569
+01:41:31,440 --> 01:41:35,940
+tak Enter, jméno si tam dejte jaký chcete, já to nechám stejný, já vyberu tady ten kernel,
+
+1570
+01:41:36,140 --> 01:41:39,520
+v tom případě vám se připojí vlastně na ten Jupyter server,
+
+1571
+01:41:39,960 --> 01:41:44,399
+A já už můžu začít prostě lokálně pouštět ten Jupyter notebook.
+
+1572
+01:41:45,859 --> 01:41:50,260
+Zase pro toho, komu se líp pracuje s těma Jupyter notebookama,
+
+1573
+01:41:51,020 --> 01:41:54,479
+tak to může být taková příjemnější práce, než
+
+1574
+01:41:54,600 --> 01:41:57,300
+pracovat s těma skriptama. Já upřednostnu ty skripty, ale
+
+1575
+01:41:57,640 --> 01:42:02,899
+na některých případech se prostě hodí ten Jupyter notebook, protože
+
+1576
+01:42:05,140 --> 01:42:09,940
+protože vám vlastně nechává ten výstup tam.
+
+1577
+01:42:10,119 --> 01:42:13,260
+To znamená, že v některých případech, když nechcete,
+
+1578
+01:42:13,680 --> 01:42:17,039
+když jako já chcete ukázat takhle někomu, jaký je ten výstup,
+
+1579
+01:42:17,039 --> 01:42:19,600
+a teď ten výstup vygenerovat trvá 5 minut,
+
+1580
+01:42:20,779 --> 01:42:23,739
+tak je lepší, co se němu nelíbí,
+
+1581
+01:42:23,880 --> 01:42:26,600
+a ještě tady co, ono to jenom for hugging face, who am I,
+
+1582
+01:42:26,600 --> 01:42:28,840
+co se mu nelíbí,
+
+1583
+01:42:31,699 --> 01:42:35,000
+tak ještě tady se podívám, bla bla bla,
+
+1584
+01:42:38,460 --> 01:42:40,739
+SerialBait,
+
+1585
+01:42:47,520 --> 01:42:48,760
+Anity,
+
+1586
+01:42:48,760 --> 01:42:49,640
+Orbs,
+
+1587
+01:42:50,260 --> 01:42:52,380
+PinkFace, no to je stejný.
+
+1588
+01:42:53,079 --> 01:42:55,680
+Tak se mnou baví, že jsem koupil ten token nebo co.
+
+1589
+01:42:56,640 --> 01:42:59,760
+Tak, to znamená, instalovali jsme nějaký knihovny,
+
+1590
+01:42:59,840 --> 01:43:03,420
+tady jsem jenom si přidal ten API klíč do toho,
+
+1591
+01:43:03,420 --> 01:43:05,119
+co je teďka důležité, je tenhle skript,
+
+1592
+01:43:05,220 --> 01:43:08,720
+to znamená, jako jsme si ukazovali auto tokenizer,
+
+1593
+01:43:09,039 --> 01:43:11,960
+tak teď si ukazujeme zase ten další, tu auto classu,
+
+1594
+01:43:11,960 --> 01:43:14,380
+to je auto model for casual lm,
+
+1595
+01:43:14,520 --> 01:43:17,359
+těch auto model for je víc,
+
+1596
+01:43:17,359 --> 01:43:23,559
+jakoby těch typů, ale jako vystačíte si rozhodně s touhletou jednou, podle mě,
+
+1597
+01:43:23,579 --> 01:43:27,420
+na většinu těch use cases, nebo 90% těch use cases.
+
+1598
+01:43:27,500 --> 01:43:30,699
+Klidně se koukněte na tu dokumentaci, jaký jsou další typy.
+
+1599
+01:43:31,380 --> 01:43:34,479
+Zatím, dokud mi to nehodilo error, tak jsem nebyl nucený
+
+1600
+01:43:34,479 --> 01:43:37,220
+používat jiný typ, což se mi ještě nestalo.
+
+1601
+01:43:37,720 --> 01:43:40,059
+Tak zase je to fromPretrained, to je ta metoda
+
+1602
+01:43:40,159 --> 01:43:42,440
+a zase mu dávám ten model name, to znamená,
+
+1603
+01:43:42,440 --> 01:43:46,180
+že zase jsem si skopíroval tu verzi 3.0.3.
+
+1604
+01:43:46,800 --> 01:43:51,140
+Tadyhle v tom případě teda mám 0.3 bez instraktu,
+
+1605
+01:43:51,500 --> 01:44:07,420
+To je jenom, abych ukázal tu architekturu, má to jenom tenhle log, takže jediný, co o toho vlastně chci je zalogovat si. K těm otázkám já se dostanu na konci, teda já se tam vrátím, ať to ještě stíhneme dokončit.
+
+1606
+01:44:08,880 --> 01:44:14,399
+Já chci zalogovat vlastně pár informací o tom modelu.
+
+1607
+01:44:14,479 --> 01:44:17,760
+Jedna z nich bude, já chci vidět, jaký typ mi vlastně vrátil,
+
+1608
+01:44:17,800 --> 01:44:21,100
+protože je to zase ta autoklása, tak já chci vidět tu konkrétní klásu.
+
+1609
+01:44:21,460 --> 01:44:26,039
+Chci vidět konfiguraci toho modelu, která mi vlastně řekne
+
+1610
+01:44:26,300 --> 01:44:29,800
+pár informací o tom modelu z hlediska konfigurace,
+
+1611
+01:44:30,119 --> 01:44:35,579
+Uvidíte tady maximální context length v počtu tokenů,
+
+1612
+01:44:35,579 --> 01:44:40,059
+takže uvidíte, že to číslo se bude rovnat tomu, co bylo v tom tokenizoru.
+
+1613
+01:44:40,059 --> 01:44:42,340
+To je to max position embedding.
+
+1614
+01:44:42,699 --> 01:44:45,199
+A potom zjistíme, jak ten model je velký.
+
+1615
+01:44:45,340 --> 01:44:47,779
+To by nám mělo pomoct pochopit,
+
+1616
+01:44:48,300 --> 01:44:56,359
+Kolik toho je potřeba naloudovat do VRAM pro grafickou kartu,
+
+1617
+01:44:56,640 --> 01:45:06,819
+v případě, že budeme ten model spouštět v tom normálním 32-bitovém formátu,
+
+1618
+01:45:08,000 --> 01:45:10,619
+nebo že ty váhy budou v 32-bitovém formátu.
+
+1619
+01:45:11,739 --> 01:45:16,800
+Vidíte, že se teda ten model stahuje, to znamená, že se mi stáhne na ten disk,
+
+1620
+01:45:16,800 --> 01:45:23,739
+zase byste ho na tom disku někde našli v té cache, mě bude zajímat vlastně ten výstup
+
+1621
+01:45:24,059 --> 01:45:26,559
+a potom si ukážeme, jak ten model pustit.
+
+1622
+01:45:26,659 --> 01:45:31,539
+To znamená, že teď je to jenom, že si ho stáhnu a zaloguju si nějaký informace o něm,
+
+1623
+01:45:32,600 --> 01:45:35,979
+na nic se toho modelu nebudu ptát.
+
+1624
+01:45:38,079 --> 01:45:41,100
+Tak teď to teda chvilku, ještě minuta...
+
+1625
+01:45:41,559 --> 01:45:51,359
+Mezi tím já teda tady ukážu, vlastně tady máte skripty, jak si pustit nebo zavřít povídat s nějakýma dalšíma modelama.
+
+1626
+01:45:51,880 --> 01:45:55,359
+A zase my se zaměřujeme hlavně na ten mistr, ale co já vám chci ukázat je to,
+
+1627
+01:45:56,000 --> 01:46:03,720
+že na té mé 16 GB kartě, i přesto, že ten model tady vypadá, že má 15 GB, je to tak,
+
+1628
+01:46:04,420 --> 01:46:09,600
+tak já ho vlastně nejsem v nějaký rozumný době schopnej pustit,
+
+1629
+01:46:09,600 --> 01:46:13,899
+i když ta moje grafická karta má 16 GB.
+
+1630
+01:46:13,899 --> 01:46:16,699
+To znamená, že to, co my se tady dozvíme z toho logu,
+
+1631
+01:46:16,699 --> 01:46:23,840
+je, že by to mělo potřebovat 30 GB VRAMu.
+
+1632
+01:46:25,619 --> 01:46:30,880
+Tak loading charts, šup,
+
+1633
+01:46:31,880 --> 01:46:36,619
+tři, tak si naloudovává vlastně ty tři faily,
+
+1634
+01:46:36,859 --> 01:46:40,279
+Teď ne, abych tady teda teoreticky měl vidět,
+
+1635
+01:46:40,440 --> 01:46:41,380
+jo, co tady vidíme,
+
+1636
+01:46:41,539 --> 01:46:42,699
+dedicated GPU,
+
+1637
+01:46:43,500 --> 01:46:45,739
+jak mi tady roste, jak mi to vlastně hází
+
+1638
+01:46:45,739 --> 01:46:47,979
+do té paměti, překvapivě teda je to
+
+1639
+01:46:48,600 --> 01:46:50,500
+15 GB,
+
+1640
+01:46:51,180 --> 01:46:52,960
+nebo mi to tak aspoň teda přijde,
+
+1641
+01:46:53,119 --> 01:46:53,760
+tak zhruba
+
+1642
+01:46:54,260 --> 01:46:56,940
+by woko, jo, tady je dedicated 14,
+
+1643
+01:47:00,199 --> 01:47:01,859
+tak a teď mi to vyplivlo
+
+1644
+01:47:01,859 --> 01:47:03,600
+tady
+
+1645
+01:47:04,319 --> 01:47:17,420
+tu architekturu. Mezitím já schválně teda zkusím, protože mi tady zarazilo, že to teda naloudoval hezky, že ještě tam má nějakej výstup.
+
+1646
+01:47:18,600 --> 01:47:21,840
+Tak já tady schválně skopíruju voláního.
+
+1647
+01:47:22,020 --> 01:47:28,739
+Ti to svapnul do rámky, ne? Jsi se díval, jak ti vyskočil na 90 giga. Víš, ti zbytek toho modelu si dal tam a o toho.
+
+1648
+01:47:29,760 --> 01:47:33,579
+Asi jo, no ale teda pak nechápu, proč tady nemám...
+
+1649
+01:47:33,579 --> 01:47:43,399
+On to nikdy nepíše, ne všechno. To tam napíše, no já to jsem takový zkoušel, on to tam nevypíše, dá ti to do ramky a tady ti nechá vždycky tak gigavolnou pro to GPUčko. Nevím, proč to tak dělá, no.
+
+1650
+01:47:43,399 --> 01:47:48,399
+Hm, to taky teda no, nerozumím. Ale zkusíme schválně ho zavolat.
+
+1651
+01:47:51,739 --> 01:47:58,579
+Nebo schováně zkusíme pak tenhle ten skript, jestli on mi zase bude dávat ten model do rámky,
+
+1652
+01:47:58,579 --> 01:48:01,539
+nebo jestli mi na tom failne, protože tady budu používat Instruct.
+
+1653
+01:48:01,659 --> 01:48:04,059
+Takže bude pokračovat tak, jak jsem to připravil.
+
+1654
+01:48:04,180 --> 01:48:07,340
+To znamená, že tady pak teda vidíme, co tady vidíme.
+
+1655
+01:48:07,500 --> 01:48:11,779
+Jaký teda konkrétní implementaci mi ta autoklása vrátila.
+
+1656
+01:48:11,960 --> 01:48:14,380
+Takže já to tady jenom scroll label elements.
+
+1657
+01:48:14,899 --> 01:48:17,840
+Takže tohle je ta konkrétní instance.
+
+1658
+01:48:17,920 --> 01:48:21,279
+Takže vy byste teoreticky mohli použít prostě tohleto
+
+1659
+01:48:21,880 --> 01:48:25,359
+a tady z toho Transformeru jste vzít tuhletu klásu.
+
+1660
+01:48:25,460 --> 01:48:27,119
+Jak vidíte, tak je to taky zelený.
+
+1661
+01:48:27,399 --> 01:48:31,140
+Tím pádem ale se připravujete o tu vlastně schopnost
+
+1662
+01:48:31,300 --> 01:48:34,600
+nebo možnost, že vám to vybírá automaticky i s tím tokenizerem.
+
+1663
+01:48:35,020 --> 01:48:37,840
+Takže zase moje doporučení je používat ty autoklásy.
+
+1664
+01:48:38,199 --> 01:48:40,460
+Nicméně tady vidíte, co přesně to je.
+
+1665
+01:48:41,359 --> 01:48:57,559
+Tady pak vidíte ten model, tady vidíte ten embedding, to je přesně od čeho jsme se bavili, tohle je ten context length, to je ten počet tokenů, který je v tokenizeru, tady pak vidíte ten vektor, do kterého je to převedený a tady pak vidíte ty vrstvy vlastně.
+
+1666
+01:48:57,600 --> 01:49:07,059
+A teď, protože víme, že Transformer model je založený na, a teď já vám ještě zase chci ukázat jednu věc, Transformer,
+
+1667
+01:49:08,279 --> 01:49:13,140
+Tak a teď chci ukázat tohle, zase to sem takhle hodím.
+
+1668
+01:49:13,140 --> 01:49:19,819
+Ještě mi dochází, že bych mohl ty linky házet i sem do toho chatu,
+
+1669
+01:49:20,340 --> 01:49:24,079
+abyste to tady zase měli. Chtěl jsem tam hodit i ten tokenizer.
+
+1670
+01:49:24,260 --> 01:49:26,619
+Tokenizer online.
+
+1671
+01:49:28,819 --> 01:49:34,640
+Tady je tokenizer. Není to asi tak těžký najít s tím videem, ale tak, abyste to tam měli.
+
+1672
+01:49:35,380 --> 01:49:37,520
+Tak doporučuji na tohle se podívat.
+
+1673
+01:49:37,779 --> 01:49:39,579
+Od Hugging Faceu zase je to kurz,
+
+1674
+01:49:39,579 --> 01:49:41,279
+oni mají super kurzy,
+
+1675
+01:49:41,399 --> 01:49:43,399
+prostě i když vás to bude zajímat,
+
+1676
+01:49:43,420 --> 01:49:45,720
+mají i teď nový kurz na agenty,
+
+1677
+01:49:46,079 --> 01:49:47,739
+MCP,
+
+1678
+01:49:49,119 --> 01:49:50,659
+kurz teď je úplně novej,
+
+1679
+01:49:50,779 --> 01:49:52,819
+takže doporučuji se
+
+1680
+01:49:52,819 --> 01:49:54,779
+kouknout, když vám to bude zajímat,
+
+1681
+01:49:54,800 --> 01:49:56,680
+tak tohle by mělo být to místo, kam byste třeba
+
+1682
+01:49:56,819 --> 01:49:58,559
+pro ten kurz šli,
+
+1683
+01:49:58,640 --> 01:50:01,220
+jsou zadarmo a jsou velmi kvalitní.
+
+1684
+01:50:01,319 --> 01:50:02,880
+Tak tady je
+
+1685
+01:50:02,960 --> 01:50:03,760
+třeba ukázaný
+
+1686
+01:50:04,760 --> 01:50:10,059
+že ten Transformer se skládá z toho encoderu a decoderu,
+
+1687
+01:50:10,100 --> 01:50:13,920
+což vlastně odpovídá téhletý architektuře, kterou my jsme si ukazovali.
+
+1688
+01:50:13,940 --> 01:50:20,239
+Je to teda poměrně malý ten obrázek, ale takhle se mi to stejně nepořádá zvětšit.
+
+1689
+01:50:22,239 --> 01:50:31,520
+No tak to vůbec. Takže encoder a decoder, to znamená, že i to odpovídá tomu, co tady vlastně vidíte.
+
+1690
+01:50:32,460 --> 01:50:44,899
+To se mi líbí, když budete ty věci si vlastně v té hlavě spojovat a budete vědět, kde je najít, nebude to pro vás jenom nějaký obrázek, ale budete si schopný vlastně i to nějakým způsobem obhájit v té hlavě.
+
+1691
+01:50:45,119 --> 01:50:47,220
+To znamená, že tady máte tu dekodár vrstvu,
+
+1692
+01:50:47,239 --> 01:50:48,979
+tady je ta attention mechanismus,
+
+1693
+01:50:48,979 --> 01:50:51,520
+self-attention, mistral attention,
+
+1694
+01:50:51,520 --> 01:50:53,940
+tady máte zase ty vrstvy toho attention mechanismus,
+
+1695
+01:50:54,279 --> 01:50:58,600
+Takže to je tady to multihead attention,
+
+1696
+01:50:58,699 --> 01:51:00,279
+a pak tady máte feedforward,
+
+1697
+01:51:00,600 --> 01:51:07,100
+to je zase tady napsaný prostě ten Mr. Multilayer Perceptron,
+
+1698
+01:51:07,119 --> 01:51:09,899
+vy už víte, co to je multilayer perceptron,
+
+1699
+01:51:10,279 --> 01:51:13,059
+takže tady pak vidíte ty vrstvy, které jsou vlastně v tom,
+
+1700
+01:51:13,800 --> 01:51:20,539
+jaká je ta výstupní kost...
+
+1701
+01:51:20,819 --> 01:51:21,659
+FUNKCE
+
+1702
+01:51:22,079 --> 01:51:25,180
+Ano, no funkce vím, ale teď jsem zapomněl.
+
+1703
+01:51:25,220 --> 01:51:26,600
+Aktivační funkce,
+
+1704
+01:51:28,059 --> 01:51:51,199
+Jaká je výstup, jo, activation function tady je napsaný a pak zase vidíte, jak to pokračuje jako dál, jo, až se to vlastně tady někde dostane na ten výstup, což je ten výstupní embedding, takže zase ten vektor, který to vygeneruje, ta neuronová sítě, je převedený vlastně tím embeddingem na ty tokeny a pak to vlastně z těch tokenů je převedený dál na ty slova, na ten text.
+
+1705
+01:51:51,539 --> 01:51:57,340
+Takže to je hezký, že prostě vy tady z toho jste schopný vidět tu architekturu.
+
+1706
+01:51:57,520 --> 01:52:00,380
+Zase, když tu architekturu vložíte do nějakého CGPT
+
+1707
+01:52:00,420 --> 01:52:02,579
+a začnete se s ním o jednodivých těch vrstvách bavit,
+
+1708
+01:52:02,899 --> 01:52:05,340
+on vám k tomu řekne něco víc.
+
+1709
+01:52:05,819 --> 01:52:07,500
+My, až budeme se bavit o fine tuningu,
+
+1710
+01:52:07,539 --> 01:52:12,300
+tak si budeme ukazovat tady ty kvk, vo, hodnoty
+
+1711
+01:52:12,300 --> 01:52:14,880
+a ještě si o tom něco trochu řekneme.
+
+1712
+01:52:15,100 --> 01:52:19,859
+A Lukáši, je z téhle reprezentace vidět ten postup, v jakým poru?
+
+1713
+01:52:20,460 --> 01:52:24,279
+Pardon, ještě jednou, já jsem kompčíknul a teď jsem neslyšel ten druh.
+
+1714
+01:52:24,479 --> 01:52:28,020
+Jo, jestli je z té reprezentace, kterou tady vidíme,
+
+1715
+01:52:28,079 --> 01:52:31,640
+vidět tento pořadí, jak to tam vlastně protejká.
+
+1716
+01:52:32,899 --> 01:52:37,440
+Pořadí těch vrstev odpovídá pořadí vlastně tajhle tomu pořadí.
+
+1717
+01:52:37,880 --> 01:52:42,359
+To jo, ale jestli vím, kde je ta attention.
+
+1718
+01:52:42,619 --> 01:52:45,520
+Jestli je třeba i za tím MLPčkem,
+
+1719
+01:52:45,720 --> 01:52:47,420
+anebo je před ním teda.
+
+1720
+01:52:47,440 --> 01:52:50,979
+Jo, co já vím, tak tadyto číslo
+
+1721
+01:52:51,039 --> 01:52:53,520
+vlastně odpovídá počtu...
+
+1722
+01:52:53,920 --> 01:52:57,079
+vlastně těch vrstev v tom dekodéru.
+
+1723
+01:52:57,140 --> 01:52:59,420
+To znamená, že ten dekodér má 32 vrstev
+
+1724
+01:52:59,420 --> 01:53:03,239
+a teď v každý té vrstvě je attention mechanismus
+
+1725
+01:53:03,239 --> 01:53:10,699
+a pak je tadyhleta feed forward vlastně vrstva.
+
+1726
+01:53:11,059 --> 01:53:14,720
+To znamená, já bych doporučoval se podívat opravdu,
+
+1727
+01:53:14,720 --> 01:53:18,699
+co teda mě pomohlo, tak je...
+
+1728
+01:53:22,680 --> 01:53:28,479
+Já jsem vám to asi posílal v tom linku, doufám.
+
+1729
+01:53:29,440 --> 01:53:30,899
+Zajímavé linky.
+
+1730
+01:53:30,940 --> 01:53:32,460
+Je to Blue Code?
+
+1731
+01:53:32,619 --> 01:53:34,500
+Jo, jo, jo, přesně.
+
+1732
+01:53:34,500 --> 01:53:42,440
+Blue Over Shadow nebo něco takového.
+
+1733
+01:53:43,800 --> 01:53:47,220
+Blue Transformer.
+
+1734
+01:53:50,640 --> 01:53:55,640
+Jo tohle. Three blue, one brown. Tak na tohle video se prosím podívejte.
+
+1735
+01:53:55,640 --> 01:54:04,279
+How LLM works. Tam je to prostě i vysvětlený s těma vrstvama, jak on prostě, jak to je za sebou.
+
+1736
+01:54:04,340 --> 01:54:09,140
+Tady přesně to vidíte, tady na tom Mlop, jo, Attention a oni to, fakt to hrozně hezky
+
+1737
+01:54:09,979 --> 01:54:11,220
+vysvětlou.
+
+1738
+01:54:12,039 --> 01:54:13,940
+Moje teda otázka byla, jestli jsem
+
+1739
+01:54:14,300 --> 01:54:16,079
+jenom z té reprezentace, která je tam
+
+1740
+01:54:16,119 --> 01:54:18,039
+vyprintěná, v podstatě schopnej tohle
+
+1741
+01:54:18,039 --> 01:54:20,100
+určit, aniž bych to věděl,
+
+1742
+01:54:20,239 --> 01:54:21,800
+jak to zo sebou jde, jakoby
+
+1743
+01:54:21,940 --> 01:54:24,800
+teoreticky. No neřekl bych
+
+1744
+01:54:24,800 --> 01:54:26,659
+úplně, že bez toho aniž byste věděl,
+
+1745
+01:54:26,659 --> 01:54:28,300
+jak to jako funguje, to asi
+
+1746
+01:54:29,880 --> 01:54:30,260
+vyvodit, jakoby nedokážete,
+
+1747
+01:54:30,260 --> 01:54:32,559
+nebo jako když tu informaci nemáte,
+
+1748
+01:54:32,559 --> 01:54:34,720
+jak to týhle vy asi, nebo z tohohle
+
+1749
+01:54:34,720 --> 01:54:35,380
+nepochopíte, bych řekl.
+
+1750
+01:54:35,880 --> 01:54:40,739
+Takže to nejde za sebou prostě Mistral Attention, Mistral MLP?
+
+1751
+01:54:41,059 --> 01:54:44,739
+To jde za sebou. Takhle bych chápal, že to jde za sebou.
+
+1752
+01:54:44,979 --> 01:54:49,100
+Nebo možná z druhé strany, já teď nechci tady fabulovat, ale
+
+1753
+01:54:50,399 --> 01:54:54,640
+myslím si, že ten Attention je to poslední, co vlastně tam je, takže
+
+1754
+01:54:55,180 --> 01:55:00,739
+no možná nejde. Tady vidím nějakou Post Attention Layer Norm, tady vidím Input
+
+1755
+01:55:01,380 --> 01:55:05,479
+No a možná nejde. Nejde, abych kecal, vůbec se nisem jistý.
+
+1756
+01:55:05,500 --> 01:55:08,979
+Dobře, dobře, kdyby to tak bylo.
+
+1757
+01:55:09,739 --> 01:55:14,559
+Poprosím tě, jestli bys si pejsnul ten link, já nemůžu najít ten link na ten YouTube,
+
+1758
+01:55:14,559 --> 01:55:15,859
+já jsem po dnesky ho napsal.
+
+1759
+01:55:16,640 --> 01:55:20,619
+Jo, jo, jo, to je dobrá připomínka, já to tady ještě teda najdu tady mimo
+
+1760
+01:55:20,619 --> 01:55:23,119
+a pejsnu vám to tam.
+
+1761
+01:55:25,600 --> 01:55:31,140
+3, Juan Brown, Transformers, tak já...
+
+1762
+01:55:31,739 --> 01:55:32,680
+Jsem to tam dal?
+
+1763
+01:55:33,039 --> 01:55:35,159
+Jo, dostat to. Super.
+
+1764
+01:55:35,159 --> 01:55:37,340
+A ještě já nevím, jestli jsem vám
+
+1765
+01:55:37,479 --> 01:55:38,600
+sdílal ještě toho
+
+1766
+01:55:39,920 --> 01:55:41,539
+Andrej Karpaty.
+
+1767
+01:55:42,699 --> 01:55:45,300
+To je taky důležitý video,
+
+1768
+01:55:45,300 --> 01:55:47,059
+který byste měli vidět, takže
+
+1769
+01:55:47,220 --> 01:55:49,479
+zase kopíruju, vkládám.
+
+1770
+01:55:50,940 --> 01:55:52,979
+Tohle se taky podívejte, to je prostě
+
+1771
+01:55:53,079 --> 01:55:54,500
+důležitý člověk, o kterém byste
+
+1772
+01:55:54,500 --> 01:55:55,739
+měli něco vidět.
+
+1773
+01:55:56,220 --> 01:55:58,380
+Rozumí tomu úplně domorku kostí
+
+1774
+01:56:00,859 --> 01:56:01,220
+a je to teda
+
+1775
+01:56:01,220 --> 01:56:02,960
+tři a půl hodiny, takže...
+
+1776
+01:56:03,899 --> 01:56:08,859
+Ano, toto video je super, mně ještě dostalo hodiny, ale je namakané.
+
+1777
+01:56:09,260 --> 01:56:09,899
+No.
+
+1778
+01:56:11,840 --> 01:56:13,720
+Tak, teď se podíváme na konfiguraci.
+
+1779
+01:56:13,760 --> 01:56:18,539
+To znamená, že tady pro každý ten model máte nějaký jason config,
+
+1780
+01:56:18,539 --> 01:56:22,380
+který vám určuje zase nějaké parametry toho modelu.
+
+1781
+01:56:22,520 --> 01:56:28,559
+To znamená, že všechno to jsou transformery, ale mají samozřejmě nějaké parametry,
+
+1782
+01:56:28,559 --> 01:56:30,059
+jako každá ta neuronová síť.
+
+1783
+01:56:30,319 --> 01:56:31,979
+A to je definované v konfigu.
+
+1784
+01:56:32,479 --> 01:56:33,960
+Takže tady vidíte, jaké je
+
+1785
+01:56:34,199 --> 01:56:37,460
+architektura toho vlastně transformeru,
+
+1786
+01:56:37,579 --> 01:56:39,039
+můžete se je mezi sebou porovnávat,
+
+1787
+01:56:39,079 --> 01:56:41,340
+jestli mají mezi sebou nějaké změny a tak dále.
+
+1788
+01:56:41,659 --> 01:56:44,119
+A pak tady vidíte konfiguraci toho transformeru.
+
+1789
+01:56:44,140 --> 01:56:46,319
+To znamená, že jak je attention dropout,
+
+1790
+01:56:46,539 --> 01:56:50,140
+jaká je ta architektura, což odpovídá tomu
+
+1791
+01:56:51,479 --> 01:56:55,199
+ty instanci toho LLMka.
+
+1792
+01:56:55,340 --> 01:56:56,500
+Pak vidíte, jaká je BOSS,
+
+1793
+01:56:56,500 --> 01:56:58,479
+Beginning of String Token ID.
+
+1794
+01:56:58,659 --> 01:57:01,079
+Tady vidíte pak, kde to je tady,
+
+1795
+01:57:01,800 --> 01:57:07,760
+Hidden size, to jsou ty hidden, počet neuronů vlastně v té skryté vrstvě.
+
+1796
+01:57:07,760 --> 01:57:11,819
+Zase to reflektuje to, co jsme se říkali vlastně v té první hodině.
+
+1797
+01:57:11,840 --> 01:57:15,039
+Proto bylo tak důležité vlastně se tím projít, abyste chápali,
+
+1798
+01:57:15,340 --> 01:57:18,739
+že to není zas taková věda a jsou tam velmi podobné,
+
+1799
+01:57:20,500 --> 01:57:23,800
+jsou tam podobnosti prostě i s tou jednoduchou neuronovou sítí,
+
+1800
+01:57:23,800 --> 01:57:28,640
+ze kterou si můžete úplně v klidu tady jako pustit na svém vlastním kompu.
+
+1801
+01:57:29,579 --> 01:57:35,880
+Tak, typ toho modelu, počet Attention Heads, počet Hidden Layers,
+
+1802
+01:57:35,880 --> 01:57:39,180
+a zase bych se tady prostě Transformer Version,
+
+1803
+01:57:39,180 --> 01:57:45,579
+jako která teda tam je, tady vidíte, jestli to je 32-bitový, 16-bitový, 4-bitový,
+
+1804
+01:57:45,619 --> 01:57:47,460
+tady vidíte ten WCAP size.
+
+1805
+01:57:47,460 --> 01:57:51,899
+Takže takhle ještě, já když tady zaskroluji takhle dolů,
+=================
+
+
+Important: Translate all titles to English.
+Important: No explanation, no comments, only valid JSON as output.
