@@ -44,13 +44,22 @@ class OutlineGenerator:
 
         #raise Exception(f"Processing not cached chunk {chunk_index} ... {json_path}")
 
-        prompt = self._load_content(os.path.join(os.path.dirname(__file__), "prompts", "srt_chunk_prompt.txt"))
-        #print(f"prompt content: {prompt}")
+        prompt_system_message = self._load_content(os.path.join(os.path.dirname(__file__), "prompts", "srt_chunk_prompt_system_message.txt"))
+        #print(f"prompt content: {prompt_system_message}")
 
         # Replace the placeholders directly since the template uses simple {chunk_index} and {chunk}
-        prompt = prompt.replace("{chunk_index}", str(chunk_index)).replace("{chunk_total}", str(chunk_total)).replace("{chunk}", chunk)
-        #print(f"prompt: {prompt}")
-        self._save_content(prompt, os.path.join(self.logs_dir, f"prompt_{chunk_index}.txt"))
+        prompt_system_message = prompt_system_message.replace("{chunk_index}", str(chunk_index)).replace("{chunk_total}", str(chunk_total)).replace("{chunk}", chunk)
+
+        prompt_user_message = self._load_content(os.path.join(os.path.dirname(__file__), "prompts", "srt_chunk_prompt.txt"))
+        #print(f"prompt content: {prompt_user_message}")
+
+        # Replace the placeholders directly since the template uses simple {chunk_index} and {chunk}
+        prompt_user_message = prompt_user_message.replace("{chunk_index}", str(chunk_index)).replace("{chunk_total}", str(chunk_total)).replace("{chunk}", chunk)
+        #print(f"prompt_user_message: {prompt_user_message}")
+
+
+        self._save_content(prompt_system_message, os.path.join(self.logs_dir, f"prompt_system_message_{chunk_index}.txt"))
+        self._save_content(prompt_user_message, os.path.join(self.logs_dir, f"prompt_user_message_{chunk_index}.txt"))
 
         #raise Exception(f"Processing chunk {chunk_index} ... {json_path}")
     
@@ -63,7 +72,10 @@ class OutlineGenerator:
             #"model": "openai/o3", - openai cant be used through openrouter, only with its own api key
             #"model": "anthropic/claude-3-sonnet", - very bad performance for tokens above 5000
             "model": "openai/o4-mini-high",
-            "messages": [{"role": "user", "content": prompt}]
+            "messages": [
+                {"role": "system", "content": prompt_system_message}, 
+                {"role": "user", "content": prompt_user_message}
+                ]
         }
 
         # Log the request
@@ -71,7 +83,8 @@ class OutlineGenerator:
             'timestamp': datetime.datetime.now().isoformat(),
             'headers': headers,
             'data': data,
-            'prompt': prompt,
+            'prompt_system_message': prompt_system_message,
+            'prompt_user_message': prompt_user_message,
             'chunk_index': chunk_index,
             'outline_path': outline_path
         })
@@ -148,11 +161,23 @@ class OutlineGenerator:
         print(f"Combining outlines ... {outline_path}")
         print(f"outlines: {outlines}")
 
-        prompt = self._load_content(os.path.join(os.path.dirname(__file__), "prompts", "combine_outlines_prompt.txt"))
+        prompt_system_message = self._load_content(os.path.join(os.path.dirname(__file__), "prompts", "combine_outlines_prompt_system_message.txt"))
+        #print(f"prompt content: {prompt_system_message}")
 
-        # Replace the placeholders directly since the template uses simple {outlines}
-        prompt = prompt.replace("{outlines}", str(json.dumps(outlines, indent=2)))
-        self._save_content(prompt, os.path.join(self.logs_dir, f"prompt_combined.txt"))
+        # Replace the placeholders directly since the template uses simple {chunk_index} and {chunk}
+        prompt_system_message = prompt_system_message.replace("{outlines}", str(json.dumps(outlines, indent=2)))
+
+        prompt_user_message = self._load_content(os.path.join(os.path.dirname(__file__), "prompts", "combine_outlines_prompt.txt"))
+        #print(f"prompt content: {prompt_user_message}")
+
+        # Replace the placeholders directly since the template uses simple {chunk_index} and {chunk}
+        prompt_user_message = prompt_user_message.replace("{outlines}", str(json.dumps(outlines, indent=2)))
+        #print(f"prompt_user_message: {prompt_user_message}")
+
+        self._save_content(prompt_system_message, os.path.join(self.logs_dir, f"prompt_combined_system_message.txt"))
+        self._save_content(prompt_user_message, os.path.join(self.logs_dir, f"prompt_combined_user_message.txt"))
+
+        #raise Exception("Combining outlines")
 
         headers = {
             "Authorization": f"Bearer {self.openrouter_api_key}",
@@ -163,7 +188,10 @@ class OutlineGenerator:
             #"model": "openai/o3", - openai cant be used through openrouter, only with its own api key
             #"model": "anthropic/claude-3-sonnet", - very bad performance for tokens above 5000
             "model": "openai/o4-mini-high",
-            "messages": [{"role": "user", "content": prompt}]
+            "messages": [
+                {"role": "system", "content": prompt_system_message}, 
+                {"role": "user", "content": prompt_user_message}
+                ]
         }
 
         # Log the request
@@ -171,7 +199,8 @@ class OutlineGenerator:
             'timestamp': datetime.datetime.now().isoformat(),
             'headers': headers,
             'data': data,
-            'prompt': prompt,
+            'prompt_system_message': prompt_system_message,
+            'prompt_user_message': prompt_user_message,
         })        
 
         try:
@@ -232,7 +261,21 @@ class OutlineGenerator:
         # Combine all outlines
         print("Combining outlines...")
         if len(chunk_outlines) > 1:
-            final_outline = self._combine_outlines(outline_path, chunk_outlines)
+            # Merge all chunk outlines into a single array
+            merged_outlines = []
+            for outline in chunk_outlines:
+                if isinstance(outline, list):
+                    merged_outlines.extend(outline)
+                else:
+                    merged_outlines.append(outline)
+
+            #print(f"Merged outlines:")
+            #print(json.dumps(merged_outlines, indent=2))
+
+            #raise Exception("Merged outlines")
+        
+
+            final_outline = self._combine_outlines(outline_path, merged_outlines)
         else:
             final_outline = chunk_outlines[0]
         
