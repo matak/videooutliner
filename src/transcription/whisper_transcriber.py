@@ -3,20 +3,24 @@ import time
 import requests
 from pathlib import Path
 import subprocess
-from ..uploaders.drive_uploader import DriveUploader
-from ..uploaders.ftp_uploader import FTPUploader
+from src.utils.srt_utils import SRTUtils
 
 class WhisperTranscriber:
-    def __init__(self, api_key, drive_uploader=None, ftp_uploader=None):
+    def __init__(self, api_key, import_path, drive_uploader=None, ftp_uploader=None, chunk_duration_minutes=30):
         self.whisper_api_key = api_key
         self.drive_uploader = drive_uploader
         self.ftp_uploader = ftp_uploader
         self.callback_url = "https://videooutliner.24gatel.eu/whisper_callback.php"
+        self.import_path = os.path.abspath(import_path)
+        self.chunk_duration_minutes = chunk_duration_minutes
 
-    def split_audio_into_chunks(self, audio_path, chunk_duration=1800):  # 1800 seconds = 30 minutes
+    def split_audio_into_chunks(self, audio_path, chunk_duration=None):  # chunk_duration in seconds
         """Split audio file into chunks of specified duration"""
-        audio_dir = Path(audio_path).parent
-        base_name = Path(audio_path).stem
+        if chunk_duration is None:
+            chunk_duration = self.chunk_duration_minutes * 60  # Convert minutes to seconds
+        audio_path = os.path.abspath(audio_path)
+        audio_dir = os.path.abspath(os.path.dirname(audio_path))
+        base_name = os.path.splitext(os.path.basename(audio_path))[0]
         chunks = []
         
         # Get audio duration using ffprobe
@@ -30,7 +34,14 @@ class WhisperTranscriber:
         print(f"Splitting {duration:.2f} seconds audio into {num_chunks} chunks")
         
         for i in range(num_chunks):
-            chunk_path = audio_dir / f"{base_name}_chunk_{i:03d}.mp3"
+            chunk_path = os.path.join(audio_dir, f"{base_name}_chunk_{i:03d}.mp3")
+            
+            # Check if chunk already exists
+            if os.path.exists(chunk_path):
+                print(f"Chunk {i+1}/{num_chunks} already exists, skipping: {chunk_path}")
+                chunks.append(chunk_path)
+                continue
+                
             start_time = i * chunk_duration
             
             # Extract chunk using ffmpeg
@@ -42,16 +53,32 @@ class WhisperTranscriber:
                 '-acodec', 'libmp3lame',
                 '-ar', '44100',
                 '-ab', '192k',
-                str(chunk_path)
+                chunk_path
             ]
             
+            print(f"Creating chunk {i+1}/{num_chunks}: {chunk_path}")
             subprocess.run(cmd, check=True)
-            chunks.append(str(chunk_path))
+            chunks.append(chunk_path)
             
         return chunks
 
     def _process_audio_chunk(self, audio_path):
         """Process a single audio chunk"""
+        audio_path = os.path.abspath(audio_path)
+        
+        # Get the chunk filename without extension
+        chunk_name = os.path.splitext(os.path.basename(audio_path))[0]
+        
+        # Check if SRT file already exists
+        srt_path = os.path.join(self.import_path, f"{chunk_name}.srt")
+        if os.path.exists(srt_path):
+            print(f"SRT file already exists for chunk {chunk_name}, returning existing content")
+            with open(srt_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+                if content.strip().lower().startswith("error"):
+                    raise Exception(f"Existing transcription failed: {content.strip()}")
+                return content
+        
         url = "https://api.lemonfox.ai/v1/audio/transcriptions"
         headers = {
             "Authorization": f"Bearer {self.whisper_api_key}"
@@ -62,9 +89,6 @@ class WhisperTranscriber:
         file_url = None
         file_id = None
         filename = None
-        
-        # Get the chunk filename without extension
-        chunk_name = Path(audio_path).stem
         
         # Add chunk name to callback URL
         callback_url = f"{self.callback_url}?chunk={chunk_name}"
@@ -123,7 +147,7 @@ class WhisperTranscriber:
                     print("Cleaning up FTP file...")
                     self.ftp_uploader.delete_file(filename)
                     
-                print("Waiting for callback response...")
+                print(f"Go to waiting for callback response... {chunk_name}")
                 return self.wait_for_callback_response(chunk_name)
                     
             except requests.exceptions.ConnectionError as e:
@@ -137,16 +161,15 @@ class WhisperTranscriber:
             if files and 'file' in files:
                 files['file'].close()
 
-    def wait_for_callback_response(self, chunk_name, max_wait_time=60*3600, check_interval=30):
+    def wait_for_callback_response(self, chunk_name, max_wait_time=3600, check_interval=30):
         """Wait for the callback response file to appear in the import directory"""
         start_time = time.time()
-        import_dir = Path("/import")
-        import_dir.mkdir(parents=True, exist_ok=True)  # Create import directory if it doesn't exist
+        os.makedirs(self.import_path, exist_ok=True)  # Create import directory if it doesn't exist
         
         while time.time() - start_time < max_wait_time:
             # Look for the specific chunk response file if chunk_name is provided
-            response_file = import_dir / f"{chunk_name}.srt"
-            if response_file.exists() and response_file.stat().st_mtime > start_time:
+            response_file = os.path.join(self.import_path, f"{chunk_name}.srt")
+            if os.path.exists(response_file):
                 print(f"Found callback response file: {response_file}")
                 try:
                     with open(response_file, 'r', encoding='utf-8') as f:
@@ -155,26 +178,27 @@ class WhisperTranscriber:
                     # Check if the content starts with error
                     if content.strip().lower().startswith("error"):
                         error_msg = content.strip()
-                        response_file.unlink()
+                        #os.remove(response_file)
                         raise Exception(f"Transcription failed: {error_msg}")
                             
                     # Clean up the response file
-                    response_file.unlink()
+                    #os.remove(response_file)
                     return content
                 except Exception as e:
                     # If there's an error reading the file
                     print(f"Error processing callback response: {str(e)}")
-                    if response_file.exists():
-                        response_file.unlink()
+                    #if os.path.exists(response_file):
+                    #    os.remove(response_file)
                     raise
             
-            print(f"Waiting for callback response... ({int(time.time() - start_time)}s elapsed)")
+            print(f"Waiting for callback response... {response_file} => ({int(time.time() - start_time)}s elapsed)")
             time.sleep(check_interval)
         
         raise TimeoutError("Timed out waiting for callback response")
 
     def transcribe_audio(self, audio_path):
         """Transcribe audio file, handling large files by splitting into chunks"""
+        audio_path = os.path.abspath(audio_path)
         file_size = os.path.getsize(audio_path)
         
         # If file is larger than 20MB, split into chunks
@@ -191,11 +215,17 @@ class WhisperTranscriber:
                     srt_contents.append(chunk_srt)
                 finally:
                     # Clean up chunk file
-                    os.remove(chunk_path)
+                    #os.remove(chunk_path)
+                    #print(f"Cleaning up chunk file: {chunk_path}")
+                    pass
             
-            # Merge all SRT contents
+            # Generate destination path for merged SRT
+            base_name = os.path.splitext(os.path.basename(audio_path))[0]
+            destination_path = os.path.join(self.import_path, f"{base_name}.srt")
+            
+            # Merge all SRT contents using SRTUtils
             print("Merging SRT contents from all chunks")
-            return self.merge_srt_files(srt_contents)
+            return SRTUtils.merge_srt_files(srt_contents, self.chunk_duration_minutes, destination_path)
         else:
             # Process small files normally
             return self._process_audio_chunk(audio_path) 

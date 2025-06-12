@@ -11,7 +11,7 @@ class FTPUploader:
 
     def load_settings(self):
         """Load FTP settings from JSON file"""
-        settings_path = os.path.join('config', 'ftp_settings.json')
+        settings_path = os.path.abspath(os.path.join('config', 'ftp_settings.json'))
         with open(settings_path, 'r') as f:
             return json.load(f)
 
@@ -30,10 +30,11 @@ class FTPUploader:
                 pass  # Directory might already exist
 
             # Change to the upload directory
-            ftp.cwd(self.settings['path'])
+            self.ftp.cwd(self.settings['path'])
 
     def upload_file(self, file_path):
         """Upload file to FTP server and return URL"""
+        file_path = os.path.abspath(file_path)
         filename = os.path.basename(file_path)
         
         with open(file_path, 'rb') as file:

@@ -15,8 +15,8 @@ class DriveUploader:
 
     def initialize_service(self):
         """Initialize Google Drive service"""
-        token_path = os.path.join('config', 'token.json')
-        credentials_path = os.path.join('config', 'google_drive_credentials.json')
+        token_path = os.path.abspath(os.path.join('config', 'token.json'))
+        credentials_path = os.path.abspath(os.path.join('config', 'google_drive_credentials.json'))
         
         if os.path.exists(token_path):
             self.creds = Credentials.from_authorized_user_info(
@@ -37,6 +37,7 @@ class DriveUploader:
 
     def upload_file(self, file_path):
         """Upload file to Google Drive and return file ID and web view link"""
+        file_path = os.path.abspath(file_path)
         file_metadata = {'name': os.path.basename(file_path)}
         media = MediaFileUpload(file_path, resumable=True)
         
